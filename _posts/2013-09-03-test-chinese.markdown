@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ²âÊÔºº×Ö±êÌâ
+title: Test Chinese Title
 ---
 
 ²âÊÔºº×Ö
