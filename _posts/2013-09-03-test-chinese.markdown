@@ -3,5 +3,4 @@ layout: default
 title: Test Chinese Title
 ---
 
-
-²âÊÔºº×Ö
+No Chinese allowed in Windows Git.
