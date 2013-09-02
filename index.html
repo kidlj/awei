@@ -1,69 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  Hello World!
-</head>
-<body>
+---
+layout: default
+title: Expressions & Reprensentations
+---
+<h2>{{ page.title }}</h2>
 
-  <br>
-  Github Pages!
-  </br>
-
-  <br>
-  <table>
-     <tr>
-       <td>Foo</td>
-       <td>Bar</td>
-     </tr>
-     <tr>
-       <td>Bar</td>
-       <td>Foo</td>
-     </tr>
-  </table>
-  </br>
-  <br>
-    <ol>
-      <li>Mellon Collie</li>
-      <li>Marquee Moon</li>
-      <li>velvet underground</li>
-    </ol>
-    </br>
-  <p>
-    <ul>
-      <li>Mellon Collie</li>
-      <li>Marquee Moon</li>
-      <li>velvet underground</li>
-    </ul>
-  </p>
-  <p>
-    <em>Mellon Collie</em>
-    <strong>Marquee Moon</strong>
-  </p>
-  <p>
-  <br># These settings were set by the catalyst build script that automatically
-  # built this stage.</br>
-  <br># Please consult /usr/share/portage/config/make.conf.example for a more
-  # detailed example.</br>
-  <br>CFLAGS="-O2 -march=i686 -pipe"</br>
-  <br>CXXFLAGS="${CFLAGS}"</br>
-  <br># WARNING: Changing your CHOST is not something that should be done lightly.</br>
-  <br># Please consult http://www.gentoo.org/doc/en/change-chost.xml before changing.</br>
-  <br>CHOST="i686-pc-linux-gnu"</br>
-
-  <br>MAKEOPTS="-j3"<br>
-
-  <br>GENTOO_MIRRORS="http://mirrors.163.com/gentoo/"</br>
-  <br>SYNC="rsync://mirrors.163.com/gentoo-portage"</br>
-
-  <br>INPUT_DEVICES="evdev synaptics"</br>
-  <br>VIDEO_CARDS="intel"</br>
-  <br>ALSA_CARDS="hda-intel"</br>
-
-  <br>USE="-llvm -qt4 -cups -bluetooth -weather -socialweb -cheese -colord -fallback -accessibility
-  X jpeg png svg xpm alsa fontconfig truetype cairo python cjk vim-syntax policykit consolekit dbus gnome systemd gnome-keyring introspection pulseaudio nautilus"</br>
-
-  <br>#source /var/lib/layman/make.conf</br>
-  </p>
-
-</body>
-</html>
+<p>Recent</p>
+<ul>
+	{% for post in site.posts %}
+		<li>{{ post.date | date_to_string}} <a href="{{ post.url }}">{{ post.title }}</a></li>
+	{% endfor %}
+</ul>
