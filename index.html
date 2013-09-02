@@ -1,12 +1,14 @@
 ---
 layout: default
-title: Expressions And Reprensentations
+title: Expressions & Reprensentations
 ---
-<h2>{{ page.title }}</h2>
 
-<p>Recent</p>
-<ul>
-	{% for post in site.posts %}
-		<li>{{ post.date | date_to_string}} <a href="{{ post.url }}">{{ post.title }}</a></li>
-	{% endfor %}
-</ul>
+<div id="home">
+	<h2 class="fade">Read:</h2>
+
+	<ul class="posts">
+		{% for post in site.posts %}
+			<li>&laquo; <a href="{{ post.url }}">{{ post.title }}</a><span>{{ post.date | date_to_string }}</span></li>
+		{% endfor %}
+	</ul>
+</div>
