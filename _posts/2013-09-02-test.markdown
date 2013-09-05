@@ -1,6 +1,7 @@
 ---
 layout: default
-title: test
+title: 测试中文标题
 ---
 
 This is a test file.
+测试中文内容。
