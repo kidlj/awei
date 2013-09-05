@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Progit Revision
+title: Progit读书笔记
 ---
 
 
-Progit Notes
+Progit读书笔记
 ============
 
 第1章：起步
