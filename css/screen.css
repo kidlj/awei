@@ -188,6 +188,18 @@ ul.posts {
     background-color: #333;
   }
 
+  /* added by lijian */
+  /* blockquote */
+
+  #post blockquote {
+	border-left: 1px solid #222;
+	line-height: 18px;
+	font-size: 11pt;
+	font-style: italic;
+	margin: 20px;
+	padding-left: 10px;
+  }
+
 #related {
   margin-top: 2em;
 }
