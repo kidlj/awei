@@ -3,8 +3,9 @@ layout: default
 title: Expressions & Reprensentations
 ---
 
+<!-- 文章列表
 <div id="home">
-	<h2 class="fade">全部文章:</h2>
+	<h2 class="intro">全部文章:</h2>
 
 	<ul class="posts">
 		{% for post in site.posts %}
@@ -12,3 +13,10 @@ title: Expressions & Reprensentations
 		{% endfor %}
 	</ul>
 </div>
+--!>
+
+{% for post in site.posts limit:1 %}
+	<div class="post">
+		{{ post.content }}
+	</div>
+{% endfor %}
