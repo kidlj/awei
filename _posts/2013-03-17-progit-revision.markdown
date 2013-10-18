@@ -3,10 +3,6 @@ layout: post
 title: Progit读书笔记
 ---
 
-Progit读书笔记
-=============
-
-
 第1章：起步
 ------------
 

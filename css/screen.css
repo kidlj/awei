@@ -89,7 +89,7 @@ ul.posts {
 .title {
   color: #aaa;
   font-weight: bold;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
   .site .title a {
@@ -128,7 +128,7 @@ ul.posts {
   .site .title a.expr {
     color: #aaa;
     text-decoration: none;
-    margin-left: 2em;
+    margin-left: 4em;
   }
 
   .site .title a.expr:hover {
