@@ -87,19 +87,21 @@ ul.posts {
 }
 
 .title {
-  color: #a00;
+  color: #aaa;
   font-weight: bold;
   margin-bottom: 2em;
 }
 
   .site .title a {
-    color: #a00;
+    color: #aaa;
     text-decoration: none;
   }
 
   .site .title a:hover {
     color: black;
   }
+
+  /* original
 
   .site .title a.extra {
     color: #aaa;
@@ -110,6 +112,42 @@ ul.posts {
   .site .title a.extra:hover {
     color: black;
   }
+  */
+
+  /* by lijian */
+  .site .title a.iv {
+    color: #a00;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .site .title a.iv:hover {
+    color: black;
+  }
+
+  /* by lijian */
+  .site .title a.expr {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .site .title a.expr:hover {
+    color: black;
+  }
+
+  /* by lijian */
+  .site .title a.repr {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .site .title a.repr:hover {
+    color: black;
+  }
+
+
 
   .site .meta {
     color: #aaa;
