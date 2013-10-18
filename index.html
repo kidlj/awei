@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: post
 title: Expression & Reprensentation
 ---
 
-<div id="homepage_post">
-		{% for post in site.posts limit:1 %}
-			{{ content }}
-		{% endfor %}
+<div id="first_post">
+	<h1><a href='{{ site.posts.first.url }}'>{{ site.posts.first.title }}</a></h1>
+		{{ site.posts.first.content }}
 </div>
