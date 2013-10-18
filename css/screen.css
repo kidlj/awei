@@ -116,9 +116,8 @@ ul.posts {
 
   /* by lijian */
   .site .title a.iv {
-    color: #a00;
+    color: a00;
     text-decoration: none;
-    margin-left: 1em;
   }
 
   .site .title a.iv:hover {
@@ -129,7 +128,7 @@ ul.posts {
   .site .title a.expr {
     color: #aaa;
     text-decoration: none;
-    margin-left: 1em;
+    margin-left: 2em;
   }
 
   .site .title a.expr:hover {
@@ -140,7 +139,6 @@ ul.posts {
   .site .title a.repr {
     color: #aaa;
     text-decoration: none;
-    margin-left: 1em;
   }
 
   .site .title a.repr:hover {
