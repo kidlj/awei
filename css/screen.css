@@ -86,62 +86,62 @@ ul.posts {
   line-height: 1.5em;
 }
 
-.title {
+.header {
   color: #aaa;
   font-weight: bold;
   margin-bottom: 4em;
 }
 
-  .site .title a {
+  .site .header a {
     color: #aaa;
     text-decoration: none;
   }
 
-  .site .title a:hover {
+  .site .header a:hover {
     color: black;
   }
 
   /* original
 
-  .site .title a.extra {
+  .site .header a.extra {
     color: #aaa;
     text-decoration: none;
     margin-left: 1em;
   }
 
-  .site .title a.extra:hover {
+  .site .header a.extra:hover {
     color: black;
   }
   */
 
   /* by lijian */
-  .site .title a.iv {
+  .site .header a.iv {
     color: #a00;
     text-decoration: none;
   }
 
-  .site .title a.iv:hover {
+  .site .header a.iv:hover {
     color: black;
   }
 
   /* by lijian */
-  .site .title a.expr {
+  .site .header a.expr {
     color: #aaa;
     text-decoration: none;
     margin-left: 4em;
   }
 
-  .site .title a.expr:hover {
+  .site .header a.expr:hover {
     color: black;
   }
 
   /* by lijian */
-  .site .title a.repr {
+  .site .header a.repr {
     color: #aaa;
     text-decoration: none;
   }
 
-  .site .title a.repr:hover {
+  .site .header a.repr:hover {
     color: black;
   }
 
@@ -177,6 +177,26 @@ ul.posts {
       .site .footer .rss img {
         border: 0;
       }
+
+/*****************************************************************************/
+/*
+/* by lijian
+/*
+/*****************************************************************************/
+
+.note-header h1 {
+  margin: 00;
+  padding: 0;
+  font: 14px Arial, Helvetica, sans-serif;
+  line-height: 150%;
+  color: #060;
+}
+
+.date {
+  font: 12px Arial, Helvetica, sans-serif;
+  line-height: 150%;
+  color: #666;
+}
 
 /*****************************************************************************/
 /*

@@ -5,8 +5,12 @@ title: Expression & Reprensentation
 
 <div id="post">
 
-	<h1 class="posttitle"><a href='{{ site.posts.first.url }}'>{{ site.posts.first.title }}</a></h1>
-	<span class="date"> {{ site.posts.first.date | date_to_long_string}}</span>
+  <div class="note-header">
+    <h1><a href='{{ site.posts.first.url }}'>{{ site.posts.first.title }}</a></h1>
+	  <div>
+		<span class="date"> {{ site.posts.first.date | date_to_long_string}}</span>
+	  </div>
+  </div>
 	
 		{{ site.posts.first.content }}
 
