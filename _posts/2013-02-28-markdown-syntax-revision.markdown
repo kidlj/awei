@@ -13,15 +13,13 @@ Markdown的目标是成为一种好用的适用于网络的**书写**语言。
 
 ### 与HTML兼容 ###
 
-Markdown不是要取代HTML，甚至连接近都算不上，它的语法种类很少，
-只对应HTML的一部分。虽然Markdown经过处理后是要变成HTML文档，
-但Markdown的构想不是使HTML容易书写，HTML已经很容易书写了。
-Markdown的理念是能够让文档更容易读、写和修改。HTML是一种发布
-格式，而Markdown是一种书写格式。
+Markdown不是要取代HTML，甚至连接近都算不上，它的语法种类很少， 只对应HTML的一部分。虽
+然Markdown经过处理后是要变成HTML文档，但Markdown的构想不是使HTML容易书写，HTML已经很容
+易书写了。Markdown的理念是能够让文档更容易读、写和修改。HTML是一种发布格式，而Markdown
+是一种书写格式。
 
-因此，Markdown的格式语法只涵盖纯文本处理的范围。不在Markdown
-涵盖范围内的标签，都可以直接在文档里用HTML书写，不需要加注
-这是HTML还是Markdown, 直接用这些标签就可以了。
+因此，Markdown的格式语法只涵盖纯文本处理的范围。不在Markdown涵盖范围内的标签，都可以
+直接在文档里用HTML书写，不需要加注这时HTML还是Markdown，直接用这些标签就可以了。
 
 在Markdown文本内使用HTML标签需要**注意**：  
 
