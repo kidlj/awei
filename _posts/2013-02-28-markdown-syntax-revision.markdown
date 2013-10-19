@@ -66,6 +66,7 @@ Markdown会自动处理`<`和`&`的显示。如果`<`或`&`与其后的字符构
 写HTML code(如果在HTML文档中引用HTML code，需要将所有的`<`和`&`进行
 实体转换(即code内所见即所得)。
 
+
 区块元素(Block-level Elements)
 ------------------------------
 
@@ -206,6 +207,7 @@ Markdown会同时用`<pre><code>`将代码区块包起来。
 	- - -  
 	_ _ _
 
+
 区段元素(Span-level Elements)
 -----------------------------
 
@@ -299,14 +301,24 @@ Markdown使用一种和链接很相似的语法来标记图片，同样分为
 目前为止，Markdown尚不能指定图片的宽高，如果需要可以使用
 HTML的`<img>`标签。
 
+
 其它(Miscellaneous)
 -------------------
 
 ### 自动链接(Automatic Links) ###
 
+格式：
+
+	<http://www.google.com>
+
+效果：
 <http://www.google.com>
 
-<kdlijian@gmail.com>
+格式：
+	<somebody@gmail.com>
+
+效果：
+<somebody@gmail.com>
 
 ### 反斜杠转义(Backslash Escapes) ###
 
