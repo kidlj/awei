@@ -1,0 +1,147 @@
+/*****************************************************************************/
+/*
+/* Learn CSS the hard way
+/*
+/*****************************************************************************/
+
+body {
+	background-color: #f4f4f4;
+	color: #343434;
+	line-height: 1.6em;
+	font-family: serif;
+	padding: 20px 10px;
+}
+
+a {
+	color: #1E50A2; }
+a:hover {
+	color: #BA2636; }
+
+b, strong, h1, h2, h3, h4, h5 {
+	font-weight: 700; }
+
+hr {
+	border: 0;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	margin: 20px 0;
+	height: 6px; }
+
+pre {
+	margin: 16px 0; }
+
+.mark {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border: 5px solid #eee;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-ms-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s; }
+
+.content {
+	background-color: #fff; }
+
+article {
+	padding: 60px 60px 30px 60px;
+	background-color: #fff;
+	font-size: 13px;
+	font-family: serif;
+	color: #000000;
+	line-height: 1.6em;
+	position: relative; }
+	article * {
+		max-width: 100%; }
+	article header {
+		margin-bottom: 60px; }
+		article header .post-title {
+			font-weight: 500;
+			font-size: 1.5em;
+			text-transform: uppercase;
+			margin: 0; }
+		article header .post-title a {
+			color: #000; }
+		article header .post-title a:hover {
+			color: #BA2636; }
+		article header .datetime {
+			text-transform: uppercase; }
+	article ul, article ol {
+		margin: 20px 0 20px 20px; }
+	article blockquote {
+		border-left: 10px solid #e0e9ed;
+		margin: 20 0;
+		padding: 0 0 0 13; }
+	article h2 {
+		font-size: 1.4em; 
+		font-weight: 500;
+		margin: 2em 0 1em; }
+	article img:not([height]) {
+		margin: 10px 0;
+		width: 100%;
+		border-radius: 4px; }
+	article hr {
+		border-color: #efefef; }
+
+.wrapper {
+  max-width: 620px;
+  width: 100%;
+  margin: auto;
+}
+
+.site-header {
+  font-weight: lighter;
+  font-size: 16px;
+	font-family: Cantarell, Ubuntu, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: right; }
+  .site-header .site-title {
+    float: left;
+    color: #676767;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; }
+    .site-header .site-title:hover {
+      color: #59b; }
+      .site-header .site-title:hover .block {
+        background-color: #6AD; }
+    .site-header .site-title .block {
+      display: inline-block;
+      width: 40px;
+      height: 12px;
+      margin-top: 1px;
+      background-color: #ddd;
+      margin-right: 10px;
+      -webkit-transition: 0.4s;
+      -moz-transition: 0.4s;
+      -ms-transition: 0.4s;
+      -o-transition: 0.4s;
+      transition: 0.4s; }
+    .site-header .site-title .logo {
+      margin-right: 5px; }
+	.site-header .navigator a {
+		color: #676767; }
+	.site-header .navigator a:hover {
+		color: #BA2636; }
+	.site-header .navigator .connector {
+		color: #676767; }
+
+.comments {
+	border-top: 1px solid #EFEFEF;
+	border-bottom: 1px solid #EFEFEF;
+	padding: 30px 40px 24px;
+	text-align: center; }
+
+.site-footer {
+	text-align: center;
+	padding: 60px 25px 25px 25px; }

@@ -1,17 +1,23 @@
 ---
 layout: default
-title: Expression & Reprensentation
+title: Expression & Representation
 ---
 
-<div id="post">
+<section class="content">
+	<article>
+		<div class="mark"></div>
+		<header>
+		<h1 class="post-title"><a class="first_title_link" href='{{ site.posts.first.url }}'>{{ site.posts.first.title }}</a></h1>
+		<small class="datetime muted">{{ site.posts.first.date | date_to_string }}</small>
+		</header>
 
-  <div class="note-header">
-    <h1><a href='{{ site.posts.first.url }}'>{{ site.posts.first.title }}</a></h1>
-	  <div>
-		<span class="date"> {{ site.posts.first.date | date_to_long_string}}</span>
-	  </div>
-  </div>
-	
 		{{ site.posts.first.content }}
 
-</div>
+	</article>
+
+	<div class="comments">
+			<a href="{{ site.posts.first.url }}#disqus_thread">comments</a>
+	</div>
+
+</section>
+

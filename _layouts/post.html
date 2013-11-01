@@ -2,15 +2,21 @@
 layout: default
 ---
 
-<div id="post">
-  
-  <div class="note-header">
-	<h1>{{ page.title }}</h1>
-	  <div>
-		<span class="date">{{ page.date | date_to_long_string }}</span>
-	  </div>
-  </div>
+<section class="content">
+	<article>
+		<div class="mark"></div>
+		<header>
+		<h1 class="post-title">{{ page.title }}</h1>
+		<small class="datetime muted">{{ page.date | date_to_string }}</small>
+		</header>
+		{{ content }}
+	</article>
 
-	{{ content }}
+	<div class="comments">
+		<div id="disqus_thread"> {% include disqus_script.html %}</div>
+	</div>
 
-</div>
+</section>
+
+
+	
