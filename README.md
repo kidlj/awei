@@ -1,18 +1,16 @@
 关于 ABOUT
 ----------
 
-这个仓库托管着我的[个人博客][1]的所有数据，其由[Github Pages][2]强力驱动。博客文章全部用[Markdown][3]格式写成，而后push到这里，Github Pages自动用[jekyll][4]将其生成HTML片段，联合[Liquid][5]模板语言，CSS样式以及javascript等W3C标准技术构建成完整的静态页面，并最终伺服呈现。这种新博客潮流的起源和背后的哲学在Github创始人的一篇博文里有精彩描述--"[Blogging like a hacker][6]". 
+这个仓库托管着我的[个人博客][1]的所有数据，构建于[Jekyll][2]和[GitHub Pages][3]之上。
 
 
 许可 LICENSE
 ------------
 
-如果你也想搭建一个这样的博客，这个仓库里的所有数据都可以为你自由使用、演绎并分发，惟独`_posts`目录下的所有文件为本人私人所有，在获得授权之前不得使用。
+这个仓库里的所有数据都可以被自由使用、演绎和分发，惟独`_posts`目录下的所有文件为本人私人所有，在获得授权之前不得使用。
 
 
 [1]: http://www.ideavirgin.com
-[2]: http://pages.github.com
-[3]: http://daringfireball.net/projects/markdown/
-[4]: http://jekyllrb.com
-[5]: http://wiki.shopify.com/Liquid
-[6]: http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html
+[2]: http://jekyllrb.com
+[3]: http://pages.github.com
+
