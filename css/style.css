@@ -8,7 +8,7 @@ body {
 	background-color: #f4f4f4;
 	color: #343434;
 	line-height: 1.6em;
-	font-family: Cantarell, sans-serif;
+	font-family: 'Share Tech', sans-serif;
 	padding: 20px 10px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -29,7 +29,12 @@ hr {
 	height: 6px; }
 
 pre {
+	padding: 4px 10px; 
 	margin: 16px 0; }
+
+code {
+	font-size: 13px;
+	font-family: 'Share Tech Mono', monospace; }
 
 .mark {
 	position: absolute;
@@ -45,13 +50,15 @@ pre {
 	transition: 0.5s; }
 
 .content {
+	border: 1px solid #DDD;
 	background-color: #fff; }
 
 article {
 	padding: 60px 60px 30px 60px;
 	background-color: #fff;
 	font-size: 13px;
-	font-family: sans-serif;
+	font-family: 'Share Tech', sans-serif;
+	font-weight: 400;
 	color: #000000;
 	line-height: 1.6em;
 	position: relative; }
@@ -96,10 +103,7 @@ article {
 .site-header {
   font-weight: lighter;
   font-size: 16px;
-	font-family: Cantarell, sans-serif;
-	/*
-	text-shadow: 2px 2px 2px #aaa;
-	*/
+	font-family: 'Share Tech', Cantarell, sans-serif;
   text-transform: uppercase;
   margin-bottom: 20px;
   text-align: right; }
@@ -116,9 +120,9 @@ article {
     margin-bottom: 5px;
     font-weight: bold; }
     .site-header .site-title:hover {
-      color: #59b; }
+      color: #BA2636; }
       .site-header .site-title:hover .block {
-        background-color: #6AD; }
+        background-color: #AA2130; }
     .site-header .site-title .block {
       display: inline-block;
       width: 40px;
