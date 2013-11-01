@@ -8,7 +8,7 @@ body {
 	background-color: #f4f4f4;
 	color: #343434;
 	line-height: 1.6em;
-	font-family: sans-serif;
+	font-family: Cantarell, sans-serif;
 	padding: 20px 10px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -96,7 +96,10 @@ article {
 .site-header {
   font-weight: lighter;
   font-size: 16px;
-	font-family: Cantarell, Ubuntu, sans-serif;
+	font-family: Cantarell, sans-serif;
+	/*
+	text-shadow: 2px 2px 2px #aaa;
+	*/
   text-transform: uppercase;
   margin-bottom: 20px;
   text-align: right; }
@@ -130,6 +133,8 @@ article {
       transition: 0.4s; }
     .site-header .site-title .logo {
       margin-right: 5px; }
+	.site-header .navigator {
+		font-size: 16px; }
 	.site-header .navigator a {
 		color: #676767; }
 	.site-header .navigator a:hover {
