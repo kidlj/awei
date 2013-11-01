@@ -1,5 +1,5 @@
 markdown: rdiscount
 pygments: false
-permalink: /post/:year-:month-:day-:title.html
-paginate: 16
+permalink: /expr/:year-:month-:day-:title.html
+paginate: 1
 paginate_path: "expr/page:num"
