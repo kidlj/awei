@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*
-/* Learn CSS the hard way
+/* Forked from muan.co
 /*
 /*****************************************************************************/
 
@@ -10,6 +10,7 @@ body {
 	line-height: 1.6em;
 	font-family: sans-serif;
 	padding: 20px 10px;
+	-webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -145,3 +146,35 @@ article {
 .site-footer {
 	text-align: center;
 	padding: 60px 25px 25px 25px; }
+
+
+/*****************************************************************************/
+/*
+/* For "expr/index.html"
+/*
+/*****************************************************************************/
+
+.paginator {
+	margin-top: 40px;
+	text-align: center; }
+
+ul.expr-listing, ul.expr-listing li {
+	margin: 0;
+	padding: 0;
+	list-style: none; }
+
+ul.expr-listing li {
+	margin-bottom: 20px; }
+
+ul.expr-listing .datetime {
+	display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  width: 130px;
+  text-transform: uppercase;
+  float: right;
+  color: #999;
+  font-size: 10px;
+  text-align: right; }
