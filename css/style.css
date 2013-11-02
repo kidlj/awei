@@ -81,8 +81,8 @@ article {
 		margin: 20px 0 20px 20px; }
 	article blockquote {
 		border-left: 10px solid #e0e9ed;
-		margin: 20 0;
-		padding: 0 0 0 13; }
+		margin: 20px 0;
+		padding: 0 0 0 13px; }
 	article h2 {
 		font-size: 1.4em; 
 		font-weight: 500;
