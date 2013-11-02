@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
-		<link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
-		<link href="/css/global.css" rel="stylesheet" type="text/css">
-		<link href="/css/style.css" rel="stylesheet" type="text/css">
-		<title>IV - {{ page.title }}</title>
-	</head>
+---
+layout: main
+---
 
-	<body>
-  	<div class="wrapper">
-			<header class="site-header">
-				<a class="site-title" href="/">
-		  		<div class="block"></div>
-		  		<span class="logo">IV</span>
-				</a>
-				<nav class="navigator">
-				<a id="expr" href="/expr/">Expression</a>
-				<span class="connector">&amp;</span>
-				<a id="repr" href="/repr/">Representation</a>
-				</nav>
-			</header>
+<section class="content">
+	<article>
+		<div class="mark"></div>
+		<header>
+		<h1 class="post-title">{{ page.title }}</h1>
+		<small class="datetime muted">{{ page.date | date_to_string }}</small>
+		</header>
+		{{ content }}
+	</article>
 
-		 	{{ content }}
+		{% include disqus_script.html %}
 
-			<footer class="site-footer">
-				The blog is built with 
-				<a href="http://jekyllrb.com/" target="_blank">Jekyll</a> hosting on
-				<a href="http://github.com/" target="_blank">GitHub</a>.
-			</footer>
-  
-    </div>
-  </body>
-</html>
+</section>
 
+
+	
