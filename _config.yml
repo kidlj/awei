@@ -3,3 +3,4 @@ pygments: false
 permalink: /expr/:year-:month-:day-:title.html
 paginate: 30 
 paginate_path: "expr/page:num"
+

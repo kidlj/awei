@@ -19,6 +19,7 @@ a:hover {
 	color: #BA2636; }
 
 b, strong, h1, h2, h3, h4, h5 {
+	color: #000;
 	font-weight: 700; }
 
 hr {
@@ -32,9 +33,11 @@ pre {
 	padding: 4px 10px; 
 	margin: 16px 0; }
 
+/*
 code {
-	font-size: 13px;
-	font-family: 'Share Tech Mono', monospace; }
+	font-family: 'Share Tech Mono', monospace;
+	font-size: 12px; }
+*/
 
 .mark {
 	position: absolute;
@@ -59,8 +62,7 @@ article {
 	font-size: 13px;
 	font-family: 'Share Tech', sans-serif;
 	font-weight: 400;
-	color: #000000;
-	line-height: 1.62;
+	line-height: 1.6em;
 	position: relative; }
 	article * {
 		max-width: 100%; }
@@ -68,7 +70,7 @@ article {
 		margin-bottom: 60px; }
 		article header .post-title {
 			font-weight: 500;
-			font-size: 1.5em;
+			font-size: 1.6em;
 			text-transform: uppercase;
 			margin: 0; }
 		article header .post-title a {
@@ -84,7 +86,11 @@ article {
 		margin: 20px 0;
 		padding: 0 0 0 13px; }
 	article h2 {
-		font-size: 1.4em; 
+		font-size: 1.5em; 
+		font-weight: 500;
+		margin: 2em 0 1em; }
+	article h3 {
+		font-size: 1.4em;
 		font-weight: 500;
 		margin: 2em 0 1em; }
 	article img:not([height]) {
@@ -103,7 +109,7 @@ article {
 .site-header {
   font-weight: lighter;
   font-size: 16px;
-	font-family: 'Share Tech', Cantarell, sans-serif;
+	font-family: 'Share Tech', sans-serif;
   text-transform: uppercase;
   margin-bottom: 20px;
   text-align: right; }
