@@ -2,17 +2,16 @@
 
 	{% if paginator.previous_page %}
 		{% if paginator.previous_page ==1 %}
-			<a href="/expr/"><前页</a>
+			<a href="/expr/">&lt;前页</a>
 		{% else %}
-			<a href="/expr/page{{ paginator.previous_page }}"><前页</a>
+			<a href="/expr/page{{ paginator.previous_page }}">&lt;前页</a>
 		{% endif %}
 	{% else %}
-		<span class="disabled"><前页</span>
+		<span class="disabled">&lt;前页</span>
 	{% endif %}
 
-	&nbsp;&nbsp;&nbsp;&nbsp;
 
-
+	<div class="pagenum">
 	{% if paginator.page == 1 %}
 		<span class="current">1</span>
 	{% else %}
@@ -26,14 +25,13 @@
 			<a href="/expr/page{{ count }}">{{ count }}</a>
 		{% endif %}
 	{% endfor %}
-
-	&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
 
 
 	{% if paginator.next_page %}
-	<a href="/expr/page{{ paginator.next_page }}">后页></a>
+	<a href="/expr/page{{ paginator.next_page }}">后页&gt;</a>
 	{% else %}
-	<span class="disabled">后页></span>
+	<span class="disabled">后页&gt;</span>
 	{% endif %}
 
 </div>

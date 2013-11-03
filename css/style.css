@@ -158,6 +158,19 @@ article {
 	padding: 30px 40px 24px;
 	text-align: center; }
 
+.paginator {
+	border-top: 0px solid #EFEFEF;
+	border-bottom: 1px solid #EFEFEF;
+	padding: 30px 40px 24px;
+	text-align: center; }
+	.paginator .pagenum {
+		display: inline-block;
+		padding: 0 30px; }
+	.paginator .pagenum a, .paginator .pagenum span {
+		padding: 0 2px;
+		margin: 2px; }
+
+
 .site-footer {
 	text-align: center;
 	padding: 60px 25px 25px 25px; }
@@ -168,10 +181,6 @@ article {
 /* For "expr/index.html"
 /*
 /*****************************************************************************/
-
-.paginator {
-	margin-top: 40px;
-	text-align: center; }
 
 ul.expr-listing, ul.expr-listing li {
 	margin: 0;
