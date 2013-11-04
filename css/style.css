@@ -10,7 +10,6 @@ body {
 	line-height: 1.6em;
 	font-family: 'Share Tech', sans-serif;
 	padding: 20px 10px;
-	-webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -32,6 +31,9 @@ hr {
 pre {
 	padding: 4px 10px; 
 	margin: 16px 0; }
+
+p {
+	margin: 0 0 2em 0; }
 
 /*
 code {
