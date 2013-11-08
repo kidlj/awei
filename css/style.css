@@ -76,7 +76,8 @@ article {
 			text-transform: uppercase;
 			margin: 0; }
 		article header .post-title a {
-			color: #000; }
+			color: #000;
+			border-bottom: none; }
 		article header .post-title a:hover {
 			color: #BA2636; }
 		article header .datetime {
@@ -101,6 +102,9 @@ article {
 		border-radius: 4px; }
 	article hr {
 		border-color: #efefef; }
+	article a {
+		color: #343434;
+		border-bottom: 1px dotted; }
 
 .wrapper {
   max-width: 620px;
