@@ -33,7 +33,7 @@ pre {
 	margin: 16px 0; }
 
 p {
-	margin: 0 0 2em 0; }
+	margin: 2em 0 2em 0; }
 
 /*
 code {
@@ -86,7 +86,7 @@ article {
 		margin: 20px 0 20px 20px; }
 	article blockquote {
 		border-left: 10px solid #e0e9ed;
-		margin: 20px 0;
+		margin: 10px 0;
 		padding: 0 0 0 13px; }
 	article h2 {
 		font-size: 1.5em; 
@@ -102,9 +102,6 @@ article {
 		border-radius: 4px; }
 	article hr {
 		border-color: #efefef; }
-	article a {
-		color: #343434;
-		border-bottom: 1px dotted; }
 
 .wrapper {
   max-width: 620px;
@@ -208,9 +205,3 @@ ul.expr-listing .datetime {
   color: #999;
   font-size: 12px;
   text-align: right; }
-
-.expr-listing a {
-	color: #1E50A2;
-	border-bottom: none; }
-.expr-listing a:hover {
-	color: #BA2636; }
