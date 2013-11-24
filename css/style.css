@@ -59,7 +59,7 @@ code {
 	background-color: #fff; }
 
 article {
-	padding: 60px 60px 30px 60px;
+	padding: 60px;
 	background-color: #fff;
 	font-size: 13px;
 	font-family: 'Share Tech', sans-serif;
@@ -144,7 +144,7 @@ article {
       -ms-transition: 0.4s;
       -o-transition: 0.4s;
       transition: 0.4s; }
-    .site-header .site-title .logo {
+    .site-header .site-title .text-logo {
       margin-right: 5px; }
 	.site-header .navigator {
 		font-size: 16px; }
