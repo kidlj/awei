@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+  article {
+    padding: 30px 10px;
+    line-height: 1.6em; }
+  .mark {
+    display: none; }}
