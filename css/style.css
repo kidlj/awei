@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*
-/* Forked from muan.co
+/* Forked from @muan
 /*
 /*****************************************************************************/
 
@@ -55,7 +55,7 @@ code {
 	transition: 0.5s; }
 
 .content {
-	border: 1px solid #DDD;
+	border-bottom: 3px solid #DDD;
 	background-color: #fff; }
 
 article {
