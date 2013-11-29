@@ -55,8 +55,26 @@ code {
 	transition: 0.5s; }
 
 .content {
-	border: 1px solid #DDD;
+	position: relative;
 	background-color: #fff; }
+
+/* Pseudo ::before/::after element */
+.content::before, .content::after {
+	position:absolute;
+	content:"";
+	height:100px;
+	bottom:15px;
+	left:10px;
+	width:50%;
+	box-shadow:0px 15px 10px rgba(0, 0, 0, 0.5);
+	-webkit-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+	z-index:-1; }
+.content::after {
+	right: 10px;
+	left: auto;
+	-webkit-transform: rotate(3deg);
+	transform: rotate(3deg); }
 
 article {
 	padding: 60px;
@@ -162,8 +180,6 @@ article {
 	text-align: center; }
 
 .paginator {
-	border-top: 0px solid #EFEFEF;
-	border-bottom: 1px solid #EFEFEF;
 	padding: 30px 40px 24px;
 	text-align: center; }
 	.paginator .pagenum {
@@ -185,7 +201,7 @@ article {
 /*
 /*****************************************************************************/
 
-ul.expr-listing, ul.expr-listing li {
+ul.expr-listing {
 	margin: 0;
 	padding: 0;
 	list-style: none; }
