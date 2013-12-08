@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*
-/* Forked from muan.co
+/* Forked from @muanchiou
 /*
 /*****************************************************************************/
 
@@ -58,8 +58,7 @@ code {
 	position: relative;
 	background-color: #fff; }
 
-/* Pseudo ::before/::after element */
-.content::before, .content::after {
+.content:before, .content:after {
 	position:absolute;
 	content:"";
 	height:100px;
@@ -70,7 +69,7 @@ code {
 	-webkit-transform: rotate(-3deg);
 	transform: rotate(-3deg);
 	z-index:-1; }
-.content::after {
+.content:after {
 	right: 10px;
 	left: auto;
 	-webkit-transform: rotate(3deg);
@@ -173,11 +172,15 @@ article {
 	.site-header .navigator .connector {
 		color: #676767; }
 
-.comments {
-	border-top: 1px solid #EFEFEF;
-	border-bottom: 1px solid #EFEFEF;
-	padding: 30px 40px 24px;
-	text-align: center; }
+.tweet {
+	margin-top: 60px;
+	font-family: sans-serif;
+	font-size: 13px; 
+	padding: 5px;
+	background: url("/images/icons/twitter.png") 460px 2px no-repeat;
+	background-color: #FDF6E3; 
+	background-size: 30px auto; }
+
 
 .paginator {
 	padding: 30px 40px 24px;
