@@ -29,17 +29,15 @@ hr {
 	height: 6px; }
 
 pre {
-	padding: 4px 10px; 
-	margin: 16px 0; }
+	padding: 0px 10px; 
+	margin: 6px 0; }
 
 p {
-	margin: 2em 0 2em 0; }
+	margin: 2em 0 0 0; }
 
-/*
-code {
-	font-family: 'Share Tech Mono', monospace;
-	font-size: 12px; }
-*/
+sup {
+	line-height: 0; }
+
 
 .mark {
 	position: absolute;
@@ -210,6 +208,7 @@ ul.expr-listing {
 	list-style: none; }
 
 ul.expr-listing li {
+	text-transform: uppercase;
 	margin-bottom: 20px; }
 
 ul.expr-listing .datetime {
