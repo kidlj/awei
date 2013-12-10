@@ -1,0 +1,11 @@
+@media (max-width: 480px) {
+  body {
+    padding: 10px; }
+  .site-header {
+    margin-bottom: 10px; }
+  article {
+    padding: 30px;
+    line-height: 1.6em; }
+    article header {
+      margin-bottom: 30px;}
+    }

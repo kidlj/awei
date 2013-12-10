@@ -1,6 +1,10 @@
 /*****************************************************************************/
 /*
+<<<<<<< HEAD
 /* Forked from @muanchiou
+=======
+/* Forked from @muan
+>>>>>>> a08c2cba5a8042e87ff622ef39086b5147b4c891
 /*
 /*****************************************************************************/
 
@@ -53,7 +57,11 @@ sup {
 	transition: 0.5s; }
 
 .content {
+<<<<<<< HEAD
 	position: relative;
+=======
+	border-bottom: 3px solid #DDD;
+>>>>>>> a08c2cba5a8042e87ff622ef39086b5147b4c891
 	background-color: #fff; }
 
 .content:before, .content:after {
