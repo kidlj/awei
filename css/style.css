@@ -8,7 +8,7 @@ body {
 	background-color: #f4f4f4;
 	color: #343434;
 	line-height: 1.6em;
-	font-family: 'Share Tech', sans-serif;
+	font-family: 'Segoe UI', Arial, Helvetica, Dejavu Sans, sans-serif;
 	padding: 20px 10px;
 }
 
@@ -76,7 +76,7 @@ article {
 	padding: 70px 60px 60px;
 	background-color: #fff;
 	font-size: 13px;
-	font-family: 'Share Tech', sans-serif;
+	font-family: 'Segoe UI', Arial, Helvetica, Dejavu Sans, sans-serif;
 	font-weight: 400;
 	line-height: 1.8em;
 	position: relative; }
@@ -126,8 +126,7 @@ article {
 .site-header {
   font-weight: lighter;
   font-size: 16px;
-	font-family: 'Share Tech', sans-serif;
-  text-transform: uppercase;
+	font-family: 'Marcellus SC', 'Segoe UI', Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
   text-align: right; }
   .site-header .site-title {
@@ -138,7 +137,6 @@ article {
     -ms-transition: 0.4s;
     -o-transition: 0.4s;
     transition: 0.4s;
-    text-transform: uppercase;
     display: block;
     margin-bottom: 5px;
     font-weight: bold; }
@@ -148,11 +146,11 @@ article {
         background-color: #AA2130; }
     .site-header .site-title .block {
       display: inline-block;
-      width: 40px;
-      height: 12px;
+      width: 36px;
+      height: 10px;
       margin-top: 1px;
       background-color: #ddd;
-      margin-right: 10px;
+      margin-right: 6px;
       -webkit-transition: 0.4s;
       -moz-transition: 0.4s;
       -ms-transition: 0.4s;
@@ -172,7 +170,7 @@ article {
 .tweet {
 	text-align: left;
 	margin-top: 50px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Segoe UI', Arial, Helvetica, Dejavu Sans, sans-serif;
 	font-size: 13px; 
 	padding: 5px;
 	background-color: #FDF6E3; }
