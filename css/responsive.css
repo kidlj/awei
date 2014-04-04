@@ -1,13 +1,31 @@
 @media (max-width: 480px) {
   body {
     padding: 10px; }
-  .site-header {
+  body .site-header {
     margin-bottom: 10px; }
-  article {
+  body article {
     padding: 40px 30px;
     line-height: 1.6em; }
-    article header {
+  body article header {
       margin-bottom: 30px;}
-	.tweet {
+  body .tweet {
 		margin-top: 30px; }
-  }
+  
+  /* forked from @muanchiou */
+  body .post .post-link {
+      margin-bottom: 10px; }
+  body .post .post-link:hover {
+        box-shadow: none; }
+  body .post .post-link:hover .post-cover {
+          opacity: 1; }
+  body .post .post-link.has-cover {
+        padding-right: 25px; }
+  body .post .post-link.has-cover .mark {
+          top: 210px; }
+  body .post .post-link .post-cover {
+        opacity: 1;
+        position: static;
+        height: 200px;
+        margin: -25px -25px 25px;
+        width: auto;
+        border-width: 1px; } }

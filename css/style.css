@@ -225,3 +225,64 @@ ul.expr-listing .datetime {
   color: #999;
   font-size: 12px;
   text-align: right; }
+
+=============================
+
+
+.posts {
+  text-align: center;
+  font-size: 0; }
+  .posts .post-link {
+    color: inherit;
+    font-size: 13px;
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 25px;
+    border: 1px solid transparent;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; }
+    .posts .post-link.has-cover {
+      padding-right: 185px; }
+    .posts .post-link .post-cover {
+      -webkit-transition: 0.5s;
+      -moz-transition: 0.5s;
+      -ms-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: 0.5s;
+      position: absolute;
+      width: 160px;
+      top: 0;
+      right: 0;
+      background-size: cover;
+      background-position: 50% 50%;
+      border: 10px solid #fff;
+      height: 100%;
+      opacity: .3; }
+    .posts .post-link .post-title {
+      margin: 0 0 5px; }
+    .posts .post-link .meta {
+      opacity: .4;
+      font-size: 10px; }
+    .posts .post-link .excerpt {
+      color: #888;
+      margin: 20px 0 0;
+      max-height: 100px;
+      overflow: hidden;
+      font-weight: normal; }
+    .posts .post-link .mark {
+      opacity: 0; }
+    .posts .post-link:hover {
+      border: 1px solid #eee;
+      box-shadow: 0 0 25px #eee; }
+      .posts .post-link:hover .mark {
+        opacity: 1; }
+      .posts .post-link:hover .post-cover {
+        opacity: .6; }
+

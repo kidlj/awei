@@ -3,16 +3,22 @@ layout: main
 title: HOME
 ---
 
-<section class="content">
-	<article>
-		<div class="mark"></div>
-		<header>
-		<h1 class="post-title"><a class="first_title_link" href='{{ site.posts.first.url }}'>{{ site.posts.first.title }}</a></h1>
-		<small class="datetime muted">{{ site.posts.first.date | date_to_string }}</small>
-		</header>
 
-		{{ site.posts.first.content }}
-
-	</article>
-</section>
+<ul class="posts">
+  {% for post in site.posts %}
+  <li class="post">
+    <a href="{{ post.url }}" class="post-link {% if post.cover %}has-cover{% endif %}">
+      {% if post.cover %}
+        <div class="post-cover" style="background-image: url({{ post.cover }});" /></div>
+      {% endif %}
+      <div class="mark"></div>
+      <h2 class="post-title">
+        {{ post.title }}<br />
+      </h2>
+      <span class="meta">Posted <time data-time="{{ post.date }}" title="{{ post.date }}">{{ post.date | date_to_string }}</time></span>
+      <p class="excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
 
