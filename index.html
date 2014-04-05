@@ -5,7 +5,7 @@ title: HOME
 
 
 <ul class="posts">
-  {% for post in site.posts %}
+  {% for post in site.posts limit: 3 %}
   <li class="post">
     <a href="{{ post.url }}" class="post-link {% if post.cover %}has-cover{% endif %}">
       {% if post.cover %}
@@ -20,5 +20,19 @@ title: HOME
     </a>
   </li>
   {% endfor %}
+
+  {% if site.posts.size > 3 %}
+  <li class="post-link">
+	<div class="mark"></div>
+      	<h2 class="post-title">更多文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="all-link">&nbsp;(<a href="/all/">ALL</a>)</span></h2>
+	<ul class="older-posts">
+		{% for post in site.posts limit: 5 offset: 3 %}
+			<li><small class="datetime muted">{{ post.date || date_to_string }}</small>
+			<a href='{{post.url}}'>{{post.title}}</a></li>
+		{% endfor %}
+	</ul>
+  </li>
+  {% endif %}
+
 </ul>
 

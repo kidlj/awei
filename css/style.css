@@ -116,7 +116,7 @@ article {
 		border-radius: 4px; }
 	article hr {
 		border-color: #efefef; }
-	article a {
+	article p a {
 		line-height: 0;
 		vertical-align: super;
 		font-size: smaller; }
@@ -178,9 +178,11 @@ article {
 	font-size: 13px; 
 	padding: 5px;
 	background-color: #FDF6E3; }
+/*
 .tweet a {
 	vertical-align: baseline;
 	font-size: inherit; }
+*/
 
 .paginator {
 	padding: 30px 40px 24px;
@@ -200,21 +202,21 @@ article {
 
 /*****************************************************************************/
 /*
-/* For "expr/index.html"
+/* For "all/index.html"
 /*
 /*****************************************************************************/
 
-ul.expr-listing {
+ul.post-listing {
 	margin: 0;
 	padding: 0;
 	list-style: none; }
 
-ul.expr-listing li {
+ul.post-listing li {
 	text-transform: uppercase;
 	margin-bottom: 20px; }
 
-ul.expr-listing .datetime {
-	display: inline-block;
+ul.post-listing .datetime {
+  display: inline-block;
   vertical-align: baseline;
   zoom: 1;
   *display: inline;
@@ -223,11 +225,14 @@ ul.expr-listing .datetime {
   text-transform: uppercase;
   float: right;
   color: #999;
-  font-size: 12px;
+  font-size: smaller;
   text-align: right; }
 
-=============================
-
+/******************************************************************************/
+/*
+/* For Grid-unit in index page
+/*
+/******************************************************************************/
 
 .posts {
   text-align: center;
@@ -285,4 +290,36 @@ ul.expr-listing .datetime {
         opacity: 1; }
       .posts .post-link:hover .post-cover {
         opacity: .6; }
+    .posts .post-link h2 .all-link {
+	font-size: smaller; }
+
+
+/*****************************************************************************/
+/*
+/* For "Older-Posts Navigator"
+/*
+/*****************************************************************************/
+
+ul.older-posts {
+	margin: 30px 0 0 0;
+	padding: 0;
+	list-style: none; }
+
+ul.older-posts li {
+	text-transform: uppercase;
+	margin-bottom: 8px; }
+
+ul.older-posts .datetime {
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  width: 130px;
+  text-transform: uppercase;
+  float: right;
+  color: #999;
+  font-size: smaller;
+  text-align: right; }
+
 
