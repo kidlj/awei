@@ -202,7 +202,7 @@ article {
 
 /*****************************************************************************/
 /*
-/* For "all/index.html"
+/* For "blog/index.html"
 /*
 /*****************************************************************************/
 
@@ -290,7 +290,7 @@ ul.post-listing .datetime {
         opacity: 1; }
       .posts .post-link:hover .post-cover {
         opacity: .6; }
-    .posts .post-link h2 .all-link {
+    .posts .post-link h2 .blog-link {
 	font-size: smaller; }
 
 

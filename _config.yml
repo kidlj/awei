@@ -1,9 +1,9 @@
 url: http://kidlj.com
 markdown: rdiscount
 pygments: false
-permalink: /post/:year-:month-:day-:title.html
+permalink: /blog/:year-:month-:day-:title.html
 paginate: 10
-paginate_path: "all/page:num"
+paginate_path: "blog/page:num"
 domain: kidlj.com
 google_analytics: UA-46286887-1
 
