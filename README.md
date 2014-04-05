@@ -1,7 +1,7 @@
 关于 ABOUT
 ----------
 
-[www.ideavirgin.com][1]
+[KidLj.com][1]
 
 又一个[Jekyll][2]博客，由[GitHub Pages][3]强力驱动。
 
