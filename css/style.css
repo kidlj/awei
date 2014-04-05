@@ -269,7 +269,7 @@ ul.post-listing .datetime {
       background-position: 50% 50%;
       border: 10px solid #fff;
       height: 100%;
-      opacity: .3; }
+      opacity: .6; }
     .posts .post-link .post-title {
       margin: 0 0 5px; }
     .posts .post-link .meta {
@@ -289,7 +289,7 @@ ul.post-listing .datetime {
       .posts .post-link:hover .mark {
         opacity: 1; }
       .posts .post-link:hover .post-cover {
-        opacity: .6; }
+        opacity: 1; }
     .posts .post-link h2 .blog-link {
 	font-size: smaller; }
 
