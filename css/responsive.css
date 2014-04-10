@@ -13,19 +13,20 @@
   
   /* forked from @muanchiou */
   body .post .post-link {
+      padding: 20px;
       margin-bottom: 10px; }
   body .post .post-link:hover {
         box-shadow: none; }
   body .post .post-link:hover .post-cover {
           opacity: 1; }
   body .post .post-link.has-cover {
-        padding-right: 30px; }
+        padding-right: 20px; }
   body .post .post-link.has-cover .mark {
           top: 210px; }
   body .post .post-link .post-cover {
         opacity: 1;
         position: static;
         height: 200px;
-        margin: -25px -25px 25px;
+        margin: -20px -20px 20px;
         width: auto;
         border-width: 1px; } }

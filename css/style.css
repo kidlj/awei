@@ -33,7 +33,7 @@ pre {
 	margin: 10px 0; }
 
 p {
-	margin: 2em 0 0 0; }
+	margin: 1.62em 0 0 0; }
 
 sup {
 	line-height: 0; }
@@ -73,12 +73,12 @@ sup {
 	transform: rotate(3deg); }
 
 article {
-	padding: 70px 60px 60px;
+	padding: 70px 60px 70px;
 	background-color: #fff;
 	font-size: 13px;
 	font-family: 'Segoe UI', Arial, Helvetica, Dejavu Sans, sans-serif;
 	font-weight: 400;
-	line-height: 1.8em;
+	line-height: 1.62em;
 	position: relative; }
 	article * {
 		max-width: 100%; }
@@ -86,8 +86,8 @@ article {
 		margin-bottom: 60px; }
 		article header .post-title {
 			font-weight: 500;
-			font-size: 1.6em;
-			margin: 0; }
+			font-size: 1.7em;
+			margin: 0 0 5px; }
 		article header .post-title a {
 			color: #000;
 			border-bottom: none; }
@@ -243,7 +243,7 @@ ul.post-listing .datetime {
     text-align: left;
     margin-bottom: 20px;
     background-color: #fff;
-    padding: 30px;
+    padding: 40px;
     border: 1px solid transparent;
     overflow: hidden;
     position: relative;
@@ -266,14 +266,17 @@ ul.post-listing .datetime {
       right: 0;
       background-size: cover;
       background-position: 50% 50%;
-      border: 10px solid #fff;
+      border: 16px solid #fff;
       height: 100%;
       opacity: .6; }
     .posts .post-link .post-title {
+      font-size: 1.5em;
+      font-weight: 500;
       margin: 0 0 5px; }
     .posts .post-link .meta {
-      opacity: .4;
-      font-size: 10px; }
+      text-transform: uppercase;
+      color: #8f8f8f;
+      font-size: smaller; }
     .posts .post-link .excerpt {
       color: #888;
       margin: 20px 0 0;
