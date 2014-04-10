@@ -87,7 +87,6 @@ article {
 		article header .post-title {
 			font-weight: 500;
 			font-size: 1.6em;
-			text-transform: uppercase;
 			margin: 0; }
 		article header .post-title a {
 			color: #000;
@@ -103,7 +102,7 @@ article {
 		margin: 10px 0;
 		padding: 0 0 0 13px; }
 	article h2 {
-		font-size: 1.5em; 
+		font-size: 1.4em; 
 		font-weight: 500;
 		margin: 2em 0 1em; }
 	article h3 {
