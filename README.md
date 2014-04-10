@@ -13,7 +13,7 @@
 
 
 
-[1]: http://www.ideavirgin.com
+[1]: http://KidLj.com
 [2]: http://jekyllrb.com
 [3]: http://pages.github.com
 
