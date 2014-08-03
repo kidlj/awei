@@ -1,8 +1,9 @@
-/*****************************************************************************/
+/*********************************************************************/
 /*
-/* Forked from @muanchiou
+/* Forked from theme "Block" by Mu-An Chiou
+/* https://github.com/muan/muan.github.com
 /*
-/*****************************************************************************/
+/*********************************************************************/
 
 body {
 	background-color: #f4f4f4;
@@ -30,7 +31,10 @@ hr {
 
 pre {
 	padding: 0px 10px; 
+	overflow: auto;
 	margin: 10px 0; }
+code {
+	font-family: "Source Code Pro", "Dejavu Sans Mono", monospace; }
 
 p {
 	margin: 1.62em 0 0 0; }
@@ -101,6 +105,10 @@ article {
 		border-left: 10px solid #e0e9ed;
 		margin: 10px 0;
 		padding: 0 0 0 13px; }
+	article h1 {
+		font-size: 1.7em;
+		font-weight: 500;
+		margin: 2em 0 2em; }
 	article h2 {
 		font-size: 1.4em; 
 		font-weight: 500;
@@ -141,7 +149,6 @@ article {
     -o-transition: 0.4s;
     transition: 0.4s;
     display: block;
-    margin-bottom: 5px;
     font-weight: bold; }
     .site-header .site-title:hover {
       color: #BA2636; }
@@ -149,11 +156,11 @@ article {
         background-color: #AA2130; }
     .site-header .site-title .block {
       display: inline-block;
-      width: 36px;
+      width: 33px;
       height: 10px;
       margin-top: 1px;
       background-color: #ddd;
-      margin-right: 6px;
+      margin-right: 3px;
       -webkit-transition: 0.4s;
       -moz-transition: 0.4s;
       -ms-transition: 0.4s;
@@ -170,18 +177,24 @@ article {
 	.site-header .navigator .connector {
 		color: #676767; }
 
-.tweet {
-	text-align: left;
+.function {
 	margin-top: 50px;
-	font-family: 'Segoe UI', Arial, Helvetica, Dejavu Sans, sans-serif;
+	font-family: "Marcellus SC", 'Segoe UI', Arial, 'Helvetica', 'Dejavu Sans', sans-serif;
 	font-size: 13px; 
-	padding: 5px;
+	padding: 0px 6px;
 	background-color: #FDF6E3; }
-/*
-.tweet a {
-	vertical-align: baseline;
-	font-size: inherit; }
-*/
+.function .top {
+	float: right; }
+.function .tweet {
+	margin-right: 10px;
+	display: inline-block; }
+	.function .tweet .fa-twitter {
+		color: #00A5FF; }
+.function .history {
+	display: inline-block; }
+	.function .history .fa-github-alt {
+		color: #0EA74B; }
+
 
 .paginator {
 	padding: 30px 40px 24px;
@@ -199,11 +212,11 @@ article {
 	padding: 60px 25px 25px 25px; }
 
 
-/*****************************************************************************/
+/*********************************************************************/
 /*
 /* For "blog/index.html"
 /*
-/*****************************************************************************/
+/*********************************************************************/
 
 ul.post-listing {
 	margin: 0;
@@ -227,11 +240,11 @@ ul.post-listing .datetime {
   font-size: smaller;
   text-align: right; }
 
-/******************************************************************************/
+/**********************************************************************/
 /*
 /* For Grid-unit in index page
 /*
-/******************************************************************************/
+/**********************************************************************/
 
 .posts {
   text-align: center;
@@ -278,7 +291,7 @@ ul.post-listing .datetime {
       color: #8f8f8f;
       font-size: smaller; }
     .posts .post-link .excerpt {
-      color: #888;
+      color: #666;
       margin: 20px 0 0;
       max-height: 100px;
       overflow: hidden;
@@ -294,34 +307,3 @@ ul.post-listing .datetime {
         opacity: 1; }
     .posts .post-link h2 .blog-link {
 	font-size: smaller; }
-
-
-/*****************************************************************************/
-/*
-/* For "Older-Posts Navigator"
-/*
-/*****************************************************************************/
-
-ul.older-posts {
-	margin: 30px 0 0 0;
-	padding: 0;
-	list-style: none; }
-
-ul.older-posts li {
-	text-transform: uppercase;
-	margin-bottom: 8px; }
-
-ul.older-posts .datetime {
-  display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
-  *display: inline;
-  *vertical-align: auto;
-  width: 130px;
-  text-transform: uppercase;
-  float: right;
-  color: #999;
-  font-size: smaller;
-  text-align: right; }
-
-

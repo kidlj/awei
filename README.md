@@ -1,10 +1,11 @@
 关于 ABOUT
 ----------
 
-[KidLj.com][1]
+[kidlj.com][1]
 
-又一个[Jekyll][2]博客，由[GitHub Pages][3]强力驱动。
+Yet another [Jekyll][2] site powered by [GitHub Pages][3].
 
+The theme is forked from [Block][4] originally created by Mu-An Chiou.
 
 许可 LICENSE
 ------------
@@ -13,7 +14,8 @@
 
 
 
-[1]: http://KidLj.com
+[1]: http://kidlj.com
 [2]: http://jekyllrb.com
 [3]: http://pages.github.com
+[4]: https://github.com/muan/muan.github.com/releases/tag/v2.1.1-block
 

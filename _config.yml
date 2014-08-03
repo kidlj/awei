@@ -1,10 +1,16 @@
 url: http://kidlj.com
 markdown: rdiscount
-pygments: false
 permalink: /blog/:year-:month-:day-:title.html
 paginate: 10
 paginate_path: "blog/page:num"
 domain: kidlj.com
-google_analytics: UA-46286887-1
+commits: https://github.com/kidlj/kidlj.github.io/commits/master/
 
+defaults:
+  -
+    scope: 
+      path: ""
+      type: "post"
+    values:
+      layout: "post"
 

@@ -1,3 +1,11 @@
+/*********************************************************************/
+/*
+/* Forked from theme Block originally created by Mu-An Chiou
+/* https://github.com/muan/muan.github.com
+/*
+/*********************************************************************/
+
+
 @media (max-width: 480px) {
   body {
     padding: 10px; }
@@ -8,10 +16,7 @@
     line-height: 1.6em; }
   body article header {
       margin-bottom: 30px;}
-  body .tweet {
-		margin-top: 30px; }
   
-  /* forked from @muanchiou */
   body .post .post-link {
       padding: 20px;
       margin-bottom: 10px; }
