@@ -12,6 +12,7 @@ The theme is forked from [Block][4] originally created by Mu-An Chiou.
 
 `_posts`, `_images`目录下的文件为本人私人所有，在获得授权之前不得使用。
 
+其它目录和文件为MIT license授权。
 
 
 [1]: http://kidlj.com
