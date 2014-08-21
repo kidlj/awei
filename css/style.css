@@ -307,31 +307,3 @@ ul.post-listing .datetime {
         opacity: 1; }
     .posts .post-link h2 .blog-link {
 	font-size: smaller; }
-
-/*************************************/
-/*		For wiki
-/*************************************/
-
-.category_item {
-
-}
-
-.category {
-	float: left;
-	width: 100px;
-}
-.category_list {
-	float: left;
-}
-
-#container .category h2{
-	color: #aaa;
-}
-
-.clearfix:after {
-	visibility: hidden;
-	clear: both;
-	font-size: 0;
-	content: ".";
-	display: block;
-	height: 0;
