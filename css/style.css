@@ -307,3 +307,21 @@ ul.post-listing .datetime {
         opacity: 1; }
     .posts .post-link h2 .blog-link {
 	font-size: smaller; }
+
+
+/**************************************/
+/* 		For http://kidlj.com/wiki/
+/*  	Forked from Tanky Woo
+/**************************************/
+
+li.pagelist {
+	width: 22em;
+	margin-right: 1.5em;
+	list-style-type: none;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+li.pagelist:before {
+	content: "\0BB \020";
+}
