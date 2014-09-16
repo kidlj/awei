@@ -10,7 +10,17 @@ defaults:
   -
     scope: 
       path: ""
-      type: "post"
+      type: "posts"
     values:
       layout: "post"
+  -
+    scope:
+      path: ""
+      type: "wikies"
+    values:
+      layout: "wiki"
 
+collections:
+  wikies:
+    output: true
+    permalink: /wiki/:name.html

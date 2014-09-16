@@ -1,0 +1,83 @@
+---
+title: Shell
+---
+
+
+通配符扩展
+=========
+
+### 奇怪的事情
+
+命令如下:
+
+	$ touch *test* test1 test2 
+	$ for i in *test*; do md5sum $1; done
+
+结果显示:
+
+	d41d8cd98f00b204e9800998ecf8427e  *test*
+	d41d8cd98f00b204e9800998ecf8427e  test1
+	d41d8cd98f00b204e9800998ecf8427e  test2
+	d41d8cd98f00b204e9800998ecf8427e  test1
+	d41d8cd98f00b204e9800998ecf8427e  test2
+
+要小心使用 `nullglob` 选项:
+
+	$ shopt -s nullglob
+	$ touch test{1,2,3}
+	$ ls b*
+	test1 test2 test3
+
+	$ shopt -u nullglob
+	$ ls b*
+	ls: cannot access b*: No such file or directory
+
+### Extglob 选项
+
+\*(pattern1|pattern2):
+
+	$ shopt -s extglob
+
+	$ ls abc*(def|txt)
+	abc abcdef abcdefdef abcdeftxt abctxt abctxtdef abctxttxt
+
+!(pattern1|pattern2):
+
+	$ ls abc!(def|txt)
+	abc abcdefdef abcdeftxt abc.txt abctxtdef abctxttxt
+
+nocaseglob:
+
+	$ shopt -s nocaseglob
+	$ ls abcdef
+	abcdef
+	$ ls abcdef*
+	abcdef ABCDEF abcdefdef abcdeftxt
+
+
+正则表达式与引用
+===============
+
+正则表达式与 shell 没有直接关系，只有像 grep, sed, awk 这样的外部命令才使用正则表达式。但因为 shell 扩展和正则表达式使用的语法非常相似，所以从 shell 传递给外部命令的正则表达式可能会在中途被 shell 分析。这一问题可以使用各种引用技术来避免。
+
+有三种主要形式的引用—— 单引号、双引号以及反斜线。
+
+### 单引号
+
+最简单的是单引号，它可以防止 shell 解释其中的内容。Shell 分析的只是与第一个单引号配对的下一个单引号。
+
+### 双引号
+
+用双引号引用，有部分字符会被 shell 解释。变量被解释，但文件名不会被扩展。
+
+双引号中的单引号也被保留。
+
+### 反斜线
+
+当需要在常规字符串中包含特殊字符，但它又会被 shell 解释的时候，我们可以在字符前加上反斜线。
+
+	$ echo "Wilde said, \"Experience is one thing you can't get for\
+	 nothing.\""
+
+在双引号中，反斜线起转义作用；在单引号中不起转义作用。
+	

@@ -311,16 +311,13 @@ ul.post-listing .datetime {
 
 /**************************************/
 /* 		For http://kidlj.com/wiki/
-/*  	Forked from Tanky Woo
 /**************************************/
 
+table.wikilist td {
+	width: 30em; }
+
 li.pagelist {
-	width: 22em;
-	margin-right: 1.5em;
-	list-style-type: none;
-	white-space: nowrap;
-	overflow: hidden;
-}
+	list-style: none }
 
 li.pagelist:before {
 	content: "\0BB \020";
