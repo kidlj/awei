@@ -3,56 +3,170 @@ title: Shell
 ---
 
 
-通配符扩展
-=========
 
-### 奇怪的事情
+变量
+====
 
-命令如下:
+### 引用、类型与命名规则
 
-	$ touch *test* test1 test2 
-	$ for i in *test*; do md5sum $1; done
+引用一个变量必须在前面加上`$`：比如`echo $PATH`；还有一种更正式的引用方式为`${PATH}`。
 
-结果显示:
+引用一个未定义（赋值）的变量不会抛出错误，没有被赋值的变量为空字符串。
 
-	d41d8cd98f00b204e9800998ecf8427e  *test*
-	d41d8cd98f00b204e9800998ecf8427e  test1
-	d41d8cd98f00b204e9800998ecf8427e  test2
-	d41d8cd98f00b204e9800998ecf8427e  test1
-	d41d8cd98f00b204e9800998ecf8427e  test2
+Shell 变量没有“类型”的概念，如果一定要说类型，那么任何变量都是字符串。但有些函数在处理字符串时会将其中包含的数字字符当成数值来处理，这为 Shell 的数学运算提供了便利。
 
-要小心使用 `nullglob` 选项:
+通常而言，包含常数、字符串以及文件名等内容的变量使用大写，而包含数字、用户输入或其他“数据”的变量则使用小写。
 
-	$ shopt -s nullglob
-	$ touch test{1,2,3}
-	$ ls b*
-	test1 test2 test3
+### 赋值
 
-	$ shopt -u nullglob
-	$ ls b*
-	ls: cannot access b*: No such file or directory
+对变量赋值的方式主要有三种：
 
-### Extglob 选项
+1. 显式定义：`VAR=value`
 
-\*(pattern1|pattern2):
+	等于号两边不允许有空格。像`VAR = value`，`VAR =value`以及`VAR= value`都不是赋值语句，而有着各自的含义。`VAR = value`被当成带有两个参数的命令`VAR`，参数是`=`和`value`；`VAR =value`同理。`VAR= value`是指在执行`value`命令的时候将`VAR`变量赋值为空。
 
-	$ shopt -s extglob
+2. 读取：`read VAR`
 
-	$ ls abc*(def|txt)
-	abc abcdef abcdefdef abcdeftxt abctxt abctxtdef abctxttxt
+	一次读入一个变量：
+		
+		echo -n "Enter you name: "
+		read name
+		echo "Hello $name."
+		
+	一次读入多个变量：
 
-!(pattern1|pattern2):
+		echo -n "Please enter your first name and last name: "
+		read firstname lastname
+		echo "Hello, $firstname. How is the $lastname family?"
 
-	$ ls abc!(def|txt)
-	abc abcdefdef abcdeftxt abc.txt abctxtdef abctxttxt
+	用一个变量从文件中读入一行：
 
-nocaseglob:
+		read message < /var/lib/portage/world
+		echo $message
 
-	$ shopt -s nocaseglob
-	$ ls abcdef
-	abcdef
-	$ ls abcdef*
-	abcdef ABCDEF abcdefdef abcdeftxt
+	用一个变量输出整个文件，每次打印一行：
+
+		while read message
+		do
+			echo $message
+			sleep 0.5
+		done < /var/lib/portage/world
+
+	（注：如果读取到文件末尾，`read`会返回非零值，于是 while 循环就会停止。）
+
+3. 命令替换：`VAR=$(date)`
+
+	这是第一种赋值方式`VAR=value`的变种。
+
+		TODAY=$(date +%A)
+		echo "Today is $TODAY."
+
+	还有一种更通用的命令替换格式，原始的 Bourne Shell 只支持这种：
+
+		TODAY=`date +%A`
+
+### 数学运算
+
+虽然 Shell 变量始终被存储为字符串，但是可以用一些方法使它能像数字一样运算。
+
+1. `let`命令可以直接执行基本的算术操作。
+
+	例如：
+	
+		let result=$no1+$no2
+		echo $result
+
+	自加自减操作：
+
+		$ let no1++
+		$ let no2--
+
+	简写形式：
+
+		let no+=6
+		let no*=4
+
+2. 还可以用`$(( ))`和`expr`来进行算术运算。
+
+	例如：
+
+		result=$(($no1 + $no2))
+		result=`expr 3 + $no1`
+
+3. 使用`let`和`$(( ))`，当期望一个数值时，非数值被当成0。而`expr`则会报错。
+
+	例如：
+
+		$ x=hello
+		$ y=2
+
+		$ echo $(($x + $y))
+		2
+
+		$ let z=$x+$y
+		$ echo $z
+		2
+
+		$ expr $x + $y
+		expr: non-integer argument
+
+	注：以上这些方法只能用于整数运算，而不支持浮点数。
+
+
+
+文件描述符与重定向
+=================
+
+### 重定向
+
+显示当前命令打开的文件：
+
+	$ ls -l /proc/self/fd/
+
+显示当前 Shell 打开的文件：
+
+	$ ls -l /proc/$$/fd
+
+分别将`stdout`和`stderr`重定向：
+
+	$ ls -l /home /nosuchfile 1> /tmp/stdout.txt 2> tmp/stderr.txt
+
+同时将`stdout`和`stderr`重定向到一个文件：
+
+	$ ls -l /home /nosuchfile > /tmp/output.txt 2>&1
+	$ ls -l /home /nosuchfile >& /tmp/output.txt
+
+输出`stdout`和`stderr`的同时，将`stdout`重定向到一个文件：
+
+	$ ls -l /home /nosuchfile | tee output.txt | cat -n
+
+将文件重定向到命令：
+
+	$ read message < /var/lib/portage/world
+
+### 自定义文件描述符
+
+使用`exec`创建用于写操作的文件描述符：
+
+	$ exec 3> /tmp/testing
+	$ echo hello >&3
+
+使用`exec`创建用于读操作的文件描述符：
+
+	$ exec 4< /tmp/testing
+	$ cat <&4
+
+注：连续对`&3`执行写操作会对文本进行追加，而不是覆盖，因而向文件描述符进行写操作更像是对打印机进行写操作；对文件描述符`&4`读取会消耗输入，这与对常规文件进行读取不同， Shell 会记录文件描述符的当前位置指针，再次读取`&4`只会输出指针后面的新增内容。（暂时也不知`exec`重定向有什么应用场景。）
+
+### 管道
+
+管道将前一个进程的`stdout`连接到另一个进程的`stdin`，而`stderr`仍然输出到终端或者可以重定向到文件：
+
+	$ find / -print | grep hosts
+
+该命令会混合输出`grep hosts`的结果以及`find`命令的错误。可以将`find`命令的`stderr`提前重定向：
+
+	$ find / -print 2> /dev/null | grep hosts
 
 
 正则表达式与引用
@@ -81,3 +195,35 @@ nocaseglob:
 
 在双引号中，反斜线起转义作用；在单引号中不起转义作用。
 	
+
+
+数组
+====
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
