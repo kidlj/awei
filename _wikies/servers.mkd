@@ -1,0 +1,29 @@
+---
+title: Servers
+---
+
+Apache
+======
+
+### 授权普通用户管理文档目录
+
+	$ sudo groupadd www
+	$ sudo usermod -a -G www ubuntu
+
+	$ sudo chown -R root:www /var/www
+
+	$ sudo chomd 2775 /var/www
+	$ find /var/www -type d -exec sudo chmod 2775 {} +
+	$ find /var/www -type f -exec sudo chmod 0664 {} +
+
+### Apache 对文档目录的写权限
+
+比如 Wordpress 通过控制面板上传图片，需要 Apache 具有对文档目录的写权限。`www-data`为 Ubuntu 中 Apache 默认的运行用户名。
+
+	$ sudo usermod -a -G www www-data
+	$ find /var/www/wordpress -type d -exec sudo chmod 2775 {} +
+	$ find /var/www/wordpress -type f -exec sudo chmod 0664 {} +
+
+	$ sudo service apache2 restart
+
+

@@ -138,7 +138,7 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 
 输出`stdout`和`stderr`的同时，将`stdout`重定向到一个文件：
 
-	$ ls -l /home /nosuchfile | tee output.txt | cat -n
+	$ ls -l /home /nosuchfile | tee output.txt | cat 
 
 将文件重定向到命令：
 

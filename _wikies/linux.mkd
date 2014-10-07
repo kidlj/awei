@@ -2,75 +2,6 @@
 title: Linux
 ---
 
-包管理
-======
-
-### Ubuntu
-
-Debian/Ubuntu 使用 APT 作为包管理工具，而 APT 又使用更为底层的`dpkg`工具来完成工作。
-
-更新仓库信息：
-
-	$ sudo apt-get update
-
-更新系统所有的包（不会额外安装或移除任何包）：
-
-	$ sudo apt-get upgrade
-
-安装一个包及其依赖：
-
-	$ sudo apt-get install firefox
-
-只更新一个包（比如受 Shellshocks 影响的 bash）：
-
-	$ sudo apt-get install bash
-
-移除一个包：
-
-	$ sudo apt-get remove firefox
-
-移除一个包及其配置文件：
-
-	$ sudo apt-get --purge remove wpa_supplicant
-
-更新系统所有的包（与`upgrade`不同的是，如有需要会额外安装或移除某些包）：
-
-	$ suduo apt-get dist-upgrade
-
-搜索描述中包含`word`的包：
-
-	$ sudo apt-cache search word
-
-打印某个包的详细信息：
-
-	$ sudo apt-cache show bash
-
-打印某个包的依赖：
-
-	$ sudo apt-cache depends firefox
-
-打印某个包的可获得版本及其依赖：
-
-	$ sudo apt-cache showpkg firefox
-
-列出系统中安装的所有包：
-
-	$ dpkg --list
-
-打印某个包的详细信息：
-
-	$ dpkg --status bash
-
-列出某个包安装进来的所有文件：
-
-	$ dpkg --listfiles bash
-
-查询某个文件是由哪个包引入：
-
-	$ dpkg --search /bin/bash
-	$ apt-file search /bin/bash
-
-
 
 网络
 ====
@@ -80,7 +11,8 @@ Debian/Ubuntu 使用 APT 作为包管理工具，而 APT 又使用更为底层�
 `ifconfig`和`route`命令均来自`sys-apps/net-tools`包。
 
 	# ifconfig enp2s0 up
-	# ifconfig enp2s0 192.168.1.113 broadcast 192.168.1.255 netmask 255.255.255.0
+	# ifconfig enp2s0 192.168.1.113 broadcast 192.168.1.255 \
+	netmask 255.255.255.0
 	# route add default gw 192.168.1.1 enp2s0
 	# echo "nameserver 202.106.0.20" > /etc/resolve.conf
 
@@ -127,5 +59,57 @@ or,
 
 	# groupdel dialout
 	# groupdel uucp
+
+
+
+文件权限
+========
+
+### 目录的执行权限(x):
+
+目录的执行权限表示允许用户在目录中查找，并能用`cd`命令将工作目录改到该目录。
+
+### 特殊文件权限
+
+1. Setuid 和 Setgid 
+
+	Setuid 的作用是让*执行*该命令的用户以该命令拥有者的权限去执行。考察如	   下两个文件：
+
+		$ ls -l /bin/passwd
+		-rws--x--x 1 root root 45260 Oct  5  2013 /bin/passwd
+
+		$ ls -l /etc/passwd
+		-rw-r--r-- 1 root root 1780 Oct 18  2013 /etc/passwd
+
+	当普通用户执行`/bin/passwd`的时候，因为其上的 setuid 位，那么实际上是以    root 的身份在执行它，这样`/bin/passwd`就能够对`/etc/passwd`进行写入操作    了。
+
+		$ passwd
+		...
+
+		$ ps -ef | grep passw[d]
+		root      1758  1138  0 20:54 pts/1    00:00:00 passwd
+
+	会注意到`passwd`命令的实际执行者为`root`。
+
+	而 setgid 的意思是和它一样的，即让执行文件的用户以该文件所属组的权限去     执行。
+
+2. 粘滞位
+
+	粘滞位是针对目录来说的，比如`/tmp`目录设置了粘滞位，虽然任何人都可以在     该目录下创建和修改文件，但除了 root 用户以外，任何人不能修改别人的文件	  ，这就是粘滞位的作用。
+
+		$ ls -ld /tmp
+		drwxrwxrwt 9 root root 240 Oct  6 21:22 /tmp
+
+3. 特殊权限的设定 
+
+		$ chmod u+s filename
+		$ chmod 4775 filename
+
+		$ chmod g+s filename
+		$ chmod 2775 filename
+
+		$ chmod o+t dirname
+		$ chmod 1775 dirname
+
 
 
