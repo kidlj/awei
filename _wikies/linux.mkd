@@ -71,7 +71,7 @@ or,
 
 ### 特殊文件权限
 
-1. Setuid 和 Setgid 
+1. Setuid 
 
 	Setuid 的作用是让*执行*该命令的用户以该命令拥有者的权限去执行。考察如	   下两个文件：
 
@@ -93,14 +93,42 @@ or,
 
 	而 setgid 的意思是和它一样的，即让执行文件的用户以该文件所属组的权限去     执行。
 
-2. 粘滞位
+
+2. Setgid
+
+	暂时没见过 Setgid 安置在可执行文件上是什么作用；但下面是一个 Setgid 安     置在目录上的作用举例。
+
+	AWS 上的文档目录`/var/www/`目录的权限设置如下：
+
+		$ ls -ld /var/www
+		drwxrwxr-x 8 root www 4096 Oct  8 07:43 /var/www
+
+	我日常使用的`ubuntu`用户是从属于`www`组的，因此可以在这个目录下建立文件    和目录：
+
+		$ mkdir /var/www/test
+		$ ls -ld /var/www/test
+		drwxrwxr-x 2 ubuntu ubuntu 4096 Oct  7 11:12 test
+
+	新目录所属组为`ubuntu`；而如果此时给`/var/www/`目录加上 Setgid 位的话，
+
+		$ sudo chmod g+s /var/www
+		$ ls -ld /var/www
+		drwxrwsr-x 8 root www 4096 Oct  8 07:43 /var/www
+		$ mkdir /var/www/test_setgid
+		$ ls -ld /var/www/test_setgid
+		drwxrwsr-x 2 ubuntu   www    4096 Oct  8 07:42 test_setgid
+
+	可见这个时候新建的目录所属组变成了`www`。
+
+
+3. 粘滞位
 
 	粘滞位是针对目录来说的，比如`/tmp`目录设置了粘滞位，虽然任何人都可以在     该目录下创建和修改文件，但除了 root 用户以外，任何人不能修改别人的文件	  ，这就是粘滞位的作用。
 
 		$ ls -ld /tmp
 		drwxrwxrwt 9 root root 240 Oct  6 21:22 /tmp
 
-3. 特殊权限的设定 
+4. 特殊权限的设定 
 
 		$ chmod u+s filename
 		$ chmod 4775 filename

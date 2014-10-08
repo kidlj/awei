@@ -1,0 +1,18 @@
+---
+title: Tricks
+---
+
+### Git clone 时指定 ssh-key
+
+Git clone 操作需要 ssh-key 的认证，GitHub 默认使用的默认密钥位置是`~/.ssh/id_rsa`，而如果你在 AWS 上建了一个 Git 服务器，这个时候 git clone 就需要指定针对那个服务器的密钥，而我没找到`git clone`命令有指定密钥的选项，怎么办？
+
+因为`git clone`的认证操作是调用 SSH 来完成的，因为我们可以通过配置 SSH 来达成目的。
+
+（如果不存在）新建`~/.ssh/config`文件，填入如下内容：
+
+	# ~/.ssh/config 
+
+	Host git.ideavirgin.com
+		IdentityFile ~/.ssh/aws.pem
+
+搞定。
