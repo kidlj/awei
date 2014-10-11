@@ -65,6 +65,35 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 
 		TODAY=`date +%A`
 
+### 字符串裁剪
+
+1. 按照长度裁剪变量字符串
+
+		$ variable="foobar"
+
+		$ echo ${variable:3}
+		bar
+		$ echo ${variable:3:2}
+		ba
+
+		$ echo {variable: -4}
+		obar
+
+2. 使用模式裁剪字符串
+
+		$ phone="185-1111-2222"
+
+		$ echo ${phone#*-}
+		1111-2222
+		$ echo ${phone##*-}
+		2222
+
+		$ echo {phone%-*}
+		185-1111
+		$ echo {phone%%-*}
+		185
+
+
 ### 数学运算
 
 虽然 Shell 变量始终被存储为字符串，但是可以用一些方法使它能像数字一样运算。
@@ -196,9 +225,33 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 在双引号中，反斜线起转义作用；在单引号中不起转义作用。
 	
 
-
 数组
 ====
+
+### 数组的赋值
+
+	numberarray[0]=zero
+	numberarray[1]=one
+	numberarray[3]=three
+
+	students=( Dave Jennifer Michael Lucy Richard )
+
+	nonprint=( [0]=NUL [1]=SOH [2]=STX [4]=EOT )
+
+	stat=( `cat /proc/$$/stat` )
+
+	mp3s=( *.mp3 )
+
+	read -a arrayname
+
+	IFS=: read -a userdetails < /etc/passwd
+
+	readarray -n 4 -s 2 food
+
+	
+
+
+
 
 
 
