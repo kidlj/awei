@@ -1,5 +1,5 @@
 ---
-title: Tricks
+title: Etc
 ---
 
 ### Git clone 时指定 ssh-key
