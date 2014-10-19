@@ -9,7 +9,7 @@ body {
 	background-color: #f4f4f4;
 	color: #343434;
 	line-height: 1.6em;
-	font-family: 'Segoe UI', Arial, Helvetica, Dejavu Sans, sans-serif;
+	font-family: 'Segoe UI', Arial, Helvetica, "Source Sans Pro", "Dejavu Sans", sans-serif;
 	padding: 20px 10px;
 }
 
@@ -34,7 +34,7 @@ pre {
 	overflow: auto;
 	margin: 10px 0; }
 code {
-	font-family: "Source Code Pro", "Dejavu Sans Mono", monospace; }
+	font-family: Consolas, Courier, "Source Code Pro", "Dejavu Sans Mono", monospace; }
 
 p {
 	margin: 1.62em 0 0 0; }
