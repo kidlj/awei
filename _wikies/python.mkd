@@ -34,3 +34,17 @@ virtualenv
 	# add this line to .gitignore
 	env/
 
+
+Pip
+====
+
+常用命令：
+
+	$ pip install SomePackage
+	$ pip list
+	$ pip list --outdated
+	$ pip install --upgrade SomePackage
+	$ pip uninstall SomePackage
+	$ pip show --files SomePackage
+
+
