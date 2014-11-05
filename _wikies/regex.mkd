@@ -2,62 +2,85 @@
 title: 正则表达式
 ---
 
-### 综述 ###
+
+综述
+====
 
 正则表达式是用来匹配某些字符串的模式表达式。
 
-目前主要有两种正则表达式：
+目前主要有三种正则表达式：
 
-*	Modern(Extended) Regular Expressions (ERE);
-*	Obsolete(Basic) Regular Expressions (BRE);
+*	Modern(Extended) Regular Expressions (ERE)
+*	Obsolete(Basic) Regular Expressions (BRE)
+*	Perl-Compatible Regular Expressions (PCRE)
 
-### 元字符 ###
+### 元字符
 
-有两种常见的元字符，shell元字符和正则表达式元字符。shell元字符由shell解释，
-正则表达式元字符由各执行模式匹配操作的程序解释。两种元字符的意义不一样。
+有两种常见的元字符，Shell 元字符和正则表达式元字符。Shell 元字符由 Shell
+解释，正则表达式元字符由各执行模式匹配操作的程序解释。两种元字符的意义不
+一样。
 
-### 基本元字符(BRE) ###
+### 基本元字符(BRE)
 
 所有UNIX模式匹配工具都适用。
 
 + `^`      	Matches the null string at the beginning of a line;
-+ `&` 		Matches the null string at the end of a line;
++ `$` 		Matches the null string at the end of a line;
 + `.` 		Matches any single character;
 + `*` 		Matches a sequence of 0 or more matches of the preceding item;
 + `[ ]` 	Matches any single character from the list;
 + `[^ ]` 	Matches any single character not from the rest of the list;
 + `[x-y]` 	Matches any single character in the full range of characters  
-			between those two(Mind the LC_COLLATE please);
+			between those two(Mind LC_COLLATE please);
 + `\` 		Followed by one of these characters:`^ . [ $ ( ) | * - ? \`,  
 			matching that character taken as an ordinary character.
 
-### 一些扩展元字符 ###
 
-有限UNIX程序支持。
+Grep
+=====
+
+Grep 支持三种正则表达式，可以用选项指定使用哪种正则引擎：
+
+	$ grep [-G]		# 默认为BRE
+	$ grep -E		# 启用ERE
+	$ grep -P		# 启用PCRE
+
+下面描述的是 ERE 中支持的元字符。
+
+
+### 边界
 
 + `\<`		Matches the null string at the beginning of a word;
 + `\>` 		Matches the null string at the end of a word;  
-			(word-constituent characters are letters, digits and _s)
-+ `x\{m\}`	
-+ `x\{m,\}` They are Bounds.
-+ `x\{m,n\}`
-+ `\()\`	back references, avoid using them (via `man 7 regex`)
++ `\b`		Matches the null string at the edge of a word;
++ `\B` 		Matches the null string provided it's not at the edge  
+			of a word;
++ `\w`		Is synonym for `[_[:alnum:]]`;
++ `\W`		Is synonym for `[^_[:alnum:]]`;
 
-### Repetition ####
+Word-constituent characters are letters, digits and `_`s.
 
-+ `+` 		The preceding item wil be matched one or more times;
+### 量词
+
 + `?` 		The preceding item is optional and matched at most once;
++ `*`		The preceding item will be matched zero or more times;
++ `+` 		The preceding item wil be matched one or more times;
++ `{n}`		The preceding item is matched exactly `n` times;
++ `{n,}`	The preceding item is matched `n` or more times;
++ `{,m}`	The preceding item is matched at most `m` times;
++ `{n, m}`	The preceding item is matched at least `n` times, but not  
+			more than `m` times.
 
-### Named Classes ####
+未经修饰的量词都是「贪婪」量词。修饰量词的特性见 PCRE。
+
+### Character Classes 
 
 	[:alnum:]  
 	[:alpha:]
-	.
-	.
-	.
+	...
 	[:xdigit:]
 
-### Bracket Expressions ###
+### Bracket Expressions
 
 Most meta-characters lose their special meaning inside bracket expressions.
 
@@ -67,16 +90,4 @@ In a bracket expression,
 + To include a literal `^`, place it anywhere but first.
 + To include a literal `-`, place it last.
 
-### Collating elements ###
-
-+ `[.xy.]`
-+ `[[.-.]-z]` To use `-` as the first endpoint of a range;
-+ `[[=x=]]`	  Equivalence class.
-
-### Miscellaneous ###
-
-In the event that an RE could match more than on substring of a given 
-string, the RE matches the one starting earliest in the string; if the RE 
-could match more that one substring starting at the same point, it matches 
-the longest.
 
