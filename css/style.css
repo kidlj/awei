@@ -99,6 +99,8 @@ article {
 			color: #BA2636; }
 		article header .datetime {
 			text-transform: uppercase; }
+		article header h1 {
+			border-bottom: 0; }
 	article ul, article ol {
 		margin: 20px 0 20px 20px; }
 	article blockquote {
@@ -108,6 +110,8 @@ article {
 	article h1 {
 		font-size: 1.7em;
 		font-weight: 500;
+		border-bottom: 1px solid #ccc1c1;
+		padding-bottom: 1em;
 		margin: 2em 0 2em; }
 	article h2 {
 		font-size: 1.4em; 
