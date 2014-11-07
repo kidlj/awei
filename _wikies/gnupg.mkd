@@ -1,9 +1,7 @@
 ---
-title: Utils
+title: GnuPG
 ---
 
-GnuPG
-=====
 
 ### 加密和签名原理
 
@@ -74,27 +72,4 @@ GNU ftp 里为发布的文件提供了分离式验证签名和验证公钥，须
 	$ wget http://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-001.sig
 	$ wget http://ftp.gnu.org/gnu/gnu-keyring.gpg
 	$ gpg --keyring ./gnu-keyring.gpg --verify bash43-001.sig
-
-
-CoreUtils
-=========
-
-### Tar
-
-* 仅仅列出压缩包内目录和文件：
-
-		$ tar -tf latest.tar.gz
-
-* 打包时不要前导路径，比如将`~/GitHub/kidlj.github.io/_site/`目录下的文件打包：
-
-		$ cd ~/GitHub/kidlj.github.io/_site
-		$ tar -cf site.tar .
-
-	或者，
-
-		$ tar -cf site.tar -C ~/GitHub/kidlj.github.io/_site/ .
-
-* 如何在解压时剥落压缩包内前导路径？
-
-		$ pass
 

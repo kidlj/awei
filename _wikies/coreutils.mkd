@@ -1,0 +1,23 @@
+---
+title: CoreUtils
+---
+
+### Tar
+
+* 仅仅列出压缩包内目录和文件：
+
+		$ tar -tf latest.tar.gz
+
+* 打包时不要前导路径，比如将`~/GitHub/kidlj.github.io/_site/`目录下的文件打包：
+
+		$ cd ~/GitHub/kidlj.github.io/_site
+		$ tar -cf site.tar .
+
+	或者，
+
+		$ tar -cf site.tar -C ~/GitHub/kidlj.github.io/_site/ .
+
+* 如何在解压时剥落压缩包内前导路径？
+
+		$ pass
+
