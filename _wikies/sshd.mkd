@@ -1,0 +1,13 @@
+---
+title: OpenSSH
+---
+
+### 指定 ssh-key
+
+当你有多个对应不同服务器的私钥时，可以依据服务器地址指定不同的 ssh-key。
+
+在`~/.ssh/config`文件中，填入如下内容：
+
+	Host github.com
+		IdentityFile ~/.ssh/github.pem
+
