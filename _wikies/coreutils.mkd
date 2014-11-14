@@ -5,6 +5,8 @@ title: CoreUtils
 Tar
 ===
 
+### 路径
+
 仅仅列出压缩包内目录和文件：
 
 	$ tar -tf latest.tar.gz
@@ -21,4 +23,18 @@ Tar
 如何在解压时剥落压缩包内前导路径？
 
 	$ pass
+
+
+
+Find
+====
+
+### 正则表达式
+
+Find 支持多种正则表达式实现，
+
+	$ find -regextype posix-extended -regex ".*[0-9]*.png"
+
+但是需要注意的，`find`里的正则表达式搜索的是路径名，而不是文件裸名。
+
 
