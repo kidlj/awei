@@ -334,22 +334,128 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 ### 数组的赋值
 
-	numberarray[0]=zero
-	numberarray[1]=one
-	numberarray[3]=three
+1. 用索引
 
-	students=( Dave Jennifer Michael Lucy Richard )
+		numberarray[0]=zero
+		numberarray[1]=one
+		numberarray[3]=three
 
-	nonprint=( [0]=NUL [1]=SOH [2]=STX [4]=EOT )
+2. 用括号
 
-	stat=( `cat /proc/$$/stat` )
+		students=( Dave Jennifer Michael Lucy Richard )
+		nonprint=( [0]=NUL [1]=SOH [2]=STX [4]=EOT )
+		stat=( `cat /proc/$$/stat` )
+		mp3s=( *.mp3 )
 
-	mp3s=( *.mp3 )
+3. 用 read
 
-	read -a arrayname
+		read -a arrayname
+		IFS=: read -a userdetails < /etc/passwd
+		readarray -n 4 -s 2 food
 
-	IFS=: read -a userdetails < /etc/passwd
+### 数组的访问
 
-	readarray -n 4 -s 2 food
+用索引访问：
 
-	
+	echo ${arrayname[0]}
+
+打印数组中所有的值：
+
+	echo ${arrayname[@]}
+
+打印数组长度：
+
+	$ echo {#arrayname}
+
+### 关联数组
+
+定义：
+
+	declare -A a_array
+	a_array=( [index1]=value1 [index2]=value2 )
+
+访问：
+
+	echo ${a_array[index1]}
+	echo ${a_array[@]}
+
+列出索引：
+
+	echo ${!a_array[@]}
+
+
+比较与测试
+==========
+
+`test`是一个 shell 内置命令，它的另一个名字是`[`。同时操作系统还有`/usr/bin/test`存在，不过 shell 优先找到的是其内置命令。
+
+字符串比较测试是，应优先使用`[[`而不是`[`，因为前者更强大和规范。而考虑到 Bourne Shell 兼容性时，应使用后者。
+
+### 算术比较
+
+一定要在`[`或`]`与操作数之间有一个空格。
+
+* `[ $var -eq 0 ]`
+* `[ $var -ne 0 ]`
+* `[ $var -gt 0 ]`
+* `[ $var -ge 0 ]`
+* `[ $var -lt 0 ]`
+* `[ $var -le 0 ]`
+
+### 文件系统相关测试
+
+* `[ -f $file_var ]`
+* `[ -d $file_var ]`
+* `[ -e $file_var ]`
+* `[ -r $file_var ]`
+* `[ -s $file_var ]`
+
+### 字符串比较测试
+
+使用`[[`：
+
+* `[[ $str1 == $str2 ]]`
+* `[[ $str1 != $str2 ]]`
+* `[[ $str1 > $str2 ]]`
+* `[[ -z $var ]] # when empty, return True`
+* `[[ -n $var ]] # when not empty, return True`
+
+使用`[`：
+
+* `[ $str1 = $str2 ]`
+* `[ $str1 != $str2 ]`
+
+### 正则表达式测试
+
+Bash 3 新增的一个特性是`=~`操作符，但应使用`[[`：
+
+	if [[ $pkgname =~ .*\.deb ]]
+	then
+		echo "File $pkgname is a .deb package
+	fi
+
+
+IFS 与迭代器
+============
+
+IFS 的默认值是空白字符（换行符、制表符或者空格）。
+
+可以使用 IFS 读取变量中每一个条目：
+
+	data="name,sex,location,age"
+	oldIFS = $IFS
+	IFS = ","
+	for item in $data
+	do
+		echo Item: item
+	done
+	IFS=$oldIFS
+
+使用`for var in list`迭代时，`list`可以是字符串，也可以是一个序列。
+
+可以轻松地生成不同的序列：
+
+* `{1..50}`
+* `{a..z}`
+
+
