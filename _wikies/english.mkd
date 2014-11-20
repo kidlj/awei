@@ -20,7 +20,7 @@ title: English
 
 ### 先行词是 the way 时
 
-作为特例，当 the way 作先行词，并在定语从句中作状语时，关系词可以用that，in which 或省略。在正式语体中，用 in which，在非正式语体中，that 往往省略。
+作为特例，当先行词是 the way，并在定语从句中作状语时，关系词可以用 that，in which 或省略。在正式语体中，用 in which，在非正式语体中，that 往往省略。
 
 > In brief, the way in which people enjoy or appreciate art depends on  
 > their culture.
