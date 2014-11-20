@@ -1,0 +1,27 @@
+---
+title: English
+---
+
+定语从句
+========
+
+### 关系代词还是关系副词
+
+先行词在定语从句中充当的成分决定了后面要使用关系代词还是关系副词。
+
+1. 先行词在定语从句中作宾语，后面可用关系代词或者省略：
+
+	> I will never forget the day (which/that) I spent in Hongkong.
+
+2. 先行词在定语从句中作状语，后面可用关系副词或者介词+关系代词：
+
+	> The reason why he didn't come to school yesterday is unbelievable.
+
+
+### 先行词是 the way 时
+
+作为特例，当 the way 作先行词，并在定语从句中作状语时，关系词可以用that，in which 或省略。在正式语体中，用 in which，在非正式语体中，that 往往省略。
+
+> In brief, the way in which people enjoy or appreciate art depends on  
+> their culture.
+	
