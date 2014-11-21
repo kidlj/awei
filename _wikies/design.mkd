@@ -1,0 +1,25 @@
+---
+title: Design
+---
+
+
+Desktop
+=======
+
+我期望的 Desktop 的样子。
+
+### Dock
+
+类 Mac OS X 的 Dock。
+
+### Global Menu
+
+类 Mac OS X 的原生全局菜单。
+
+### Workflow
+
+不是类 Alfred 2 的 Workflow。
+
+### Contract
+
+类 Windows 的 Contract。
