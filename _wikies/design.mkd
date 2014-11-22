@@ -3,23 +3,19 @@ title: Design
 ---
 
 
-Desktop
-=======
+Next Generation Desktop
+=======================
 
-我期望的 Desktop 的样子。
 
-### Dock
+我想象中的下一代桌面的样子。
 
-类 Mac OS X 的 Dock。
+### 界面
 
-### Global Menu
+应用看起来跟页面一样平，它们像是从桌面里「长」出来的。
 
-类 Mac OS X 的原生全局菜单。
+### Workaround
 
-### Workflow
+可根据不同的使用场景定制「Workaround」，分别打开场景适用的应用和分配相应的资源，它们之间互相独立，而且可以快速切换。
 
-不是类 Alfred 2 的 Workflow。
+重要的是，不论何时进入某个 Workaround 的时候，都能快速恢复到上次离开时的样子，它无缝记录自己的状态。当然你也可以选择开启一个预定义的、干净的使用场景。
 
-### Contract
-
-类 Windows 的 Contract。
