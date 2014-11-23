@@ -5,3 +5,10 @@
 	  src: local('Marcellus SC'), local('MarcellusSC-Regular'), url('/fonts/MarcellusSC.woff') format('woff');
 		}
 
+@font-face {
+  font-family: 'Courgette';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Courgette Regular'), local('Courgette-Regular'), url('/fonts/Courgette.woff') format('woff');
+}
+
