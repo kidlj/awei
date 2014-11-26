@@ -21,11 +21,11 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 
 对变量赋值的方式主要有三种：
 
-1. 显式定义：`VAR=value`
+* 显式定义：`VAR=value`
 
 	等于号两边不允许有空格。像`VAR = value`，`VAR =value`以及`VAR= value`都不是赋值语句，而有着各自的含义。`VAR = value`被当成带有两个参数的命令`VAR`，参数是`=`和`value`；`VAR =value`同理。`VAR= value`是指在执行`value`命令的时候将`VAR`变量赋值为空。
 
-2. 读取：`read VAR`
+* 读取：`read VAR`
 
 	一次读入一个变量：
 		
@@ -54,7 +54,7 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 
 	（注：如果读取到文件末尾，`read`会返回非零值，于是 while 循环就会停止。）
 
-3. 命令替换：`VAR=$(date)`
+* 命令替换：`VAR=$(date)`
 
 	这是第一种赋值方式`VAR=value`的变种。
 
@@ -83,7 +83,7 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 
 ### 字符串裁剪
 
-1. 按照长度裁剪变量字符串
+* 按照长度裁剪变量字符串
 
 		$ variable="foobar"
 
@@ -95,7 +95,7 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 		$ echo {variable: -4}
 		obar
 
-2. 使用模式裁剪字符串
+* 使用模式裁剪字符串
 
 		$ phone="185-1111-2222"
 
@@ -334,20 +334,20 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 ### 数组的赋值
 
-1. 用索引
+* 用索引
 
 		numberarray[0]=zero
 		numberarray[1]=one
 		numberarray[3]=three
 
-2. 用括号
+* 用括号
 
 		students=( Dave Jennifer Michael Lucy Richard )
 		nonprint=( [0]=NUL [1]=SOH [2]=STX [4]=EOT )
 		stat=( `cat /proc/$$/stat` )
 		mp3s=( *.mp3 )
 
-3. 用 read
+* 用 read
 
 		read -a arrayname
 		IFS=: read -a userdetails < /etc/passwd
