@@ -5,7 +5,9 @@ cover: /images/covers/python.jpg
 
 
 
-这是我学习和使用 Python 过程中遇到的第一个坑，关于二维列表的初始化。当时需要定义一个函数来计算两个 3x3 矩阵的乘积，实现如下：
+这是我学习和使用 Python 过程中遇到的第一个坑，关于二维列表的初始化。
+
+当时需要定义一个函数来计算两个 3x3 矩阵的乘积，实现如下：
 
 	def multiplyMatrix(matrix1, matrix2):
 		# bad initialization
@@ -36,7 +38,7 @@ cover: /images/covers/python.jpg
 
 对比一下这两种初始化方式，都是先用 `[0] * n` 的方式初始化了一个一维列表，而后，前者继续用这种方式初始化二维列表；不同的是，后者这时选择用列表推导式的方式初始化二维列表。那么第一种方式为什么不对，而列表推导式又有什么不同？
 
-为简明起见，以下直接用`3`来代替上述的`len(matrix1)`和`len(matrix2[0])`。即初始化一个 3x3 的二维列表：
+为简明起见，以下直接用 `3` 来代替上述的 `len(matrix1)` 和 `len(matrix2[0])`。即初始化一个 3x3 的二维列表：
 	
 	(bad)  resultMatrix = 3 * [3 * [0]]
 	(good) resultMatrix = [3 * [0] for row in range(3)]
