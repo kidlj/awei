@@ -1,13 +1,11 @@
 ---
-title: 二维列表的初始化
+title: 第一个坑
 cover: /images/covers/python.jpg
 ---
 
 
 
-这是我学习和使用 Python 过程中遇到的第一个坑。
-
-需要实现一个函数来计算两个 3x3 矩阵的乘积，定义如下：
+这是我学习和使用 Python 过程中遇到的第一个坑，关于二维列表的初始化。当时需要定义一个函数来计算两个 3x3 矩阵的乘积，实现如下：
 
 	def multiplyMatrix(matrix1, matrix2):
 		# bad initialization
@@ -20,7 +18,7 @@ cover: /images/covers/python.jpg
 
 		return resultMatrix
 
-以上是我最开始初始化`resultMatrix`列表的方法，而且自以为简洁易读。可是计算结果是错误的：
+我自以为以上初始化 `resultMatrix` 列表的方法简洁易读。可是计算结果是错误的：
 
 	The multiplication of the matrices is:
 	  1   2   3       9   8   7     252 207 162 
