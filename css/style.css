@@ -262,7 +262,7 @@ ul.post-listing .datetime {
     text-align: left;
     margin-bottom: 20px;
     background-color: #fff;
-    padding: 40px;
+    padding: 30px;
     border: 1px solid transparent;
     overflow: hidden;
     position: relative;
@@ -272,7 +272,7 @@ ul.post-listing .datetime {
     -o-transition: 0.5s;
     transition: 0.5s; }
     .posts .post-link.has-cover {
-      padding-right: 185px; }
+      padding-right: 175px; }
     .posts .post-link .post-cover {
       -webkit-transition: 0.5s;
       -moz-transition: 0.5s;
@@ -285,7 +285,7 @@ ul.post-listing .datetime {
       right: 0;
       background-size: cover;
       background-position: 50% 50%;
-      border: 16px solid #fff;
+      border: 15px solid #fff;
       height: 100%;
       opacity: .6; }
     .posts .post-link .post-title {
