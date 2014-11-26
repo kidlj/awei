@@ -1,6 +1,6 @@
 ---
-title: Python 二维列表的初始化
-cover: /images/covers/trap-and-rabbit.gif
+title: 二维列表的初始化
+cover: /images/covers/python.jpg
 ---
 
 
@@ -135,8 +135,8 @@ cover: /images/covers/trap-and-rabbit.gif
 	resultMatrix = [[0 for col in range(3)] for row in range(3)]
 
 
-![image](/images/covers/trap-and-rabbit.gif)
+![image](/images/covers/python.jpg)
 
-该图片版权为 MormonShare, LLC 所有[source]
+该图片版权为 Greg Newman 所有[source]
 
-[source]: http://www.mormonshare.com/lds-clipart/trap-and-rabbit
+[source]: https://dribbble.com/shots/452142-Crate-io-Logo-App-Icon
