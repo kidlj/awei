@@ -11,5 +11,7 @@ cover: /images/covers/girl.jpg
 
 最后，这个博客不仅一本书，它还是一个软件工程。这其中充满了黑客之道。整个网站存在一个 Git 仓库里，我可以像修改代码一样修改文章，而且还能保留和查看变更历史。而得益于 GitHub 创始人 Tom Preston-Werner 的一个精妙想法[2]，只要把文章推送到 GitHub 上，文章就能发布出去了！这种充满了魔法般的看似脆弱的管理方式，实际上却无比坚固，因为所有数据都在 Git 仓库里，而有了 Git 我们从此不会再丢失任何数据。
 
+_按：封面图片为王挣作品《女孩侧面像》_
+
 [1]: http://paulgraham.com
 [2]: http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html
