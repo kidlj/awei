@@ -1,11 +1,10 @@
 ---
-title: 第一个坑
-cover: /images/covers/python.jpg
+title: 入坑了
+cover: /images/covers/kill.jpg
 ---
 
 
-
-这是我学习和使用 Python 过程中遇到的第一个坑，关于二维列表的初始化。
+程序员们经常用「入坑了」来描述自己选择了某种技术作为未来发展的情景，特别是在面对几种选择摇摆不定多时之后。这种略带诙谐的说法一方面是在自我解嘲，仿佛马上就要过上水深火热的生活，不过更多的还是在表达对对该技术的肯定和自己的决心。就在不久前，我选择了入 Python 的坑，而且此后的每一天都为这个选择由衷高兴。不过今天我要说的不是这个，而是在学习和使用 Python 过程中遇到的一个实实在在的坑，关于二维列表的初始化。
 
 当时需要定义一个函数来计算两个 3x3 矩阵的乘积，实现如下：
 
@@ -135,8 +134,4 @@ cover: /images/covers/python.jpg
 	resultMatrix = [[0 for col in range(3)] for row in range(3)]
 
 
-![image](/images/covers/python.jpg)
-
-该图片版权为 Greg Newman 所有[source]
-
-[source]: https://dribbble.com/shots/452142-Crate-io-Logo-App-Icon
+_按：封面图片为刘野作品《温柔地杀我》_
