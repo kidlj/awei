@@ -1,0 +1,16 @@
+---
+title: Mark
+---
+
+互联网上有些文章，它们如珍珠般闪耀，读过之后我们应该留下点什么记号，不能任凭它们再次消失。
+
+
+### [HTML5 正名记：两家机构的博弈与一个标准的诞生][1]
+
+虽然 HTML5 被 W3C 正式推荐，但它却是由另一个与 W3C 相似的机构 WHATWG 所主导的。这两家机构既有合作，也有冲突，因此 HTML5 的推出是一个博弈的过程。早先 W3C 主导开发的新 HTML 也就是 XHTML2 有着很远大的创建「无障碍网络」的目标，然而在追求这一目标的过程中，似乎也有些脱离实际，比如提议的 EmotionML 试图通过在网页中定义标记来描述感情。与此同时，一些大公司看到了动态交互网页的前景，他们对 XHTML 的发展方向感到担忧，担心 W3C 忽视业界对 HTML 的真正需求，于是成立了 WHATWG 工作组来自己定义新版 HTML，也就是 HTML5。
+
+_英文原文：New Yorker[2]_
+
+
+[1]: http://tech.sina.com.cn/i/2014-11-28/doc-icesifvw9311249.shtml
+[2]: http://www.newyorker.com/tech/elements/group-rules-web
