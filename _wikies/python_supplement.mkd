@@ -11,7 +11,7 @@ title: Python Supplement
 
 	def func(positional, keyword = parameter1, *args):
 
-定义函数时，`*args` 应作为最后一个参数。调用该函数，Python 会将该位置的所有参数收集为一个元组。
+定义函数时，`*args` 应作为最后一个参数。调用该函数，Python 会将该位置的所有参数打包为一个元组。
 
 ### 从序列中解包参数
 
@@ -208,3 +208,165 @@ title: Python Supplement
 	['favoritefruit', 'apple', 'banana', 'favoritefruit']
 
 	
+### 字符串格式化
+
+书上详细介绍了用 `format()` 函数来格式化字符串，这里记录字符串的 `format` 方法。
+
+
+- 位置占位符
+
+	基本用法：
+
+		>>>	print("We are the {} who say {}!".format("Knights", "Ni"))
+		We are the Knights who say Ni!
+		
+		>>> food = "burger"
+		>>> adjective = "good"
+		>>> print("The {0} is {1}".format(food, adjective))
+		The burger is good
+
+	被格式化的变量可以是高级数据结构：
+
+		>>> table = {"food": "burger", "adjective": "good"}
+		>>> print("The {0[food]} is {0[adjective]}".format(table)
+		The burger is good
+
+- keyword 占位符
+
+	基本用法：
+
+		>>> print("This {food} is {adjective}".format(
+		...		food="burger", adjective="good"))
+		This burger is good
+
+	高级用法：
+
+		>>> table = {"food": "burger", "adjective": "good"}
+		>>> print("This {food} is {adjective}".format(**table))
+		The burger is good
+
+### 文件
+
+用 `with` 来自动关闭文件。
+
+	>>> with open('test.txt', 'r') as f:
+	... 	read_data = f.read()
+
+
+### 类变量与实例变量
+
+实例变量用来指代与具体实例相关的数据，类变量用来指代与所有实例相关的数据。
+
+	class Dog:
+		kind = 'canine'
+
+		def __init__(self, name):
+			self.name = name
+
+### 迭代器
+
+我们可以用 `for` 来迭代列表、字符串、文件对象和字典等容器对象。本质上，`for` 语句调用 `iter()` 函数作用于容器对象上，然后返回一个定义了 `__next__` 方法的迭代器对象。每次调用该迭代器对象的 `__next__` 方法将返回容器对象的一个元素，直到元素用光，它将会抛出 `StopIteration` 异常。
+
+	>>> s = 'abc'
+	>>> it = iter(s)
+	>>> it
+	<str_iterator object at 0xb6f6e52c>
+	>>> next(it)
+	'a'
+	>>> next(it)
+	'b'
+
+了解了这些，便可以将自己的类定义成可迭代的。首先定义 `__iter__` 方法来返回一个定义了 `__next__` 方法的对象。如果该类本身就定义了 `__next__`，可以直接返回 `self`。
+
+	class Reverse:
+		"""Iterator for looping over a sequence backwards"""
+		def __init__(self, data):
+			self.index = len(data)
+			self.data = data
+
+		def __iter__(self):
+			return self
+
+		def __next__(self):
+			if self.index == 0:
+				raise StopIteration
+
+			self.index -= 1
+			return self.data[self.index]
+
+
+### 生成器
+
+
+生成器用于快速简单地生成迭代器。它定义起来就像函数，不过在返回数据的地方不是用 `return` 而是用 `yield`。
+
+	def reverse(data):
+		for index in range(len(data) - 1, -1, -1):
+			yield data[index]
+
+	>>> for char in reverse('abcd'):
+	...		print(char)
+	...
+	d
+	c
+	b
+	a
+
+
+### 生成器表达式
+
+一些简单的生成器可以写成表达式的形式，它就像列表推导式，不过不同于前者被 `[]` 包围，它们直接被函数的括号包围。如果都适用的话，用生成器表达式很多时候比用列表推导式高效。
+
+	>>> data = 'abcd'
+	>>> list(data[i] for i in range(len(data) - 1, -1, -1))
+	['d', 'c', 'b', 'a']
+
+	>>> sum(i*i for in range(3))
+	5
+
+	>>> unique_words = set(word for line in file for word in line.split())
+
+	>>> top = max((student.gpa, student.name) for student in graduates)
+
+
+### 装饰器
+
+装饰器是用函数来改造函数，比较常用的装饰器是 `@classmethod` 和 `@staticmethod`。`classmethod()` 和 `staticmethod()` 是两个内置函数，`@wrapper` 的形式仅仅是语法糖而已，以下两个定义等价：
+
+	@staticmethod
+	def f():
+		pass
+
+	def f():
+		pass
+	f = staticmethod(f)
+
+
+- `staticmethod(function)` 函数
+
+	接受一个函数作为参数，返回一个静态方法。
+
+	定义静态方法的形式为：
+
+		class C:
+			@staticmethod
+			def f(arg1, arg2, ...):
+				...
+
+	可以在类或者类的实例之上调用静态方法，形如 `C.f()` 或者 `C().f()`，它不像实例方法那样，不会隐含传入第一个参数。
+
+	（静态方法跟实例无关，也跟类无关，就相当于外部函数。定义成方法是为了使相关代码的垂直距离更近，能够更好的组织和维护）
+
+
+- `classmethod(function)` 函数
+
+	接受一个函数作为参数，返回一个类方法。
+
+	定义类方法的形式为：
+
+		class C:
+			@classmethod
+			def f(cls, arg1, arg2, ...)
+				...
+
+	可以在类或者类的实例上调用类方法，形如 `C.f()` 或者 `C().f()`，跟实例方法将调用它的实例作为其第一个隐含参数一样，类方法将调用它的类（或者由实例中获得的类）隐含地作为它的第一个参数。如果是派生类在调用类方法，那么传入的隐含参数是这个派生类本身。
