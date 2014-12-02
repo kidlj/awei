@@ -132,8 +132,11 @@ title: Python Supplement
 
 	可以用 `dict()` 从元素为 "key, value" 结构的序列中方便地构建字典：
 
-		>>> dict([[1, 'one'], (2, 'two')])
+		>>> dict([[1, 'one'], [2, 'two']])
 		{1: 'one', 2: 'two'}
+
+		>>> dict(zip(['a', 'b'], [1, 2]))
+		{'a': 1, 'b', 2}
 
 	也可以用 keyword arguments 来构建字典：
 
@@ -151,61 +154,61 @@ title: Python Supplement
 
 ### 迭代技巧
 
-并行迭代：
+- 并行迭代：
 
-	>>> truth = {'Python 2': 'the good', 'Python 3', 'the best'}
-	>>> for k, v in truth.items():
-	...		print(k, v)
-	...
-	Python 2 the good
-	Python 3 the best
+		>>> truth = {'Python 2': 'the good', 'Python 3', 'the best'}
+		>>> for k, v in truth.items():
+		...		print(k, v)
+		...
+		Python 2 the good
+		Python 3 the best
 
-当迭代一个序列，可以用 `enumerate` 函数来一同获取位置索引：
+- 当迭代一个序列，可以用 `enumerate` 函数来一同获取位置索引：
 
-	>>> for i, v in enumerate(['a', 'b', 'c']):
-    ...		print(i, v)
-	...
-	0 a
-	1 b
-	2 c
+		>>> for i, v in enumerate(['a', 'b', 'c']):
+		...		print(i, v)
+		...
+		0 a
+		1 b
+		2 c
 
-当同时迭代两个或多个序列，可以用 `zip()` 函数将序列元素配对：
+- 当同时迭代两个或多个序列，可以用 `zip()` 函数将序列元素配对：
 
-	>>> questions = ['name', 'website', 'favorite color']
-	>>> answers = ['me', 'kidlj.com', 'cyan']'
-	>>> for q, a in zip(questions, answers):
-    ...		print("What is your {0}? It is {1}".format(q, a))
-	...
-	What is your name? It is me
-	What is your website? It is kidlj.com
-	What is your favorite color? It is cyan
+		>>> questions = ['name', 'website', 'favorite color']
+		>>> answers = ['me', 'kidlj.com', 'cyan']'
+		>>> for q, a in zip(questions, answers):
+		...		print("What is your {0}? It is {1}".format(q, a))
+		...
+		What is your name? It is me
+		What is your website? It is kidlj.com
+		What is your favorite color? It is cyan
 
-反向迭代：
+- 反向迭代：
 
-	>>> for i in reversed(range(3)):
-	...		print(i)
-	...
-	2
-	1
-	0
+		>>> for i in reversed(range(3)):
+		...		print(i)
+		...
+		2
+		1
+		0
 
-先排序再迭代, `sorted()`会返回一个新列表：
+- 先排序再迭代, `sorted()`会返回一个新列表：
 
-	>>> letters = ['a', 'c', 'd', 'b', 'g', 'e']
-	>>> for i in sorted(set(letters)):
-	...		print(i)
-	...
-	['a', 'c', 'd', 'b', 'g', 'e']
+		>>> letters = ['a', 'c', 'd', 'b', 'g', 'e']
+		>>> for i in sorted(set(letters)):
+		...		print(i)
+		...
+		['a', 'c', 'd', 'b', 'g', 'e']
 
-如果迭代过程中要改变迭代对象，那么应该先拷贝一份迭代对象：
+- 如果迭代过程中要改变迭代对象，那么应该先拷贝一份迭代对象：
 
-	>>> words = ['apple', 'banana', 'favoritefruit']
-	>>> for word in words[:]:
-	...		if len(word) > 6:
-	...			words.insert(0, word)
-	...
-	>>> words
-	['favoritefruit', 'apple', 'banana', 'favoritefruit']
+		>>> words = ['apple', 'banana', 'favoritefruit']
+		>>> for word in words[:]:
+		...		if len(word) > 6:
+		...			words.insert(0, word)
+		...
+		>>> words
+		['favoritefruit', 'apple', 'banana', 'favoritefruit']
 
 	
 ### 字符串格式化

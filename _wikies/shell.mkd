@@ -196,52 +196,52 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 虽然 Shell 变量始终被存储为字符串，但是可以用一些方法使它能像数字一样运算。
 
-### Let
+- `let`
 
-`let`命令可以直接执行基本的算术操作。
+	`let`命令可以直接执行基本的算术操作。
 
-例如：
-	
-	let result=$no1+$no2
-	echo $result
+	例如：
+		
+		let result=$no1+$no2
+		echo $result
 
-自加自减操作：
+	自加自减操作：
 
-	let no1++
-	let no2--
+		let no1++
+		let no2--
 
-简写形式：
+	简写形式：
 
-	let no+=6
-	let no*=4
+		let no+=6
+		let no*=4
 
-### $(( )) 和 expr
+- `$(( ))` 和 `expr`
 
-还可以用`$(( ))`和`expr`来进行算术运算。
+	还可以用`$(( ))`和`expr`来进行算术运算。
 
-例如：
+	例如：
 
-	result=$(($no1 + $no2))
-	result=`expr 3 + $no1`
+		result=$(($no1 + $no2))
+		result=`expr 3 + $no1`
 
-### 区别
+- 区别
 
-使用`let`和`$(( ))`，当期望一个数值时，非数值被当成0。而`expr`则会报错。
+	使用 `let` 和 `$(( ))`，当期望一个数值时，非数值被当成0。而 `expr` 则会报错。
 
-例如：
+	例如：
 
-	$ x=hello
-	$ y=2
+		$ x=hello
+		$ y=2
 
-	$ echo $(($x + $y))
-	2
+		$ echo $(($x + $y))
+		2
 
-	$ let z=$x+$y
-	$ echo $z
-	2
+		$ let z=$x+$y
+		$ echo $z
+		2
 
-	$ expr $x + $y
-	expr: non-integer argument
+		$ expr $x + $y
+		expr: non-integer argument
 
 注：以上这些方法只能用于整数运算，而不支持浮点数。
 

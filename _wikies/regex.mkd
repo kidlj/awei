@@ -8,10 +8,10 @@ title: 正则表达式
 
 正则表达式是用来匹配某些字符串的模式表达式。
 
-目前主要有三种正则表达式：
+目前主要有三种正则表达式(`man grep`)：
 
-*	Modern(Extended) Regular Expressions (ERE)
-*	Obsolete(Basic) Regular Expressions (BRE)
+*	Basic Regular Expressions (BRE)
+*	Extended Regular Expressions (ERE)
 *	Perl-Compatible Regular Expressions (PCRE)
 
 ### 元字符
@@ -20,7 +20,9 @@ title: 正则表达式
 解释，正则表达式元字符由各执行模式匹配操作的程序解释。两种元字符的意义不
 一样。
 
-### 基本元字符(BRE)
+
+基本元字符(BRE)
+===============
 
 所有UNIX模式匹配工具都适用。
 
@@ -32,20 +34,14 @@ title: 正则表达式
 + `[^ ]` 	Matches any single character not from the rest of the list;
 + `[x-y]` 	Matches any single character in the full range of characters  
 			between those two(Mind LC_COLLATE please);
-+ `\` 		Followed by one of these characters:`^ . [ $ ( ) | * - ? \`,  
++ `\` 		Followed by one of these characters: `^ $ . * [`,  
 			matching that character taken as an ordinary character.
 
 
-Grep
-=====
 
-Grep 支持三种正则表达式，可以用选项指定使用哪种正则引擎：
 
-	$ grep [-G]		# 默认为BRE
-	$ grep -E		# 启用ERE
-	$ grep -P		# 启用PCRE
-
-下面描述的是 ERE 中支持的元字符。
+扩展元字符(ERE)
+===============
 
 
 ### 边界
@@ -73,7 +69,7 @@ Word-constituent characters are letters, digits and `_`s.
 
 未经修饰的量词都是「贪婪」量词。修饰量词的特性见 PCRE。
 
-### Character Classes 
+### 字符组
 
 	[:alnum:]  
 	[:alpha:]
@@ -91,3 +87,39 @@ In a bracket expression,
 + To include a literal `-`, place it last.
 
 
+
+Perl 元字符(PCRE)
+=================
+
+参见 `man 3 pcresyntax`
+
+
+群魔乱舞
+========
+
+### GNU Grep
+
+GNU Grep 支持三种正则表达式，可以用选项指定使用哪种正则实现：
+
+	$ grep [-G]		# 默认为BRE
+	$ grep -E		# 启用ERE
+	$ grep -P		# 启用PCRE
+
+
+GNU Grep 中的 BRE 和 GRE 没有功能性上的差别，不过一些符号的使用需要注意(`man grep`)：
+
+> 如果使用的是 BRE，那么 `?, +, {, |, (, )` 将失去其特殊意义，这些功能应该使用 `\?, \+, \{, \|, \(, \)`来替代。
+
+
+
+### GNU Find
+
+GNU `find` 可以用 `-regextype type` 来指定正则表达式引擎，目前理解这些类型的正则表达式(`man find`)：
+
+	emacs(default), posix-awk, posix-basic, posix-egrep, posix-extended
+
+（WTF? 怎么又冒出那么多不同实现？尼玛都是 GNU 一家的就不能弄统一了？！）
+
+### Python
+
+Python 的内置模块 `re` 使用 PCRE。

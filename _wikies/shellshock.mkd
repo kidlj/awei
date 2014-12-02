@@ -53,4 +53,4 @@ Bash 有一项特性，可以用环境变量的形式定义函数，然后在一
 	CVE_2014_6271
 	bash: CVE_2014_6271: command not found
 
-reference: http://www.infoq.com/cn/news/2014/09/shellshock
+_reference: http://www.infoq.com/cn/news/2014/09/shellshock_
