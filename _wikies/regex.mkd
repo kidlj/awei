@@ -6,7 +6,7 @@ title: 正则表达式
 综述
 ====
 
-正则表达式是用来匹配某些字符串的模式表达式。
+正则表达式[1]是用来匹配某些字符串的模式表达式。
 
 目前主要有三种正则表达式(`man grep`)：
 
@@ -32,17 +32,18 @@ title: 正则表达式
 + `*` 		Matches a sequence of 0 or more matches of the preceding item;
 + `[ ]` 	Matches any single character from the list;
 + `[^ ]` 	Matches any single character not from the rest of the list;
-+ `[x-y]` 	Matches any single character in the full range of characters  
-			between those two(Mind LC_COLLATE please);
++ `[x-y]` 	Matches any single character in the full range of
+		    characters between those two
 + `\` 		Followed by one of these characters: `^ $ . * [`,  
-			matching that character taken as an ordinary character.
-
-
+		    matching that character taken as an ordinary character.
 
 
 扩展元字符(ERE)
 ===============
 
+### 连接
+
++ `|`		匹配两边的任意一项
 
 ### 边界
 
@@ -50,7 +51,7 @@ title: 正则表达式
 + `\>` 		Matches the null string at the end of a word;  
 + `\b`		Matches the null string at the edge of a word;
 + `\B` 		Matches the null string provided it's not at the edge  
-			of a word;
+		    of a word;
 + `\w`		Is synonym for `[_[:alnum:]]`;
 + `\W`		Is synonym for `[^_[:alnum:]]`;
 
@@ -65,9 +66,9 @@ Word-constituent characters are letters, digits and `_`s.
 + `{n,}`	The preceding item is matched `n` or more times;
 + `{,m}`	The preceding item is matched at most `m` times;
 + `{n, m}`	The preceding item is matched at least `n` times, but not  
-			more than `m` times.
+		    more than `m` times.
 
-未经修饰的量词都是「贪婪」量词。修饰量词的特性见 PCRE。
+未经修饰的量词都是「贪婪」量词。修饰量词的特性见 PCRE(`man 3 pcresyntax`)
 
 ### 字符组
 
@@ -78,7 +79,7 @@ Word-constituent characters are letters, digits and `_`s.
 
 ### Bracket Expressions
 
-Most meta-characters lose their special meaning inside bracket expressions.
+大多数元字符，在 `[]` 里使用时都将失去它的特殊意义，包括 `\` 在内。(`man 7 regex`)
 
 In a bracket expression,
 
@@ -108,7 +109,7 @@ GNU Grep 支持三种正则表达式，可以用选项指定使用哪种正则�
 
 GNU Grep 中的 BRE 和 GRE 没有功能性上的差别，不过一些符号的使用需要注意(`man grep`)：
 
-> 如果使用的是 BRE，那么 `?, +, {, |, (, )` 将失去其特殊意义，这些功能应该使用 `\?, \+, \{, \|, \(, \)`来替代。
+如果使用的是 BRE，那么 `?, +, {, |, (, )` 将失去其特殊意义，这些功能应该使用 `\?, \+, \{, \|, \(, \)`来替代。
 
 
 
@@ -120,6 +121,16 @@ GNU `find` 可以用 `-regextype type` 来指定正则表达式引擎，目前�
 
 （WTF? 怎么又冒出那么多不同实现？尼玛都是 GNU 一家的就不能弄统一了？！）
 
+### GNU Sed
+
+GNU Sed 使用和 Gnu Grep 完全一致的 BRE 元字符。可以通过指定 `-r` 选项来使用扩展元字符 ERE。
+
 ### Python
 
 Python 的内置模块 `re` 使用 PCRE。
+
+
+
+[1]: http://en.wikipedia.org/wiki/Regular_expression
+
+

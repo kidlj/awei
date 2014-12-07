@@ -198,7 +198,9 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 - `let`
 
-	`let`命令可以直接执行基本的算术操作。
+	`let` 命令可以直接执行基本的算术操作。  
+	`let` 命令里被赋值变量不能带 `$`。  
+	使用 `let` 时被赋值变量不需要初始化。关联数组也仅仅需要先声明。
 
 	例如：
 		
@@ -215,13 +217,14 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 		let no+=6
 		let no*=4
 
-- `$(( ))` 和 `expr`
+- 其它方法
 
-	还可以用`$(( ))`和`expr`来进行算术运算。
+	还可以用`$(( ))`，`$[ ]` 和`expr`来进行算术运算。
 
 	例如：
 
 		result=$(($no1 + $no2))
+		result=$[ $no1 + $no2 ] 	# I prefer this
 		result=`expr 3 + $no1`
 
 - 区别
@@ -319,6 +322,12 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 双引号中的单引号也被保留。
 
+比如 `sed` 的表达式经常用单引号扩起来，但当我们想在 `sed` 表达式里使用一些变量时，双引号就能派上用场了。
+
+	$ text=hello
+	$ echo hello world | sed "s/$text/HELLO/"
+	HELLO world
+
 ### 反斜线
 
 当需要在常规字符串中包含特殊字符，但它又会被 shell 解释的时候，我们可以在字符前加上反斜线。
@@ -334,20 +343,20 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 ### 数组的赋值
 
-* 用索引
+- 用索引
 
 		numberarray[0]=zero
 		numberarray[1]=one
 		numberarray[3]=three
 
-* 用括号
+- 用括号
 
 		students=( Dave Jennifer Michael Lucy Richard )
 		nonprint=( [0]=NUL [1]=SOH [2]=STX [4]=EOT )
 		stat=( `cat /proc/$$/stat` )
 		mp3s=( *.mp3 )
 
-* 用 read
+- 用 read
 
 		read -a arrayname
 		IFS=: read -a userdetails < /etc/passwd
