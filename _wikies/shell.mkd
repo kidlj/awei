@@ -255,14 +255,6 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 ### 重定向
 
-显示当前命令打开的文件：
-
-	$ ls -l /proc/self/fd/
-
-显示当前 Shell 打开的文件：
-
-	$ ls -l /proc/$$/fd
-
 分别将`stdout`和`stderr`重定向：
 
 	$ ls -l /home /nosuchfile 1> /tmp/stdout.txt 2> tmp/stderr.txt
@@ -276,23 +268,6 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 	$ ls -l /home /nosuchfile | tee output.txt | cat 
 
-将文件重定向到命令：
-
-	$ read message < /var/lib/portage/world
-
-### 自定义文件描述符
-
-使用`exec`创建用于写操作的文件描述符：
-
-	$ exec 3> /tmp/testing
-	$ echo hello >&3
-
-使用`exec`创建用于读操作的文件描述符：
-
-	$ exec 4< /tmp/testing
-	$ cat <&4
-
-注：连续对`&3`执行写操作会对文本进行追加，而不是覆盖，因而向文件描述符进行写操作更像是对打印机进行写操作；对文件描述符`&4`读取会消耗输入，这与对常规文件进行读取不同， Shell 会记录文件描述符的当前位置指针，再次读取`&4`只会输出指针后面的新增内容。（暂时也不知`exec`重定向有什么应用场景。）
 
 ### 管道
 
@@ -304,6 +279,20 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 	$ find / -print 2> /dev/null | grep hosts
 
+### 数据流输出
+
+输出重定向时，清楚地选择使用 `>` 还是 `>>`：
+
+- `find` 命令的输出只有一个数据流
+
+		$ find . -type f -name '*.sh' -exec cat {} \; > all_sh_files.txt
+
+-  循环的输出只有一个数据流
+
+		$ for i in {1..5}; do echo $i; done > /tmp/test.txt
+
+
+	
 
 正则表达式与引用
 ===============
@@ -442,6 +431,17 @@ Bash 3 新增的一个特性是`=~`操作符，但应使用`[[`：
 	then
 		echo "File $pkgname is a .deb package
 	fi
+
+
+### 检验返回值
+
+Shell 里的条件执行只能通过检查条件表达式的返回值来决定真假，如果条件表达式（也可以是某条 shell 命令）返回 0, 则为真，否则为假。
+
+跟其它编程语言不一样，shell 不可以通过检查表达式自身是否为空来决定真假。比如 Python 里，条件表达式可以是一个变量，如果该变量为空则表达式值为假，不为空则表达式值为真，这在 shell 里是行不通的。 Shell 总要执行条件表达式，然后检查其返回值。
+
+所以，在 Python 中，我们可以说 0 或者空就是假，非 0 非空就是真；在 shell 中不能这样说，只能说一个命令返回 0 就是真，返回非 0 就是假。
+
+值得一提的，`true` 命令和 `:` 都会简单地返回 0, 但是因为后者内置于 shell 中所以执行效率更高。
 
 
 IFS 与迭代器
