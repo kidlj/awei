@@ -26,41 +26,38 @@ title: 正则表达式
 
 所有UNIX模式匹配工具都适用。
 
-+ `^`      	Matches the null string at the beginning of a line;
-+ `$` 		Matches the null string at the end of a line;
-+ `.` 		Matches any single character;
-+ `*` 		Matches a sequence of 0 or more matches of the preceding item;
-+ `[ ]` 	Matches any single character from the list;
-+ `[^ ]` 	Matches any single character not from the rest of the list;
-+ `[x-y]` 	Matches any single character in the full range of
-		    characters between those two
-+ `\` 		Followed by one of these characters: `^ $ . * [`,  
-		    matching that character taken as an ordinary character.
++ `^`      	匹配行首的空字符;
++ `$` 		匹配行尾的空字符；
++ `.` 		匹配任意单个字符；
++ `*` 		匹配该符号前面的最小单位的正则表达式 0 或者尽可能多次；
++ `[ ]` 	匹配集合中的任意单个字符；
++ `[^ ]` 	匹配不在该集合中的任意单个字符；
++ `[x-y]` 	匹配该字符范围内的任意单个字符；
++ `\` 		用于转义以下字符： `^  $  .  *  [`。 
 
 
 扩展元字符(ERE)
 ===============
 
-### 连接
+### 交替
 
 + `|`		匹配两边的任意一项
 
-### 边界
+	- 该操作符有着最低优先级；
+	- 如果一个表达式包含另外一个表达式，那么长的那个被匹配。
 
-+ `\<`		Matches the null string at the beginning of a word;
-+ `\>` 		Matches the null string at the end of a word;  
-+ `\b`		Matches the null string at the edge of a word;
-+ `\B` 		Matches the null string provided it's not at the edge  
-		    of a word;
-+ `\w`		Is synonym for `[_[:alnum:]]`;
-+ `\W`		Is synonym for `[^_[:alnum:]]`;
+### 子表达式
 
-Word-constituent characters are letters, digits and `_`s.
++ `()`		用于组合成子表达式；其匹配内容将被捕获。
+
+### 引用
+
++ `\1`		引用之前用 `()` 捕获的匹配内容。
+
 
 ### 量词
 
 + `?` 		The preceding item is optional and matched at most once;
-+ `*`		The preceding item will be matched zero or more times;
 + `+` 		The preceding item wil be matched one or more times;
 + `{n}`		The preceding item is matched exactly `n` times;
 + `{n,}`	The preceding item is matched `n` or more times;
@@ -81,12 +78,39 @@ Word-constituent characters are letters, digits and `_`s.
 
 大多数元字符，在 `[]` 里使用时都将失去它的特殊意义，包括 `\` 在内。(`man 7 regex`)
 
+不这里有个特例，当正则表达式用双引号括起来，而方括号内又需要填入双引号时，只能使用转义，比如：
+
+	$ echo "ab\"cd" | grep "[\"]"
+
+
 In a bracket expression,
 
 + To include a literal `]`, place it first in the list.
 + To include a literal `^`, place it anywhere but first.
 + To include a literal `-`, place it last.
 
+
+
+GNU-Specific 元字符
+===================
+
+涉及到正则表达式的 GNU 工具普遍提供了 POSIX BRE 和 ERE 以外的一些元字符，多与单词匹配相关，列在下面；这些元字符都是借鉴于 Perl，更完整的支持见 PCRE。
+
+### 单词相关
+
++ `\<`		Matches the null string at the beginning of a word;
++ `\>` 		Matches the null string at the end of a word;  
++ `\b`		Matches the null string at the edge of a word;
++ `\B` 		Matches the null string provided it's not at the edge  
+		    of a word;
++ `\w`		Is synonym for `[_[:alnum:]]`;
++ `\W`		Is synonym for `[^_[:alnum:]]`;
++ `\s`		Matches any whitespace character, shorthand for `[[:space:]]`
++ `\S` 		Matches any character that is not whitespace
+
+Word-constituent characters are letters, digits and `_`s.
+
+值的一提的是，因为 `\b` 在 gawk 里先作它用，因此 gawk 里用 `\y` 代替 `\b`。
 
 
 Perl 元字符(PCRE)
@@ -123,7 +147,11 @@ GNU `find` 可以用 `-regextype type` 来指定正则表达式引擎，目前�
 
 ### GNU Sed
 
-GNU Sed 使用和 Gnu Grep 完全一致的 BRE 元字符。可以通过指定 `-r` 选项来使用扩展元字符 ERE。
+GNU Sed 使用和 GNU Grep 完全一致的 BRE 元字符。可以通过指定 `-r` 选项来使用扩展元字符 ERE。
+
+### GNU Awk
+
+GNU Awk 默认使用 ERE 元字符。
 
 ### Python
 
