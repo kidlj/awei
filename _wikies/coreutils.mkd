@@ -209,4 +209,27 @@ Tr
 
 
 
+Cut
+===
+
+字段默认界定符是 TAB。
+
+- 按字符切割
+
+		$ echo "hello" | cut -c1
+		h
+		$ echo "hello | cut -c2-3
+		el
+
+- 指定界定符和字段
+
+		$ echo 12345.678 | cut -d. -f2
+		678
+
+		# 如果某行不含界定符，则打印该行，除非同时指定 `-s` 选项
+		$ echo 12345 | cut -d. -f2
+		12345
+
+		$ echo 12345 | cut -s -d. -f2
+		(empty output)
 
