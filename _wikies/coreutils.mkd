@@ -233,3 +233,15 @@ Cut
 		$ echo 12345 | cut -s -d. -f2
 		(empty output)
 
+
+
+Echo
+====
+
+Echo 一个变量的时候，变量一定要加上双引号。比如以下两个结果是不同的：
+
+	$ var="  3"
+	$ echo $var
+	3
+	$ echo "$var"
+	  3
