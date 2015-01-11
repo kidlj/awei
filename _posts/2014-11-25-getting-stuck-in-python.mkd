@@ -1,6 +1,6 @@
 ---
 title: 入坑了
-cover: /images/covers/kill.jpg
+cover: /images/covers/code.png
 ---
 
 
@@ -134,4 +134,3 @@ cover: /images/covers/kill.jpg
 	resultMatrix = [[0 for col in range(3)] for row in range(3)]
 
 
-_按：封面图片为刘野作品《温柔地杀我》_
