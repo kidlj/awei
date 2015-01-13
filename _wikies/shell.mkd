@@ -356,7 +356,7 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 打印数组长度：
 
-	$ echo {#arrayname}
+	$ echo ${#arrayname[@]}
 
 ### 关联数组
 
