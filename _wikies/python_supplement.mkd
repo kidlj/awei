@@ -9,13 +9,13 @@ title: Python Supplement
 
 调用 `print` 函数时可以有不同数量的参数，我们也可以定义这样的函数：
 
-	def func(positional, keyword = parameter1, *args):
+	def func(positional, *args):
 
-定义函数时，`*args` 应作为最后一个参数。调用该函数，Python 会将该位置的所有参数打包为一个元组。
+_定义_函数时，`*args` 应作为最后一个参数。这样调用时该函数就能接收任意数量的参数。同时，Python 会将该位置的所有参数打包为一个列表 `args`。可以在函数定义内访问和更改这个列表。综合举例见下文。
 
 ### 从序列中解包参数
 
-跟上一技巧过程相反，我们可以从列表或元组中解包参数来供函数使用：
+跟上一技巧过程相反，在_调用_函数时，我们可以用 `*` 语法从列表或元组中解包参数来供函数使用：
 
 	>>> args = [3, 6]
 	>>> list(range(*args))
@@ -24,6 +24,24 @@ title: Python Supplement
 	>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 	>>> list(zip(*matrix))
 	[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+
+综合举例：
+
+	def func1(x, y, z): # 固定接收三个参数
+		print(x)
+		print(y)
+		print(z)
+
+	def func2(*args):	# 定义函数，打包参数(可接收任意数量参数)
+		args[0] = 'Hello'
+		args[1] = 'awesome'
+		func1(*args)	# 调用函数，解包参数(只能接收三个参数)
+
+	func2('Goodby', 'cruel', 'world!')
+	# will print
+	Hello	# 参数已被更改
+	awesome
+	world!
 
 
 ### Lambda
