@@ -155,7 +155,7 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 		>>> b.entry_set.filter(headline__contains='Lennon')
 		>>> b.entry_set.count()
 
-	可以通过在关系源模型里设置 `related_name` 来覆盖 `FＯ_set`:
+	可以通过在关系源模型里设置 `related_name` 来覆盖 `FOO_set`:
 
 		blog = ForeignKey(Blog, related_name='entries')
 
