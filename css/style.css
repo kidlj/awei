@@ -155,7 +155,7 @@ article {
     -o-transition: 0.4s;
     transition: 0.4s;
     display: block;
-    font-weight: bold; }
+    font-weight: normal; }
     .site-header .site-title:hover {
       color: #BA2636; }
       .site-header .site-title:hover .block {
