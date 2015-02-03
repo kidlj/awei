@@ -264,3 +264,31 @@ StackOverFlow 上也有一个回答里说到：
 > Your template should not be raising an exception as a normal course of action. If there's an error in the template, you fix it. Otherwise, anything that could potentially raise an exception should be handled in the model or the view. There's no tag like you mention for a reason.
 
 (http://stackoverflow.com/questions/8524077/catching-exceptions-in-django-templates)
+
+
+### Accessing method calls
+
+可以在 template 中调用 contex 中的对象定义的方法。比如，对处于 ForeignKey 关系中的对象，可以使用 QuerySets 自动提供的方法：
+
+(为避免 Jekyll 解释 Django 的 template tag，因此这里使用`[ ]` 替代 `{ }`)
+
+	[% for comment in task.comment_set.all %]
+		[[ comment ]]
+	[% endfor %]
+
+以及，
+
+	[[ task.comment_set.all.count ]]
+
+当然，也可以使用在 model 里自定义的方法：
+
+	class Task(models.Model):
+		def foo(self):
+			return "bar"
+
+在 template 里：
+
+	[[ task.foo ]]
+
+
+_注意_: 因为 Django 故意对 template 的逻辑处理能力做了限制，因此在 template 里使用的对象方法不能添加任何参数。数据应该在 view 里准备好，然后让 template 来呈现。
