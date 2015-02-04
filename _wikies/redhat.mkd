@@ -1,0 +1,13 @@
+---
+title: RedHat Enterprise Linux
+---
+
+
+Yum
+===
+
+### Development Tools
+
+	$ sudo yum group list
+	$ sudo yum group info "Development Tools"
+	$ sudo yum groupinstall "Development Tools"

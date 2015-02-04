@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+				<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+
+        <link rel="stylesheet" href="/css/webfonts.css">
+        <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/wagtail.css" type="text/css">
+        <link rel="shortcut icon" href="http://wagtail.io/static/wagtailsite/images/wagtail-favicon-32x32.ico">
+
+				<title>Wagtail CMS - {{ page.title }}</title>
+</head>
+
+        
+
+<body>
+        
+	<div id="nav-wrap">
+			<nav>
+					<a id="logo" href="/wagtail/">
+							<img src="/images/wagtail/navlogo2.png">
+					</a>
+					<ul class="menu">
+							<li class="blog"><a href="/wagtail/howto/">开发指南</a></li>
+							<li><a href="/wagtail/00tutorial/" >入门教程</a></li>
+							<li><a href="/wagtail/00design/" >设计原理</a></li>
+					</ul>
+			</nav>
+	</div>
+
+	<div id="container">
+
+		{{ content }}
+
+		<div id="footer">
+			<p><a href="http://wagtail.io" target="_blank">Wagtail</a> 
+			 	| <a href="http://wagtail.readthedocs.org" target="_blank">Documentation</a> | <a href="http://github.com/torchbox/wagtail/" target="blank">GitHub</a></p>
+				<p>Copyright © 2015 <a href="http://kidlj.com/" target="_blank">kidlj.com</a></p>
+		</div>
+
+	</div>
+
+</body>
+</html>

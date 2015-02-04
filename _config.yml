@@ -19,8 +19,17 @@ defaults:
       type: "wikies"
     values:
       layout: "wiki"
+  -
+    scope:
+      path: ""
+      type: "wagtail"
+    values:
+      layout: "howto"
 
 collections:
-  wikies:
-    output: true
-    permalink: /wiki/:name.html
+    wikies:
+      output: true
+      permalink: /wiki/:name.html
+    wagtail:
+      output: true
+      permalink: /wagtail/:path/
