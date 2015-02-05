@@ -55,6 +55,12 @@ sup {
 	-o-transition: 0.5s;
 	transition: 0.5s; }
 
+.mark-cyan {
+	border: 5px solid cyan;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+}
+
 .content {
 	position: relative;
 	background-color: #fff; }
