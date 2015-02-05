@@ -11,9 +11,11 @@ title: 开发指南
 
 		<ul class="post-listing">
 			{% for recipe in site.wagtail %}
-			<li>
-				<a href="{{ recipe.url }}">{{ recipe.title }}</a>
-			</li>
+				{% if recipe.path contains 'howto' %}
+					<li>
+						<a href="{{ recipe.url }}">{{ recipe.title }}</a>
+					</li>
+				{% endif %}
 			{% endfor %}
 		</ul>
 </article>
