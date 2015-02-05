@@ -11,3 +11,20 @@ Yum
 	$ sudo yum group list
 	$ sudo yum group info "Development Tools"
 	$ sudo yum groupinstall "Development Tools"
+
+
+
+SELinux
+=======
+
+查看状态：
+
+	$ sestatus
+
+### 关闭 SELinux
+
+在 `/etc/selinux/config` 里设置：
+
+	SELINUX=disabled
+
+重启系统生效。
