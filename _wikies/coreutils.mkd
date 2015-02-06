@@ -116,7 +116,7 @@ Find
 Xargs
 =====
 
-- 指定输出行数：
+- 指定输出列数：
 
 		$ cat data.txt | xargs -n 
 
@@ -245,3 +245,12 @@ Echo 一个变量的时候，变量一定要加上双引号。比如以下两个
 	3
 	$ echo "$var"
 	  3
+
+
+
+Tee
+===
+
+自己编译安装软件时，记录安装到文件系统的文件以便以后卸载删除：
+
+	$ sudo make install | tee make_install_manifest.txt
