@@ -121,3 +121,11 @@ Gentoo用`rc-update`很优雅地管理各个runlevel成员，`chkconfig`(man)可
 
 *注意*，Upstart中其实并没有runlevel的概念，原本在sysvinit中用于指定各个runlevel执行的`/etc/inittab`只剩下用来指定启动缺省runlevel。
 
+
+
+Kernel Modules Loading
+======================
+
+Systemd 内置 `systemd-modules-load.service` 来加载内核模块。大部分内核模块都可以根据情况自动加载，不需要做任何设置。如果想要静态设定要加载的模块，配置文件在 `/etc/modules-load.d/*.conf`。
+
+参见 `man 5 modules-load.d`。
