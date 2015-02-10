@@ -169,8 +169,7 @@ article {
     .site-header .site-title .block {
       display: inline-block;
       width: 33px;
-      height: 10px;
-      margin-top: 1px;
+      height: 9px;
       background-color: #ddd;
       margin-right: 3px;
       -webkit-transition: 0.4s;
