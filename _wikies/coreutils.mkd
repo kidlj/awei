@@ -30,33 +30,37 @@ Tar
 Find
 ====
 
-- 通配符扩展
 
-	`-name` 可以使用 shell 通配符扩展，不过要用括号括起来，以免被 shell 拦截解释。
+###  通配符扩展
 
-		$  find . -name '*.txt'
+`-name` 可以使用 shell 通配符扩展，不过要用括号括起来，以免被 shell 拦截解释。
 
-- 正则表达式
+	$  find . -name '*.txt'
 
-	Find 支持多种正则表达式实现，
+###  正则表达式
 
-		$ find . -regextype posix-extended -regex ".*[0-9]*.png"
+Find 支持多种正则表达式实现，
 
-	但是需要注意的，`find`里的正则表达式搜索的是路径名，而不是文件裸名。
+	$ find . -regextype posix-extended -regex ".*[0-9]*.png"
 
-- Or 条件操作
+但是需要注意的，`find`里的正则表达式搜索的是路径名，而不是文件裸名。
 
-	打印出 shell 文件和 python 文件：
+###  Or 条件操作
 
-		$ find . \( -name "*.sh" -o -name "*.py" \) -print
+打印出 shell 文件和 python 文件：
 
-- 否定参数
+	$ find . \( -name "*.sh" -o -name "*.py" \) -print
 
-	匹配不以 `.txt` 结尾的文件：
+###  否定参数
 
-		$ find . ! -name "*.txt" -print
+匹配不以 `.txt` 结尾的文件：
 
-- 基于目录深度的搜索
+	$ find . ! -name "*.txt" -print
+
+
+### 常用搜索
+
+1. 基于目录深度的搜索
 
 	仅仅搜索一级目录：
 
@@ -93,23 +97,51 @@ Find
 		$ find . -type f -name "*.py" ! -perm 644 -print
 		$ find . -type f -user root -print
 
-- 删除匹配的文件
 
-		$ find . -type f -name "*.swp"
+###  删除匹配的文件
 
-- 执行命令或操作
+	$ find . -type f -name "*.swp"
 
-	每个 `-exec` 只能跟一个命令（或脚本），必须以 `;` 作为结束，而且尽管可能会执行后面的命令多次，但整个 `find` 命令最终只输出一个数据流。
+###  执行命令或操作
 
-		$ find . -type f -user root -exec chown mellon {} \;
+每个 `-exec` 只能跟一个命令（或脚本），必须以 `;` 作为结束，而且尽管可能会执行后面的命令多次，但整个 `find` 命令最终只输出一个数据流。
 
-	如果把 `;` 换成 `+`，那么后面的命令只会执行一次，把所有匹配的文件追加作为它的运行参数。
+	$ find . -type f -user root -exec chown mellon {} \;
 
-		$ find . -type f -exec echo {} +
+如果把 `;` 换成 `+`，那么后面的命令只会执行一次，把所有匹配的文件追加作为它的运行参数。
 
-- 跳过特定的目录
+	$ find . -type f -exec echo {} +
 
-		$ find . \( -name ".git" -prune \) -o \( -type f -print \)
+###  跳过特定的目录
+
+	$ find . \( -name ".git" -prune \) -o \( -type f -print \)
+
+### 按权限搜索
+
+1. 严格权限匹配：`-perm mode`
+
+	列出权限严格匹配 mode 的文件。比如：
+
+		$ find . -perm 664
+
+	仅仅列出其模式为 664 的文件。
+
+- 最小权限匹配：`-perm -mode`
+
+	mode 中的权限位必须全部设置，不去关心是否有多余的权限位。
+
+		$ find . -perm -664
+
+	如果一个文件为 0777，也将被匹配。
+
+- 选择权限匹配：`-perm /mode`
+
+	mode 中的任何一个权限位被设置，则匹配之。比如：
+
+		$ find . -perm /222
+	
+	匹配所有可以被某人（不论是所有者，所属组成员或其他人）可写的文件。
+	
 
 
 
