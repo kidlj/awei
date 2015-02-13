@@ -30,11 +30,13 @@ hr {
 	height: 6px; }
 
 pre {
+	line-height: 1.2em;
 	padding: 5px 10px; 
 	overflow: auto;
 	margin: 20px 0; }
 code {
 	font-family: Consolas, Courier, "Source Code Pro", "Dejavu Sans Mono", monospace; }
+
 
 p {
 	margin: 1.62em 0 0 0; }
