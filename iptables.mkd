@@ -1,0 +1,5 @@
+---
+title: Iptables
+---
+
+`iptables -F` 并不会清除 chain policy。

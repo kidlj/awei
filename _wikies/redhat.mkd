@@ -28,3 +28,23 @@ SELinux
 	SELINUX=disabled
 
 重启系统生效。
+
+
+LAMP
+====
+
+	# yum install httpd
+	# service httpd start
+
+	# yum install mysql-server
+	# service mysqld start
+	# /usr/bin/mysql_secure_installation
+
+	# yum install php php-mysql
+
+	# chkconfig httpd on
+	# chkconfig mysqld on
+
+
+Zabbix
+======
