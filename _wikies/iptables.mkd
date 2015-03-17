@@ -2,4 +2,14 @@
 title: Iptables
 ---
 
-`iptables -F` 并不会清除 chain policy。
+`iptables -F` 并不会清除 chain policy。在用 SSH 远程操作 iptables 的时候，可以按以下流程从新配置 iptables：
+
+	# iptables -P INPUT ACCEPT
+	# iptables -F
+	# iptables -A INPUT -i lo -j ACCEPT
+	# iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+	# iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+	# iptables -P INPUT DROP
+	# iptables -P FORWARD DROP
+	# iptables -P OUTPUT ACCEPT
+	# iptables -L -v
