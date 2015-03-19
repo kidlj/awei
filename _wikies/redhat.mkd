@@ -55,3 +55,36 @@ Zabbix
 (via https://www.zabbix.com/documentation/2.0/manual/installation/install_from_packages)
 
 
+Python
+======
+
+### Prepare
+	
+	# yum groupinstall 'Development tools'
+	# yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+
+### Python
+
+	# cd /usr/local/src/python-3.3.5
+	# ./configure --prefix=/usr/local/python3.3.5
+	# make && make install
+
+### Pip
+
+	# wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+	# /usr/local/python3.3.5/bin/python3 ez_setup.py
+	# /usr/local/python3.3.5/bin/eazy_install pip
+
+### 注意
+
+可是在 CentOS 6 上这样安装来的 pip3 以及 pip2 都不能够成功安装 ansible。但其他一些比如 Jinja2, request 包又可以安装。
+
+### 可以使用的 pip
+
+使用 epel 来安装 pip：
+
+	# rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+	# yum install python-pip
+	# pip install ansible
+
+
