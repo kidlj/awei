@@ -50,3 +50,18 @@ Usage & Example:
 	UserParameter=<keyname[*]>, <command1 $1, command2 $2>
 
 其中 $1 为第一个参数，$2 为第二个参数。参数在定义 item 时提供。
+
+
+Web Monitoring
+==============
+
+Web 检查是由 zabbix-server 发出的，不需要 agent。
+
+Web scenarios 跟 item 一样，需要绑定在 host 之上，但这绝不是说这些检查(steps)是要在这些 hosts 上执行。
+
+那这样与 host 绑定有什么意义呢？一些讨论：https://www.zabbix.com/forum/showthread.php?p=65368
+
+从 2.2 以后，Zabbix 开始支持 Templated web monitoring。
+(http://blog.zabbix.com/zabbix-2-2-features-part-2-templated-web-monitoring/1971/)
+
+

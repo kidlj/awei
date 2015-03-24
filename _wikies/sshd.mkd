@@ -11,3 +11,10 @@ title: OpenSSH
 	Host github.com
 		IdentityFile ~/.ssh/github.pem
 
+### 添加公钥
+
+有一个方便的命令用于向远程机器上按照公钥，它自动将公钥内容追加在远程机器上的 `authorized_keys` 文件里，如果该文件不存在还可以自动创建。
+
+	$ sudo -u zabbix ssh-copy-id [-i <public_key>] root@192.168.56.4
+
+这样本地的 zabbix 用户就可以登录远程机器的 root 账户了。
