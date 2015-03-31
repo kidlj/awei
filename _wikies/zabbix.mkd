@@ -7,7 +7,7 @@ Custom scripts
 
 ### Items > Item types > External checks
 
-当一个 External Check 类型的 item 被应用到一个 host 时，Zabbix server 在 host 上运行该检查脚本，其标准输出作为 item value。
+External checks 由 zabbix server 运行，远端被监控机器不需要安装 zabbix agent。当一个 External Check 类型的 item 被应用到一个 host 时，该 host 的信息可以用 `{HOST.CONN}` 作为参数传递给检查脚本，其标准输出作为 item value。
 
 会使用 Zabbix 的运行用户来执行脚本，脚本的位置在服务器端配置文件里用 `ExternalScripts` 参数指定。
 
