@@ -27,9 +27,9 @@ defaults:
     layout: "howto"
 
 collections:
-- wikies:
+  wikies:
     output: true
     permalink: /wiki/:name.html
-- wagtail:
+  wagtail:
     output: true
     permalink: /wagtail/:path/
