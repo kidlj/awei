@@ -2,6 +2,8 @@
 title: Iptables
 ---
 
+### Fresh new installation
+
 `iptables -F` 并不会清除 chain policy。在用 SSH 远程操作 iptables 的时候，可以按以下流程从新配置 iptables：
 
 	# iptables -P INPUT ACCEPT
@@ -13,3 +15,8 @@ title: Iptables
 	# iptables -P FORWARD DROP
 	# iptables -P OUTPUT ACCEPT
 	# iptables -L -v
+
+### 删除一个规则
+
+	# iptables -vn -L --line-numbers
+	# iptables -D INPUT <rule-line-number>
