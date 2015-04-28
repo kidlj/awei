@@ -181,6 +181,11 @@ Shell 变量没有“类型”的概念，如果一定要说类型，那么任�
 	PATH is /sbin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin
 	HOSTNAME is collie
 
+也可以对间接变量赋值：
+
+	$ abc=xyz
+	$ eval ${!abc}=test
+
 到底是什么意思就自己想吧 :-) 
 
 
