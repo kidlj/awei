@@ -47,7 +47,7 @@ Parameterization
 	  vars: 
 		http_port: 80
 		max_clients: 200
-	  remote_user:ｒｏｏｔ
+	  remote_user: root
 	  tasks:
 		- name: ensure apache is at the latest version
 		  yum: pkg=httpd state=latest
@@ -86,7 +86,7 @@ Parameterization
 	tasks:
   	  - { include: wordpress.yml, wp_user: kidlj, ssh_keys: ['keys/one.txt', 'keys/two.txt'] }
 
-而后在 included files 里可以用 `{{ wp_user }}` 这种形式使用变量。
+而后在 included files 里可以用 `\{\{ wp_user \}\}` 这种形式使用变量。
 
 从 1.0 开始，还有另外一种传递变量的形式：
 
