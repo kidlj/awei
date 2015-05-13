@@ -12,6 +12,12 @@ Yum
 	$ sudo yum group info "Development Tools"
 	$ sudo yum groupinstall "Development Tools"
 
+### RPM
+
+查看一个包安装了哪些文件：
+
+	$ rpm -q -l logrotate
+
 
 
 SELinux
