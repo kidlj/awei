@@ -77,18 +77,62 @@ Python 3
 
 ### Pip
 
-	# wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
-	# /usr/local/python3.3.5/bin/python3 ez_setup.py
-	# /usr/local/python3.3.5/bin/eazy_install pip
+Python 3 自带 pip。
 
 
 
 Ansible
 =======
 
-Ansible 似乎只支持 Python 2?
+Ansible 似乎只支持 Python 2? 是的。
 
 	# wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
 	# python ez_setup.py
 	# easy_install pip
 	# pip install ansible
+
+
+Cron
+====
+
+CentOS 6 里有两个 cron 程序，一个是 cronie, 它提供 `/etc/init.d/crond`, `/etc/crontab` 和 `/etc/cron.d/0hourly` 等文件和功能；另一个是 cronie-anacron，它提供 `/etc/anacrontab` 和 `/etc/cron.hourly/0anacron 等文件。 
+
+先来说说两者的关系， cronie 是主要的 cron 程序，它默认开机启动；而 cronie-anacron 没有系统启动项，它是 cronie 的补充，被 cronie 所调用。cronie 用来设定在固定时间执行任务，而如果该执行任务时系统是关机的状态，那么就得用 anacron 来捕获这个任务并在开机后补充执行。
+
+默认地，`/etc/crontab` 里没有定义任何任务；不过在 `/etc/cron.d/0hourly` 文件里定义了一条任务：
+
+	01 * * * * root run-parts /etc/cron.hourly
+
+也就是说 cronie 会在每个小时的第一分钟执行一次 `/etc/cron.hourly/` 目录下定义的任务。
+
+我们来看看 `/etc/cron.hourly` 目录下定义了什么：只有 cronie-anacron 程序包安装进来的 `/etc/cron.hourly/0anacron` 文件。这个脚本里有一行指令 `/usr/sbin/anacron -s `，它读取 `/etc/anacrontab` 里的配置：
+
+	...
+	START_HOURS_RANGE=3-22
+
+	#period in days   delay in minutes   job-identifier   command
+	1       5       cron.daily              nice run-parts /etc/cron.daily
+	7       25      cron.weekly             nice run-parts /etc/cron.weekly
+	@monthly 45     cron.monthly            nice run-parts /etc/cron.monthly
+
+配置里定义了几个任务，比如 cron.daily，每个任务的第一个字段是时间段，anacron 会将上一次执行该任务的时间记录在 `/var/spool/anacron/cron.daily` 文件里，如果当前 anacron 的执行时间(被 cronie 调用）与配置里上次某个任务的执行时间相差大于该任务定义的时间段，这个任务就会再次执行，允许执行的时间区间是 3 点 到 22 点。
+
+因此我们发现，CentOS 的策略不是在 `/etc/crontab` 里定义严格的按照时间执行任务，而是交给更加灵活的 anacron 来判断执行时机。这样称 anacron 是 cronie 的补充的说法就一目了然了。
+
+
+### Logrotate
+
+Logrotate 会安装一个脚本放在 `/etc/cron.daily` 目录里，用于每日滚动日志。
+
+下面是一个滚动 squid 日志的用例：
+
+	# vi /etc/logrotate.d/squid
+	
+	/usr/local/squid/var/logs/*.log {
+		missingok
+		notifempty
+		rotate 5
+		daily
+		nocompress
+		create 0640 squid squid
+	}
