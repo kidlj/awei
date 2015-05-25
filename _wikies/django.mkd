@@ -15,12 +15,14 @@ Models
 	class Blog(modes.Model):
 		name = models.CharField(max_length=100)
 		tagline = models.TextField()
+
 		def __str__(self):
 			return self.name
 	
 	class Author(models.Model):
 		name = models.CharField(max_length=50)
 		email = models.EmailField()
+
 		def __str__(self):
 			return self.name
 
@@ -29,7 +31,7 @@ Models
 		headline = models.CharField(max_length=255)
 		body_text = models.TextField()
 		pub_date = models.DateField()
-		mod_date models.DateField()
+		mod_date = models.DateField()
 		authors = models.ManyToManyField(Author)
 		n_comments = models.IntegerField()
 		n_pingbacks = models.IntegerField()
@@ -70,13 +72,13 @@ Class 中的 Field 对应的是数据库表中的「字段」;
 
 从数据库获取对象，要通过模型提供的 Manager 来构建 QuerySet.
 
-一个 QuerySet 代表数据库中的一个对象(记录)列表。可以在 QuerySet 之上使用一个或多个 filters。用 SQL 术语来说，QeurySet 相当于 `SELECT` 语句，filter 则相当于 `WHERE` 或者 `LIMIT`。
+一个 QuerySet 代表数据库中的一组对象(记录)集合。可以在 QuerySet 之上使用一个或多个 filters。用 SQL 术语来说，QeurySet 相当于 `SELECT` 语句，filter 则相当于 `WHERE` 或者 `LIMIT`。
 
 通过模型提供的 Manager 来构建 QuerySet。每个模型都有至少一个 Manager，默认的一个叫做 objects。以下可以获取数据表中的所有实例：
 
 	>>> Entry.objects.all()
 
-为了反映获取 QuerySet 是一个数据表级别而不是字段级别的操作这个事实，Manager 只能用类来访问，不能使用类实例。
+为了反映获取 QuerySet 是一个数据表级别而不是记录级别的操作这个事实，Manager 只能用类来访问，不能使用类实例。
 
 	>>> Blog.objects	# good
 	>>> b = Blog(name='Foo', tagline='Bar')
@@ -199,7 +201,7 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 
 示例代码：
 
-	from django.db import modes
+	from django.db import models
 
 	class Entry(models.Model):
 		objects = models.Manager()	# Default Manager
