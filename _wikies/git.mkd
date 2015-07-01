@@ -9,9 +9,9 @@ Git 基础
 
 ### 配置 Git
 
-	$ git config --system user.name		# `/etc/gitconfig'
-	$ git config --global user.name		# `~/.gitconfig'
-	$ git config user.name				# `.git/config'
+	$ git config --system user.name	'Jian Li'	# `/etc/gitconfig'
+	$ git config --global user.name	'Jian Li'	# `~/.gitconfig'
+	$ git config user.name 'Jian Li'		# `.git/config'
 
 
 ### Git diff
