@@ -67,7 +67,8 @@ Python 3
 ### Prepare
 	
 	# yum groupinstall 'Development tools'
-	# yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+	# yum group install 'Development tools' ### CentOS 7
+	# yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel
 
 ### Python
 
@@ -136,3 +137,9 @@ Logrotate 会安装一个脚本放在 `/etc/cron.daily` 目录里，用于每日
 		nocompress
 		create 0640 squid squid
 	}
+
+### Iptables
+
+	### CentOS 7
+	# systemctl stop firewalld
+	# systemctl disable firewalld
