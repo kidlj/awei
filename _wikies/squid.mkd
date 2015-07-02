@@ -1,0 +1,50 @@
+---
+title: Squid
+---
+
+Access Control
+==============
+
+Squid 的 access control 机制包括 ACL elements 和 Access lists 两个部分。
+
+### ACL elements
+
+格式如下：
+
+	acl aclname acltype value1 [OR] value2
+
+(OR 表示暗含的逻辑，不是语法的一部分）
+
+比如：
+
+	acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
+	acl localnet src 172.16.0.0/12  # RFC1918 possible internal network
+	acl localnet src 192.168.0.0/16 # RFC1918 possible internal network
+
+不同类型的 acl elements 不可取同一个 aclname。
+可以为同一个 aclname 分多行指定 value，这些多行的 value 将被组合成一个 list（OR 逻辑）。
+
+### Access Lists
+
+一个 access list *rule* 包含一个 allow 或 deny 关键字，后跟一个或多个 acl element 名字。
+一个 access list 包含一个或多个 access list rules，分布在多行。
+
+这些 rules 会按照书写的顺序排队检查，如果一旦找到一个匹配，那么检查将终止。
+
+如果一个 rule 有多个 acl elements，那么这些 acl elements 按照 AND 逻辑组合起来。
+
+总体来说，access list 的处理逻辑如下：
+
+	http_access allow|deny acl AND acl AND ...
+        OR
+	http_access allow|deny acl AND acl AND ...
+        OR
+	...	
+
+如果检查下来没有任何一项 rule 匹配，那么采取的默认动作是书写的最后一条 rule 的相反动作。因此最好写一条包含 `all` element 的 rule 来兜底。
+
+	http_access deny all
+
+其中 `all` 为 squid 预定义的一条 element：
+
+	acl all src all
