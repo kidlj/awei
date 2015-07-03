@@ -55,7 +55,7 @@ Squid 的 access control 机制包括 ACL elements 和 Access lists 两个部分
 Logs
 ====
 
-Log format: http://wiki.squid-cache.org/Features/LogFormat
+Log format: http://wiki.squid-cache.org/Features/LogFormat  
 Log analyzer: http://wiki.squid-cache.org/SquidFaq/SquidLogs
 
 
@@ -91,6 +91,6 @@ percent: 如果请求的对象在 cache 中停留的时间正好处在这两个�
 2. 如果 response_age < min 则 fresh；如果response_age > max 则 stale
 3. 如果response_age在之间，如果response_age < 存活时间，fresh，否则stale
 
-via: 
-http://www.squid-cache.org/Versions/v3/3.4/cfgman/refresh_pattern.html
+via:   
+http://www.squid-cache.org/Versions/v3/3.4/cfgman/refresh_pattern.html  
 http://blog.csdn.net/phphot/article/details/2714500
