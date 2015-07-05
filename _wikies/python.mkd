@@ -34,6 +34,10 @@ virtualenv
 	# add this line to .gitignore
 	env/
 
+### Python 3
+
+Python 3.4 自带 virtualvenv，叫做 pyvenv，而且它会在虚拟环境里安装好 pip。
+
 
 Pip
 ====
