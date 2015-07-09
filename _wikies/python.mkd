@@ -52,3 +52,15 @@ Pip
 	$ pip show --files SomePackage
 
 
+Module search path
+==================
+
+当 import 一个模块的时候，解释器首先寻找 builtin-in 模块，如果没有找到，再查看 `sys.path` 里的一系列目录。`sys.path` 的初始化过程如下：
+
+- 当前输入脚本的目录（如果没有输入，则缺省为当前工作目录）
+- `PYTHONPATH` 环境变量里设定的一系列目录
+- The installtion-depedent default
+
+初始化以后，Python 程序可以改变 `sys.path`，当前执行脚本的目录被放置在搜寻路径的最开始，在标准库路径的前面。
+
+(via Python 3 tutorial 6.1.2 The Module Search Path)
