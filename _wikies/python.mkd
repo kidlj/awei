@@ -64,3 +64,20 @@ Module search path
 初始化以后，Python 程序可以改变 `sys.path`，当前执行脚本的目录被放置在搜寻路径的最开始，在标准库路径的前面。
 
 (via Python 3 tutorial 6.1.2 The Module Search Path)
+
+
+Python 3 vs Python 2
+====================
+
+总结 Python 2 和 Python 3 的区别。
+
+### 字典迭代
+
+- Python 2:
+
+	字典有两个方法用于迭代，一个是 `items()`，一个是 `iteritems()`，前者返回一个元组的列表，后者返回一个迭代器。
+
+- Python 3:
+
+	字典迭代只有 `items()` 方法可用。它为快速迭代作了优化。
+
