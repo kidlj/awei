@@ -166,17 +166,17 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 		>>> b = Blog.objects.get(id=1)
 		>>> b.entries.all()
 
-除了以上使用的 QuerySet 方法外，ForeignKey Manager 还定义了更多方法：
+	除了以上使用的 QuerySet 方法外，ForeignKey Manager 还定义了更多方法：
 
-*  `add(obj1, obj2, ...)`
-*  `create(**kwargs)`
-*  `remove(obj1, obj2, ...)`
-*  `clear()`
+	*  `add(obj1, obj2, ...)`
+	*  `create(**kwargs)`
+	*  `remove(obj1, obj2, ...)`
+	*  `clear()`
 
-还可以这样使用：
+	还可以这样使用：
 
-	>>> b = Blog.objects.get(id=1)
-	>>> b.entry_set = [e1, e2] 		# e1, e2 是 Entry 实例，须先创建
+		>>> b = Blog.objects.get(id=1)
+		>>> b.entry_set = [e1, e2] 		# e1, e2 是 Entry 实例，须先创建
 
 
 ### ManyToManyField Related Objects
