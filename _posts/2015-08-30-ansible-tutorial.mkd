@@ -1,13 +1,9 @@
 ---
-title: Ansible Tutorial
+title: Ansible 教程
 ---
 
-Ansible 简介
-============
 
-Ansible 是一套 IT 自动化工具，用于批量配置系统，安装或升级软件，以及完成其他更多更高级的 IT 部署需求。
-
-目前还有其他几款普遍用于生产的 IT 自动化工具，比如 Fabric，Chef，Puppet，SaltStatck；而 Ansible 能区别于这些工具的最大特性便是一点——简单。这要从两点说起，一是依赖简单，二是使用简单。
+Ansible 是一套自动化 IT 部署工具，用于批量配置系统，安装或升级软件，以及完成其他更多更高级的 IT 部署需求。目前还有其他几款普遍用于生产的 IT 自动化工具，比如 Fabric，Chef，Puppet，SaltStatck；而 Ansible 能区别于这些工具的最大特性便是一点——简单。这要从两点说起，一是依赖简单，二是使用简单。
 
 先说依赖，Ansible 被设计成只需要极少的依赖便能够执行任务。Ansible 不需要远程服务器上安装任何的 Agent 便能在其上执行部署操作，它使用OpenSSH传输指令，用Python执行指令，而几乎所有服务器开箱即具备 OpenSSH和 Python。因此，不论你有多少服务器，不需要事先在这些服务器上进行任何改动，只需要有一台安装了 Ansible 工具的主机，便能够由此向其它服务器执行自动化部署任务。
 
