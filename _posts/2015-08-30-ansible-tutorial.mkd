@@ -1,5 +1,6 @@
 ---
 title: Ansible 教程
+cover: /images/covers/ansible.png
 ---
 
 
