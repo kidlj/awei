@@ -18,7 +18,7 @@ Ansible 安装
 
 在CentOS 6上，可以通过EPEL安装Ansible。
 
-        $ sudo yum install epel-release
+    $ sudo yum install epel-release
     $ sudo yum install ansible
 
 受控机器不需要做任何改动，只要保证安装有 Python，并且 OpenSSH 服务是开启的。一个例外是，如果受控机器开启了 SELinux，那么一些文件相关的操作（比如复制文件）需要在受控机器上先安装 libselinux-python（当然这也可以使用 Ansible 的 yum 模块来安装）。
@@ -60,37 +60,37 @@ module 指定要执行的模块，比如安装软件包的 yum 模块或者 apt 
 
 1. 让所有主机返回“hello”
 
-    $ ansible all -m command -a "echo hello"
+		$ ansible all -m command -a "echo hello"
 
-这里使用的是 command 模块，用来返回一个“hello”。如果不指定模块，就默认使用 command 模块，所以这里的 `-m command` 可以省略。
+	这里使用的是 command 模块，用来返回一个“hello”。如果不指定模块，就默认使用 command 模块，所以这里的 `-m command` 可以省略。
 
 2. 传输文件
 
-    $ ansible webserver -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+		$ ansible webserver -m copy -a "src=/etc/hosts dest=/tmp/hosts"
 
-这里使用 copy 模块，向 webserver 组里的所有主机传输 /etc/hosts 文件至 /tmp/hosts (scp)。
+	这里使用 copy 模块，向 webserver 组里的所有主机传输 /etc/hosts 文件至 /tmp/hosts (scp)。
 
 3. 安装软件
 
-    $ ansible db -m yum -a "name=mongodb state=present"
+		$ ansible db -m yum -a "name=mongodb state=present"
 
-这里使用 yum 模在 db 组里的所有主机上安装 mongodb。
+	这里使用 yum 模在 db 组里的所有主机上安装 mongodb。
 
-不同的模块有着各自不同的参数，具体的可以在使用时参考 Ansible 的模块文档。
+	不同的模块有着各自不同的参数，具体的可以在使用时参考 Ansible 的模块文档。
 
 4. 指定登录用户
 
-Ansible 使用 OpenSSH 和远程机器沟通。默认的认证方式是公钥/密钥对，当然也可以使用密码登录。
+	Ansible 使用 OpenSSH 和远程机器沟通。默认的认证方式是公钥/密钥对，当然也可以使用密码登录。
 
-在命令行用 -u <username> 指定登录（和执行任务的）用户名，并要求交互地输入登录密码，如下：
+	在命令行用 -u <username> 指定登录（和执行任务的）用户名，并要求交互地输入登录密码，如下：
 
-    $ ansible webserver -a 'echo hello' -u lijian --ask-pass
+		$ ansible webserver -a 'echo hello' -u lijian --ask-pass
 
 5. 使用 sudo 执行任务
 
-使用普通用户登录，而后用 sudo 来执行任务：
+	使用普通用户登录，而后用 sudo 来执行任务：
 
-    $ ansible db -a yum -u lijian --ask-pass --sudo --ask-sudo-pass
+		$ ansible db -a yum -u lijian --ask-pass --sudo --ask-sudo-pass
 
 
 Ansible Playbook
@@ -118,8 +118,8 @@ Playbook的意思是“剧本”，顾名思义，Ansible 据此来“表演”�
 
 首先要说明，Playbook 的书写语法是一种叫做 YAML 的格式，它非常简单，Ansible用到的部分只需两句就能表述清楚：
 
-    * 同一级别缩进的 `- ` 形式表示一个列表的项
-    * 同一级别缩进的 `key: value` 形式表示一个字典的项
+* 同一级别缩进的 `- ` 形式表示一个列表的项
+* 同一级别缩进的 `key: value` 形式表示一个字典的项
 
 另外，再加上一个通用的约定，每个 YAML 文件都以 `---` 开始第一行。
 
@@ -131,10 +131,10 @@ Playbook的意思是“剧本”，顾名思义，Ansible 据此来“表演”�
 
 这就是最基本的 Playbook 的写法了。总结一下，一个 Playbook 由一个或多个 play 组成，而一个 play 包括以下元素：
 
-    * hosts，指定面向的机器
-    * remote_user，指定执行任务的用户
-    * tasks，一个 task 列表
-    * handlers，一个 handler 列表
+* hosts，指定面向的机器
+* remote_user，指定执行任务的用户
+* tasks，一个 task 列表
+* handlers，一个 handler 列表
 
 接下来就可以执行这个 Playbook，方式很简单：
 
@@ -142,20 +142,20 @@ Playbook的意思是“剧本”，顾名思义，Ansible 据此来“表演”�
 
 如果过程中需要使用变成另一个用户（比如 root 或 postgre）来执行任务，那么可以在 play 里指明：
 
-    --- 
-    - hosts: webservers 
-      remote_user: yourname   
+	--- 
+	- hosts: webservers 
+	  remote_user: yourname   
 	  become: yes   
 	  become_user: postgres 
 	  become_method: sudo
 
 或者在 task 级别指明：
 
---- 
-- hosts: webservers   
-  remote_user: yourname   
-  tasks:     
-    - service: name=nginx state=started       
-	  become: yes       
-	  become_user: root
-	  become_method: su
+	--- 
+	- hosts: webservers   
+	  remote_user: yourname   
+	  tasks:     
+		- service: name=nginx state=started       
+		  become: yes       
+		  become_user: root
+		  become_method: su
