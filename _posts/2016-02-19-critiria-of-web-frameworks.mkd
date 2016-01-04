@@ -2,4 +2,4 @@
 title: Web 框架的评判
 ---
 
-评断一个 Web 框架是否好用不能仅仅看它提供了哪些工具，更要看它是怎样将这些工具组合在一起，就像观察一个理发师，他是将一堆工具零散地堆在桌上还是规整地放在一套工具包里。以这个评判标准来看，我认为 Tornado 比 Flask 和 Django 都要优秀，它仅仅用 `tornado.web.RequestHandler` 和 `tornado.web.Application` 两个类就将一系列 Web 开发流程和工具组织了起来，让人编写 Web 应用时有章可循又得心应手，这就实现了 Web 框架的最大功能了。
+评断一个 Web 框架是否好用不能仅仅看它提供了哪些工具，更要看它是怎样将这些工具组合在一起，就像观察一个理发师，他是将一堆工具零散地堆在桌上还是规整地放在一套工具包里。以这个评判标准来看，我认为 Tornado 比 Flask 和 Django 都要优秀，它仅仅用 tornado.web.RequestHandler 和 tornado.web.Application 两个类就将一系列 Web 开发流程和工具组织了起来，让人编写 Web 应用时有章可循又得心应手，这就实现了 Web 框架的最大功能了。
