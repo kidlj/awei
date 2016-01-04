@@ -208,10 +208,10 @@ article {
 	background-color: #FDF6E3; }
 .function .top {
 	float: right; }
-.function .tweet {
+.function .feedback{
 	margin-right: 10px;
 	display: inline-block; }
-	.function .tweet .fa-twitter {
+	.function .feedback .fa-envelope {
 		color: #00A5FF; }
 .function .history {
 	display: inline-block; }
