@@ -211,7 +211,7 @@ article {
 .function .feedback{
 	margin-right: 10px;
 	display: inline-block; }
-	.function .feedback .fa-envelope {
+	.function .feedback .fa-envelope-square {
 		color: #00A5FF; }
 .function .history {
 	display: inline-block; }
