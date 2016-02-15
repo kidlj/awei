@@ -71,6 +71,7 @@ sup {
 	position: relative;
 	background-color: #fff; }
 
+/*
 .content:before, .content:after {
 	position:absolute;
 	content:"";
@@ -87,6 +88,7 @@ sup {
 	left: auto;
 	-webkit-transform: rotate(3deg);
 	transform: rotate(3deg); }
+*/
 
 article {
 	padding: 70px 60px 70px;
@@ -219,7 +221,7 @@ article {
 	text-align: center; }
 	.paginator .pagenum {
 		display: inline-block;
-		padding: 0 30px; }
+		padding: 0 60px; }
 	.paginator .pagenum a, .paginator .pagenum span {
 		padding: 0 2px;
 		margin: 2px; }
@@ -273,9 +275,9 @@ ul.post-listing .datetime {
     font-size: 13px;
     display: block;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
     background-color: #fff;
-    padding: 30px;
+    padding: 20px 60px;
     border: 1px solid transparent;
     overflow: hidden;
     position: relative;
@@ -302,12 +304,12 @@ ul.post-listing .datetime {
       height: 100%;
       opacity: .6; }
     .posts .post-link .post-title {
-      font-size: 1.5em;
+      font-size: 1.4em;
       font-weight: 500;
       margin: 0 0 5px; }
     .posts .post-link .meta {
       text-transform: uppercase;
-      color: #8f8f8f;
+      color: #C7C7C7;
       font-size: smaller; }
     .posts .post-link .excerpt {
       color: #666;
