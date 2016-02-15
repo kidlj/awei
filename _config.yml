@@ -1,5 +1,5 @@
 url: http://kidlj.com
-permalink: /blog/:year-:month-:day-:title.html
+permalink: /t/:year-:month-:day-:title.html
 gems: [jekyll-paginate]
 paginate: 10 
 paginate_path: "page:num"
