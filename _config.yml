@@ -1,10 +1,11 @@
 url: http://kidlj.com
-markdown: rdiscount
 permalink: /blog/:year-:month-:day-:title.html
-paginate: 10
-paginate_path: "blog/page:num"
+gems: [jekyll-paginate]
+paginate: 10 
+paginate_path: "page:num"
 domain: kidlj.com
 commits: https://github.com/kidlj/kidlj.github.io/commits/master/
+
 
 defaults:
 
