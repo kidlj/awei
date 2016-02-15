@@ -1,6 +1,5 @@
 ---
 title: 入坑记
-cover: /images/covers/code.png
 ---
 
 
