@@ -4,23 +4,22 @@ title: Thoughts
 ---
 
 
-<ul class="posts">
-  <li class="gap">
-	  gap
-  </li>
+<div class="main">
+<ul class="thoughts">
   {% for post in paginator.posts %}
-  <li class="post">
-    <a href="{{ post.url }}" class="post-link">
-      <div class="mark"></div>
-      <h2 class="post-title">
-        {{ post.title }}<br />
-      </h2>
-      <span class="meta"><time data-time="{{ post.date }}" title="{{ post.date }}">{{ post.date | date_to_string }}</time></span>
-      <p class="excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
-    </a>
+  <li class="thought-item">
+      <div class="bd">
+		  <blockquote>{{ post.content }}</blockquote>
+		  <div class="actions"> 
+			  <span class="created_at">
+				  <a href="{{ post.url }}"><time data-time="{{ post.date }}" title="{{ post.date }}">{{ post.date | date_to_string }}</time></a>
+			  </span>
+		  </div>
+	  </div>
   </li>
   {% endfor %}
 </ul>
+</div>
 
 {% include paginator.html %}
 
