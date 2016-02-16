@@ -308,6 +308,7 @@ ul.post-listing .datetime {
 	}
 
 	.thoughts .thought-item .bd .actions .created_at a {
+		text-transform: uppercase;
 		color: #999;
 	}
 
