@@ -2,4 +2,4 @@
 title: 学习 UNIX
 ---
 
-@codinghorror: If I could go back in time and tell the younger me exactly one and only one thing, it would be "learn UNIX".  -- Jeff Atwood, cofounder of StackOVerflow
+If I could go back in time and tell the younger me exactly one and only one thing, it would be "learn UNIX".  -- Jeff Atwood, cofounder of StackOverflow
