@@ -18,3 +18,7 @@ rolekit 会自动启动 firewalld，所以需要同时关闭 rolekit 和 firewal
 
 	# systemctl disable rolekit.service
 	# systemctl disable firewalld.service
+
+### VMware Tools
+
+	# dnf install open-vm-tools
