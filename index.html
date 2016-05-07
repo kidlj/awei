@@ -16,6 +16,9 @@ title: Thoughts
 					</h2>
 					<div class="bd">
 						{{ post.excerpt }}
+						{% if post.excerpt < post.content %}
+						<span>......</span>
+						{% endif %}
 						<div class="actions">
 						<span>
 							<a href="{{ post.url }}"><time data-time="{{ post.date }}" title="{{ post.date }}">{{ post.date | date_to_string }}</time></a>
