@@ -16,7 +16,7 @@ title: Notes
 					</h2>
 					<div class="bd">
 						{{ post.excerpt }}
-						{% if post.excerpt lt post.content %}
+						{% if post.excerpt < post.content %}
 						<span>......</span>
 						{% endif %}
 						<div class="actions">
