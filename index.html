@@ -7,21 +7,21 @@ title: Thoughts
 <section class="content">
 	<article>
 		<div class="mark"></div>
-		<header>
-			<h1 class="index-title">Thoughts</h1>
-	  </header>
 
 		<ul class="thoughts">
 			{% for post in paginator.posts %}
 			<li class="thought-item">
+				  <h2 class="thought-title">
+						{{ post.title }}<br />
+					</h2>
 					<div class="bd">
-						<blockquote>{{ post.content }}</blockquote>
-					<div class="actions"> 
-						<span class="created_at">
+						{{ post.excerpt }}
+						<div class="actions">
+						<span>
 							<a href="{{ post.url }}"><time data-time="{{ post.date }}" title="{{ post.date }}">{{ post.date | date_to_string }}</time></a>
 						</span>
+						</div>
 					</div>
-				</div>
 			</li>
 			{% endfor %}
 		</ul>
