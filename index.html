@@ -1,6 +1,6 @@
 ---
 layout: main
-title: Thoughts 
+title: Notes
 ---
 
 
@@ -16,7 +16,7 @@ title: Thoughts
 					</h2>
 					<div class="bd">
 						{{ post.excerpt }}
-						{% if post.excerpt < post.content %}
+						{% if post.excerpt lt post.content %}
 						<span>......</span>
 						{% endif %}
 						<div class="actions">
