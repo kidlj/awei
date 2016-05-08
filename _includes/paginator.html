@@ -4,10 +4,10 @@
 		{% if paginator.previous_page ==1 %}
 			<a href="/">&lt;PREVIOUS</a>
 		{% else %}
-			<a href="/page{{ paginator.previous_page }}">&lt;前页</a>
+			<a href="/page{{ paginator.previous_page }}">&lt;PREVIOUS</a>
 		{% endif %}
 	{% else %}
-		<span class="disabled">&lt;NEXT</span>
+		<span class="disabled">&lt;PREVIOUS</span>
 	{% endif %}
 
 
@@ -31,9 +31,9 @@
 
 
 	{% if paginator.next_page %}
-	<a href="/page{{ paginator.next_page }}">后页&gt;</a>
+	<a href="/page{{ paginator.next_page }}">NEXT&gt;</a>
 	{% else %}
-	<span class="disabled">后页&gt;</span>
+	<span class="disabled">NEXT&gt;</span>
 	{% endif %}
 
 </div>
