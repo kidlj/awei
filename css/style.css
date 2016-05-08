@@ -330,6 +330,10 @@ ul.post-listing .datetime {
 		color: #999;
 	}
 
+	.thoughts .thought-item .bd .actions .ref-link {
+		padding-left: 10px;
+	}
+
 
 
 /**************************************/
