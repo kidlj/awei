@@ -1,0 +1,6 @@
+---
+title: 打开我新世界的大门
+ref: http://superbigtree.tumblr.com/post/54873453939/introduction-to-browserify
+---
+
+初学 Javascript 不久，前几天想研究一下 Vue-hackernews 的源代码，发现该前端项目引用了一个 events 的包和其中的 EventEmitter 类。很快得知，这是 Node.js 的一个核心模块。可浏览器怎么能使用 Node 的模块呢，这明明是两个分离的执行环境？仔细搜索后才知道，原来早有人发明了构建工具，比如 browserify，可以将 Node 的内建模块以及 NPM 上的其它更多模块打包好供浏览器环境使用。这真是打开了一扇我新世界的大门！
