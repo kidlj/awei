@@ -25,13 +25,6 @@ title: Expression
 							<span>
 								<a href="{{ post.url }}"><time data-time="{{ post.date }}" title="{{ post.title }}">{{ post.date | date_to_string }}</time></a>
 							</span>
-
-							{% if post.ref %}
-							<span class="ref-link">
-								<a href="{{ post.ref }}" target="blank" title="Reference"><i class="fa fa-link"></i></a>
-							</span>
-							{% endif %}
-
 						</div>
 					</div>
 			</li>
