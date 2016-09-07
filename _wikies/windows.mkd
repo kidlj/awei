@@ -9,11 +9,11 @@ Node
 
 首先使用管理员身份运行 Powershell，安装 windows-build-tools：
 
-    # npm install -g windows-build-tools：
+    # npm install -g windows-build-tools
 
 这会自动安装 Windows 构建工具和 Python 2.7。
 
-然后设定 npm 使用的 Python 版本（node-gyp 只支持 Python 2.7）：
+然后设定 npm 使用的 Python 路径（node-gyp 只支持 Python 2.7）：
 
     $ npm config set python /c/Users/mellon/.windows-build-tools/python27/python.exe
 
