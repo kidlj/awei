@@ -25,7 +25,7 @@ Tweaks
 
 ### 微调雅黑字体
 
-将雅黑黑体在注册表里隐藏，会得到更好看的渲染效果：
+将雅黑粗体在注册表里隐藏，会得到更好看的渲染效果：
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts]
-"Microsoft YaHei & Microsoft YaHei UI (TrueType)"="N/A"
+"Microsoft YaHei Bold & Microsoft YaHei UI Bold (TrueType)"="N/A"
