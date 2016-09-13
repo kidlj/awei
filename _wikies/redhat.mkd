@@ -121,7 +121,8 @@ CentOS 6 里有两个 cron 程序，一个是 cronie, 它提供 `/etc/init.d/cro
 因此我们发现，CentOS 的策略不是在 `/etc/crontab` 里定义严格的按照时间执行任务，而是交给更加灵活的 anacron 来判断执行时机。这样称 anacron 是 cronie 的补充的说法就一目了然了。
 
 
-### Logrotate
+Logrotate
+=========
 
 Logrotate 会安装一个脚本放在 `/etc/cron.daily` 目录里，用于每日滚动日志。
 
@@ -138,8 +139,22 @@ Logrotate 会安装一个脚本放在 `/etc/cron.daily` 目录里，用于每日
 		create 0640 squid squid
 	}
 
-### Iptables
+Iptables
+========
 
 	### CentOS 7
 	# systemctl stop firewalld
 	# systemctl disable firewalld
+
+Docker
+======
+
+要想使用 Docker 的网络特性，需要打开宿主机的端口转发：
+
+	### /etc/sysctl.conf 添加：
+	net.ipv4.ip_forward=1
+
+而后，运行该命令使其生效：
+
+	# sysctl -p
+
