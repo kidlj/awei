@@ -79,12 +79,12 @@ Parameterization
 	tasks:
 	  - include: wordpress.yml wp_user=mellon
 	  - include: wordpress.yml wp_user=collie
-	  - include: wordpress.yml wp_user=kidlj
+	  - include: wordpress.yml wp_user=mellon
 
 传递的也可以是 list 或 dict 变量：
 
 	tasks:
-  	  - { include: wordpress.yml, wp_user: kidlj, ssh_keys: ['keys/one.txt', 'keys/two.txt'] }
+  	  - { include: wordpress.yml, wp_user: mellon, ssh_keys: ['keys/one.txt', 'keys/two.txt'] }
 
 而后在 included files 里可以用 `\{\{ wp_user \}\}` 这种形式使用变量。
 
@@ -93,7 +93,7 @@ Parameterization
 	tasks:
 	  - include: wordpress.yml
 		vars:
-		  wp_user: kidlj
+		  wp_user: mellon
 		  some_list_variable:
 			- alpha
 			- beta

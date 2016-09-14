@@ -277,12 +277,12 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 - 当同时迭代两个或多个序列，可以用 `zip()` 函数将序列元素配对：
 
 		>>> questions = ['name', 'website', 'favorite color']
-		>>> answers = ['me', 'kidlj.com', 'cyan']'
+		>>> answers = ['me', 'example.com', 'cyan']'
 		>>> for q, a in zip(questions, answers):
 		...		print("What is your {0}? It is {1}".format(q, a))
 		...
 		What is your name? It is me
-		What is your website? It is kidlj.com
+		What is your website? It is example.com
 		What is your favorite color? It is cyan
 
 - 反向迭代：

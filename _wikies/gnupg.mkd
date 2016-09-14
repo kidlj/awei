@@ -19,9 +19,9 @@ title: GnuPG
 
 	$ gpg --list-keys
 
-将自己的公钥导出(`kidlj.com`为我的公钥UID）：
+将自己的公钥导出(`www.ideavirgin.com`为我的公钥UID）：
 
-	$ gpg --armor --output pubkey.txt --export kidlj.com
+	$ gpg --armor --output pubkey.txt --export www.ideavirgin.com
 
 把公钥发布到公钥服务器(`E70B1BE1`为我的公钥ID）：
 
@@ -46,7 +46,7 @@ title: GnuPG
 
 用某人的公钥加密文件：
 
-	$ gpg --recipient kidlj.com --output demo.en.txt --encrypt demo.txt
+	$ gpg --recipient www.ideavirgin.com --output demo.en.txt --encrypt demo.txt
 
 用对应的私钥解密文件：
 

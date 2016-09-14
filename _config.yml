@@ -3,7 +3,6 @@ permalink: /t/:year-:month-:day-:title.html
 gems: [jekyll-paginate]
 paginate: 5 
 paginate_path: "page:num"
-domain: kidlj.com
 commits: https://github.com/kidlj/kidlj.github.io/commits/master/
 
 
