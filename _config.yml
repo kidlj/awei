@@ -1,4 +1,4 @@
-url: http://kidlj.com
+url: http://www.ideavirgin.com
 permalink: /t/:year-:month-:day-:title.html
 gems: [jekyll-paginate]
 paginate: 5 
