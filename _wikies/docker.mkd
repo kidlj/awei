@@ -15,53 +15,16 @@ Docker build 的运行过程是，由当前的 image 创建出 container，进�
 接着往下按照这种 workflow 运行下一条指令，直到最后生成一个最新的 image(多层中间 image 累积的结果）。
 
 
-AWS RHEL 7 安装 Docker
-======================
+Images
+======
 
-想学习一下 Docker，毕竟它最近火得一塌糊涂 先是在自己的 Gentoo 机子上安装，等好不容易编译好了内核，安装成功，启动的时候才发现 Docker 现在只支持 64 位系统。谁叫我用的是个老爷机呢，没办法，在 AWS 上的 RHEL 7 上安装吧。
+### Jekyll(GitHub Pages)
 
-可是这过程也挺玄乎。
+    $ docker pull jekyll/jekyll:pages
+    $ docker run --name jekyll -v /home/mellon/jekyll:/srv/jekyll -p 4000:4000 -d jekyll/jekyll:pages
 
-看 Docker 官方安装文档，说 RHEL 7 官方支持 Docker，只需要开启一个 extra 仓库。
+### Ghost
 
-	$ sudo subscription-manager repos --enable=rhel-7-server-extra-rpms
+    $ docker pull zzrot/alpine-ghost
+    $ docker run --name ghost -v /var/lib/ghost -e DEV_DOMAIN=http://mydocker.com:2368 -p 2368:2368 -d zzrot/alpine-ghost
 
-可是这条命令不行。当我看到 subscription 这个字眼的时候就知道不行，因为咱是屌丝命，用的是人家亚马逊免费提供的 RHEL。就像是夏天时候我拿着赠票去参加 O'Reilly Velocity 运维大会，午餐的时候你就得乖乖出去自己找吃的去。
-
-然后发现 RHEL 6 可以通过 Extra Packages for Enterprise Linux (EPEL) 安装 Docker，心想也许 RHEL 7 也可以。先开启 EPEL：
-
-	$ wget http://ftp.riken.jp/Linux/fedora/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-	$ sudo yum install epel-relase-7-5.noarch.rpm
-
-通过 `sudo yum repolist` 发现开启成功。可是里面没有 Docker：
-
-	$ sudo yum --disalbe-repo="*" --enable-repo="epel" list available | grep docker
-	[None]
-
-于是我想起来看 EPEL 官方介绍的时候有一段描述：
-
-> EPEL packages are usually based on their Fedora counterparts and will never conflict with or replace packages in the base Enterprise Linux distributions.
-
-既然 RHEL 7 有官方适配的 Docker，那么 EPEL 里就不会有了。可是它在哪儿呢？
-
-总得有跟我一样在 AWS 用着免费的 RHEL，又想安装 Docker 的用户吧？果然后来在 AWS 的一个问答帖里[1]找到了解决方案：
-
-	$ sudo yum install yum-utils
-	$ sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
-
-我没这样干。我打开 `/etc/yum.reop.d/redhat-rhui.repo` 文件，找到这样的一个 section：
-
-	[rhui-REGION-rhel-server-extras]
-	name=Red Hat Enterprise Linux Server 7 Extra(RPMs)
-	mirrorlist=https://rhui2-cds01.REGION.aws.ce.redhat.com/pulp/mirror/content/dist/rhel/rhui/server/7/$releasever/$basearch/extras/os
-	enabled=0
-	gpgcheck=1
-	...
-
-把里面的 `enable=0` 改成 `1` 就可以安装了。真是长见识了，果然使用一个发行版不仅仅是切换包管理工具一样简单，还有整个生态和社区等着你去探索。
-
-	$ sudo yum install docker
-
-搞定。
-
-[1]: https://forums.aws.amazon.com/thread.jspa?messageID=572491
