@@ -18,7 +18,7 @@ Docker build 的运行过程是，由当前的 image 创建出 container，进�
 Images
 ======
 
-### Jekyll(GitHub Pages)
+### Jekyll (GitHub Pages)
 
     $ docker pull jekyll/jekyll:pages
     $ docker run --name jekyll -v /home/mellon/jekyll:/srv/jekyll -p 4000:4000 -d jekyll/jekyll:pages
@@ -28,3 +28,15 @@ Images
     $ docker pull zzrot/alpine-ghost
     $ docker run --name ghost -v /var/lib/ghost -e DEV_DOMAIN=http://mydocker.com:2368 -p 2368:2368 -d zzrot/alpine-ghost
 
+### Mysql
+
+    $ docker pull mysql:latest
+    $ docker run --name mysql -P -e MYSQL_ROOT_PASSWORD=some-passwd -d mysql
+    $ docker exec -it mysql bash
+    
+    # mysql -u root -p
+
+### MongoDB
+
+    $ docker pull mongo:latest
+    $ docker run --name mongo -P -d mongo
