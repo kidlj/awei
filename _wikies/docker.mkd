@@ -39,4 +39,11 @@ Images
 ### MongoDB
 
     $ docker pull mongo:latest
-    $ docker run --name mongo -P -d mongo
+    $ docker run --name some-mongo -p 27017:27017 -d mongo
+    $ docker exec -it some-mongo bash
+
+### Redis
+
+    $ docker pull redis:latest
+    $ docker run --name some-redis -p 6379:6379 -d redis
+    $ docker exec -it some-redis bash
