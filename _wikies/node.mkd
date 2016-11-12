@@ -1,0 +1,36 @@
+---
+title: Node.js
+---
+
+Node
+====
+
+### CWD
+
+程序文件中用到的 `./` 和 `process.cwd()` 将总是返回运行 `node` 命令的那个目录，也是就文档所说的 *the working directory of the process*，而不是指该程序文件所在的目录[1]。
+
+而`__dirname` 将总是指该程序文件所在的目录。
+
+特别的是，用在 `require(./lib/user)` 中的 `./` 总是指该程序文件所在的目录。
+
+因此在 Node 程序中，用到文件路径时一般（除了 `require`）不要用`./`，而应该用`__dirname` 来拼接。这样就会避免你在不同的目录执行程序入口文件可能会发生的文件路径错误。
+
+Express
+=======
+
+### 中间件的 next()
+
+中间件函数执行 `next()` 以后，该中间件函数并不会终止而是会继续执行完毕。
+
+比如：
+
+    function hello(req, res, next) {
+        next();
+        console.log('I was executed!');
+    }
+
+使用该中间件时，console 中将会输出 `I was executed!`。
+
+同样地，即使是 `next(err)` 的情况该中间件也会执行完毕。所以一般调用到 `next(err)` 时，应该在其前面加上 `return` 来立即终止该中间件，否则可能会造成意外的错误，比如 *Error: Can't set headers after they are sent*。
+
+[1]: http://stackoverflow.com/questions/8131344/what-is-the-difference-between-dirname-and-in-node-js
