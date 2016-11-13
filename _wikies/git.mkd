@@ -9,24 +9,25 @@ Git 基础
 
 ### 配置 Git
 
-	$ git config --system user.name	'Jian Li'	# `/etc/gitconfig'
-	$ git config --global user.name	'Jian Li'	# `~/.gitconfig'
-	$ git config user.name 'Jian Li'		# `.git/config'
+	$ git config --system user.name	'Jian Li'   # `/etc/gitconfig'
+	$ git config --global user.name	'Jian Li'   # `~/.gitconfig'
+	$ git config user.name 'Jian Li'            # `.git/config'
 
 
 ### Git diff
 
-	$ git diff				# 未暂存的更新
-	$ git diff --staged		# 未提交的更新
-	$ git diff --check 		# 检查多余的空白字符
+	$ git diff              # 未暂存的更新
+	$ git diff --staged     # 未提交的更新
+	$ git diff --check      # 检查多余的空白字符
+
 ### Git log
 
-	$ git log -p -2						# 获取近两次提交并展示差异
-	$ git log -p --word-diff			# 获取单词层面的差异对比
-	$ git log --pretty=oneline			# 单行模式
-	$ git log --pretty=format:"%h %s" 	# 定制显示选项
-	$ git log --graph					# 显示分支合并历史
-	$ git log --grep='tweak'			# 搜索提交说明
+	$ git log -p -2                     # 获取近两次提交并展示差异
+	$ git log -p --word-diff            # 获取单词层面的差异对比
+	$ git log --pretty=oneline          # 单行模式
+	$ git log --pretty=format:"%h %s"   # 定制显示选项
+	$ git log --graph                   # 显示分支合并历史
+	$ git log --grep='tweak'            # 搜索提交说明
 	$ git log --author="Jian Li" --commiter="Not Me" --all-match
 	$ git log --since="2014-08-28" -- <path>
 
@@ -80,9 +81,9 @@ Git 分支
 
 		> ...
 		> From git@github.com:kidlj/...
-		>  [new branch]		serverfix  ->  origin/serverfix
+		>  [new branch] serverfix  ->  origin/serverfix
 
-	值得注意的是，在 fetch 操作下载好新的远程分支之后，你仍然无法在本地编	  辑该远程仓库中的分支。换句话说，在本例中，你不会有一个新的 serverfix      分支，有的只是一个你无法移动的 origin/serverfix 指针。
+	值得注意的是，在 fetch 操作下载好新的远程分支之后，你仍然无法在本地编辑该远程仓库中的分支。换句话说，在本例中，你不会有一个新的 serverfix 分支，有的只是一个你无法移动的 origin/serverfix 指针。
 
 3. 如果要把该分支内容合并到当前分支，可以运行：
 
@@ -92,7 +93,7 @@ Git 分支
 
 		$ git checkout -b serverfix origin/serverfix
 
-	这会切换到新建的`serverfix`本地分支，其内容同远程分支`origin/serverfix    `一致，你可以在里面继续开发了。
+	这会切换到新建的`serverfix`本地分支，其内容同远程分支`origin/serverfix`一致，你可以在里面继续开发了。
 
 	由此检出的本地分支叫做跟踪分支(tracking branch), 同该条命令：
 
@@ -149,11 +150,11 @@ Git 分支
 
 	首先，从一个特性分支里在分出一个特性分支的历史：：
 
-		[c1]<--[c2]<--[c5]<--[c6]	(master)
+		[c1]<--[c2]<--[c5]<--[c6] (master)
 				 \
-				  *<--[c3]<--[c4]<--[c10]	(server)
+				  *<--[c3]<--[c4]<--[c10] (server)
 						\
-						 *<--[c8]<--[c9]	(client)
+						 *<--[c8]<--[c9] (client)
 
 	现在想要仅仅把 client 分支的 c8, c9 衍合入 master 分支。
 
@@ -170,9 +171,9 @@ Git 分支
 
 										   (client)
 											  |
-		[c1]<--[c2]<--[c5]<--[c6]<--[c8']<--[c9']	(master)
+		[c1]<--[c2]<--[c5]<--[c6]<--[c8']<--[c9'] (master)
 				 \
-				  *<--[c3]<--[c4]<--[c10]	(server)
+				  *<--[c3]<--[c4]<--[c10] (server)
 
 3. 现在你决定把 server 分支的变化也包含进来。
 
@@ -196,9 +197,9 @@ Git 分支
 																	  |
 																	  |
 		[c1]<--[c2]<--[c5]<--[c6]<--[c8']<--[c9']<--[c3']<--[c4']<--[c10']
-											  |						  |
-											  |						  |
-										   (client)			      (master)
+											  |                       |
+											  |                       |
+										   (client)               (master)
 
 4. 衍合的风险
 
