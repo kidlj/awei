@@ -62,10 +62,10 @@ Express
 
 简单来说，
 
-- app.use('/path, someMiddleware) 匹配的是*所有以 '/path' 开头*的请求，像 '/path/more' 也会匹配（源于 Connect）。
-- app.get('/path, someMiddleware) 匹配的*只有* '/path' 和 '/path/' 这两个，像 '/path/more' 都不会匹配。
+- app.use('/path', someMiddleware) 匹配的是*所有以 '/path' 开头*的请求，像 '/path/more' 也会匹配。而且在这里会从 req.url 中去掉匹配前缀，再交给后续中间件处理。
+- app.get('/path', someMiddleware) 匹配的*只有* '/path' 和 '/path/' 这两个，像 '/path/more' 都不会匹配。
 
-虽然两者语法相似，但 app.use() 来源于 Connect[3]，而 app.get() 则是 Express 单独开发的路由函数[4]。
+虽然两者语法相似，但用处完全不同。app.use() 来源于 Connect[3] 的中间件挂载函数，而 app.get() 则是 Express 单独开发的路由匹配函数[4]。
 
 [1]: https://github.com/creationix/nvm
 [2]: http://stackoverflow.com/questions/8131344/what-is-the-difference-between-dirname-and-in-node-js
