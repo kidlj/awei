@@ -29,3 +29,15 @@ Tweaks
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts]
 "Microsoft YaHei Bold & Microsoft YaHei UI Bold (TrueType)"="N/A"
+
+VMWare Player
+=============
+
+### 配置静态 IP
+
+/etc/sysconfig/network-scripts/ifcfg-eno16777728:
+
+    BOOTPROTO="static"
+    IPADDR="192.168.140.128"
+    NETMASK="255.255.255.0"
+    GATEWAY="192.168.140.2"
