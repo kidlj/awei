@@ -119,7 +119,7 @@ article {
 	article ul, article ol {
 		margin: 20px 0 20px 20px; }
 	article ul {
-  		list-style: square; }
+  		list-style: circle; }
 	article blockquote {
 		border-left: 10px solid #e0e9ed;
 		margin: 10px 0;
