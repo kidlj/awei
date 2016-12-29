@@ -40,6 +40,17 @@ Node
 
 因此在 Node 程序中，用到文件路径时一般（除了 `require`）不要用`./`，而应该用`__dirname` 来拼接。这样就会避免你在不同的目录执行程序入口文件可能会发生的文件路径错误。
 
+### pm2
+
+    # npm install -g pm2
+
+    # cd IVNews
+    # export ENV='production'
+    # export PORT=80
+    # pm2 start npm -- start // `npm start'
+    # pm2 list
+    
+
 Express
 =======
 
