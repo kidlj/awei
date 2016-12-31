@@ -31,6 +31,12 @@ Git 基础
 	$ git log --author="Jian Li" --commiter="Not Me" --all-match
 	$ git log --since="2014-08-28" -- <path>
 
+### Git tag
+
+    $ git tag 0.1.0     # new tag
+    $ git tag           # list tags
+    $ git push --tags   # push tags
+
 
 ### 撤销操作
 
