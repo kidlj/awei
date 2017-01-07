@@ -118,6 +118,8 @@ Perl 元字符(PCRE)
 
 参见 `man 3 pcresyntax`
 
+	# yum install pcre-devel
+
 
 群魔乱舞
 ========
