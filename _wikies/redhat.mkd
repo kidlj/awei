@@ -162,3 +162,13 @@ Docker
 
 	# sysctl -p
 
+Redis
+=====
+
+	# yum install gcc-c++ make
+	# cd /usr/local/src/Redis
+	# make 
+	# make PREFIX=/usr/local/redis install
+
+	# ./bin/redis-server conf/redis-6379.conf
+	# ./bin/redic-cli shutdown
