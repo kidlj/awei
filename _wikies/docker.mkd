@@ -47,3 +47,13 @@ Images
     $ docker pull redis:latest
     $ docker run --name some-redis -p 6379:6379 -d redis
     $ docker exec -it some-redis bash
+
+Proxy
+=====
+
+/etc/sysconfig/docker-network
+
+    # http proxy via shadowsocks
+    HTTP_PROXY=http://192.168.220.1:1080
+
+然后重启 docker。
