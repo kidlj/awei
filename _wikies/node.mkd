@@ -49,6 +49,13 @@ Node
     # export PORT=80
     # pm2 start npm -- start // `npm start'
     # pm2 list
+
+### npm
+
+proxy:
+
+    $ export npm_config_proxy=http://127.0.0.1:1080
+    $ npm install
     
 
 Express
