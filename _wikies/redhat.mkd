@@ -172,3 +172,10 @@ Redis
 
 	# ./bin/redis-server conf/redis-6379.conf
 	# ./bin/redic-cli shutdown
+
+Yum Proxy
+=========
+
+	# vim /etc/yum.conf
+
+	proxy=http://192.168.200.1:1080
