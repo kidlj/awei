@@ -20,3 +20,13 @@ title: Iptables
 
 	# iptables -vn -L --line-numbers
 	# iptables -D INPUT <rule-line-number>
+
+### 从文件中部署规则
+
+	# vim /etc/sysconfig/iptables
+	# /usr/sbin/iptables-restore < /etc/sysconfig/iptables
+
+### 将内核中规则存入文件
+
+	# iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+	# /usr/sbin/iptables-save > /etc/sysconfig/iptables
