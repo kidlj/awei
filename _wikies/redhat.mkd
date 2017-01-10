@@ -24,6 +24,10 @@ Yum
 
 	proxy=http://192.168.200.1:1080
 
+### list installed
+
+	# yum list installed
+
 
 SELinux
 =======
