@@ -28,6 +28,10 @@ Yum
 
 	# yum list installed
 
+### 查看某个文件有哪个包提供
+
+	# yum provides /usr/sbin/nginx
+
 
 SELinux
 =======
@@ -100,9 +104,12 @@ Ansible
 
 Ansible 似乎只支持 Python 2? 是的。
 
-	# wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
-	# python ez_setup.py
-	# easy_install pip
+官方文档:[1]
+
+	# yum install python-devel zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel
+
+	# wget https://bootstrap.pypa.io/get-pip.py
+	# python get-pip.py
 	# pip install ansible
 
 
@@ -181,3 +188,5 @@ Redis
 
 	# ./bin/redis-server conf/redis-6379.conf
 	# ./bin/redic-cli shutdown
+
+[1]: https://pip.pypa.io/en/stable/installing/
