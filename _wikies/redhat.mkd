@@ -104,12 +104,12 @@ Ansible
 
 Ansible 似乎只支持 Python 2? 是的。
 
-官方文档:[1]
-
-	# yum install python-devel zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel
+先安装 pip:[1]
 
 	# wget https://bootstrap.pypa.io/get-pip.py
 	# python get-pip.py
+
+	# yum install python-devel zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel
 	# pip install ansible
 
 
