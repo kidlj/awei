@@ -32,6 +32,15 @@ Yum
 
 	# yum provides /usr/sbin/nginx
 
+Hostname
+========
+
+CentOS 7 的 hostname 由 systemd-hostnamed 服务设定，hostnamectl 是该服务的命令行客户端。
+
+	# hostnamectl status
+
+	# hostnamectl set-hostname app1 --static (写入 /etc/hostname，重启系统读取)
+	# hostnamectl set-hostname app1
 
 SELinux
 =======
