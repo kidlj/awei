@@ -55,3 +55,4 @@ Shell
 验证：
 
     $ curl ipinfo.io
+    $ curl ip.cn
