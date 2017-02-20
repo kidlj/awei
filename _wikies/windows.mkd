@@ -41,3 +41,17 @@ VMWare Player
     IPADDR="192.168.140.128"
     NETMASK="255.255.255.0"
     GATEWAY="192.168.140.2"
+
+Shell 
+=====
+
+### 代理
+
+开启了 ss 的全局代理以后，Git Bash 和 Mac 上的 iTerm 都不走系统代理，因此需要手动指定。
+
+    $ export http_proxy=socks5://127.0.0.1:1080
+    $ export https_proxy=$http_proxy
+
+验证：
+
+    $ curl ipinfo.io
