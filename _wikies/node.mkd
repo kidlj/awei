@@ -56,7 +56,18 @@ proxy:
 
     $ export npm_config_proxy=http://127.0.0.1:1080
     $ npm install
+
+API
+====
+
+### EventEmitter
     
+The `eventEmitter.emit()` method allows an arbitrary set of arguments to be passed to the listener functions. It is important to keep in mind that when an ordinary listener function is called by the EventEmitter, the standard this keyword is intentionally set to reference the EventEmitter to which the listener is attached.[5]
+
+It is possible to use ES6 Arrow Functions as listeners, however, when doing so, the this keyword will no longer reference the EventEmitter instance.
+
+
+
 
 Express
 =======
@@ -89,3 +100,4 @@ Express
 [2]: http://stackoverflow.com/questions/8131344/what-is-the-difference-between-dirname-and-in-node-js
 [3]: https://github.com/senchalabs/connect#mount-middleware
 [4]: http://expressjs.com/en/guide/routing.html
+[5]: https://nodejs.org/docs/latest-v4.x/api/events.html#events_passing_arguments_and_this_to_listeners 
