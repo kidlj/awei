@@ -9,7 +9,7 @@ title: Javascript
 
 以任意序迭代一个对象的可枚举属性。
 
-  for (variable in object) {...}
+    for (variable in object) {...}
 
 每次迭代，一个不同的属性名将会赋予 `variable`。
 
