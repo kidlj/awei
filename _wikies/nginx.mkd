@@ -83,10 +83,10 @@ Web Server
 
 再比如对于 `http://localhost/images/nginx_logo.png` 这样的一个请求，`location /images/` 是最长匹配，Nginx 会提供文件系统上的 `/data/images/nginx_logo.png` 文件作为响应。如果该文件不存在，就会返回标志 404 错误的页面。
 
-`ngx_http_core_module`
-=====================
+ngx\_http\_core\_module
+========================
 
-### `location` 
+### Location 
 
 Location 可以被定义为一个 prefix 字符串或者一个正则表达式。
 
