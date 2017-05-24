@@ -138,7 +138,7 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 
 第一个查询的是这样的 Blog 对象：链接到该对象的某一个 Entry 对象里其 headline 既包含 'Lennon'，pub_date 年份又是 2008；
 
-第二个查询的是这样的 Blog 对象，链接到该对象的某一个 Entry 对象的 headline 包含 'Lenno'，又有一个链接到它的 Entry 对象（可以跟前边的是同一个）的 pub_date 年份是 2008。
+第二个查询的是这样的 Blog 对象：链接到该对象的某一个 Entry 对象的 headline 包含 'Lenno'，又有一个链接到它的 Entry 对象（可以跟前边的是同一个）的 pub_date 年份是 2008。
 
 
 ### ForeignKey Related Objects
