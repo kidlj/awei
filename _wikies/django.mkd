@@ -120,21 +120,25 @@ Class 中的 Field 对应的是数据库表中的「字段」;
 
 Django 支持跟随数据模型定义的关系来获取对象，这背后是对 SQL `JOIN` 语句的自动处理。而且关系跟随可以有任意深度。
 
-- 正向查询，使用 field 名：
+- 正向查询，使用小写的 model 和 field 名，中间用 `--` 隔开：
 
 		>>> Entry.objects.filter(blog__name='Beatles Blog')
 
-- 反向查询，使用小写的 model 名：
+- 反向查询，使用小写的 model 名和 field 名：
 
 		>>> Blog.objects.filter(entry__headline__contains='Lennon')
 
 要始终区分，我们 filter 的是什么，以下这两者是不等同的：
 
 	>>> Blog.objects.filter(entry__headline__contains='Lennon',
-	...					    entry__pub_date__year=2008)
+	...			entry__pub_date__year=2008)
 
 	>>> Blog.objects.filter(entry__headline__contains='Lennon).filter(
-	...						entry__pub__date___year=2008)
+	...			entry__pub_date__year=2008)
+
+第一个查询的是这样的 Blog 对象：链接到该对象的某一个 Entry 对象里其 headline 既包含 'Lennon'，pub_date 年份又是 2008；
+
+第二个查询的是这样的 Blog 对象，链接到该对象的某一个 Entry 对象的 headline 包含 'Lenno'，又有一个链接到它的 Entry 对象（可以跟前边的是同一个）的 pub_date 年份是 2008。
 
 
 ### ForeignKey Related Objects
