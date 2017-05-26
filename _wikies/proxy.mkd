@@ -1,0 +1,36 @@
+---
+title: Proxy
+---
+
+### Wget
+
+    $ export http_proxy=http://192.168.116.1:1080
+    $ export https_proxy=$http_proxy
+
+### Curl
+
+    $ curl --socks5 192.168.116.1:1080
+
+### Yum
+
+    # echo "proxy=http://192.168.116.1:1080" >> /etc/yum.conf
+
+### Npm
+
+    $ npm config set proxy http://192.168.116.1:1080
+    $ npm config set https-proxy http://192.168.116.1:1080
+
+### Yarn
+
+    $ yarn config set proxy http://192.168.116.1:1080
+    $ yarn config set https-proxy http://192.168.116.1:1080
+
+### Git
+
+    $ git config --global http.proxy http://192.168.116.1:1080
+    $ git config --global https.proxy http://192.168.116.1:1080
+
+### Common
+
+    $ export HTTP_PROXY=http://192.168.116.1:1080
+    $ export HTTPS_PROXY=http://192.168.116.1:1080
