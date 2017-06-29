@@ -36,6 +36,10 @@ Yum
 
 	# yum clean all && yum clean metadata && yum clean dbcache && yum makecache && yum update
 
+### 安装某个软件包的某个版本
+
+	# yum list mysql-community-server --showduplicates
+	# yum install mysql-community-server-x.xxx
 
 Hostname
 ========
