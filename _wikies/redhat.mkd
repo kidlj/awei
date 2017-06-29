@@ -177,6 +177,24 @@ Logrotate 会安装一个脚本放在 `/etc/cron.daily` 目录里，用于每日
 		create 0640 squid squid
 	}
 
+Dry run(debug 模式):
+
+	# logrotate -d /etc/logrotated.d/squid
+
+立即执行:
+
+	# logrotate /etc/logrotated.d/squid
+
+注：如果待滚动日志所在目录权限太开放（比如所有人可写），logrotate 会拒绝执行，需要在配置文件里指定执行滚动所用用户：
+
+> considering log /usr/local/MongoDB-to-MySQL/import.log
+error: skipping "/usr/local/MongoDB-to-MySQL/import.log" because parent directory has insecure permissions (It's world writable or writable by group which is not "root") Set "su" directive in config file to tell logrotate which user/group should be used for rotation.
+
+在配置文件添上以下指令：
+
+	su root root
+
+
 Iptables
 ========
 
