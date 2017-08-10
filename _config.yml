@@ -1,10 +1,4 @@
-url: http://www.ideavirgin.com
-permalink: /t/:year-:month-:day-:title.html
-gems: [jekyll-paginate]
-paginate: 5 
-paginate_path: "page:num"
 commits: https://github.com/kidlj/kidlj.github.io/commits/master/
-
 
 defaults:
 
