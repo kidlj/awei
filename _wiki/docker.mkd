@@ -1,0 +1,76 @@
+---
+title: Docker
+---
+
+
+Dockerfile
+==========
+
+### Theory
+
+每一条指令(Instruction) 在 image 上增加一层。
+
+Docker build 的运行过程是，由当前的 image 创建出 container，进入该 container 运行命令，然后 commit 变更生成一个新的 image(也就是在之前的 image 上增加一层)，随后删除刚才用过的临时 container。
+
+接着往下按照这种 workflow 运行下一条指令，直到最后生成一个最新的 image(多层中间 image 累积的结果）。
+
+Run
+===
+
+### Installation
+
+    $ sudo yum install docker
+
+### Run as normal user
+
+    $ sudo usermod -a -G dockerroot <username>
+    $ sudo vim /etc/docker/daemon.json
+    {
+      "group": "dockerroot"
+    }
+    $ sudo systemctl restart docker
+
+
+Images
+======
+
+### Jekyll
+
+    $ docker pull jekyll/minimal
+    $ docker run --name jekyll -v /home/mellon/kidlj.github.io:/srv/jekyll -p 4000:4000 -it jekyll/minimal jekyll serve
+    $ docker stop/start jekyll
+
+### Ghost
+
+    $ docker pull zzrot/alpine-ghost
+    $ docker run --name ghost -v /var/lib/ghost -e DEV_DOMAIN=http://mydocker.com:2368 -p 2368:2368 -d zzrot/alpine-ghost
+
+### Mysql
+
+    $ docker pull mysql:latest
+    $ docker run --name mysql -P -e MYSQL_ROOT_PASSWORD=some-passwd -d mysql
+    $ docker exec -it mysql bash
+    
+    # mysql -u root -p
+
+### MongoDB
+
+    $ docker pull mongo:latest
+    $ docker run --name some-mongo -p 27017:27017 -d mongo
+    $ docker exec -it some-mongo bash
+
+### Redis
+
+    $ docker pull redis:latest
+    $ docker run --name some-redis -p 6379:6379 -d redis
+    $ docker exec -it some-redis bash
+
+Proxy
+=====
+
+/etc/sysconfig/docker-network
+
+    # http proxy via shadowsocks
+    HTTP_PROXY=http://192.168.220.1:1080
+
+然后重启 docker。

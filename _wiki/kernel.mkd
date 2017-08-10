@@ -1,0 +1,19 @@
+---
+title: Kernel
+---
+
+
+
+无线网卡 RTL8188EUS 驱动
+========================
+
+内核里没有这个驱动，自己编译安装。
+
+	$ git clone git@github.com:lwfinger/rtl8188eu.git
+	$ cd rtl8188eu
+
+	$ make all
+	$ sudo make install | tee make_install_manifest.txt
+
+现在拔掉网卡再插上就能使用了。
+
