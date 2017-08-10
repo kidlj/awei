@@ -10,11 +10,11 @@ defaults:
 
 - scope:
     path: ""
-    type: "wikies"
+    type: "wiki"
   values:
     layout: "wiki"
 
 collections:
-  wikies:
-    output: true
-    permalink: /wiki/:name.html
+  wiki:
+      output: true
+      permalink: /wiki/:name.html
