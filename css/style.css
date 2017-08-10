@@ -16,7 +16,7 @@ b, strong, h1, h2, h3, h4, h5 {
 	font-weight: 700; }
 
 h1, h2, h3 {
-	font-family: "Open Sans"; 
+	font-family: "Open Sans", "Segeo UI", "Arial", "Helvetica", "Dejavu Sans", serif;
 }
 
 hr {
@@ -96,8 +96,9 @@ article {
 	article header {
 		margin-bottom: 60px; }
 		article header .post-title {
+			font-family: "Open Sans", "Segeo UI", "Arial", "Helvetica", "Dejavu Sans", serif;
 			font-weight: 500;
-			font-size: 1.7em;
+			font-size: 2.0em;
 			margin: 0 0 5px; }
 		article header .post-title a {
 			color: #000;
@@ -255,7 +256,7 @@ ul.post-listing {
 
 ul.post-listing li {
 	text-transform: uppercase;
-	margin-bottom: 20px; }
+	margin-bottom: 10px; }
 
 ul.post-listing .datetime {
   display: inline-block;
