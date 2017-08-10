@@ -14,6 +14,22 @@ Docker build 的运行过程是，由当前的 image 创建出 container，进�
 
 接着往下按照这种 workflow 运行下一条指令，直到最后生成一个最新的 image(多层中间 image 累积的结果）。
 
+Run
+===
+
+### Installation
+
+    $ sudo yum install docker
+
+### Run as normal user
+
+    $ sudo usermod -a -G dockerroot <username>
+    $ sudo vim /etc/docker/daemon.json
+    {
+      "group": "dockerroot"
+    }
+    $ sudo systemctl restart docker
+
 
 Images
 ======
