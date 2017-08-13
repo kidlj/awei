@@ -34,10 +34,11 @@ Run
 Images
 ======
 
-### Jekyll (GitHub Pages)
+### Jekyll
 
-    $ docker pull jekyll/jekyll:pages
-    $ docker run --name jekyll -v /home/mellon/jekyll:/srv/jekyll -p 4000:4000 -d jekyll/jekyll:pages
+    $ docker pull jekyll/minimal
+    $ docker run --name jekyll -v /home/mellon/kidlj.github.io:/srv/jekyll -p 4000:4000 -it jekyll/minimal jekyll serve
+    $ docker stop/start jekyll
 
 ### Ghost
 
