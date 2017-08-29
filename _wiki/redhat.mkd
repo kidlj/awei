@@ -71,6 +71,28 @@ SELinux
 重启系统生效。
 
 
+System Limits
+=============
+
+查看系统的 file-max:
+
+    $ sysctl fs.file-max
+
+查看某个进程的 limits:
+
+    $ cat /proc/<pid_of_nginx>/limits
+
+调整 Systemd Services 的 limits：
+
+    $ sudo mkdir /etc/systemd/system/nginx.service.d
+    $ sudo vim /etc/systemd/system/nginx.service.d/limit.conf
+    [Service]
+    LimitNOFILE=10240
+
+/etc/security/limits.conf 里的 limits 仅适用于通过 PAM 登录的*用户*，不适用 Systemd *服务*。
+
+
+
 LAMP
 ====
 
