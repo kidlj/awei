@@ -1,0 +1,66 @@
+---
+title: The Go Programming Language
+---
+
+Chapter 2: Program Structure
+============================
+
+### Names
+
+If an entity is declared within a function, it is _local_ to that function. If declared outside a function, however, it is visible in all files of the package to which it belongs. The case of the first letter of a name determains its visibility across package boundries. If the name begins with an upper-case letter, it is _exported_, which means it is visible and accessible outside of its own pachage and may be refered to by other parts of the program, as with `Printf` in `fmt` package. Package names themselves are always in lower case.
+
+Generally, the larger the scope of a name, the longer and more meaningful it should be.
+
+Stylistically, Go programmers use "camel case" when forming names by combining words. The letters of acronyms and initialisms like ASCII and HTML are always rendered in the same case.
+
+### Declarations
+
+A _declaration_ names a program entity and specifys some or all of its properties. There are four major kinds of declarations: `var`, `const`, `type` and `func`.
+
+The `package` declaration is followed by any `import` declarations, and then a sequence of _package-level_ declarations of types, variables, constants and functions, in any order.
+
+### Variables
+
+Each variable declaration has the general form
+
+    var name type = expression
+
+Either the type or the `= expression` part may be omitted, but not both. If the type is omitted, it is determained by the initializer expression. If the expression is omitted, the initial value is the _zero value_ of the type, which is `0` for numbers, `false` for booleans, `""` for strings, and `nil` for reference types(slice, pointer, map, channel, function). The zero value of an aggregate type like an array or a struct has the zero value of all of its elements or fields.
+
+The zero-value mechanism ensures that a variable always holds a well-defined value of its type; in Go there's no such thing as an uninitialized value.
+
+Initializers may be literal values or arbitrary expressions. Package-level variables are initialized before `main` begins, and local variables are initialized as their declarations are encountered during function _execution_.
+
+Within a function, an alternate form called a `short variable declaration` may be used to declare and initialize local variables. It takes the form `name := expression`, and the type of `name` is determined by the type of `expression`.
+
+Because of their brevity and flexibility, short variable declarations are used to declare and initialize the majority of local variables. A `var` declaration tends to be reserved for local variables that need an explicit type that differs from that of the initializer expression, or for when the variable will be assigned a value later and its initial value is unimportant.
+
+    i := 100 // an int
+    var boiling float64 := 100 // a float64
+
+### Pointers
+
+A _variable_ is a piece of storage containing a value. Variables created by declarations are identified by name, such as `x`, but many variables are only identified by expressions like `x[i]` or `x.f`. All these expressions _read_ the value of a variable, except when they appear on the left-hand side of an assignment, in which case a new value is assigned to the variable.
+
+A _pointer_ value is the _address_ of a variable. A pointer is thus the location at which a value is stored. _Not every value has an address, but every variable does_. With a pointer, we can read or update the value of a variable _indirectly_, without using or even knowing the name of a variable, if indeed it has a name.
+
+If a variable is declared `var x int`, the expression `&x` ("address of `x`") yields a pointer to an integer variable, that is, a _value_ of type `*int`, which is pronounced "pointer to int". If this value is called `p`, we say "`p` points to `x`", or equivalently "`p` contains the address of `x`." _The variable to which `p` points is written `*p`_. The expression `*p` yields the value of that variable, an `int`, but since `*p` denotes a variable, it may also appear on the left-hand side of an assignment, in which case the assignment updates the variable.
+
+Each component of a variable of aggregate type--a field of a struct or an element of an array--is also a variable and thus has an address too.
+
+Variables are sometimes described as _addressable values_. Expressions that denote variables are the only expressions to which the _adress-of_ operator `&` may be applied.
+
+The zero value for a pointer of any type is `nil`. The test `p != nil` is true if `p` points to a variable. Pointers are comparable; two pointers are equal if and only if they point to the same variable or both are `nil`.
+
+It is perfectly safe for a function to return the address of a _local_ variable. For instance, in the code below, the local variable `v` created by the particular call to `f` will remain in existance even after the call has returned, and the pointer `p` will still refers to it:
+
+    var p = f()
+    function f() *int {
+        v := i
+        return &v
+    }
+
+Each call of `f` returns a distinct value:
+
+    fmt.Println(f() == f()) // "false"
+
