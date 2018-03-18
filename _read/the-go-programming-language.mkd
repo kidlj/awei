@@ -71,3 +71,36 @@ The lifetime of a variable is the interval of time during which it exists as the
 How does the garbage collector know that a variable's storage can be reclaimed? The full story is much more detailed that we need here, but the idea is that the package-level variable, and every local variable of each currently active function, can potentially be the start or the root of the path to the variable in question, following pointers and other kinds of references that ultimately lead to the variable. If no such path exists, the variable has become unreachable, so it can no longer affect the rest of the computation.
 
 Because the lifetime of a variable is determained only by whether or not it is reachable, a local variable may outlive a single iteration of the enclosing loop. It may continue to exist even after its enclosing function has returned.
+
+### Assignability
+
+An assignment, explicit or implicit, is always legal if the left-hand side(the variable) and the right-hand side(the value) have the same type. More generally, the assignment is legal only if the value is _assignable_ to the type of the variable.
+
+The rule for _assignability_ has cases for various types, so we will explaine the relevant case as we introduce each new type. For the types we've discussed so far, the rules are simple: the types must exactly match, and nil may be assigned to any variable of interface or reference type.
+
+Whether two values may be compared with `==` or `!=` is related to assignability: in any comparison, the first operand must be assignable to the type of the second operand, or vice versa.
+
+### Type Declarations
+
+A `type` declaration defines a new _named type_ that has the same _underlying type_ as an existing type. The named type provides a way to separate different and perhaps incompatible uses of the underlying type so that they can't be mixed unintentionally.
+
+    type name underlying-type
+
+Different name types with the same underlying type are not the same type, so they cannot be compared or combined with arithmetic expressions. 
+
+For every type `T`, there is a corresponding operation `T(x)` that converts the value `x` to type `T`. A convertion from one type to another is allowed if both have the same underlying type, or if both are _unnamed pointer types(?)_ that point to variables of the same underlying type; these convertions change the type but not the resprentation of the value. 
+
+Conversions are also allowed between numeric types, and between string and some slice types. _These conversions may change the representation of the value_. For instance, converting a floating-point number to an integer discard any fractional part, and converting a string to a `[]byte` slice allocates a copy of the string data.
+
+The underlying type of a named type determains its structure and representation, and also the set of intrinsic operations it supports, which are the same as if the underlying type had been used directly.
+
+Comparasion operator like `==` and `<` can also be used to compare a value of a named type to another of the same type, or to a _value of the underlying type(?)_. But two values of different named types cannot be compared directly:
+
+    type Celcius int
+    var a int = 3
+    var b Celcius = 3
+    b = a // "cannot use a (type int) as type Celcius in assignment"
+    fmt.Println(b == a) // "invalid operation: b == a (mismatched types Celcius and int)"
+    fmt.Println(b == 3) // "true"
+
+
