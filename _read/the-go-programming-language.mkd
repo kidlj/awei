@@ -40,7 +40,7 @@ Because of their brevity and flexibility, short variable declarations are used t
 
 ### Pointers
 
-A _variable_ is a piece of storage containing a value. Variables created by declarations are identified by name, such as `x`, but many variables are only identified by expressions like `x[i]` or `x.f`. All these expressions _read_ the value of a variable, except when they appear on the left-hand side of an assignment, in which case a new value is assigned to the variable.
+A _variable_ is a piece of storage containing a value. Variables created by declarations are identified by name, such as `x`, but many variables are only identified by expressions like `x[i]` or `x.f`. _All these expressions read the value of a variable, except when they appear on the left-hand side of an assignment, in which case a new value is assigned to the variable_.
 
 A _pointer_ value is the _address_ of a variable. A pointer is thus the location at which a value is stored. _Not every value has an address, but every variable does_. With a pointer, we can read or update the value of a variable _indirectly_, without using or even knowing the name of a variable, if indeed it has a name.
 
@@ -48,7 +48,7 @@ If a variable is declared `var x int`, the expression `&x` ("address of `x`") yi
 
 Each component of a variable of aggregate type--a field of a struct or an element of an array--is also a variable and thus has an address too.
 
-Variables are sometimes described as _addressable values_. Expressions that denote variables are the only expressions to which the _adress-of_ operator `&` may be applied.
+Variables are sometimes described as _addressable values_. _Expressions_ that denote variables are the only expressions to which the _adress-of_ operator `&` may be applied.
 
 The zero value for a pointer of any type is `nil`. The test `p != nil` is true if `p` points to a variable. Pointers are comparable; two pointers are equal if and only if they point to the same variable or both are `nil`.
 
