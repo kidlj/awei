@@ -139,4 +139,12 @@ If the result of an arithmetic operation, whether signed or unsigned, has more b
 
 In general, an explicit conversion is required to convert a value from one type to another, and binary operators for arithmetic and logic (except shifts) must have operands of the same type. Although this occasionally results in longer expressions, it also eliminates a whole class of problems and makes programs easier to understand.
 
+### Booleans
+
+A value of type `bool`, or _boolean_, has only two possible values, `true` and `false`. The conditions in `if` and `for` statements are booleans, and comparision operators like `==` and `<` produce a boolean result.
+
+There is no implicit conversion from a boolean value to a numeric value like 0 and 1, or vice versa.
+
+
+
 
