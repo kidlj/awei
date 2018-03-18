@@ -64,3 +64,6 @@ Each call of `f` returns a distinct value:
 
     fmt.Println(f() == f()) // "false"
 
+### Lifetime of Variables
+
+The lifetime of a variable is the interval of time during which it exists as the program excutes. The lifetime of a package-level variable is the entire execution of the program. By contrast, local variables have dynamic lifetimes: a new instance is created each time the declaration statement is executed, and the variable lives on util it becomes _unreachable_, at which point its storage may be recycled. Function parameters and results are local variables too; they are created each time their enclosing function is called.
