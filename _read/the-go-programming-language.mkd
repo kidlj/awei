@@ -104,3 +104,39 @@ Comparasion operator like `==` and `<` can also be used to compare a value of a 
     fmt.Println(b == 3) // "true"
 
 
+Chapter 3: Basic Data Types
+===========================
+
+Go's types fall into four categories: _basic types_, _aggregate types_, _reference types_, and _interface types_. Basic types include numbers, strings, and booleans. Aggregate types--arrays and structs--form more complicated data types by combining values of several simpler ones. Reference types are a diverse group that includes pointers, slice, maps, functions, and channels, but what they have in common is that they are refer to program variables and state _indirectly_, so that the effect of a operation applied to one reference is observed by all copies of that reference.
+
+### Integers
+
+There are two types called `int` and `uint` that are the natural or the most efficient size for signed and unsigned integers on a particular platform; `int` is by far the most widely used numeric type. Both these types have the same size, either 32 or 64 bits, but one must not make assumptions about which; different compilers may make different choices even on identical hardware.
+
+The type `rune` is synonum for `int32` and conventionally indicates that a value is a Unicode code point. The two names may be used interchangeably. Similarly, the type `byte` is a synonum for `uint8`, and emphasizes that the value is a piece of raw data rather a small numric quantity.
+
+Regardless of their size, `int`, `uint`, and `uintptr` are different types from their explicitly sized siblings. Thus `int` is not the same type as `int32`, even if the natural size of `int` is 32 bits, and an explicit conversion is required to use and `int` value where an `int32` is needed, and vice versa.
+
+Go's binary oprators for arithmetic, logic, and comparision are listed here in the order of decreasing precedence:
+
+    * / % << >> & &^
+    + - | ^
+    == != < <= > >=
+    &&
+    ||
+
+There are only five levels of precedence for binary oprators. Oprators at the same level associate to the left.
+
+The integer arithmetic operators `+`, `-`, `*`, `/` may be applied to integers, floating-point, and complex numbers, but the remainder operator `%` applies only to integers. The behavior of `%` for negative numbers varies across programming languages. In Go, the sign of the remainder is always the same as the sign of the dividend, so `-5%-3` and `-5/3` are both `-2`. The behavior of `/` depends on whether its operands are integers, so `5.0/4.0` is `1.25`, but `5/4` is `1` because integer division truncates the result toward zero.
+
+If the result of an arithmetic operation, whether signed or unsigned, has more bits than can be represented in the result type, it is said to _overflow_. The high-order bits that do not fit are silently discarded. If the original number is a signed type, the result could be negative if the leftmost bit is a `1`, as in the `int8` example here:
+
+    var u uint8 = 255
+    fmt.Println(u, u+1) // "255, 0"
+
+    var i int8 = 127
+    fmt.Println(u, u+1) // "127 -128"
+
+In general, an explicit conversion is required to convert a value from one type to another, and binary operators for arithmetic and logic (except shifts) must have operands of the same type. Although this occasionally results in longer expressions, it also eliminates a whole class of problems and makes programs easier to understand.
+
+
