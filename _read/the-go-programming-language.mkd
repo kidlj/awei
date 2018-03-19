@@ -145,6 +145,56 @@ A value of type `bool`, or _boolean_, has only two possible values, `true` and `
 
 There is no implicit conversion from a boolean value to a numeric value like 0 and 1, or vice versa.
 
+### Strings
+
+A string is an immutable sequence of bytes. The built-in `len` function return the number of bytes (not runes) in a string, and the _index_ operation `s[i]` retrieves the `i`-th byte of string `s`, where 0 <= i < len(s).
+
+The `i`-th byte of a string is not necessarily the `i`-th _character_ of a string, because the UTF-8 encoding of a non-ASCII code point require two or more bytes.
+
+String values are immutable: the byte sequence contained in a string value can never be changed, though of course we can assign a new value to a string _variable_.
+
+Immutability means that it is safe for two copies of a string to share the same underlying memory, making it cheap to copy strings of any length. Similarly, a string `s` and a substring `s[7:]` may safely share the same data, so the substring operation is also cheap. No new memory is allocated in either case.
+
+### String Literals
+
+A string value can be written as a _string literal_, a sequence of bytes enclosed in double quotes.
+
+Because Go source files are always encoded in UTF-8 and go text strings are conventionally interpreted as UTF-8, we can include Unicode code points in string literals.
+
+Within a double-quoted string literal, _escape sequences_ that begin with a backslach `\` can be used to insert arbitrary byte values into the string.
+
+Arbitrary bytes can also be include in literal strings using hexadecimal and octal escapes.
+
+A _raw string literal_ is written ``...``, using backquotes instead of double quotes. Within a raw string literal, no escape sequences are proccessd. Raw string literals are convinient ways to write regular expressions, which tend to have lots of backslashes.
+
+### Unicode
+
+Unicode collects all of the characters in all of the world's writing systems, and assigns each one a standard number called _Unicode code point_, in Go terminology, a _rune_.
+
+The natural data type to hold a single rune is `int32`, and that's what go uses; it has the synonum `rune` for precisely this purpose.
+
+### UTF-8
+
+We could represent a sequence of runes as a sequence of `int32` values. In this representation, which is called UTF-32 or UCS-4, the encoding of each Unicode code point has the same size, 32 bits. This is simple and uniform, but it uses much more space than neccessary since most computer-readable text is in ASCII, which requires only 8 bits or 1 byte per character. All the characters in widespread use still number fewer that 65536, which would fit in 16 bits.
+
+UTF-8 is a variable-length encoding of Unicode code poinsts as bytes. It uses between 1 and 4 bytes to represent each rune, but only 1 byte for ASCII characters, and only 2 to 3 bytes for most runes in common use. The high-order bits of the first byte of the encoding for a rune indicate how many bytes follow. A high-order `0` indicates 7-bits ASCII, where each runes takes only 1 byte, so it identical to convetional ASCII. A high-order `110` indicates that the rune takes 2 bytes; the second byte begins with `10`. Larger runes have analogous encodings.
+
+A variable-length encoding precludes direct indexing to access the `n`-th character of a string, but UTF-8 has many desirable properties to compensate. The encoding is compact, compatible with ASCII, and _self-synchronizing_.
+
+Unicode escape in Go string literals allow us to specify them by their numeric code point value. There are two forms, `\uhhhh` for a 16-bit value and `\Uhhhhhhhh` for a 32-bit value, where each `h` is a hexadecimal digit; the need for the 32-bit form arises very infrequently.
+
+A rune whose value is less that 256 may be written with a single hexadecimal escape, such as `\x41` for `'A'`, but for higher values, a `\u` or `\U` escape must be used. Consequently, `\xe4\xb8\x96` is not a legal rune literal, even though those three bytes are a valid UTF-8 encoding of a single code point.
+
+Thanks to the nice properties of UTF-8, many string operations don't require decoding. We can test whether one string contains another as a prefix, or as a suffix, or as a substring using the same logic for UTF-8-encoded text as for raw bytes. This is not true for other encodings.
+
+On the other hand, if we really care about the individual Unicode characters, we need a UTF-8 decoder. Go's `range` loop, when applied to a string, perfoming UTF-8 decoding implicitly.
+
+UTF-8 is exceptionally as an interchange format but within a program runs may be more convenient because they are of uniform size and are thus easily indexed in arrays and slices.
+
+A `[]rune` conversion applied to a UTF-8-encoded string return the sequence of Unicode code points that the string encodes. If a slice of runes is converted to a string, it produces the concatenation of the UTF-8 encodings of each rune.
+
+
+
 
 
 
