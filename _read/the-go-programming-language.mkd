@@ -189,7 +189,7 @@ Thanks to the nice properties of UTF-8, many string operations don't require dec
 
 On the other hand, if we really care about the individual Unicode characters, we need a UTF-8 decoder. Go's `range` loop, when applied to a string, perfoming UTF-8 decoding implicitly.
 
-UTF-8 is exceptionally as an interchange format but within a program runs may be more convenient because they are of uniform size and are thus easily indexed in arrays and slices.
+UTF-8 is exceptionally as an interchange format but within a program runes may be more convenient because they are of uniform size and are thus easily indexed in arrays and slices.
 
 A `[]rune` conversion applied to a UTF-8-encoded string return the sequence of Unicode code points that the string encodes. If a slice of runes is converted to a string, it produces the concatenation of the UTF-8 encodings of each rune.
 
