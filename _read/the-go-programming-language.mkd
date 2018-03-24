@@ -193,8 +193,22 @@ UTF-8 is exceptionally as an interchange format but within a program runs may be
 
 A `[]rune` conversion applied to a UTF-8-encoded string return the sequence of Unicode code points that the string encodes. If a slice of runes is converted to a string, it produces the concatenation of the UTF-8 encodings of each rune.
 
+### Strings and Byte Slices
 
+A strings contains an array of bytes that, once created, is immutable. By contrast, the elements of a byte slice can be modified freely.
 
+Strings can be converted to byte slices and back again:
 
+    s := "abc"
+    b := []byte(s)
+    s2 := string(b)
+
+Conceptually, the `[]byte(s)` converstion allocates a new byte array holding a copy of the bytes of `s`, and yields a slice that references the entirety of that array. The conversion from byte slice back to strinig with `string(b)` also makes a coppy, to ensure the immutability of the resulting string `s2`.
+
+To avoid conversions and unnecessary memory allocation, many of the utility functions in the `bytes` packages directly parallel their conterparts in the `string` package.
+
+The `bytes` package provides the `Buffer` type for efficient manipulation of byte slices. A `Buffer` starts out empty but grows as data of types like `string`, `byte` and `byte[]` are written to it. A `bytes.Buffer` variable requires no initialization because its zero value is usable.
+
+When appending the UTF-8 encoding of a arbitrary rune to a `bytes.Buffer`, it's best to use `bytes.Buffer`'s `WriteRune` method, but `WriteByte` is fine for ASCII characters such as `[` and `]`.
 
 
