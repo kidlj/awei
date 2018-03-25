@@ -261,6 +261,11 @@ Unlike arrays, slices are not comparable, so we cannot use `==` to test whether 
 
 The only legal slice comparison is against `nil`. The zero value of a slice type is `nil`. A nil slice has no underlying array. The nil slice has length and capacity zero, but there are also non-nil slices of length and capacity zero, such as `[]int{}` or `make([]int, 3)[3:]`. As with any type that can have `nil` values, the nil value of a particular slice type can be written using a conversion expression such as `[]int(nil)`.
 
+    var s []int     // len(s) == 0, s == nil
+    s = nil         // len(s) == 0, s == nil
+    s = []int(nil)  // len(s) == 0, s == nil
+    s = []int{}     // len(s) == 0, s != nil
+
 So, if you need to test whether a slice is empty, use `len(s) == 0`, not `s == nil`. Other than comparing equal to `nil`, a nil slice behaves like any other zero-length slice; `reverse(nil)` is perfectly safe, for example. Unless clearly documented to the contrary, Go functions should treat all zero-length slices the same way, whether nil or non-nil.
 
 The built-in function `make` creates a slice of a specified element type, length, and capacity. The capacity argument may be omitted, in which case the capacity equals the length.
@@ -269,3 +274,56 @@ The built-in function `make` creates a slice of a specified element type, length
     make([]T, len, cap) // same as make([]T, cap)[:len]
 
 Under the hood, `make` creates an unnamed array variable and returns a slice of it; the array is accessible only through the returned slice. In the first form, the slice is a view of the entire array. In the second, the slice is a view of only the array's first `len` elements, but its capacity includes the entire array. The additional elements are set aside for future growth.
+
+### The `append` function
+
+The built-in `append` function appends items to slices. The `append` function is crucial to understand how slices work, so let's take a look at what's going on. Here's a version of called `appendInt` that is specialized for `[]int` slices:
+
+    func appendInt([]int x, y int) []int) {
+        var z int[]
+        zlen := len(x) + 1
+        if zlen <= cap(x) {
+            z = x[:zlen]
+        } else {
+            // There is insufficient space. Allocate a new array.
+            // Grow by doubling, for amortized linear complexity.
+            zcap := zlen
+            if zcap < 2 * len(x) {
+                zcap = 2 * len(x)
+            }
+            z = make([]int, zlen, zcap)
+            copy(z, x)
+        }
+        z[len(x)] = y
+        return z
+    }
+
+The built-in function `copy`, which copies elements from one slice to another of the same type. The slices may refer to the same underlying array; they may even overlap. `copy` return the number of elements actually copied, which is the smaller of the two slice lengths, so there is no danger of running off the end or overwriting something out of range.
+
+The built-in `append` function may use a more sophisticated growth strategy than `appendInt`'s simplistic one. Usually we don't know whether a given call to `append` will cause a reallocation, so we can't assume the original slice refers to the same array as the resulting slice, nor that it refers to a different one. Similarly, we must assume that operations on elements of the old slice will (or will not) be reflected in the new slice. As a result, it's usual to assign the result of a call to `append` to the same slice variable whose value we passed to `append`:
+
+    runes = append(runes, r)
+
+Updating the slice variable is required not just when calling `append`, but for any function that may change the length or capacity of a slice or make it refer to a different underlying array. To use slices correctly, it's important to bear in mind that although the elements of the underlying array are indirect, the slice's pointer, length, and capacity are not. To update them requires an assignment like the one above. In this respect, slices are not "pure" reference types but resemble an aggregate type such as this struct:
+
+    type IntSlice struct {
+        ptr *int
+        len, cap int
+    }
+
+Our `appendInt` function adds a single element to a slice, but the built-in `append` lets us add more that one new element, or even a whole slice of them.
+
+    var x []int
+    x = append(x, 1)
+    x = append(x, 2, 3)
+    x = append(x, 4, 5, 6)
+    x = append(x, x...) // appends the slice x
+    fmt.Println(x) // "[1 2 3 4 5 6 7]"
+
+With the small modification shown below, we can match the behavior of the built-in `append`. The ellipsis `...` in the declaration of `appendInt` makes the function _variadic_: it accepts any number of final arguments. The corresponding ellipsis in the call above shows how to supply a list of arguments from a slice.
+
+    func appendInt([]int, y ...int) []int {
+        var z int[]
+        zlen := len(x) + len(y)
+        // expands z to at least zlen
+    }
