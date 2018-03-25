@@ -240,3 +240,32 @@ If an array's elements are _comparable_ then the array type is comparable too, s
 When a function is called, a copy of each argument value is assigned to the corresponding parameter variable, so the function receives a copy, not the original. Passing large arrays in this way can be inefficient, and any changes that the function makes to array elements affect only the copy, not the original. In this regard, Go treats arrays like any other type, but this behavior is different from languages that implicitly pass arrays _by reference_.
 
 The array literal `[32]byte{}` yields an array of 32 bytes. Each element of the array has the zero value for `byte`, which is `0`.
+
+### Slices
+
+Slices represent variable-length sequences whose values all have the same type. A slice type is written `[]T`, where the elements have type `T`; it looks like an array type without a size.
+
+Arrays and slices are intimately connected. A slice is a lightweight data structure that gives access to a subsequence (or perhaps all) of the elements of an array, which is known as the slice's _underlying array_. A slice has three components: a pointer, a length, and a capacity. The pointer points to the first element of the array that is reachable through the slice, which is not necessarily the array's first element. The length is the number of slice elements; it can't exceed the capacity, which is usually the number of elements between the start of the slice and the end of the underlying array. The built-in function s `len` and `cap` return those values.
+
+Multiple slices can share the same underlying array and may refer to overlapping part of that array.
+
+The _slice operator_ `s[i:j]`, where `0 <= i <= j <= cap(s)`, creates a new slice that refers to elements `i` through `j-1` of the sequence `s`, which may be an array variable, a pointer to an array, or another slice.
+
+Slicing beyond `cap(s)` causes a panic, but slicing beyond `len(s)` extends the slice, so the result may be longer than the original.
+
+Since a slice contains a pointer to an element of an array, passing a slice to a function permits the function to modify the underlying array elements. In other words, copying a slice creates an _alias_ for the underlying array.
+
+A _slice literal_ looks like an array literal, a sequence of values separated by comma and surrounded by braces, but the size is not given. This implicitly creates an array variable of the right size and yields a slice that points to it. As with array literals, slice literals may specify the values in order, or give their indices explicitly, or use a mix of the two styles.
+
+Unlike arrays, slices are not comparable, so we cannot use `==` to test whether two slices contain the same elements. The standard library provides the highly optimized `bytes.Equal` function for comparing two slices of bytes (`[]byte`), but for other types of slice, we must do the comparison ourselves.
+
+The only legal slice comparison is against `nil`. The zero value of a slice type is `nil`. A nil slice has no underlying array. The nil slice has length and capacity zero, but there are also non-nil slices of length and capacity zero, such as `[]int{}` or `make([]int, 3)[3:]`. As with any type that can have `nil` values, the nil value of a particular slice type can be written using a conversion expression such as `[]int(nil)`.
+
+So, if you need to test whether a slice is empty, use `len(s) == 0`, not `s == nil`. Other than comparing equal to `nil`, a nil slice behaves like any other zero-length slice; `reverse(nil)` is perfectly safe, for example. Unless clearly documented to the contrary, Go functions should treat all zero-length slices the same way, whether nil or non-nil.
+
+The built-in function `make` creates a slice of a specified element type, length, and capacity. The capacity argument may be omitted, in which case the capacity equals the length.
+
+    make([]T, len)
+    make([]T, len, cap) // same as make([]T, cap)[:len]
+
+Under the hood, `make` creates an unnamed array variable and returns a slice of it; the array is accessible only through the returned slice. In the first form, the slice is a view of the entire array. In the second, the slice is a view of only the array's first `len` elements, but its capacity includes the entire array. The additional elements are set aside for future growth.
