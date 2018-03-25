@@ -318,7 +318,7 @@ Our `appendInt` function adds a single element to a slice, but the built-in `app
     x = append(x, 2, 3)
     x = append(x, 4, 5, 6)
     x = append(x, x...) // appends the slice x
-    fmt.Println(x) // "[1 2 3 4 5 6 7]"
+    fmt.Println(x) // "[1 2 3 4 5 6 1 2 3 4 5 6]"
 
 With the small modification shown below, we can match the behavior of the built-in `append`. The ellipsis `...` in the declaration of `appendInt` makes the function _variadic_: it accepts any number of final arguments. The corresponding ellipsis in the call above shows how to supply a list of arguments from a slice.
 
