@@ -219,3 +219,24 @@ Constants are expressions whose value is known to compiler and whose evaluation 
 The results of all arithmetic, logic, and comparison operations applied to constant operands are themselves constants, as are the results of conversions and calls to certain built-in functions such as `len`, `cap`, `real`, `imag`, `complex`, and `unsafe.Sizeof`.
 
 A constant declaration may specify a type as well as a value, but in the absence of an explicit type, the type is inferred from the expression on the right-hand side.
+
+Chapter 4: Composite Types
+==========================
+
+In this chapter, we'll take a look at _composite_ types, the molecules created by combining the basic types in various ways. We'll talk about four such types--arrays, slices, maps, and structs.
+
+Arrays and structs are _aggregate_ types; their values are concatenations of other values in memory. Arrays are homogenous--their elements all have the same type--whereas structs are heterogenous. Both arrays and structs are fixed size. In contrast, slices and maps are dynamic data structures that grow as values are added.
+
+### Arrays
+
+An array is a fixed-length sequence of zero or more elements of a particular type. Because of their fixed length, arrays are rarely used directly in Go. Slices, which can grow and shrink, are much more versatile.
+
+By default, the elements of a new array variable are initially set to zero value for the element type, which is `0` for numbers. We can use an _array literal_ to initialize an array with a list of values.
+
+The size of an array is part of its type, so `[3]int` and `[4]int` are different types. The size must be a constant expression, that is, an expression whose value can be computed as the program is being compiled.
+
+If an array's elements are _comparable_ then the array type is comparable too, so we may directly compare two arrays of that type using the `==` operator, which reports whether all corresponding elements are equal. The `!=` operator is its negation.
+
+When a function is called, a copy of each argument value is assigned to the corresponding parameter variable, so the function receives a copy, not the original. Passing large arrays in this way can be inefficient, and any changes that the function makes to array elements affect only the copy, not the original. In this regard, Go treats arrays like any other type, but this behavior is different from languages that implicitly pass arrays _by reference_.
+
+The array literal `[32]byte{}` yields an array of 32 bytes. Each element of the array has the zero value for `byte`, which is `0`.
