@@ -7,7 +7,7 @@ Chapter 2: Program Structure
 
 ### Names
 
-If an entity is declared within a function, it is _local_ to that function. If declared outside a function, however, it is visible in all files of the package to which it belongs. The case of the first letter of a name determains its visibility across package boundries. If the name begins with an upper-case letter, it is _exported_, which means it is visible and accessible outside of its own pachage and may be refered to by other parts of the program, as with `Printf` in `fmt` package. Package names themselves are always in lower case.
+If an entity is declared within a function, it is _local_ to that function. If declared outside a function, however, it is visible in all files of the package to which it belongs. The case of the first letter of a name determines its visibility across package boundaries. If the name begins with an upper-case letter, it is _exported_, which means it is visible and accessible outside of its own package and may be referred to by other parts of the program, as with `Printf` in `fmt` package. Package names themselves are always in lower case.
 
 Generally, the larger the scope of a name, the longer and more meaningful it should be.
 
@@ -15,7 +15,7 @@ Stylistically, Go programmers use "camel case" when forming names by combining w
 
 ### Declarations
 
-A _declaration_ names a program entity and specifys some or all of its properties. There are four major kinds of declarations: `var`, `const`, `type` and `func`.
+A _declaration_ names a program entity and specifies some or all of its properties. There are four major kinds of declarations: `var`, `const`, `type` and `func`.
 
 The `package` declaration is followed by any `import` declarations, and then a sequence of _package-level_ declarations of types, variables, constants and functions, in any order.
 
@@ -25,7 +25,7 @@ Each variable declaration has the general form
 
     var name type = expression
 
-Either the type or the `= expression` part may be omitted, but not both. If the type is omitted, it is determained by the initializer expression. If the expression is omitted, the initial value is the _zero value_ of the type, which is `0` for numbers, `false` for booleans, `""` for strings, and `nil` for reference types(slice, pointer, map, channel, function). The zero value of an aggregate type like an array or a struct has the zero value of all of its elements or fields.
+Either the type or the `= expression` part may be omitted, but not both. If the type is omitted, it is determined by the initializer expression. If the expression is omitted, the initial value is the _zero value_ of the type, which is `0` for numbers, `false` for booleans, `""` for strings, and `nil` for reference types(slice, pointer, map, channel, function). The zero value of an aggregate type like an array or a struct has the zero value of all of its elements or fields.
 
 The zero-value mechanism ensures that a variable always holds a well-defined value of its type; in Go there's no such thing as an uninitialized value.
 
@@ -48,11 +48,11 @@ If a variable is declared `var x int`, the expression `&x` ("address of `x`") yi
 
 Each component of a variable of aggregate type--a field of a struct or an element of an array--is also a variable and thus has an address too.
 
-Variables are sometimes described as _addressable values_. _Expressions_ that denote variables are the only expressions to which the _adress-of_ operator `&` may be applied.
+Variables are sometimes described as _addressable values_. _Expressions_ that denote variables are the only expressions to which the _address-of_ operator `&` may be applied.
 
 The zero value for a pointer of any type is `nil`. The test `p != nil` is true if `p` points to a variable. Pointers are comparable; two pointers are equal if and only if they point to the same variable or both are `nil`.
 
-It is perfectly safe for a function to return the address of a _local_ variable. For instance, in the code below, the local variable `v` created by the particular call to `f` will remain in existance even after the call has returned, and the pointer `p` will still refers to it:
+It is perfectly safe for a function to return the address of a _local_ variable. For instance, in the code below, the local variable `v` created by the particular call to `f` will remain in existence even after the call has returned, and the pointer `p` will still refers to it:
 
     var p = f()
     function f() *int {
@@ -66,17 +66,17 @@ Each call of `f` returns a distinct value:
 
 ### Lifetime of Variables
 
-The lifetime of a variable is the interval of time during which it exists as the program excutes. The lifetime of a package-level variable is the entire execution of the program. By contrast, local variables have dynamic lifetimes: a new instance is created each time the declaration statement is executed, and the variable lives on util it becomes _unreachable_, at which point its storage may be recycled. Function parameters and results are local variables too; they are created each time their enclosing function is called.
+The lifetime of a variable is the interval of time during which it exists as the program executes. The lifetime of a package-level variable is the entire execution of the program. By contrast, local variables have dynamic lifetimes: a new instance is created each time the declaration statement is executed, and the variable lives on until it becomes _unreachable_, at which point its storage may be recycled. Function parameters and results are local variables too; they are created each time their enclosing function is called.
 
 How does the garbage collector know that a variable's storage can be reclaimed? The full story is much more detailed that we need here, but the idea is that the package-level variable, and every local variable of each currently active function, can potentially be the start or the root of the path to the variable in question, following pointers and other kinds of references that ultimately lead to the variable. If no such path exists, the variable has become unreachable, so it can no longer affect the rest of the computation.
 
-Because the lifetime of a variable is determained only by whether or not it is reachable, a local variable may outlive a single iteration of the enclosing loop. It may continue to exist even after its enclosing function has returned.
+Because the lifetime of a variable is determined only by whether or not it is reachable, a local variable may outlive a single iteration of the enclosing loop. It may continue to exist even after its enclosing function has returned.
 
 ### Assignability
 
 An assignment, explicit or implicit, is always legal if the left-hand side(the variable) and the right-hand side(the value) have the same type. More generally, the assignment is legal only if the value is _assignable_ to the type of the variable.
 
-The rule for _assignability_ has cases for various types, so we will explaine the relevant case as we introduce each new type. For the types we've discussed so far, the rules are simple: the types must exactly match, and nil may be assigned to any variable of interface or reference type.
+The rule for _assignability_ has cases for various types, so we will explain the relevant case as we introduce each new type. For the types we've discussed so far, the rules are simple: the types must exactly match, and nil may be assigned to any variable of interface or reference type.
 
 Whether two values may be compared with `==` or `!=` is related to assignability: in any comparison, the first operand must be assignable to the type of the second operand, or vice versa.
 
@@ -88,13 +88,13 @@ A `type` declaration defines a new _named type_ that has the same _underlying ty
 
 Different name types with the same underlying type are not the same type, so they cannot be compared or combined with arithmetic expressions. 
 
-For every type `T`, there is a corresponding operation `T(x)` that converts the value `x` to type `T`. A convertion from one type to another is allowed if both have the same underlying type, or if both are _unnamed pointer types(?)_ that point to variables of the same underlying type; these convertions change the type but not the resprentation of the value. 
+For every type `T`, there is a corresponding operation `T(x)` that converts the value `x` to type `T`. A conversion from one type to another is allowed if both have the same underlying type, or if both are _unnamed pointer types(?)_ that point to variables of the same underlying type; these conversions change the type but not the representation of the value. 
 
 Conversions are also allowed between numeric types, and between string and some slice types. _These conversions may change the representation of the value_. For instance, converting a floating-point number to an integer discard any fractional part, and converting a string to a `[]byte` slice allocates a copy of the string data.
 
-The underlying type of a named type determains its structure and representation, and also the set of intrinsic operations it supports, which are the same as if the underlying type had been used directly.
+The underlying type of a named type determines its structure and representation, and also the set of intrinsic operations it supports, which are the same as if the underlying type had been used directly.
 
-Comparasion operator like `==` and `<` can also be used to compare a value of a named type to another of the same type, or to a _value of the underlying type(?)_. But two values of different named types cannot be compared directly:
+Comparison operator like `==` and `<` can also be used to compare a value of a named type to another of the same type, or to a _value of the underlying type(?)_. But two values of different named types cannot be compared directly:
 
     type Celcius int
     var a int = 3
@@ -113,11 +113,11 @@ Go's types fall into four categories: _basic types_, _aggregate types_, _referen
 
 There are two types called `int` and `uint` that are the natural or the most efficient size for signed and unsigned integers on a particular platform; `int` is by far the most widely used numeric type. Both these types have the same size, either 32 or 64 bits, but one must not make assumptions about which; different compilers may make different choices even on identical hardware.
 
-The type `rune` is synonum for `int32` and conventionally indicates that a value is a Unicode code point. The two names may be used interchangeably. Similarly, the type `byte` is a synonum for `uint8`, and emphasizes that the value is a piece of raw data rather a small numric quantity.
+The type `rune` is synonym for `int32` and conventionally indicates that a value is a Unicode code point. The two names may be used interchangeably. Similarly, the type `byte` is a synonym for `uint8`, and emphasizes that the value is a piece of raw data rather a small numeric quantity.
 
 Regardless of their size, `int`, `uint`, and `uintptr` are different types from their explicitly sized siblings. Thus `int` is not the same type as `int32`, even if the natural size of `int` is 32 bits, and an explicit conversion is required to use and `int` value where an `int32` is needed, and vice versa.
 
-Go's binary oprators for arithmetic, logic, and comparision are listed here in the order of decreasing precedence:
+Go's binary operators for arithmetic, logic, and comparison are listed here in the order of decreasing precedence:
 
     * / % << >> & &^
     + - | ^
@@ -125,7 +125,7 @@ Go's binary oprators for arithmetic, logic, and comparision are listed here in t
     &&
     ||
 
-There are only five levels of precedence for binary oprators. Oprators at the same level associate to the left.
+There are only five levels of precedence for binary operators. Operators at the same level associate to the left.
 
 The integer arithmetic operators `+`, `-`, `*`, `/` may be applied to integers, floating-point, and complex numbers, but the remainder operator `%` applies only to integers. The behavior of `%` for negative numbers varies across programming languages. In Go, the sign of the remainder is always the same as the sign of the dividend, so `-5%-3` and `-5/3` are both `-2`. The behavior of `/` depends on whether its operands are integers, so `5.0/4.0` is `1.25`, but `5/4` is `1` because integer division truncates the result toward zero.
 
@@ -141,7 +141,7 @@ In general, an explicit conversion is required to convert a value from one type 
 
 ### Booleans
 
-A value of type `bool`, or _boolean_, has only two possible values, `true` and `false`. The conditions in `if` and `for` statements are booleans, and comparision operators like `==` and `<` produce a boolean result.
+A value of type `bool`, or _boolean_, has only two possible values, `true` and `false`. The conditions in `if` and `for` statements are booleans, and comparison operators like `==` and `<` produce a boolean result.
 
 There is no implicit conversion from a boolean value to a numeric value like 0 and 1, or vice versa.
 
@@ -161,23 +161,23 @@ A string value can be written as a _string literal_, a sequence of bytes enclose
 
 Because Go source files are always encoded in UTF-8 and go text strings are conventionally interpreted as UTF-8, we can include Unicode code points in string literals.
 
-Within a double-quoted string literal, _escape sequences_ that begin with a backslach `\` can be used to insert arbitrary byte values into the string.
+Within a double-quoted string literal, _escape sequences_ that begin with a backslash `\` can be used to insert arbitrary byte values into the string.
 
 Arbitrary bytes can also be include in literal strings using hexadecimal and octal escapes.
 
-A _raw string literal_ is written ``...``, using backquotes instead of double quotes. Within a raw string literal, no escape sequences are proccessd. Raw string literals are convinient ways to write regular expressions, which tend to have lots of backslashes.
+A _raw string literal_ is written ``...``, using backquotes instead of double quotes. Within a raw string literal, no escape sequences are processed. Raw string literals are convenient ways to write regular expressions, which tend to have lots of backslashes.
 
 ### Unicode
 
 Unicode collects all of the characters in all of the world's writing systems, and assigns each one a standard number called _Unicode code point_, in Go terminology, a _rune_.
 
-The natural data type to hold a single rune is `int32`, and that's what go uses; it has the synonum `rune` for precisely this purpose.
+The natural data type to hold a single rune is `int32`, and that's what go uses; it has the synonym `rune` for precisely this purpose.
 
 ### UTF-8
 
-We could represent a sequence of runes as a sequence of `int32` values. In this representation, which is called UTF-32 or UCS-4, the encoding of each Unicode code point has the same size, 32 bits. This is simple and uniform, but it uses much more space than neccessary since most computer-readable text is in ASCII, which requires only 8 bits or 1 byte per character. All the characters in widespread use still number fewer that 65536, which would fit in 16 bits.
+We could represent a sequence of runes as a sequence of `int32` values. In this representation, which is called UTF-32 or UCS-4, the encoding of each Unicode code point has the same size, 32 bits. This is simple and uniform, but it uses much more space than necessary since most computer-readable text is in ASCII, which requires only 8 bits or 1 byte per character. All the characters in widespread use still number fewer that 65536, which would fit in 16 bits.
 
-UTF-8 is a variable-length encoding of Unicode code poinsts as bytes. It uses between 1 and 4 bytes to represent each rune, but only 1 byte for ASCII characters, and only 2 to 3 bytes for most runes in common use. The high-order bits of the first byte of the encoding for a rune indicate how many bytes follow. A high-order `0` indicates 7-bits ASCII, where each runes takes only 1 byte, so it identical to convetional ASCII. A high-order `110` indicates that the rune takes 2 bytes; the second byte begins with `10`. Larger runes have analogous encodings.
+UTF-8 is a variable-length encoding of Unicode code points as bytes. It uses between 1 and 4 bytes to represent each rune, but only 1 byte for ASCII characters, and only 2 to 3 bytes for most runes in common use. The high-order bits of the first byte of the encoding for a rune indicate how many bytes follow. A high-order `0` indicates 7-bits ASCII, where each runes takes only 1 byte, so it identical to conventional ASCII. A high-order `110` indicates that the rune takes 2 bytes; the second byte begins with `10`. Larger runes have analogous encodings.
 
 A variable-length encoding precludes direct indexing to access the `n`-th character of a string, but UTF-8 has many desirable properties to compensate. The encoding is compact, compatible with ASCII, and _self-synchronizing_.
 
@@ -187,14 +187,143 @@ A rune whose value is less that 256 may be written with a single hexadecimal esc
 
 Thanks to the nice properties of UTF-8, many string operations don't require decoding. We can test whether one string contains another as a prefix, or as a suffix, or as a substring using the same logic for UTF-8-encoded text as for raw bytes. This is not true for other encodings.
 
-On the other hand, if we really care about the individual Unicode characters, we need a UTF-8 decoder. Go's `range` loop, when applied to a string, perfoming UTF-8 decoding implicitly.
+On the other hand, if we really care about the individual Unicode characters, we need a UTF-8 decoder. Go's `range` loop, when applied to a string, performing UTF-8 decoding implicitly.
 
 UTF-8 is exceptionally as an interchange format but within a program runes may be more convenient because they are of uniform size and are thus easily indexed in arrays and slices.
 
 A `[]rune` conversion applied to a UTF-8-encoded string return the sequence of Unicode code points that the string encodes. If a slice of runes is converted to a string, it produces the concatenation of the UTF-8 encodings of each rune.
 
+### Strings and Byte Slices
+
+A strings contains an array of bytes that, once created, is immutable. By contrast, the elements of a byte slice can be modified freely.
+
+Strings can be converted to byte slices and back again:
+
+    s := "abc"
+    b := []byte(s)
+    s2 := string(b)
+
+Conceptually, the `[]byte(s)` conversion allocates a new byte array holding a copy of the bytes of `s`, and yields a slice that references the entirety of that array. The conversion from byte slice back to string with `string(b)` also makes a copy, to ensure the immutability of the resulting string `s2`.
+
+To avoid conversions and unnecessary memory allocation, many of the utility functions in the `bytes` packages directly parallel their counterparts in the `string` package.
+
+The `bytes` package provides the `Buffer` type for efficient manipulation of byte slices. A `Buffer` starts out empty but grows as data of types like `string`, `byte` and `byte[]` are written to it. A `bytes.Buffer` variable requires no initialization because its zero value is usable.
+
+When appending the UTF-8 encoding of a arbitrary rune to a `bytes.Buffer`, it's best to use `bytes.Buffer`'s `WriteRune` method, but `WriteByte` is fine for ASCII characters such as `[` and `]`.
 
 
+### Constants
 
+Constants are expressions whose value is known to compiler and whose evaluation is guaranteed to occur at compile time, not at run time. The underlying type of every constant is a basic type: boolean, string, or number.
 
+The results of all arithmetic, logic, and comparison operations applied to constant operands are themselves constants, as are the results of conversions and calls to certain built-in functions such as `len`, `cap`, `real`, `imag`, `complex`, and `unsafe.Sizeof`.
 
+A constant declaration may specify a type as well as a value, but in the absence of an explicit type, the type is inferred from the expression on the right-hand side.
+
+Chapter 4: Composite Types
+==========================
+
+In this chapter, we'll take a look at _composite_ types, the molecules created by combining the basic types in various ways. We'll talk about four such types--arrays, slices, maps, and structs.
+
+Arrays and structs are _aggregate_ types; their values are concatenations of other values in memory. Arrays are homogenous--their elements all have the same type--whereas structs are heterogenous. Both arrays and structs are fixed size. In contrast, slices and maps are dynamic data structures that grow as values are added.
+
+### Arrays
+
+An array is a fixed-length sequence of zero or more elements of a particular type. Because of their fixed length, arrays are rarely used directly in Go. Slices, which can grow and shrink, are much more versatile.
+
+By default, the elements of a new array variable are initially set to zero value for the element type, which is `0` for numbers. We can use an _array literal_ to initialize an array with a list of values.
+
+The size of an array is part of its type, so `[3]int` and `[4]int` are different types. The size must be a constant expression, that is, an expression whose value can be computed as the program is being compiled.
+
+If an array's elements are _comparable_ then the array type is comparable too, so we may directly compare two arrays of that type using the `==` operator, which reports whether all corresponding elements are equal. The `!=` operator is its negation.
+
+When a function is called, a copy of each argument value is assigned to the corresponding parameter variable, so the function receives a copy, not the original. Passing large arrays in this way can be inefficient, and any changes that the function makes to array elements affect only the copy, not the original. In this regard, Go treats arrays like any other type, but this behavior is different from languages that implicitly pass arrays _by reference_.
+
+The array literal `[32]byte{}` yields an array of 32 bytes. Each element of the array has the zero value for `byte`, which is `0`.
+
+### Slices
+
+Slices represent variable-length sequences whose values all have the same type. A slice type is written `[]T`, where the elements have type `T`; it looks like an array type without a size.
+
+Arrays and slices are intimately connected. A slice is a lightweight data structure that gives access to a subsequence (or perhaps all) of the elements of an array, which is known as the slice's _underlying array_. A slice has three components: a pointer, a length, and a capacity. The pointer points to the first element of the array that is reachable through the slice, which is not necessarily the array's first element. The length is the number of slice elements; it can't exceed the capacity, which is usually the number of elements between the start of the slice and the end of the underlying array. The built-in function s `len` and `cap` return those values.
+
+Multiple slices can share the same underlying array and may refer to overlapping part of that array.
+
+The _slice operator_ `s[i:j]`, where `0 <= i <= j <= cap(s)`, creates a new slice that refers to elements `i` through `j-1` of the sequence `s`, which may be an array variable, a pointer to an array, or another slice.
+
+Slicing beyond `cap(s)` causes a panic, but slicing beyond `len(s)` extends the slice, so the result may be longer than the original.
+
+Since a slice contains a pointer to an element of an array, passing a slice to a function permits the function to modify the underlying array elements. In other words, copying a slice creates an _alias_ for the underlying array.
+
+A _slice literal_ looks like an array literal, a sequence of values separated by comma and surrounded by braces, but the size is not given. This implicitly creates an array variable of the right size and yields a slice that points to it. As with array literals, slice literals may specify the values in order, or give their indices explicitly, or use a mix of the two styles.
+
+Unlike arrays, slices are not comparable, so we cannot use `==` to test whether two slices contain the same elements. The standard library provides the highly optimized `bytes.Equal` function for comparing two slices of bytes (`[]byte`), but for other types of slice, we must do the comparison ourselves.
+
+The only legal slice comparison is against `nil`. The zero value of a slice type is `nil`. A nil slice has no underlying array. The nil slice has length and capacity zero, but there are also non-nil slices of length and capacity zero, such as `[]int{}` or `make([]int, 3)[3:]`. As with any type that can have `nil` values, the nil value of a particular slice type can be written using a conversion expression such as `[]int(nil)`.
+
+    var s []int     // len(s) == 0, s == nil
+    s = nil         // len(s) == 0, s == nil
+    s = []int(nil)  // len(s) == 0, s == nil
+    s = []int{}     // len(s) == 0, s != nil
+
+So, if you need to test whether a slice is empty, use `len(s) == 0`, not `s == nil`. Other than comparing equal to `nil`, a nil slice behaves like any other zero-length slice; `reverse(nil)` is perfectly safe, for example. Unless clearly documented to the contrary, Go functions should treat all zero-length slices the same way, whether nil or non-nil.
+
+The built-in function `make` creates a slice of a specified element type, length, and capacity. The capacity argument may be omitted, in which case the capacity equals the length.
+
+    make([]T, len)
+    make([]T, len, cap) // same as make([]T, cap)[:len]
+
+Under the hood, `make` creates an unnamed array variable and returns a slice of it; the array is accessible only through the returned slice. In the first form, the slice is a view of the entire array. In the second, the slice is a view of only the array's first `len` elements, but its capacity includes the entire array. The additional elements are set aside for future growth.
+
+### The `append` function
+
+The built-in `append` function appends items to slices. The `append` function is crucial to understand how slices work, so let's take a look at what's going on. Here's a version of called `appendInt` that is specialized for `[]int` slices:
+
+    func appendInt([]int x, y int) []int) {
+        var z int[]
+        zlen := len(x) + 1
+        if zlen <= cap(x) {
+            z = x[:zlen]
+        } else {
+            // There is insufficient space. Allocate a new array.
+            // Grow by doubling, for amortized linear complexity.
+            zcap := zlen
+            if zcap < 2 * len(x) {
+                zcap = 2 * len(x)
+            }
+            z = make([]int, zlen, zcap)
+            copy(z, x)
+        }
+        z[len(x)] = y
+        return z
+    }
+
+The built-in function `copy`, which copies elements from one slice to another of the same type. The slices may refer to the same underlying array; they may even overlap. `copy` return the number of elements actually copied, which is the smaller of the two slice lengths, so there is no danger of running off the end or overwriting something out of range.
+
+The built-in `append` function may use a more sophisticated growth strategy than `appendInt`'s simplistic one. Usually we don't know whether a given call to `append` will cause a reallocation, so we can't assume the original slice refers to the same array as the resulting slice, nor that it refers to a different one. Similarly, we must assume that operations on elements of the old slice will (or will not) be reflected in the new slice. As a result, it's usual to assign the result of a call to `append` to the same slice variable whose value we passed to `append`:
+
+    runes = append(runes, r)
+
+Updating the slice variable is required not just when calling `append`, but for any function that may change the length or capacity of a slice or make it refer to a different underlying array. To use slices correctly, it's important to bear in mind that although the elements of the underlying array are indirect, the slice's pointer, length, and capacity are not. To update them requires an assignment like the one above. In this respect, slices are not "pure" reference types but resemble an aggregate type such as this struct:
+
+    type IntSlice struct {
+        ptr *int
+        len, cap int
+    }
+
+Our `appendInt` function adds a single element to a slice, but the built-in `append` lets us add more that one new element, or even a whole slice of them.
+
+    var x []int
+    x = append(x, 1)
+    x = append(x, 2, 3)
+    x = append(x, 4, 5, 6)
+    x = append(x, x...) // appends the slice x
+    fmt.Println(x) // "[1 2 3 4 5 6 1 2 3 4 5 6]"
+
+With the small modification shown below, we can match the behavior of the built-in `append`. The ellipsis `...` in the declaration of `appendInt` makes the function _variadic_: it accepts any number of final arguments. The corresponding ellipsis in the call above shows how to supply a list of arguments from a slice.
+
+    func appendInt([]int, y ...int) []int {
+        var z int[]
+        zlen := len(x) + len(y)
+        // expands z to at least zlen
+    }
