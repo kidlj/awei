@@ -408,3 +408,21 @@ The order of map iteration is unspecified, and different implementations might u
 Since we know the final size of `names` from the outset, it is more efficient to allocate an array of the required size up front:
 
     names := make([]string, 0, len(ages))
+
+The zero value for a map type is `nil`, that is, a reference to no hash table at all.
+
+Most operations on maps, including lookup, `delete`, `len` and `range` loops, are safe to perform on a nil map reference, since it behaves like an empty map. But storing to a nil map causes a panic:
+
+    ages["carol"] = 24 // panic: assignment to entry in nil map
+
+You must allocate the map before you can store into it.
+
+The second return value of subscripting a map is a boolean that reports whether the element was present:
+
+    if age, ok := ages["bob"]; if !ok { /* ... */ }
+
+As with slices, maps cannot be compared to each other; the only legal comparison is with `nil`.
+
+Go does not provide a `set` type, but since the keys of the map are distinct, a map can serve this purpose.
+
+The value type of a map can itself be a composite type, such as a map or slice.
