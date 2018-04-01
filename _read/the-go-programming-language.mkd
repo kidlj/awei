@@ -233,6 +233,13 @@ An array is a fixed-length sequence of zero or more elements of a particular typ
 
 By default, the elements of a new array variable are initially set to zero value for the element type, which is `0` for numbers. We can use an _array literal_ to initialize an array with a list of values.
 
+    var q [3]int = [3]int{1, 2, 3}
+    var r [3]int = [3]int{1, 2}
+
+In an array literal, if an ellipsis "`...`" appears in place of the length, the array length is determined by the number of initializers. The definition of `q` can be simplified to:
+
+    q := [...]int{1, 2, 3}
+
 The size of an array is part of its type, so `[3]int` and `[4]int` are different types. The size must be a constant expression, that is, an expression whose value can be computed as the program is being compiled.
 
 If an array's elements are _comparable_ then the array type is comparable too, so we may directly compare two arrays of that type using the `==` operator, which reports whether all corresponding elements are equal. The `!=` operator is its negation.
