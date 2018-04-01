@@ -239,7 +239,16 @@ If an array's elements are _comparable_ then the array type is comparable too, s
 
 When a function is called, a copy of each argument value is assigned to the corresponding parameter variable, so the function receives a copy, not the original. Passing large arrays in this way can be inefficient, and any changes that the function makes to array elements affect only the copy, not the original. In this regard, Go treats arrays like any other type, but this behavior is different from languages that implicitly pass arrays _by reference_.
 
-The array literal `[32]byte{}` yields an array of 32 bytes. Each element of the array has the zero value for `byte`, which is `0`.
+Of course, we can explicitly pass a pointer to an array so that any modifications the function make to array elements will be visible to the caller. This function zeroes the contents of a `[32]byte` array:
+
+    func zero(ptr * [32]byte) {
+        *ptr = [32]byte{}
+    }
+
+The array literal `[32]byte{}` yields an array of 32 bytes. Each element of the array has the zero value for `byte`, which is `0`. 
+
+Using a pointer to an array is efficient and allow the called function to mutate the caller's variable, but arrays are still inherently inflexible because of their fixed size. The `zero` function will not accept a pointer to a `[16]byte` variable, for example, nor is there any way to add or remove array elements. For those reasons, other than special cases like SHA256's fix-sized hash, arrays are seldom used as functions parameters; instead, we use slices.
+
 
 ### Slices
 
@@ -253,7 +262,19 @@ The _slice operator_ `s[i:j]`, where `0 <= i <= j <= cap(s)`, creates a new slic
 
 Slicing beyond `cap(s)` causes a panic, but slicing beyond `len(s)` extends the slice, so the result may be longer than the original.
 
-Since a slice contains a pointer to an element of an array, passing a slice to a function permits the function to modify the underlying array elements. In other words, copying a slice creates an _alias_ for the underlying array.
+Since a slice contains a pointer to an element of an array, passing a slice to a function permits the function to modify the underlying array elements. In other words, copying a slice creates an _alias_ for the underlying array. The function `reverse` reverses the elements of an `[]int` slice in place, and it may be applied to slices of any length:
+
+    func reverse(s []int) {
+        for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+            s[i], s[j] = s[j], s[i]
+        }
+    }
+
+Here we reverse the whole array `a`:
+
+    a := [...]int{0, 1, 2, 3, 4, 5}
+    reverse(a[:])
+    fmt.Println(a) // "[5 4 3 2 1]"
 
 A _slice literal_ looks like an array literal, a sequence of values separated by comma and surrounded by braces, but the size is not given. This implicitly creates an array variable of the right size and yields a slice that points to it. As with array literals, slice literals may specify the values in order, or give their indices explicitly, or use a mix of the two styles.
 
@@ -327,3 +348,63 @@ With the small modification shown below, we can match the behavior of the built-
         zlen := len(x) + len(y)
         // expands z to at least zlen
     }
+
+### Maps
+
+The hash table is one of the most ingenious and versatile of all data structures. It is an unordered collection of key/pairs in which all the keys are distinct, an the value associated with a given key can be retrieved, updated or removed using a constant number of key comparisons on the average, no matter how large the hash table.
+
+In Go, a _map_ is a reference to a hash table, and a map type is written `map[K]V`, where `K` and `V` are the types of its keys and values. All of the keys in a given map are of the same type, and all of the values are of the same type, but the keys need not to be of the same type as the values. The key type `K` must be comparable with `==`, so that the map can test whether a given key is equal to one already within it.
+
+The built-in function `make` can be used to create a map:
+
+    ages := make(map[string]int) // mapping from strings to ints
+
+We can also use a _map literal_ to create a new map populated with some initial key/value pairs:
+
+    ages := map[string]int{
+        "alice":    31,
+        "charlie":  34,
+    }
+
+So the expression for a new empty map is `map[string]int{}`.
+
+Map elements are accessed through the usual subscript notation:
+
+    ages["alice"] = 32
+
+and removed with the built-in function `delete`:
+
+    delete(ages, "alice")
+
+All these operations are safe even if the element isn't in the map; a map lookup using a key that isn't present return the zero value for its type, so, for instance, the following works even when "`bob`" is not yet a key in the map because the value of `ages["bob"]` will be `0`:
+
+    ages["bob"] = ages["bob"] + 1 // happy birthday!
+
+But a map element is not a variable, and we cannot take its address:
+
+    _ = &ages["bob"] // compile error: cannot take address of map element
+
+One reason that we can't take the address of a map element is that growing a map might cause rehashing of existing elements into new storage locations, thus potentially invalidating the address.
+
+To enumerate all the key/values pairs in the map, we used a `range`-based `for` loop similar to those we saw for slices:
+
+    for name, age := range ages {
+        fmt.Printf("%s\t%d\n", name, age)
+    }
+
+The order of map iteration is unspecified, and different implementations might use a different hash function, leading to different ordering. In practice, the order is random, varying from on execution to the next. This is intentional; make the sequence vary help force programs to be robust across implementations. To enumerate the key/value pairs in order, we must sort the key explicitly, for instance, using the `Strings` function from the `sort` package if the keys are string. This is a common pattern:
+
+    import "sort"
+
+    var names string[]
+    for name := range ages {
+        names = append(names, name)
+    }
+    sort.Strings(names)
+    for _, name := range names {
+        fmt.Pringf("%s\t%d\n", name, ages[name])
+    }
+
+Since we know the final size of `names` from the outset, it is more efficient to allocate an array of the required size up front:
+
+    names := make([]string, 0, len(ages))
