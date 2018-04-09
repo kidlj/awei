@@ -171,7 +171,7 @@ A _raw string literal_ is written ``...``, using backquotes instead of double qu
 
 Unicode collects all of the characters in all of the world's writing systems, and assigns each one a standard number called _Unicode code point_, in Go terminology, a _rune_.
 
-The natural data type to hold a single rune is `int32`, and that's what go uses; it has the synonym `rune` for precisely this purpose.
+The natural data type to hold a single rune is `int32`, and that's what Go uses; it has the synonym `rune` for precisely this purpose.
 
 ### UTF-8
 
