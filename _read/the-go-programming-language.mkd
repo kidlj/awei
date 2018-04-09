@@ -409,7 +409,7 @@ The order of map iteration is unspecified, and different implementations might u
     }
     sort.Strings(names)
     for _, name := range names {
-        fmt.Pringf("%s\t%d\n", name, ages[name])
+        fmt.Printf("%s\t%d\n", name, ages[name])
     }
 
 Since we know the final size of `names` from the outset, it is more efficient to allocate an array of the required size up front:
