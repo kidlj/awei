@@ -218,7 +218,13 @@ Constants are expressions whose value is known to compiler and whose evaluation 
 
 The results of all arithmetic, logic, and comparison operations applied to constant operands are themselves constants, as are the results of conversions and calls to certain built-in functions such as `len`, `cap`, `real`, `imag`, `complex`, and `unsafe.Sizeof`.
 
-A constant declaration may specify a type as well as a value, but in the absence of an explicit type, the type is inferred from the expression on the right-hand side.
+A constant declaration may specify a type as well as a value, but in the absence of an explicit type, the type is inferred from the expression on the right-hand side. In the following, `time.Duration` is a named type whose underlying type is `int64`, and `time.Minute` is a constant of that type. Both of the constants declared below thus have the type `time.Duration` as well, as revealed by `%T`:
+
+    const noDelay time.Duration = 0
+    const timeout = 5 * time.Minute
+    fmt.Printf("%T [1]%v\n", noDelay)       // "time.Duration 0"
+    fmt.Printf("%T [1]%v\n", timeout)       // "time.Duration 5m0s"
+    fmt.Printf("%T [1]%v\n", time.Minute)   // "time.Duration 1m0s"
 
 Chapter 4: Composite Types
 ==========================
