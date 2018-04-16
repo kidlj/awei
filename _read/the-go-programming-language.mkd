@@ -171,7 +171,7 @@ A _raw string literal_ is written ``...``, using backquotes instead of double qu
 
 Unicode collects all of the characters in all of the world's writing systems, and assigns each one a standard number called _Unicode code point_, in Go terminology, a _rune_.
 
-The natural data type to hold a single rune is `int32`, and that's what go uses; it has the synonym `rune` for precisely this purpose.
+The natural data type to hold a single rune is `int32`, and that's what Go uses; it has the synonym `rune` for precisely this purpose.
 
 ### UTF-8
 
@@ -218,7 +218,13 @@ Constants are expressions whose value is known to compiler and whose evaluation 
 
 The results of all arithmetic, logic, and comparison operations applied to constant operands are themselves constants, as are the results of conversions and calls to certain built-in functions such as `len`, `cap`, `real`, `imag`, `complex`, and `unsafe.Sizeof`.
 
-A constant declaration may specify a type as well as a value, but in the absence of an explicit type, the type is inferred from the expression on the right-hand side.
+A constant declaration may specify a type as well as a value, but in the absence of an explicit type, the type is inferred from the expression on the right-hand side. In the following, `time.Duration` is a named type whose underlying type is `int64`, and `time.Minute` is a constant of that type. Both of the constants declared below thus have the type `time.Duration` as well, as revealed by `%T`:
+
+    const noDelay time.Duration = 0
+    const timeout = 5 * time.Minute
+    fmt.Printf("%T [1]%v\n", noDelay)       // "time.Duration 0"
+    fmt.Printf("%T [1]%v\n", timeout)       // "time.Duration 5m0s"
+    fmt.Printf("%T [1]%v\n", time.Minute)   // "time.Duration 1m0s"
 
 Chapter 4: Composite Types
 ==========================
@@ -433,3 +439,123 @@ As with slices, maps cannot be compared to each other; the only legal comparison
 Go does not provide a `set` type, but since the keys of the map are distinct, a map can serve this purpose.
 
 The value type of a map can itself be a composite type, such as a map or slice.
+
+### Structs
+
+A _struct_ is an aggregate type that groups zero or more named values of arbitrary types as a single entity. Each value is called a _field_.
+
+    type Employee struct {
+        ID          int
+        Name        string
+        Address     string
+        DoB         time.Time
+        Position    string
+        Salary      int
+        ManagerID   int
+    }
+
+    var dilbert Employee
+
+The individual fields of a struct variable is accessed using dot notation like `dilbert.Name`, because `dilbert` is a variable, its fields are variables too, so we may assign to a field:
+
+    dilbert.Salary -= 500
+
+or take its address and access it through a pointer:
+
+    position = &dilbert.Position
+    *position = 'Senior' + *position
+
+The dot notation also works with a pointer to a struct:
+
+    var employeeOfMonth *Employee = &dilbert
+    employeeOfMonth.Position += " (proactive team player)"
+
+The last statement is equivalent to:
+
+    (*employeeOfMonth).Position += " (proactive team player)"
+
+Given an employee's unique ID, the function `EmployeeByID` returns a pointer to an `Employee` struct. We can use dot notation to access its fields:
+
+    func EmployeeByID(id int) *Employess {/* ... */}
+
+    id := dilbert.ID
+    EmployeeByID(id).Salary = 0 // fired for... no real reason
+
+The last statement updates the `Employee` struct that is pointed by the result of the call to `EmployeeByID`. If the result type of `EmployeeByID` were changed to `Employee` instead of `*Employee`, the assignment statement would not compile since its left-hand side would not identify a variable.
+
+Field order is significant to type identity. Had we also combined the declaration of the `Position` filed(also a string), or interchanged `Nmme` and `Address`, we would be defining a different struct type. Typically we only combine the declarations of related fields.
+
+The name of a struct field is exported if it begins with a capital letter; This is Go's access mechanism. A struct type may contain a mixture of exported and unexported fields. 
+
+A named struct `S` can't declare a field of the same type `S`: an aggregate value cannot contain itself. (An analogous restriction applies to arrays.) But `S` may declare a field of the pointer type `*S`, which let us create recursive data structures like linked lists and trees.
+
+The zero value for a struct is composed of the zero values of each of its fields. It is usually desirable that the zero value be a natural or sensible default. For example, in `bytes.Buffer`, the initial value of the struct is a ready-to-use empty buffer, and the zero value of `sync.Mutex` is a ready-to-use unlocked mutex. Sometimes the sensible initial behavior happens for free, but sometimes the type designer has to work at it.
+
+The struct type with no fields is called the _empty struct_, written `struct{}`. It has size zero and carries no information.
+
+If all the fields of a struct are comparable, the struct itself is comparable, so two expressions of that type may be compared using `==` or `!=`. The `==` operation compares the corresponding fields of the two structs in order.
+
+### Struct Literals
+
+A value of struct type can be written using a _struct literal_ that specifies values for its fields:
+
+    type Point struct{ X, Y int }
+    p := Point{1, 2}
+
+There are two forms of struct literal. The first form, shown above, requires that a value be specified for _every_ field, in the right order. Accordingly, this form tends to be used only within the package that defines the struct type, or with smaller struct types for which there is an obvious field ordering convention, like `image.Point{x, y}` or `color.RGBA{red, green, yello, alpha}`. More often, the second form is used, in which a struct value is initialized by listing some or all of the field names and their corresponding values:
+
+    anim := gif.GIF{LoopCount: nframes}
+
+If a field is omitted in this kind of literal, it is set to the zero value for its type. Because names are provided, the order of fields doesn't matter.
+
+The two forms cannot be mixed in the same literal. Nor can you use the (order-based) first form of literal to sneak around the rule that unexported identifiers may not be refered to from another package:
+
+    package p
+    type T struct{ a, b int }
+
+    package q
+    import "p"
+    var _ = p.T{a: 1, b: 2} // compile error
+    var _ = p.T{1, 2} // compile error
+
+Because structs are so commonly dealt with through pointers, it's possible to use this shorthand notation to create and initialize a `struct` variable and obtain its address:
+
+    pp := &Point{1, 2}
+
+It is exactly equivalent to:
+
+    pp := new (Point)
+    *pp = Point{1, 2}
+
+but `&Point{1, 2}` can be directly used within an expression, such as a function call.
+
+### Struct Embedding and Anonymous Fields
+
+Go's unusual _struct embedding_ mechanism lets us use one named struct type as an _anonymous field_ of another struct type, providing a convenient syntactic shortcut so that a simple dot expression like `x.f` can stand for a chain of fields like `x.d.e.f`.
+
+    type Point struct {
+        X, Y int
+    }
+
+    type Circle struct {
+        Point
+        Radius int
+    }
+
+    type Wheel struct {
+        Circle
+        Spokes int
+    }
+
+Go lets us declare a field with a type but no name; such fields are called _anonymous fields_. The type of the field must be a named type or pointer to a named type. Thanks to _embedding_, we can refer to the names at the leaves of the implicit tree without giving the intervening names:
+
+    var w Wheel
+    w.X = 8 // equivalent to w.Circle.Point.X = 8
+
+In fact, "anonymous" fields do have implicit names-- the type names, so that you can't have two anonymous fields of the same type since their names would conflict. And because the name of the field is implicitly determined by its type, so too is the visibility of the field. In the example above, the `Point` and `Circle` anonymous fields are exported. Had they been unexported(`point` and `circle`), we could still use the shorthand form:
+
+    w.X = 8 // equivalent to w.circle.point.X = 8
+
+but the explicit long form shown in the comment would be forbidden outside the declaring package because `circle` and `point` would be inaccessible.
+
+The shorthand notation used for selecting fields of an embedded type works for selecting its methods as well. In effect, the outer struct type gains not the fields of the embedded type but its methods too. This mechanism is the main way that complex object behaviors are composed from simpler ones. _Composition_ is central to object-oriented programming in Go, and we'll explore it later.
