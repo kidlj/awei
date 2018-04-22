@@ -559,3 +559,169 @@ In fact, "anonymous" fields do have implicit names-- the type names, so that you
 but the explicit long form shown in the comment would be forbidden outside the declaring package because `circle` and `point` would be inaccessible.
 
 The shorthand notation used for selecting fields of an embedded type works for selecting its methods as well. In effect, the outer struct type gains not the fields of the embedded type but its methods too. This mechanism is the main way that complex object behaviors are composed from simpler ones. _Composition_ is central to object-oriented programming in Go, and we'll explore it later.
+
+
+Chapter 6: Methods
+==================
+
+Although there is no universally accepted definition of object-oriented programming, for our purposes, an _object_ is simply a value or variable that has methods, and a _method_ is a function associated with a particular type. An object-oriented program is one that uses methods to express properties and operations of each data structure so that clients need not access the object's representation directly.
+
+In allowing methods to be associated with any type, Go is unlike many other object-oriented languages. It is often convenient to define additional behaviors for simple types such as numbers, strings, slices, maps and sometimes functions. Methods may be declared on any named type defined in the same package, so long as its underlying type is neither a pointer nor an interface.
+
+### Method Declarations
+
+A method is declared with a variant of the ordinary function declaration in which an extra parameter appear before the function name. The parameter attaches the function to the type of that parameter.
+
+    func (p Point) Distance (q Point) float64 {
+        return math.Hypot(q.X-p.X, q.Y-p.Y)
+    }
+
+The extra parameter `p` is called the method's _receiver_, a legary from early object-oriented languages that described calling a method as "sending a message to an object."
+
+In Go, we don't use a special name like `this` or `self` for the receiver; we choose receiver names just as we would for any other parameter. Since the receiver name will be frequently used, it's a good idea to choose something short and to be consistent across methods. A common choice is the first letter of the type name, like `p` for `Point`.
+
+### Methods with a Pointer Receiver
+
+Because calling a function makes a copy of each argument value, if a function need to update a variable, or if an argument is so large that we wish to avoid copying it, we must pass the address of the variable using a pointer. The same goes for methods that need to update the receiver variable: we attach them to the _pointer type_, such as `*Point`.
+
+    func (p *Point) ScaleBy(factor float64) {
+        p.X *= factor
+        p.Y *= factor
+    }
+
+The name of this method is `(*Point).ScaleBy`. The parentheses are necessary; without them, the expression would be parse as `*(Point.ScaleBy)`.
+
+In a realistic program, convention dictates that if any method of `Point` has a pointer receiver, then _all_ methods of `Point` should have a pointer receiver, even ones that don't strictly need it.
+
+Named types (`Point`) and pointers to them (`*Point`) are the only types that may appear in a receiver declaration. Furthermore, to avoid ambiguities, method declarations are not permitted on named types that are themselves pointer types:
+
+    type P *int
+    func (P) f() {...} // compile error: invalid receiver type
+
+The `(*Point).ScaleBy` method can be called by providing a `*Point` receiver, like this:
+
+    r := &Point{1, 2}
+    r.ScaleBy(2)
+    fmt.Println(*r) // "{2, 4}"
+
+or this:
+
+    p := Point{1, 2}
+    pptr := &p
+    pptr.ScaleBy(2)
+    fmt.Println(p) // "{2, 4}"
+
+or this:
+
+    p: = Point{1, 2}
+    (&p).ScaleBy(2)
+    fmt.Println(p) // "{2, 4}"
+
+But the last two cases are ungainly. Fortunately, the language helps us here. If the receiver `p` is a _variable_ of type `Point` but the method requires a `*Point` receiver, we can use this shorthand:
+
+    p.ScaleBy(2)
+
+and the compiler will perform an implicit `&p` on the variable. This only works for variables, including struct fields like `p.X` and array or slice elements like `perim[0]`. We cannot call a `*Point` method on a non-addressable `Point` receiver, because there's no way to obtain the address of a temporary value:
+
+    Point{1, 2}.ScaleBy(2) // compile error: can't take address of Point literal
+
+But we _can_ call a `Point` method like `Point.Distance` with a `*Point` receiver, because there is a way to obtain the value from the address: just load the value pointed to by the receiver. The compiler inserts an implicit `*` operation for us. These two function calls are equivalent:
+
+    pptr.Distance(q)
+    (*pptr).Distance(q)
+
+Let's summarize these three case again, since they are a frequence point of confusion. In every valid method call expression, exactly one of these thress statements is true.
+
+Either the receiver argument has the same type as receiver parameter, for example both have type `T` or both have type `*T`:
+
+    Point{1, 2}.Distance(q) // Point
+    pptr.ScaleBy(2) // *Point
+
+Or the receiver argument is a variable of type `T` and the receiver parameter has type `*T`. The compiler implictly takes the address of the variable:
+
+    p.ScaleBy(2) // implicit (&p)
+
+Or the receiver argument has type `*T` and the receiver parameter has type `T`. The compiler implictly dereferences the receiver, in other words, loads the value:
+
+    pptr.Distance(q) // implicit (*pptr)
+
+If all the methods of a named type `T` have a receiver type of `T` itself (not `*T`), it is safe to copy instances of that type; calling any of its methods necessarily makes a copy. For example, `time.Duration` values are liberally copied, including as arguments to functions. But if any method has a pointer receiver, you should avoid copying instances of `T` because doing so may violate internal invariants. For example, copying an instance of `bytes.Buffer` would cause the original and the copy to alias the same underlying array of bytes. Subsequent method calls would have unpredictable effects.
+
+### Composing Types by Struct Embedding
+
+    import "image/color"
+
+    type Point struct{ X, Y float64 }
+
+    type ColoredPoint struct {
+        Point
+        Color color.RGBA
+    }
+
+We can call methods of the embedded `Point` field using a receiver of type `ColoredPoint`, even though `ColoredPoint` has no declared methods:
+
+    red := color.RGBA{255, 0, 0, 255}
+    blue := color.RGBA{0, 0, 255, 255}
+    var p = ColoredPoint{Point{1, 1}, red}
+    var q = ColoredPoint{Point{5, 4}, blue}
+    fmt.Println(p.Distance(q.Point)) // 5
+    p.ScaleBy(2)
+    q.ScaleBy(2)
+    fmt.Println(p.Distance(q.Point)) // 10
+
+The methods of `Point` have been _promoted_ to `ColoredPoint`. In this way, embedding allows complex types with many methods to be built up by the _composition_ of several fields, each providing a few methods.
+
+Readers familar with class-based object-oriented languages may be tempted to view `Point` as a base class and `ColoredPoint` as a subclass or derived class, or to interpret the relationship between these types as if a `ColoredPoint` "is a" `Point`. But that would be a mistake. Notice the calls to `Distance` above. `Distance` has a parameter of type `Point`, and `q` is not a `Point`, so although `q` does have an embedded field of that type, we must explicitly select it. Attempting to pass `q` would be an error:
+
+    p.Distance(q) // compile error: cannot use q (ColoredPoint) as Point
+
+A `ColoredPoint` is not a `Point`, but it "has a" `Point`, and it has two additional methods `Distance` and `ScaleBy` promoted from `Point`. If you prefer to think in terms of implementation, the emebedded field instructs the compiler to generate additional wrapper methods that delegate to the declared methods, equivalent to these:
+
+    func (p ColoredPoint) Distance(q point) float64 {
+        return p.Point.Distance(q)
+    }
+
+    func (p *ColoredPoint) ScaleBy(factor float64) {
+        p.Point.ScaleBy(factor)
+    }
+
+When `Point.Distance` is called its receiver value is `p.Point`, not `p`, and there is no way for the method to access the `ColoredPoint` in which the `Point` is embedded.
+
+The type of an anonymous field may be a _pointer_ to a named type, in which case fields and methods are promoted indirectly from the pointed-to object. Adding another level of indirection lets us share common structures and vary the relationships between objects dynamically. The declaration of `ColoredPoint` below embeds a `*Point`:
+
+    type ColoredPoint struct {
+        *Point
+        Color color.RGBA
+    }
+
+    p := ColoredPoint{&Point{1, 1}, red}
+    q := ColoredPoint{&Point{5, 4}, blue}
+    fmt.Println(p.Distance(*q.Point)) // "5"
+    q.Point = q.Point
+    p.ScaleBy(2)
+    fmt.Println(*p.Point, *q.Point) // "{2 2} {2 2}"
+
+A struct type may have more that one anonymous field. Had we declared `ColoredPoint` as 
+
+    type ColoredPoint struct {
+        Point
+        color.RGBA
+    }
+
+then a value of this type would have all the methods of `Point`, all the methods of `RGBA`, and any additional methods declared on `ColoredPoint` directly. When the compiler resolves a selector such as `p.ScaleBy` to a method, it first looks for a directly declared method named `ScaleBy`, then for methods promoted once from `ColoredPoint`'s embedded fields, then for methods promoted twice from embedded fields within `Point` and `RGBA`, and so on. The compiler reports an error if the selector was ambiguous because two methods we promoted from the same rank.
+
+Methods can be declared only on named types (like `Point`) and pointers to them (`*Point`), but thanks to embedding, it's possible and sometimes useful for _unnamed_ struct type to have methods too:
+
+    var cache = struct {
+        sync.Mutex
+        mapping map[string]string
+    } {
+        mappding: make(map[string]string)
+    }
+
+    func lookup(key string) string {
+        cache.Lock()
+        v := cache.mappding[key]
+        cache.Unlock()
+        return v
+    }
