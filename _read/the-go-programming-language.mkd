@@ -103,6 +103,20 @@ Comparison operator like `==` and `<` can also be used to compare a value of a n
     fmt.Println(b == a) // "invalid operation: b == a (mismatched types Celcius and int)"
     fmt.Println(b == 3) // "true"
 
+### Packages and Files
+
+Packages in Go serves the same purposes as libraries or modules in other languages, supporting modularity, encapsulation, separate compilation, and reuse. The source code for a package resides in one or more `.go` files, usually in a directory whose name ends with the import path; for instance, the files of the `gopl.io/ch1/helloworld` packages are stored in directory `$GOPATH/src/gopl.io/ch1/helloworld`.
+
+Each package serves as a separate name space for its declarations. Within the `image` package, for example, the identifier `Decode` refers to a different function than does the same identifier in the `unicode/utf16` package. To refer to a function fro m outside its package, we must _qualify_ the identifier to make explicit whether we mean `image.Decode` or `utf16.Decode`.
+
+Packages also let us hide information by controlling which names are visible outside the package, or _exported_. In Go, a simple rule governs which identifiers are exported and which are not: exported identifiers start with an upper-case letter.
+
+### Imports
+
+Wi thin a Go program, every package is identified by a unique string called its import path. These are the strings that appear in an import declaration like "`gopl.io/ch2/tempconv`". The language specification doesn’t define where these strings come from or what they mean; it’s up to the tools to interpret them. When using the go tool (Chapter 10), an import path denotes a directory containing one or more Go source files that together make up the package.
+
+In addition to its import path, each package has a _package name_, which is the short (and not necessarily unique) name that appears in its `package` declaration. By convention, a package's name matches the last segment of its import path, making it easy to predict that the package name of `gopl.io/ch2/tempconv` is `tempconv`.
+
 
 Chapter 3: Basic Data Types
 ===========================
