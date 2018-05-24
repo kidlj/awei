@@ -16,7 +16,7 @@ defaults:
 
 - scope:
     path: ""
-    type: "music"
+    type: "code"
   values:
     layout: "wiki"
 
@@ -26,22 +26,13 @@ defaults:
   values:
     layout: "wiki"
 
-- scope:
-    path: ""
-    type: "movie"
-  values:
-    layout: "wiki"
-
 collections:
   wiki:
     output: true
     permalink: /wiki/:name.html
-  music:
+  code:
     output: true
-    permalink: /music/:name.html
+    permalink: /code/:name.html
   read :
     output: true
     permalink: /read/:name.html
-  movie:
-    output: true
-    permalink: /movie/:name.html
