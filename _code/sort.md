@@ -2,7 +2,7 @@
 title: sort
 ---
 
-pcakge sort
+package sort
 ===========
 
 ### type Interface
@@ -14,10 +14,12 @@ pcakge sort
     }
 
 ### func Reverse
+    // `reverse{data}` 隐式转型; `data` 为 interface value
+    func Reverse(data Interface) Interface { return &reverse{data} }
 
-    func Reverse(data Interface) Interface { return &reverse{data} } // `reverse{data}` 隐式转型; `data` 为 interface value
-
-    type reverse struct{ Interface } // 1. satisfies Interface 2. `Interface` type as anonymous embedded field
+    // 1. satisfies `Interface`
+    // 2. `Interface` type as anonymous embedded field
+    type reverse struct{ Interface }
 
     func (r reverse) Less(i, j int) bool { return r.Interface.Less(j, i) }
 
@@ -42,8 +44,10 @@ Example:
     func (x byArtist) Less(i, j int) { return x[i].Artist < x[j].Artist }
     func (x byArtist) Swap(i, j int) { x[i], x[j] = x[j], x[y] }
 
-    sort.Sort(byArtist(tracks)) // `byArtist(tracks)` returns named type slice, which satisfies `Interface`
+    // `byArtist(tracks)` returns named type slice, which satisfies `Interface`
+    sort.Sort(byArtist(tracks))
 
-    sort.Sort(sort.Reverse(byArtist(tracks))) // 按 Artist 反向排序
+    // 按 Artist 反向排序
+    sort.Sort(sort.Reverse(byArtist(tracks)))
 
     
