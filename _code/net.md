@@ -60,6 +60,15 @@ Example:
         serveFile(w, r, f.root, path.Clean(upath), true)
     }
 
+### func serveFile
+
+    // serveFile calls `FileSystem.Open`
+    func serveFile(w ResponseWriter, r *Request, fs FileSystem, name string, redirect bool) {
+        ...
+        f, err := fs.Open(name)
+        ...
+    }
+
 ### type Dir
 
     // `Dir` 满足 `FileSystem`
