@@ -19,7 +19,7 @@ package sort
     func Reverse(data Interface) Interface { return &reverse{data} }
 
     // 1. satisfies `Interface`
-    // 2. `Interface` type as anonymous embedded field
+    // 2. `Interface` interface type as anonymous embedded field
     type reverse struct{ Interface }
 
     func (r reverse) Less(i, j int) bool { return r.Interface.Less(j, i) }
