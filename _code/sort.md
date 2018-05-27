@@ -44,6 +44,6 @@ Example:
 
     sort.Sort(byArtist(tracks)) // `byArtist(tracks)` returns named type slice, which satisfies `Interface`
 
-    sort.Sort(sort.Reverse(byArtist(tracks))) // 按 Artist 反序排序
+    sort.Sort(sort.Reverse(byArtist(tracks))) // 按 Artist 反向排序
 
     
