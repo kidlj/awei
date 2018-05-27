@@ -15,7 +15,7 @@ package sort
 
 ### func Reverse
 
-    // `reverse{data}` 隐式转型; `data` 为 interface value
+    // `reverse{data}` is struct literal, causes type conversion; `data` is interface value
     func Reverse(data Interface) Interface { return &reverse{data} }
 
     // 1. satisfies `Interface`
