@@ -15,7 +15,8 @@ package sort
 
 ### func Reverse
 
-    // `reverse{data}` is struct literal, causes type conversion; `data` is interface value
+    // 1. `reverse{data}` is struct literal, causes type conversion
+    // 2. `data` is interface value
     func Reverse(data Interface) Interface { return &reverse{data} }
 
     // 1. satisfies `Interface`
