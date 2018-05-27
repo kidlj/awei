@@ -14,6 +14,7 @@ package sort
     }
 
 ### func Reverse
+
     // `reverse{data}` 隐式转型; `data` 为 interface value
     func Reverse(data Interface) Interface { return &reverse{data} }
 
