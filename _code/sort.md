@@ -17,8 +17,8 @@ package sort
 
     // 1. `reverse{data}` is a struct literal, causes type conversion
     // 2. when called, `data` is an interface value
-    // 3. `Reverse` is a wrapper function, whose parameter is the same `Interface` type as 
-    //    the `reverse` embedded field.
+    // 3. `Reverse` is a wrapper function, whose parameter is the same `Interface` type
+    //    as the `reverse` embedded field.
     func Reverse(data Interface) Interface { return &reverse{data} }
 
     // 1. satisfies `Interface`
