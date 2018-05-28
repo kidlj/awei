@@ -46,12 +46,13 @@ Example:
 ### type fileHandler
 
 
-    // `fileHandler` 满足 `Handler`:
+    // 1. `fileHandler` satisfies `Handler`;
+    // 2. `FileSystem` interface as struct field
     type fileHandler struct{
         root FileSystem
     }
 
-    func (f *fileHandler) ServeHTTP(w *ResponseWriter, r *Request) {
+    func (f *fileHandler) ServeHTTP(w ResponseWriter, r *Request) {
         upath := r.URL.Path
         if !strings.HasPrefix(upath, "/") {
             upath = "/" + upath
@@ -63,6 +64,8 @@ Example:
 ### func serveFile
 
     // serveFile calls `FileSystem.Open`
+    // function parameter is interface type; 
+    // function argument is concrete type.
     func serveFile(w ResponseWriter, r *Request, fs FileSystem, name string, redirect bool) {
         ...
         f, err := fs.Open(name)
