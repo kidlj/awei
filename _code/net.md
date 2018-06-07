@@ -24,8 +24,6 @@ net/http
         f(w, r)
     }
 
-`HandlerFunc` 不是一个函数，而是一个 named type。它可以将一个符合签名的函数或 method value 转型为满足 `Handler` 接口的对象（这里是函数）。
-
 Example:
 
     mux := http.NewServeMux()
