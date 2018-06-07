@@ -33,7 +33,6 @@ Example:
 
 ### func FileServer
 
-    // 返回一个 `Handler`
     func FileServer(root FileSystem) Handler {
         return &fileHandler{root}
     }
@@ -46,8 +45,6 @@ Example:
 ### type fileHandler
 
 
-    // 1. `fileHandler` satisfies `Handler`;
-    // 2. `FileSystem` interface as struct field
     type fileHandler struct{
         root FileSystem
     }
@@ -63,9 +60,6 @@ Example:
 
 ### func serveFile
 
-    // serveFile calls `FileSystem.Open`
-    // function parameter is interface type; 
-    // function argument is an interface value.
     func serveFile(w ResponseWriter, r *Request, fs FileSystem, name string, redirect bool) {
         ...
         f, err := fs.Open(name)
@@ -74,7 +68,6 @@ Example:
 
 ### type Dir
 
-    // `Dir` 满足 `FileSystem`
     type Dir string
 
     func (d Dir) Open(name string) (File, error) {...}
@@ -87,7 +80,6 @@ Example:
 
 ### func StripPrefix
 
-    // 返回一个 `Handler`
     func StripPrefix(prefix string, h Handler) Handler {
         if prefix == "" {
             return h
