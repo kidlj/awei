@@ -31,6 +31,7 @@ Example:
 
 ### func FileServer
 
+    // wrapper
     func FileServer(root FileSystem) Handler {
         return &fileHandler{root}
     }

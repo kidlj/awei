@@ -15,6 +15,7 @@ package sort
 
 ### func Reverse
 
+    // wrapper
     func Reverse(data Interface) Interface { return &reverse{data} }
 
     type reverse struct{ Interface }
