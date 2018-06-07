@@ -65,7 +65,7 @@ Example:
 
     // serveFile calls `FileSystem.Open`
     // function parameter is interface type; 
-    // function argument is concrete type.
+    // function argument is an interface value.
     func serveFile(w ResponseWriter, r *Request, fs FileSystem, name string, redirect bool) {
         ...
         f, err := fs.Open(name)
