@@ -1,5 +1,5 @@
 ---
-title: html/template
+title: template
 ---
 
 package html/template
