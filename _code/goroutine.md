@@ -139,7 +139,7 @@ Two Channels
             fmt.Println("B:", b)
             for i := 0; i < 10; i++ {
                 go func(i int) {
-                    chA <- i // no sequence guatranteed
+                    chA <- i // no sequence guaranteed
                 }(i)
             }
         }
