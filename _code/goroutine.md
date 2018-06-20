@@ -2,7 +2,7 @@
 title: goroutine
 ---
 
-One Channel
+One channel
 ===========
 
 ### One-to-one dead lock
@@ -57,7 +57,7 @@ One Channel
 
         go func() { ChA <- 0 }()
 
-        for a := range chA { // cosumes one
+        for a := range chA { // consumes one
             fmt.Println("A:", a)
             for i := 0; i < 10; i++ { // produces many
                 go func(i int) {
@@ -68,7 +68,7 @@ One Channel
     }
 
 
-Two Channels
+Two channels
 ============
 
 ### One-to-one
