@@ -131,16 +131,16 @@ Two Channels
             for a := range chA {
                 time.Sleep(time.Second * 1)
                 fmt.Println("A:", a)
-                chB <- a + 1
+                go func(a int) { // 累积 goroutine
+                    chB <- a + 1 // no sequence guaranteed
+                }(a)
             }
         }()
 
         for b := range chB {
             fmt.Println("B:", b)
             for i := 0; i < 10; i++ {
-                go func(i int) {
-                    chA <- i // no sequence guaranteed
-                }(i)
+                chA <- i // sequence guaranteed
             }
         }
     }
