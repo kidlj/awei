@@ -172,3 +172,35 @@ Two channels
             }
         }
     }
+
+### One-to-many with counting semaphore
+
+    func main() {
+        worklist := make(chan []string)
+
+        go func() { worklist <- os.Args[1:] }()
+
+        seed := make(map[string]bool)
+        for list := range worklist {
+            for _, link := range list {
+                if !seen[link] {
+                    seed[link] = true
+                    go func(link string) {
+                        worklist <- crawl(link)
+                    }(link)
+                }
+            }
+        }
+    }
+
+    var tokens = make(chan struct{}, 20)
+
+    func crawl(url string) []string {
+        tokens <- struct{}{} // acquire a token
+        list, err := links.Extract(url)
+        <-tokens // release the token
+        if err != nil {
+            log.Printf(err)
+        }
+        return list
+    }
