@@ -23,6 +23,12 @@ Tar
 
     $ pass
 
+### 分卷压缩
+
+    $ tar zcf - 2017.log |split -d -b 1000m - logs.tar.gz.
+    $ cat logs.tar.gz* | tar zx
+
+
 Lsof
 ====
 
