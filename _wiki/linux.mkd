@@ -139,5 +139,14 @@ or,
 		$ chmod o+t dirname
 		$ chmod 1775 dirname
 
+### System load
+
+Linux, unlike most if not all other Unix like OSes, is not only counting processes using a CPU or waiting for a CPU in the run queue as a reference for its load calculation, but also add the number of processes (threads actually) being in uninterruptible state, i.e. waiting for for a disk or network I/O to complete. The latter are actually idle, i.e. not using the CPU.[1]
+
+There is then probably nothing to worry about your (not so) high load. The processes your are looking for are likely the single threaded redis plus transcient kernel threads.
+
+[1]: https://unix.stackexchange.com/a/301744
+
+
 
 
