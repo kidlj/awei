@@ -139,6 +139,10 @@ or,
 		$ chmod o+t dirname
 		$ chmod 1775 dirname
 
+
+系统参数
+========
+
 ### System load
 
     cat /proc/loadavg
