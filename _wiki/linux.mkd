@@ -143,9 +143,12 @@ or,
 
     cat /proc/loadavg
 
-`man proc`:
+man proc:
 
-    The first three fields in this file are load average figures giving the number of jobs in the run queue (state R) or waiting for disk I/O (state D) averaged over 1, 5, and 15 minutes. They are the same as the load average numbers given by uptime(1) and other programs. The fourth field consists of two numbers separated by a slash (/). The first of these is the number of currently runnable kernel scheduling entities (processes, threads). The value after the slash is the number of kernel scheduling entities that currently exist on the system. The fifth field is the PID of the process that was most recently created on the system.
+> The first three fields in this file are load average figures giving the number of jobs in the run queue (state R) or waiting for disk I/O (state D) averaged over 1, 5, and 15 minutes. They are the same as the
+> load average numbers given by uptime(1) and other programs. The fourth field consists of two numbers separated by a slash (/). The first of these is the number of currently runnable kernel scheduling entities
+> (processes, threads). The value after the slash is the number of kernel scheduling entities that currently exist on the system. The fifth field is the PID of the process that was most recently created on the
+> system.
 
 Linux, unlike most if not all other Unix like OSes, is not only counting processes using a CPU or waiting for a CPU in the run queue as a reference for its load calculation, but also add the number of processes (threads actually) being in uninterruptible state, i.e. waiting for for a disk or network I/O to complete. The latter are actually idle, i.e. not using the CPU.[1]
 
