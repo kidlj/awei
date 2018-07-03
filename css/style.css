@@ -209,7 +209,7 @@ article {
 
 .paginator {
 	color: #999;
-	padding: 40px 40px 0px;
+	padding: 40px 40px;
 	text-align: center; }
 	.paginator .pagenum {
 		display: inline-block;
