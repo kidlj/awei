@@ -83,7 +83,8 @@ Boolean 类型只有两个字面值：`true` 和 `false`。
 
 可以对任何数据类型的值调用 Boolean() 函数，而且总会返回一个 Boolean 值。至于返回的这个值是 true 还是 false，却决于要转换值得数据类型及其实际值。
 
-    数据类型        转换为 true 的值        转换为 false 的值
+    数据类型        转换为 true 的值       转换为 false 的值
+
     Boolean        true                   false
     String         任何非空字符串          ""
     Number         任何非0数值             0 和 NaN
