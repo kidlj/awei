@@ -7,7 +7,7 @@ title: Javascript 高级程序设计
 
 ### Javascript 简史
 
-1997 年，以 Javascript 1.1 为蓝本的建议被~~提交给了欧洲计算机制造商协会（ECMA, European Computer Manufacturers Association)。该协会指定 39 号技术委员会(TC39, Technical Committee #39) 负责“标准化一种通用、跨平台、供应商中立的脚本语言的语法和语义”。TC39 经过数月的努力完成了 ECMA-262 —— 定义了一种名为 ECMAScript 的新脚本语言的标准。
+1997 年，以 Javascript 1.1 为蓝本的建议被提交给了欧洲计算机制造商协会（ECMA, European Computer Manufacturers Association)。该协会指定 39 号技术委员会(TC39, Technical Committee #39) 负责“标准化一种通用、跨平台、供应商中立的脚本语言的语法和语义”。TC39 经过数月的努力完成了 ECMA-262 —— 定义了一种名为 ECMAScript 的新脚本语言的标准。
 
 ### ECMAscript 的版本
 
@@ -22,7 +22,7 @@ ECMAScript 3.1 成为 ECMA-262 第 5 版，并于 2009 年 12 月 3 日正式发
 第 2 章 在 HTML 中使用 Javascript
 ================================
 
-### <script> 元素
+### `<script>` 元素
 
 按照传统的做法，所有 `<script>` 元素都应该放在页面的 `<head>` 元素中，这种做法的目的是把所有外部文件（包括 CSS 文件和 Javascript 文件）的引用都放在相同的地方。可是，在文档的 `<head>` 元素中包含所有 Javascript 文件，意味着必须等到全部 Javascript 代码都被下载、解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到 `<body>` 标签才开始呈现内容）。对于那些需要很多 Javascript 代码的页面来说，这无疑会导致浏览器在呈现页面时出现明显的延迟，而延迟期间的浏览器窗口将是一片空白。为了避免这个问题，现代 Web 应用程序一般把全部 Javascript 引用放在 `<body>` 元素中页面内容的后面。
 
