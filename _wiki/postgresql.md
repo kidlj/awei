@@ -42,9 +42,12 @@ PostgreSQL 初始化以后，一般会以 `postgres` 用户运行，同时系统
 
     $ (vagrant) psql // as `vagrant` user
 
-### 创建业务用户
+### 创建业务用户和业务数据库
 
-    CREATE ROLE name WITH LOGIN CREATEROLE CREATEDB;
+    $ psql // as postgresq user
+    (postgres) => CREATE ROLE demo WITH LOGIN CREATEROLE CREATEDB;
+    $ psql -U demo
+    (demo) => CREATE DATABASE demo;
 
 ### 创建数据库
 
@@ -80,5 +83,3 @@ ref: https://www.postgresql.org/docs/11/sql-grant.html
 查看 roles：
 
     => \du;
-
-### 
