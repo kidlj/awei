@@ -41,5 +41,10 @@ kubespray
     # sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 
+### Debug failed pod
+
+  $ kubectl describe pod <pod-name>
+  $ kubectl logs <pod-name> [-p]
+  $ sudo journalctl -u kubelet
 
 
