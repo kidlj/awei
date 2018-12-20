@@ -48,3 +48,11 @@ kubespray
   $ sudo journalctl -u kubelet
 
 
+### Draft
+
+  $ helm init
+  $ draft init
+  $ cd project-dir
+  $ draft create
+  $ export DOCKER_HOST=192.168.100.11
+  $ draft up
