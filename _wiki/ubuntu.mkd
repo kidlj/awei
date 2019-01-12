@@ -44,6 +44,10 @@ Debian/Ubuntu 使用 APT 作为包管理工具，而 APT 又使用更为底层�
 
 	$ sudo apt-cache show bash
 
+查询某个包的所有版本信息：
+
+  $ sudo apt-cache policy postgresql-client
+
 打印某个包的依赖：
 
 	$ sudo apt-cache depends firefox
