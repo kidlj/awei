@@ -2,20 +2,15 @@
 title: PostgreSQL
 ---
 
-### Authentication
+### Ubuntu installation
 
-PostgreSQL 使用 `pg_hba.conf` 文件控制客户端的连接认证。
+    $ sudo apt-get install curl ca-certificates
+    $ curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
-更改此文件后需要发送 SIGHUP 信号 reload 进程：
+    $ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
-    $ pg_ctl reload
-
-举例：允许某个 ip 的 demo 用户连接 demo 数据库，使用 密码：
-
-        TYPE    DATABASE    USER    IP              METHOD
-        Host    demo        demo    172.17.8.1/24   md5
-
-从上到下，匹配到一个项就开始进行认证，而后连接或者拒绝连接，不会 fallthrough。
+    $ sudo apt-get update
+    $ sudo apt-get install postgresql-11 postgresql-client-11
 
 ### 初始用户
 
@@ -24,6 +19,29 @@ PostgreSQL 初始化以后，一般会以 `postgres` 用户运行，同时系统
     $ sudo su postgres
     $ psql
 
+### Authentication
+
+PostgreSQL 使用 `pg_hba.conf` 文件控制客户端的连接认证。
+
+更改此文件后需要发送 SIGHUP 信号 reload 进程：
+
+    $ sudo su postgres
+    $ pg_ctlcluster 11 main reload
+
+举例：允许某个 ip 的 demo 用户连接 demo 数据库，使用 密码：
+
+        TYPE    DATABASE    USER    IP              METHOD
+        Host    demo        demo    172.17.8.1/24   md5
+
+从上到下，匹配到一个项就开始进行认证，而后连接或者拒绝连接，不会 fallthrough。
+
+### 创建业务用户和业务数据库
+
+    $ psql // as postgres user
+    (postgres) => CREATE ROLE demo WITH LOGIN CREATEDB PASSWORD 'demo';
+    (postgres) => CREATE DATABASE demo OWNER demo;
+
+
 ### 管理员用户
 
 一般会建立一个管理员用户，而不是拥有超级权限的 `postgres` 用户来管理数据库。
@@ -31,8 +49,8 @@ PostgreSQL 初始化以后，一般会以 `postgres` 用户运行，同时系统
 建立一个名为 `vagrant` 的用户：
 
     (postgres) $ psql // as `postgres` user
-    => create role vagrant WITH LOGIN CREATEROLE CREATEDB;
-    => create database owner vagrant // 需要一个同名的数据库
+    => create role vagrant WITH LOGIN CREATEROLE CREATEDB PASSWORD 'hello';
+    => create database vagrant owner vagrant // 需要一个同名的数据库
 
 默认 `pg_hba.conf` 配置了一条允许任何操作系统本地用户 peer 登录的条目：
 
@@ -42,14 +60,7 @@ PostgreSQL 初始化以后，一般会以 `postgres` 用户运行，同时系统
 
     $ (vagrant) psql // as `vagrant` user
 
-### 创建业务用户和业务数据库
-
-    $ psql // as postgresq user
-    (postgres) => CREATE ROLE demo WITH LOGIN CREATEROLE CREATEDB;
-    $ psql -U demo
-    (demo) => CREATE DATABASE demo;
-
-### 创建数据库
+使用管理员账户创建业务用户及数据库：
 
     $ (vagrant) psql // as `vagrant` user
     vagrant => CREATE ROLE demo;
