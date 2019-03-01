@@ -43,9 +43,9 @@ kubespray
 
 ### Debug failed pod
 
-  $ kubectl describe pod <pod-name>
-  $ kubectl logs <pod-name> [-p]
-  $ sudo journalctl -u kubelet
+    $ kubectl describe pod <pod-name>
+    $ kubectl logs <pod-name> [-p]
+    $ sudo journalctl -u kubelet
 
 
 ### Draft
