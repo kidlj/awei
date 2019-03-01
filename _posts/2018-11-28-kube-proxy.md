@@ -231,8 +231,8 @@ OUTPUT chain 如下，与入流量情形一样，也是所有流量跳转到 `KU
 (疑问：`cali-POSTROUTING` 和 `KUBE-POSTROUTING` 匹配规则一致，第一条为什么没有屏蔽第二条的执行呢？有待进一步调查。)
 
     Chain KUBE-POSTROUTING (1 references)
-        pkts bytes target     prot opt in     out     source               destination
-            0     0 MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service traffic requiring SNAT */ mark match 0x4000/0x4000 
+    pkts bytes target     prot opt in     out     source               destination
+        0     0 MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service traffic requiring SNAT */ mark match 0x4000/0x4000 
 
 `KUBE-POSTROUTING` chain 很简单，就是将之前标记过 `0x4000` 的封包进行 `MASQUERADE`。`MASQUERADE` 是一种更健壮的 SNAT，即将封包的源地址由后端的 endpoint 变更为 Cluster IP。之所以在这里进行源地址转换，是因为由 endpoint(pod1) 的发出的请求封包，
 经过 service 的分发到达另一个 endpoint(pod2) 时，由于所有的 endpoints(pods) 都处于同一子网，根据路由定义在一个子网的流量封包不会经过路由，而是直接返回到请求 pod。请求封包此前不做 SNAT 的话，因为请求 endpoint(pod1) 访问的地址是 Cluster IP，返回封包的源地址却是 pod2 的地址，因此这个响应包会被拒绝。
@@ -306,8 +306,8 @@ OUTPUT chain 如下，与入流量情形一样，也是所有流量跳转到 `KU
 很简单，出流量跳转到 `KUBE-POSTROUTING` chain：
 
     Chain KUBE-POSTROUTING (1 references)
-        pkts bytes target     prot opt in     out     source               destination
-            0     0 MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service traffic requiring SNAT */ mark match 0x4000/0x4000 
+    pkts bytes target     prot opt in     out     source               destination
+        0     0 MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service traffic requiring SNAT */ mark match 0x4000/0x4000 
 
 `KUBE-POSTROUTING` chain 也很简单，就是将之前标记过 `0x4000` 的封包进行 `MASQUERADE`。`MASQUERADE` 类似于 SNAT，即将封包的源地址由后端的 backend 转换为 Node ip，需要 MASQUERADE 原因见上面分析。
 
@@ -371,10 +371,10 @@ ClusterIP service 的访问流量会匹配 `KUBE-MARK-MASQ`，其匹配规则是
 在这里封包会匹配到 `KUBE-NODE-PORT` target chain，其匹配条件是 `ADDRTYPE match dst-type LOCAL`，即目标地址类型是 Node 配置的地址，这符合 NodePort 的定义。
 
     Chain KUBE-SERVICES (2 references)
-        pkts bytes target     prot opt in     out     source               destination
-            0     0 KUBE-MARK-MASQ  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* Kubernetes service cluster ip + port for masquerade purpose */ match-set KUBE-CLUSTER-IP src,dst
-            8   480 KUBE-NODE-PORT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
-            0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            match-set KUBE-CLUSTER-IP dst,dst
+    pkts bytes target     prot opt in     out     source               destination
+        0     0 KUBE-MARK-MASQ  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* Kubernetes service cluster ip + port for masquerade purpose */ match-set KUBE-CLUSTER-IP src,dst
+        8   480 KUBE-NODE-PORT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+        0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            match-set KUBE-CLUSTER-IP dst,dst
 
 `KUBE-NODE-PORT` chain 配置如下，其会匹配符合 `KUBE-NODE-PORT-TCP/UDP` 的 ipset 的封包：
 
