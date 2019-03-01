@@ -32,7 +32,7 @@ pre {
 	overflow: auto;
 	margin: 20px 0; }
 code {
-	font-family: "Consolas", "Courier", "Source Code Pro", "Dejavu Sans Mono", monospace; }
+	font-family: "Menlon", "Consolas", "Courier", "Source Code Pro", "Dejavu Sans Mono", monospace; }
 
 
 p {
@@ -114,11 +114,11 @@ article {
 		padding-bottom: 1em;
 		margin: 2em 0 2em; }
 	article h2 {
-		font-size: 1.4em; 
+		font-size: 1.6em; 
 		font-weight: 500;
 		margin: 2em 0 1em; }
 	article h3 {
-		font-size: 1.4em;
+		font-size: 1.3em;
 		font-weight: 500;
 		margin: 2em 0 1em; }
 	article img:not([height]) {
