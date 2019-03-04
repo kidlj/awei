@@ -68,9 +68,25 @@ Images
 Proxy
 =====
 
-/etc/sysconfig/docker-network
+### /etc/sysconfig/docker-network
 
     # http proxy via shadowsocks
     HTTP_PROXY=http://192.168.220.1:1080
 
 然后重启 docker。
+
+### /etc/systemd/system/docker.service.d/http-proxy.conf
+
+    [Service]
+    Environment="HTTP_PROXY=http://172.16.200.1:1080"
+    Environment="HTTPS_PROXY=http://172.16.200.1:1080"
+
+Daemon
+======
+
+/lib/systemd/system/docker.service
+
+### remote
+
+    ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375
+
