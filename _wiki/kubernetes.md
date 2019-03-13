@@ -51,6 +51,7 @@ kubespray
 ### Draft
 
     $ brew install azure/draft/draft
+    $ draft init
 
 ### Helm
 
