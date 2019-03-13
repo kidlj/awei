@@ -50,9 +50,36 @@ kubespray
 
 ### Draft
 
-    $ helm init
-    $ draft init
-    $ cd project-dir
-    $ draft create
-    $ export DOCKER_HOST=192.168.100.11
-    $ draft up
+    $ brew install azure/draft/draft
+
+### Helm
+
+    $ brew install kubernetes-helm
+
+In rbac-config.yaml:
+
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+    name: tiller
+    namespace: kube-system
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+    name: tiller
+    roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+    subjects:
+    - kind: ServiceAccount
+        name: tiller
+        namespace: kube-system
+
+Install tiller:
+
+    $ kubectl create -f rbac-config.yaml
+    serviceaccount "tiller" created
+    clusterrolebinding "tiller" created
+    $ helm init --service-account tiller --history-max 200
