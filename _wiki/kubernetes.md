@@ -52,6 +52,7 @@ kubespray
 
     $ brew install azure/draft/draft
     $ draft init
+    $ draft config set disable-push-warning 1
 
 ### Helm
 
