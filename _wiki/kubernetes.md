@@ -41,20 +41,23 @@ kubespray
     # sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 
-### Debug failed pod
+Debug failed pod
+=================
 
     $ kubectl describe pod <pod-name>
     $ kubectl logs <pod-name> [-p]
     $ sudo journalctl -u kubelet
 
 
-### Draft
+Draft
+=====
 
     $ brew install azure/draft/draft
     $ draft init
     $ draft config set disable-push-warning 1
 
-### Helm
+Helm
+=====
 
     $ brew install kubernetes-helm
 
@@ -85,3 +88,7 @@ Install tiller:
     serviceaccount "tiller" created
     clusterrolebinding "tiller" created
     $ helm init --service-account tiller --history-max 200
+
+### Fix failed releases
+
+    $ helm delete --purge $RELEASE_NAME
