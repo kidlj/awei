@@ -90,3 +90,8 @@ Daemon
 
     ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375
 
+
+### Image
+
+    $ docker image save ideavirgin.com/ingress-mgr:1.0.0 | gzip -c > ./image_ingress_mgr_1.0.0.tar.gz
+    $ docker image load -i ./image_ingress_mgr_1.0.0.tar.gz
