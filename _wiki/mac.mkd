@@ -1,0 +1,13 @@
+---
+title: Mac
+---
+
+### Show dotfiles
+
+    CMD + SHIFT + .
+
+### PostgreSQL
+
+    $ brew install postgresql
+    $ brew services start postgresql
+    $ createdb `whoami`
