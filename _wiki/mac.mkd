@@ -18,3 +18,9 @@ title: Mac
 
     $ brew list postgresql
     $ brew list -v postgresql
+
+### Bash
+
+    $ brew install bash
+    $ brew install bash-completion@2
+    $ brew install git
