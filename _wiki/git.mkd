@@ -232,3 +232,15 @@ Git 分支
 
 	(其实就是说一定要在分享之前衍合，分享出去之后就不要再衍合。)
 
+
+### Remove sensitive data
+
+via: https://help.github.com/en/articles/removing-sensitive-data-from-a-repository
+
+    $ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch _wiki/proxy.mkd' --prune-empty --tag-name-filter cat -- --all
+    $ git push origin --force --all
+    $ git push origin --force --tags
+
+    $ git add .
+    $ git commit -m 'add file back'
+    $ git push
