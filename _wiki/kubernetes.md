@@ -92,3 +92,12 @@ Install tiller:
 ### Fix failed releases
 
     $ helm delete --purge $RELEASE_NAME
+
+Facts
+======
+
+### ClusterIp service
+
+ClusterIp service is not pingable.
+
+http://dockone.io/question/1433
