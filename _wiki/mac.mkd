@@ -24,3 +24,17 @@ title: Mac
     $ brew install bash
     $ brew install bash-completion@2
     $ brew install git
+
+### sudo
+
+`sudo` 使用 Touch ID，将下面一行放到 `/etc/pam.d/sudo` 的最上面：
+
+    auth sufficient pam_tid.so
+
+done.
+
+### JDK
+
+    $ brew tap homebrew/cask-versions
+    $ brew cask install java11
+    $ brew cask info java11
