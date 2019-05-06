@@ -19,11 +19,11 @@ Git 基础
 	$ git diff              # 未暂存的更新
 	$ git diff --staged     # 未提交的更新
 	$ git diff --check      # 检查多余的空白字符
-    $ git diff [--options] <commit> <commit> [--] [<path>...] # diff 两个分支的同一个文件
+    $ git diff <commit> <commit> [--] [<path>...] # diff 两个分支的同一个文件
 
 ### Git log
 
-	$ git log -1 --stat 								# 获取最近一次提交列出更改的文件
+	$ git log -1 --stat                 # 获取最近一次提交列出更改的文件
 	$ git log -p -2                     # 获取近两次提交并展示差异
 	$ git log -p --word-diff            # 获取单词层面的差异对比
 	$ git log --pretty=oneline          # 单行模式
