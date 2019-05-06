@@ -440,9 +440,3 @@ OUTPUT chain 如下，与入流量情形一样，也是所有流量跳转到 `KU
 
 kube-proxy IPVS 模式依然会使用 iptables 来做封包 MASQUERADE，但是其使用 ipset match 的方式保持了 iptables 规则数量恒定（几条），随着 service 的数量增多，不会出现 iptables 规则过多以及线性匹配的性能瓶颈。
 这里使用 iptables 与否不是关键，iptalbes 与 IPVS 理论上都是内核 netfilter 模块的客户端，IPVS 这里只是借用 iptables 方便地设置 netfilter 转发。
-
-下图是 iptables 模式和 ipvs 模式在 services 数量增长时增加规则的性能对比：
-
-![image](/images/kubeproxy/ipvs_1.jpg)
-
-
