@@ -19,6 +19,7 @@ Git 基础
 	$ git diff              # 未暂存的更新
 	$ git diff --staged     # 未提交的更新
 	$ git diff --check      # 检查多余的空白字符
+    $ git diff [--options] <commit> <commit> [--] [<path>...] # diff 两个分支的同一个文件
 
 ### Git log
 
