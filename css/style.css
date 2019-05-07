@@ -241,11 +241,8 @@ ul.post-listing li {
 	margin-bottom: 10px; }
 
 ul.post-listing .datetime {
-  display: inline-block;
   vertical-align: baseline;
   zoom: 1;
-  *display: inline;
-  *vertical-align: auto;
   width: 130px;
   text-transform: uppercase;
   float: right;
