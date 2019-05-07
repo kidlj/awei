@@ -3,7 +3,9 @@
 
 Personal site.
 
-The theme is forked from [Block][4] originally created by Mu-An Chiou.
+http://kidlj.com
+
+The theme is forked from [None][1] originally created by Mu-An Chiou.
 
 
-[4]: https://github.com/muan/muan.github.com
+[1]: https://github.com/muan/site

@@ -260,66 +260,57 @@ ul.post-listing .datetime {
 /**********************************************************************/
 
 .posts {
-  text-align: center;
   font-size: 0; }
+  .posts .post {
+    font-size: 15px;
+    vertical-align: top;
+    margin-bottom: 20px; }
   .posts .post-link {
-    color: inherit;
-    font-size: 13px;
-    display: block;
-    text-align: left;
-    margin-bottom: 20px;
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid transparent;
-    overflow: hidden;
     position: relative;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s; }
+    display: block;
+    padding: 65px 0;
+    min-height: 100px;
+    text-align: center;
+    color: #333;
+    -webkit-transition: 0.5s linear;
+    -moz-transition: 0.5s linear;
+    -ms-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear; }
     .posts .post-link.has-cover {
-      padding-right: 175px; }
+      background-color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; }
     .posts .post-link .post-cover {
-      -webkit-transition: 0.5s;
-      -moz-transition: 0.5s;
-      -ms-transition: 0.5s;
-      -o-transition: 0.5s;
-      transition: 0.5s;
+      z-index: -1;
+      background-position: 50% 0%;
       position: absolute;
-      width: 160px;
       top: 0;
+      left: 0;
       right: 0;
-      background-size: cover;
-      background-position: 50% 50%;
-      border: 15px solid #fff;
-      height: 100%;
-      opacity: .6; }
-    .posts .post-link .post-title {
-      font-size: 1.5em;
-      font-weight: 500;
-      margin: 0 0 5px; }
-    .posts .post-link .meta {
-      text-transform: uppercase;
-      color: #8f8f8f;
-      font-size: smaller; }
-    .posts .post-link .excerpt {
-      color: #666;
-      margin: 20px 0 0;
-      max-height: 100px;
-      overflow: hidden;
-      font-weight: normal; }
-    .posts .post-link .mark {
-      opacity: 0; }
+      bottom: 0;
+      -webkit-transition: 5s linear;
+      -moz-transition: 5s linear;
+      -ms-transition: 5s linear;
+      -o-transition: 5s linear;
+      transition: 5s linear;
+      background-size: 100%; }
     .posts .post-link:hover {
-      border: 1px solid #eee;
-      box-shadow: 0 0 25px #eee; }
-      .posts .post-link:hover .mark {
-        opacity: 1; }
+      background-color: rgba(255, 255, 255, 0.4);
+    }
       .posts .post-link:hover .post-cover {
-        opacity: 1; }
-    .posts .post-link h2 .blog-link {
-	font-size: smaller; }
+        background-position: 100% 100%;
+        background-size: 120%; }
+    .posts .post-link .post-title {
+      margin: auto; }
+    .posts .post-link .meta {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      font-size: 10px;
+      line-height: 1.3em; }
+    .posts .post-link .excerpt {
+      display: none; }
 
 
 /**************************************/
