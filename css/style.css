@@ -141,7 +141,7 @@ article {
 .site-header {
   height: 20px;
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 13px;
   font-family: 'Marcellus SC', 'Segoe UI', Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
   text-align: right; }
@@ -171,7 +171,8 @@ article {
       -o-transition: 0.4s;
       transition: 0.4s; }
     .site-header .site-title .text-logo {
-	  font-size: 14px;
+      font-family: "PT Mono", Courier, Monospace;
+      font-size: 13px;
       margin-right: 5px; }
 
 	.site-header .navigator {
