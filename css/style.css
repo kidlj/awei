@@ -87,7 +87,7 @@ article {
 			border-bottom: none; }
 		article header .post-title a:hover {
 			color: #BA2636; }
-		article header .datetime {
+		article header .datetime, article header .author {
 			text-transform: uppercase; }
 		article header h1 {
 			border-bottom: 0; }
