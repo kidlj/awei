@@ -1,5 +1,7 @@
 ---
 title: The Go Programming Language
+author: Alan A. A. Donovan / Brian W. Kernighan
+date: 2018-02-25
 ---
 
 Chapter 2: Program Structure

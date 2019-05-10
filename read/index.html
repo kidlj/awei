@@ -1,20 +1,20 @@
 ---
 layout: main
-title: Read 
+title: Read
 ---
 
 <section class="content">
-	<article>
-		<div class="mark"></div>
-		<header>
-		<h1 class="post-title">READ</h1>
-		</header>
+  <article>
+    <div class="mark"></div>
+    <header>
+      <h1 class="post-title">READ</h1>
+    </header>
 
-		<ul class="post-listing">
-			{% for post in site.read %}
-			<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-			{% endfor %}
-		</ul>
-	</article>
+    <ul class="post-listing">
+      {% for post in site.read %}
+      <li><small class="author muted">{{ post.author }}</small>
+        <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </article>
 </section>
-

@@ -1,5 +1,7 @@
 ---
 title: Javascript 高级程序设计
+author: Nicholas C. Zakas
+date: 2018-07-20
 ---
 
 第 1 章 Javascript 简介

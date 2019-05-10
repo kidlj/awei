@@ -241,10 +241,8 @@ ul.post-listing li {
 	text-transform: uppercase;
 	margin-bottom: 10px; }
 
-ul.post-listing .datetime {
+ul.post-listing .datetime, ul.post-listing .author {
   vertical-align: baseline;
-  zoom: 1;
-  width: 130px;
   text-transform: uppercase;
   float: right;
   color: #999;

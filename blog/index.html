@@ -1,24 +1,23 @@
 ---
 layout: main
-title: Blog 
+title: Blog
 ---
 
 <section class="content">
-	<article>
-		<div class="mark"></div>
-		<header>
-		<h1 class="post-title">BLOG</h1>
-		</header>
+  <article>
+    <div class="mark"></div>
+    <header>
+      <h1 class="post-title">BLOG</h1>
+    </header>
 
-		<ul class="post-listing">
-			{% for post in paginator.posts %}
-			<li><small class="datetime muted">{{ post.date | date_to_string }}</small> 
-			<a href="{{ post.url }}">{{ post.title }}</a></li>
-			{% endfor %}
-		</ul>
-	</article>
+    <ul class="post-listing">
+      {% for post in paginator.posts | sort "date" %}
+      <li><small class="author muted">{{ post.date | date_to_string }}</small>
+        <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </article>
 
-	{% include paginator.html %}
+  {% include paginator.html %}
 
 </section>
-
