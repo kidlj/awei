@@ -1,5 +1,5 @@
 ---
-title: Go Data Stuctures and Algorithums
+title: Go Data Stuctures and Algorithms
 author: Christopher Fox
 date: 2019-05-10
 ---
