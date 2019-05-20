@@ -67,9 +67,7 @@ PostgreSQL 使用 `pg_hba.conf` 文件控制客户端的连接认证。
     vagrant => GRANT demo TO vagrant; // 将 vagrant 加入 demo role 才可以进行下一步操作
     vagrant => CREATE DATABASE demo OWNER demo;
 
-### GRANT PRIVILEGES
-
-ref: https://www.postgresql.org/docs/11/sql-grant.html
+### GRANT PRIVILEGES[1]
 
 > If WITH GRANT OPTION is specified, the recipient of the privilege can in turn grant it to others. Without a grant option, the recipient cannot do that. Grant options cannot be granted to PUBLIC.
 
@@ -77,9 +75,7 @@ ref: https://www.postgresql.org/docs/11/sql-grant.html
 
 > GRANT and REVOKE can also be done by a role that is not the owner of the affected object, but is a member of the role that owns the object, or is a member of a role that holds privileges WITH GRANT OPTION on the object. In this case the privileges will be recorded as having been granted by the role that actually owns the object or holds the privileges WITH GRANT OPTION. For example, if table t1 is owned by role g1, of which role u1 is a member, then u1 can grant privileges on t1 to u2, but those privileges will appear to have been granted directly by g1. Any other member of role g1 could revoke them later.
 
-### ALTER ROLE
-
-ref: https://www.postgresql.org/docs/9.1/sql-alterrole.html
+### ALTER ROLE[2]
 
     => ALTER ROLE demo WITH CREATEDB;
     => ALTER ROLE demo WITH NOCREATEDB;
@@ -101,3 +97,8 @@ ref: https://www.postgresql.org/docs/9.1/sql-alterrole.html
 查看 roles：
 
     => \du;
+
+
+[1]: https://www.postgresql.org/docs/11/sql-grant.html
+[2]: https://www.postgresql.org/docs/9.1/sql-alterrole.html
+

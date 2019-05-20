@@ -98,6 +98,6 @@ Facts
 
 ### ClusterIp service
 
-ClusterIp service is not pingable.
+ClusterIp service is not pingable[1].
 
-http://dockone.io/question/1433
+[1]: http://dockone.io/question/1433

@@ -24,7 +24,7 @@ Squid 的 access control 机制包括 ACL elements 和 Access lists 两个部分
 不同类型的 acl elements 不可取同一个 aclname。
 可以为同一个 aclname 分多行指定 value，这些多行的 value 将被组合成一个 list（OR 逻辑）。
 
-### Access Lists
+### Access Lists[1]
 
 一个 access list *rule* 包含一个 allow 或 deny 关键字，后跟一个或多个 acl element 名字。
 一个 access list 包含一个或多个 access list rules，分布在多行。
@@ -49,20 +49,11 @@ Squid 的 access control 机制包括 ACL elements 和 Access lists 两个部分
 
 	acl all src all
 
-(via http://wiki.squid-cache.org/SquidFaq/SquidAcl)
-
-
-Logs
-====
-
-Log format: http://wiki.squid-cache.org/Features/LogFormat  
-Log analyzer: http://wiki.squid-cache.org/SquidFaq/SquidLogs
-
 
 缓存
 ====
 
-### refresh-pattern
+### refresh-pattern[2]
 
 refresh_pattern的作用: 用于确定一个页面进入cache后，它在cache中停留的时间。
 
@@ -91,6 +82,5 @@ percent: 如果请求的对象在 cache 中停留的时间正好处在这两个�
 2. 如果 response_age < min 则 fresh；如果response_age > max 则 stale
 3. 如果response_age在之间，如果response_age < 存活时间，fresh，否则stale
 
-via:   
-http://www.squid-cache.org/Versions/v3/3.4/cfgman/refresh_pattern.html  
-http://blog.csdn.net/phphot/article/details/2714500
+[1]: http://wiki.squid-cache.org/SquidFaq/SquidAcl)
+[2]: http://www.squid-cache.org/Versions/v3/3.4/cfgman/refresh_pattern.html  

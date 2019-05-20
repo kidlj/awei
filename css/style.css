@@ -126,7 +126,7 @@ article {
 		border-radius: 4px; }
 	article hr {
 		border-color: #efefef; }
-	article p a {
+	article p a, article h1 a, article h2 a, article h3 a {
 		line-height: 0;
 		vertical-align: super;
 		font-size: smaller; }

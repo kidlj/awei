@@ -237,9 +237,7 @@ Git 分支
 Tips
 ====
 
-### Remove sensitive data
-
-via: https://help.github.com/en/articles/removing-sensitive-data-from-a-repository
+### Remove sensitive data[1]
 
     $ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch _wiki/proxy.mkd' --prune-empty --tag-name-filter cat -- --all
     $ git push origin --force --all
@@ -248,3 +246,5 @@ via: https://help.github.com/en/articles/removing-sensitive-data-from-a-reposito
     $ git add .
     $ git commit -m 'add file back'
     $ git push
+
+[1]: https://help.github.com/en/articles/removing-sensitive-data-from-a-repository

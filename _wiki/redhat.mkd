@@ -109,15 +109,6 @@ LAMP
 	# chkconfig mysqld on
 
 
-Zabbix
-======
-
-	# yum install zabbix-server-mysql zabbix-web-mysql
-	# yum install zabbix-agent
-
-(via https://www.zabbix.com/documentation/2.0/manual/installation/install_from_packages)
-
-
 Python 3
 ========
 
