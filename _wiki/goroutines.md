@@ -1,5 +1,5 @@
 ---
-title: goroutine
+title: Goroutines
 ---
 
 One channel
@@ -26,11 +26,11 @@ One channel
 
         go func() { chA <- 0 }()
 
-        for a := range chA { // consumes one
+        for a := range chA { // consume one
             fmt.Println("A:", a)
             time.Sleep(time.Second * 1)
             go func(a int) {
-                chA <- a + 1 // produces one
+                chA <- a + 1 // produce one
             }(a)
         }
     }
@@ -57,9 +57,9 @@ One channel
 
         go func() { ChA <- 0 }()
 
-        for a := range chA { // consumes one
+        for a := range chA { // consume one
             fmt.Println("A:", a)
-            for i := 0; i < 10; i++ { // produces many
+            for i := 0; i < 10; i++ { // produce many
                 go func(i int) {
                     chA <- i // no sequence guaranteed
                 }(i)
@@ -80,16 +80,16 @@ Two channels
         go func() { chB <- 0 }()
 
         go func() {
-            for a := range chA { // consumes one
+            for a := range chA { // consume one
                 time.Sleep(time.Second * 1)
                 fmt.Println("A:", a)
-                chB <- a + 1 // produces one
+                chB <- a + 1 // produce one
             }
         }()
 
-        for b := range chB { // consumes one
+        for b := range chB { // consume one
             fmt.Println("B:", b)
-            chA <- b + 1 // produces one
+            chA <- b + 1 // produce one
         }
     }
 
@@ -131,7 +131,7 @@ Two channels
             for a := range chA {
                 time.Sleep(time.Second * 1)
                 fmt.Println("A:", a)
-                go func(a int) { // 累积 goroutine
+                go func(a int) { // goroutines accumulated
                     chB <- a // no sequence guaranteed
                 }(a)
             }
@@ -155,19 +155,19 @@ Two channels
 
         for i := 0; i < 20; i++ {
             go func() {
-                for a := range chA { // consumes one
+                for a := range chA { // consume one
                     time.Sleep(time.Second * 1)
                     fmt.Println("A:", a)
-                    go func(a int) {
-                        chB <- a // produces one
+                    go func(a int) { // goroutines accumulated
+                        chB <- a // produce one
                     }(a)
                 }
             }()
         }
 
-        for b := range chB { // consumes one
+        for b := range chB { // consume one
             fmt.Println("B:", b)
-            for i := 0; i < 10; i++ { // produces many
+            for i := 0; i < 10; i++ { // produce many
                 chA <- i
             }
         }
@@ -181,12 +181,12 @@ Two channels
         go func() { worklist <- os.Args[1:] }()
 
         seed := make(map[string]bool)
-        for list := range worklist {
+        for list := range worklist { // consume one
             for _, link := range list {
                 if !seen[link] {
                     seed[link] = true
-                    go func(link string) {
-                        worklist <- crawl(link)
+                    go func(link string) { // goroutines accumulated
+                        worklist <- crawl(link) // produce many
                     }(link)
                 }
             }
