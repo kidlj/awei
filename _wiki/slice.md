@@ -4,7 +4,7 @@ title: Slice
 
 ### make
 
-make() 如果 len 参数不为 0，返回的 slice 是有零值填充的:
+make() 如果 len 参数不为 0，返回的 slice 是有零值填充的。
 
     func ExampleMake() {
         a := make([]int, 4)
@@ -20,7 +20,7 @@ make() 如果 len 参数不为 0，返回的 slice 是有零值填充的:
 
 ### append
 
-append() 总是会返回一个新的 slice，len 和原来的不同。
+append() 总是会返回一个新的 slice，length 和原来的不同。
 
     func ExampleAppend() {
         a := make([]int, 0, 10)
