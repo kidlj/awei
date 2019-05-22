@@ -78,44 +78,57 @@ title: Metatable
 
 ### 继承
 
+    local Account = {
+	    balance = 0
+    }
+
     function Account:withdraw(value)
-      if self.balance - value < 0 then
-        error("balance is not enough", 2)
-      end 
-      self.balance = self.balance - value
+	    if value > self.balance then
+		    error("insufficeint funds", 2)
+	    end
+	    self.balance = self.balance - value
     end
 
     function Account:deposit(value)
-      self.balance = self.balance + value
+	    self.balance = self.balance + value
     end
 
     function Account:new(o)
-      o = o or {}
-      self.__index = self
-      setmetatable(o, self)
-      return o
+	    o = o or {}
+	    self.__index = self
+	    setmetatable(o, self)
+	    return o
     end
 
     local SpecialAccount = Account:new()
 
+    function SpecialAccount:getLimit()
+	    return self.limit or 0
+    end
+
     function SpecialAccount:withdraw(value)
-      if self.balance - value + self.limit < 0 then
-        error("balance is not enough", 2)
-      end 
-      self.balance = self.balance -value
+	    if value > self.balance + self:getLimit() then -- not self.getLimit()
+		    error("insufficeint funds", 2)
+	    end
+	    self.balance = self.balance - value
     end
 
     local s = SpecialAccount:new({limit = 100})
 
-    s:deposit(10)
-    s:withdraw(100)
+    -- override SpecialAccount:getLimit()
+    function s:getLimit()
+	    return self.balance * 0.10
+    end
+
+    s:deposit(100)
+    s:withdraw(110)
     print(s.balance)
     -- Output:
-    -- -90
+    -- -10
 
     a = Account:new()
     a:deposit(10)
     print(a.balance)
-    a:withdraw(100)
     -- Output:
-    -- balance is not enough
+    -- 10
+    a:withdraw(100) -- ERROR: insufficiend funds
