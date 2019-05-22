@@ -25,7 +25,7 @@ title: Metatable
 
     a = Account
     Account = nil 
-    a.deposit(20) -- ERROR!
+    a.deposit(20) -- ERROR: attempt to index a nil value
 
 ### 方法
 
@@ -131,4 +131,4 @@ title: Metatable
     print(a.balance)
     -- Output:
     -- 10
-    a:withdraw(100) -- ERROR: insufficiend funds
+    a:withdraw(100) -- ERROR: insufficient funds
