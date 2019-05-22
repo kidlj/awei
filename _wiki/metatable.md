@@ -84,7 +84,7 @@ title: Metatable
 
     function Account:withdraw(value)
 	    if value > self.balance then
-		    error("insufficeint funds", 2)
+		    error("insufficient funds", 2)
 	    end
 	    self.balance = self.balance - value
     end
@@ -108,7 +108,7 @@ title: Metatable
 
     function SpecialAccount:withdraw(value)
 	    if value > self.balance + self:getLimit() then -- not self.getLimit()
-		    error("insufficeint funds", 2)
+		    error("insufficient funds", 2)
 	    end
 	    self.balance = self.balance - value
     end
