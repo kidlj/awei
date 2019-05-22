@@ -2,6 +2,28 @@
 title: Slice
 ---
 
+### index
+
+slice 允许 index 到 len(s) 而不报错：
+
+    func ExampleIndex() {
+        a := []int{}
+        b := []int{0}
+        var c []int
+        fmt.Println(a == nil)
+        fmt.Println(c == nil)
+        fmt.Println(a[0:])
+        fmt.Println(b[1:])
+        fmt.Println(c[0:])
+        fmt.Println(a[1:]) // panic: runtime error: slice bounds out of range
+        // Output:
+        // false
+        // true
+        // []
+        // []
+        // []
+    }
+
 ### make
 
 make() 如果 len 参数不为 0，返回的 slice 是有零值填充的。
