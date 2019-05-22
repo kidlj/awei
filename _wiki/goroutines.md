@@ -155,11 +155,11 @@ Two channels
 
         for i := 0; i < 20; i++ {
             go func() {
-                for a := range chA { // consume one
-                    time.Sleep(time.Second * 1)
+                for a := range chA {
+                    time.Sleep(time.Second * 1) // simulate real work
                     fmt.Println("A:", a)
-                    go func(a int) { // goroutines accumulated
-                        chB <- a // produce one
+                    go func(a int) { // goroutine accumulation
+                        chB <- a
                     }(a)
                 }
             }()
@@ -185,7 +185,7 @@ Two channels
             for _, link := range list {
                 if !seen[link] {
                     seed[link] = true
-                    go func(link string) { // goroutines accumulated
+                    go func(link string) { // goroutine accumulation
                         worklist <- crawl(link) // produce many
                     }(link)
                 }
