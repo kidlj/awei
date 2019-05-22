@@ -1,4 +1,4 @@
-commits: https://github.com/kidlj/kidlj.github.io/commits/master/
+commits: https://github.com/kidlj/site/commits/master/
 
 plugins: [jekyll-paginate]
 permalink: /blog/:year-:month-:day-:title.html
