@@ -108,7 +108,7 @@ append() 总是会返回一个新的 slice，length 和原来的不同。
 ### rotate
 
     func ExampleRotate() {
-        // Roteate s left by two positions.
+        // Rotate s left by two positions.
         s := []int{0, 1, 2, 3, 4}
         reverse(s[:2])
         reverse(s[2:])
