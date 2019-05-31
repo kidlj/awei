@@ -2,6 +2,19 @@
 title: Kubernetes
 ---
 
+kubeadm
+=======
+
+    $ vagrant up
+
+    # export IP_ADDR=10.20.9.10
+    # export HOST_NAME=$(hostname -s)
+    # kubeadm init --apiserver-advertise-address=$IP_ADDR --apiserver-cert-extra-sans=$IP_ADDR  --node-name $HOST_NAME --pod-network-cidr=192.168.0.0/16
+    
+    // Right now coredns (or kube-dns) is stuck in the Pending state. This is expected and part of the design.[1]
+
+    # kubectl create -f ./calico-3.1.6.yaml
+
 kubespray
 =========
 
@@ -98,6 +111,7 @@ Facts
 
 ### ClusterIp service
 
-ClusterIp service is not pingable[1].
+ClusterIp service is not pingable[2].
 
-[1]: http://dockone.io/question/1433
+[1]: https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/#coredns-or-kube-dns-is-stuck-in-the-pending-state
+[2]: http://dockone.io/question/1433
