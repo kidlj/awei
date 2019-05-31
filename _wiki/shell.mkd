@@ -365,6 +365,11 @@ Sed 工具提供了强大的文本查找替换功能，除了调用 sed 以外�
 
 	$ echo ${#arrayname[@]}
 
+### 数组迭代
+
+    $ images=(7a2bc5dc2085 99bd113dbe1e 3cdd5f4c931c)
+    $ for key in ${!images[@]; do echo ${images[key]}; done
+
 ### 关联数组
 
 定义：
