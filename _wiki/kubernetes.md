@@ -15,6 +15,19 @@ kubeadm
 
     # kubectl create -f ./calico-3.1.6.yaml
 
+Tear down[2]
+============
+
+    $ kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
+    $ kubectl delete node <node name>
+
+    // on the node being removed
+    # kubeadm reset
+
+    // The reset process does not reset or clean up iptables rules or IPVS tables.
+    # iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+    # ipvsadm -C
+
 kubespray
 =========
 
@@ -111,7 +124,8 @@ Facts
 
 ### ClusterIp service
 
-ClusterIp service is not pingable[2].
+ClusterIp service is not pingable[3].
 
 [1]: https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/#coredns-or-kube-dns-is-stuck-in-the-pending-state
-[2]: http://dockone.io/question/1433
+[2]: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#tear-down
+[3]: http://dockone.io/question/1433
