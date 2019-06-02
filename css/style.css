@@ -139,8 +139,8 @@ article {
 .site-header {
   height: 20px;
   font-weight: lighter;
-  font-size: 13px;
-  font-family: 'Marcellus SC', 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-family: Courier, monospace;
   margin-bottom: 20px;
   text-align: right; }
   .site-header .site-title {
@@ -169,12 +169,12 @@ article {
       -o-transition: 0.4s;
       transition: 0.4s; }
     .site-header .site-title .text-logo {
-      font-family: "PT Mono", Courier, Monospace;
-      font-size: 13px;
+      font-family: Courier, monospace;
+      font-size: 14px;
       margin-right: 5px; }
 
 	.site-header .navigator {
-		font-size: 15px; }
+		font-size: 14px; }
 	.site-header .navigator a {
 		color: #676767; }
 	.site-header .navigator a:hover {
@@ -184,7 +184,7 @@ article {
 
 .function {
 	margin-top: 50px;
-	font-family: "Marcellus SC", 'Segoe UI', Arial, 'Helvetica', 'Dejavu Sans', sans-serif;
+	font-family: Courier, monspace;
 	font-size: 13px; 
 	padding: 0px 6px;
 	background-color: #F5F5F5; }
