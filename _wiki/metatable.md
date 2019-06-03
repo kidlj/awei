@@ -55,10 +55,6 @@ title: Metatable
     -- Output:
     -- 80
 
-    local Account = { 
-      balance = 0 
-    }
-
 ### 类
 
     local mt = {__index = Account}
