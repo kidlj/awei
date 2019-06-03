@@ -119,12 +119,25 @@ Install tiller:
 
     $ helm delete --purge $RELEASE_NAME
 
-Facts
-======
+Service
+=======
 
 ### ClusterIp service
 
 ClusterIp service is not pingable[3].
+
+Misc
+====
+
+### Label
+
+    $ kubectl label node k8snode28 type=debugworker
+    $ kubectl label node k8snode28 type- // remove label
+
+### Taint
+
+    $ kubectl taint node k8snode28 type=vipworker:NoSchedule
+    $ kubectl taint node k8snode28 type:NoSchedule- // remove taint
 
 [1]: https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/#coredns-or-kube-dns-is-stuck-in-the-pending-state
 [2]: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#tear-down
