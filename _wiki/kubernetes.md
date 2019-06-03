@@ -5,6 +5,8 @@ title: Kubernetes
 kubeadm
 =======
 
+### Init
+
     $ vagrant up
 
     # export IP_ADDR=10.20.9.10
@@ -14,6 +16,10 @@ kubeadm
 Right now coredns (or kube-dns) is stuck in the Pending state. This is expected and part of the design.[1]
 
     # kubectl create -f ./calico-3.1.6.yaml
+
+### Join
+
+    $ kubeadm token create --print-join-command
 
 Tear down[2]
 ============
