@@ -33,7 +33,7 @@ Debug failed pod
 
     $ kubectl describe pod <pod-name>
     $ kubectl logs <pod-name> [-p]
-    $ kubectl logs calico-node-whatever -c calico-node
+    $ kubectl logs calico-node-whatever -n=kube-system -c calico-node
     $ sudo journalctl -u kubelet
 
 
