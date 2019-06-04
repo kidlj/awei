@@ -55,6 +55,42 @@ title: Metatable
     -- Output:
     -- 80
 
+### 元表
+
+元表可以修改一个值在面对未知操作时的行为。例如，假设 a 和  b 都是表，那么可以通过元表定义 Lua 语言如何计算表达式 `a + b`。当 Lua 语言试图将两个表相加时，它会先检查两者之一是否有元表(metatable)且该元表中是否有 `__add` 字段。如果找到了该字段，就调用该字段的值，即所谓的元方法(metamethod)(是一个函数)，在本例中就是用于计算表的和的函数。
+
+### __index 元方法
+
+当访问一个表中不存在的字段时会得到 nil。这是正确的，但不是完整的真相。实际上，这些访问会引发解释器查找元表中一个名为 `__index` 的元方法。如果没有这个元方法（在元表上定义），那么像一般情况下一样，结果即使 nil；否则，则由这个元方法来提供最终结果。
+
+    prototype = {x = 0, y = 0, width = 100, height = 100}
+    
+    local mt = {}
+    
+    function new(o)
+      o = o or {}
+      setmetatable(o, mt) 
+      return o
+    end
+    
+    mt.__index = function(_, key)
+      return prototype[key]
+    end
+    
+    w = new({x = 10, y = 20})
+    print(w.width)
+    -- Output:
+    -- 100
+
+
+Lua 语言会发现 w 中没有对应的字段 width，但却又一个带有 __index 元方法的元表。因此，Lua 语言会以 `w`(表) 和 `width`(不存在的键)为参数来调用这个方法。元方法随后会用这个键检索原型并返回结果。
+
+虽然叫做方法，但元方法 __index 不一定必须是一个函数，它还可以是一个表。当元方法是一个表时，Lua 语言就访问这个表。因此，在此前的示例中，可以把 __index 简单地声明为如下样式：
+
+    mt.__index = prototype
+
+将一个表用作 __index 元方法为实现继承提供了一种简单快捷的方法。虽然将函数用作元方法开销更昂贵，但函数却更灵活：我们可以通过函数实现多继承、缓存以及其它一些变体。
+
 ### 类
 
     local mt = {__index = Account}
@@ -66,7 +102,7 @@ title: Metatable
     end
 
     a2 = Account.new({balance = 0}) 
-    a2:deposit(100)
+    a2:deposit(100) -- 相当于 getmetatable(a2).__index.deposit(a2, 100)
     a2:withdraw(30)
     print(a2.balance)
     -- Output:
