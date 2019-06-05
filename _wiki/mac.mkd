@@ -12,6 +12,16 @@ title: Mac
     $ brew services start postgresql
     $ createdb `whoami`
 
+### Nginx
+
+    $ brew install nginx
+    $ brew services start nginx
+
+### OpenResty
+
+    $ brew install openresty/brew/openresty
+    $ brew services start openresty
+
 ### Brew
 
 列出某个包安装的所有文件：
