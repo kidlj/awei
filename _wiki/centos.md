@@ -1,10 +1,14 @@
 ---
-title: RHEL
+title: CentOS
 ---
 
 
 Yum
 ===
+
+### EPEL
+
+    $ sudo yum install epel-release
 
 ### Development Tools
 
