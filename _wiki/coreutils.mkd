@@ -312,3 +312,14 @@ Lsof
 列出哪个程序在占用某个端口：
 
 	$ lsof -i :22
+
+Curl
+====
+
+### Header
+
+    $ curl -s -H "canary: true" http://test.domain.com/header
+
+### Cookie
+
+    $ curl -s --cookie "canary=true" http://test.domain.com/cookie
