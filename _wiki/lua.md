@@ -1,6 +1,27 @@
 ---
-title: Metatable
+title: Lua
 ---
+
+Setup
+=====
+
+### Lua
+
+    $ brew install lua
+    $ brew install lua@5.1
+
+### OpenResty
+
+    $ brew install openresty
+
+### Luarocks
+
+为 Lua 5.1 安装依赖并指定安装位置：
+
+    $ luarocks --lua-dir=/usr/local/opt/lua@5.1 --tree=/usr/local/ install lua-resty-balancer
+
+Metatable
+=========
 
 ### 表
 
@@ -61,7 +82,7 @@ title: Metatable
 
 ### __index 元方法
 
-当访问一个表中不存在的字段时会得到 nil。这是正确的，但不是完整的真相。实际上，这些访问会引发解释器查找元表中一个名为 `__index` 的元方法。如果没有这个元方法（在元表上定义），那么像一般情况下一样，结果即使 nil；否则，则由这个元方法来提供最终结果。
+当访问一个表中不存在的字段时会得到 nil。这是正确的，但不是完整的真相。实际上，这些访问还会引发解释器查找元表中一个名为 `__index` 的元方法。如果没有这个元方法（在元表上定义），那么像一般情况下一样，结果即是 nil；否则，则由这个元方法来提供最终结果。
 
     prototype = {x = 0, y = 0, width = 100, height = 100}
     
@@ -83,13 +104,15 @@ title: Metatable
     -- 100
 
 
-Lua 语言会发现 w 中没有对应的字段 width，但却又一个带有 __index 元方法的元表。因此，Lua 语言会以 `w`(表) 和 `width`(不存在的键)为参数来调用这个方法。元方法随后会用这个键检索原型并返回结果。
+Lua 语言会发现 w 中没有对应的字段 width，但却有一个带有 __index 元方法的元表。因此，Lua 语言会以 `w`(表) 和 `width`(不存在的键)为参数来调用这个方法。元方法随后会用这个键检索原型并返回结果。
 
 虽然叫做方法，但元方法 __index 不一定必须是一个函数，它还可以是一个表。当元方法是一个表时，Lua 语言就访问这个表。因此，在此前的示例中，可以把 __index 简单地声明为如下样式：
 
     mt.__index = prototype
 
 将一个表用作 __index 元方法为实现继承提供了一种简单快捷的方法。虽然将函数用作元方法开销更昂贵，但函数却更灵活：我们可以通过函数实现多继承、缓存以及其它一些变体。
+
+注：访问一个表的字段和后续访问其元表的 `__index` 元方法（如果该表有元表）是两级独立的操作，不要混为一个。
 
 ### 类
 
@@ -164,3 +187,5 @@ Lua 语言会发现 w 中没有对应的字段 width，但却又一个带有 __i
     -- Output:
     -- 10
     a:withdraw(100) -- ERROR: insufficient funds
+
+注：以上代码的效果是 `s` 继承自 `SpecialAccount`，而 `SpecialAccount` 又继承自 `Account`。
