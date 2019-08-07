@@ -114,7 +114,41 @@ Lua 语言会发现 w 中没有对应的字段 width，但却有一个带有 __i
 
 将一个表用作 __index 元方法为实现继承提供了一种简单快捷的方法。虽然将函数用作元方法开销更昂贵，但函数却更灵活：我们可以通过函数实现多继承、缓存以及其它一些变体。
 
-注：访问一个表的字段和后续访问其元表的 `__index` 元方法（如果该表有元表）是两级独立的操作，不要混为一个。
+能不能略过元表 `mt` 而直接设置 `o.__index = prototype`，答案是不能。
+
+没有 `setmetatable` 的配合，仅仅指定 `__index` 元方法并不起作用，更重要的是也不会屏蔽对表自身的成员访问：
+
+    prototype = {x = 0, y = 0, width = 100, height = 100}
+
+    function new(o)
+      o = o or {}
+      --setmetatable(o, mt)
+      o.__index = prototype
+      return o
+    end
+
+    w = new({x = 10, y = 20})
+    print(w.x, w.y, w.width)
+    -- Output:
+    -- 10  20  nil
+
+省略 `__index` 元方法的设置，仅仅 `setmetatable(o, prototype)` 也并不会自动访问 prototype 表的成员：
+
+    prototype = {x = 0, y = 0, width = 100, height = 100}
+
+    function new(o)
+      o = o or {}
+      setmetatable(o, prototype)
+      --o.__index = prototype
+      return o
+    end
+
+    w = new({x = 10, y = 20})
+    print(w.x, w.y, w.width)
+    -- Output:
+    -- 10  20  nil
+
+可见，`__index` 需要和 `setmetatable` 配合使用才会起作用。
 
 ### 类
 
@@ -150,6 +184,8 @@ Lua 语言会发现 w 中没有对应的字段 width，但却有一个带有 __i
 	    self.balance = self.balance + value
     end
 
+    -- 注意这里是为返回的新表 o 设置元表到 Account 表，而不是为 Account 表设置元表。
+    -- 更确切的表述是，为表 o 设置元表到 self，即 new 方法的 receiver 表，这也是实现继承的最关键一点。
     function Account:new(o)
 	    o = o or {}
 	    self.__index = self
@@ -170,6 +206,8 @@ Lua 语言会发现 w 中没有对应的字段 width，但却有一个带有 __i
 	    self.balance = self.balance - value
     end
 
+    -- 继承的效果是，s 的元表是 SpecialAccount 表，
+    -- 而 SpecialAccount 的元表是 Account 表。
     local s = SpecialAccount:new({limit = 100})
 
     -- override SpecialAccount:getLimit()
