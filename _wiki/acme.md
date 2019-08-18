@@ -28,4 +28,5 @@ title: acme.sh
 
 ### Renew
 
-How?
+    # crontab -e  
+    56 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
