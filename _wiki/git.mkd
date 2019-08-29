@@ -32,6 +32,9 @@ Git 基础
 	$ git log --grep='tweak'            # 搜索提交说明
 	$ git log --author="Jian Li" --commiter="Not Me" --all-match
 	$ git log --since="2014-08-28" -- <path>
+    $ git log -- <path>                 # commit logs
+    $ git log -p -- <path>              # commit diffs
+    $ git log --follow -p  -- <path>    # follow RENAME
 
 ### Git tag
 
