@@ -23,7 +23,8 @@ title: acme.sh
 
 ### Install certs
 
-    # acme.sh --install-cert -d ray.kidlj.com --key-file /etc/nginx/ssl/ray.kidlj.com.key --fullchain-file /etc/nginx/ssl/fullchain.cer \ 
+    # acme.sh --install-cert -d ray.kidlj.com --cert-file /etc/nginx/ssl/ray.kidlj.com.cer --key-file /etc/nginx/ssl/ray.kidlj.com.key \
+    --fullchain-file /etc/nginx/ssl/fullchain.cer \ 
     --reloadcmd "systemctl reload nginx"
 
 ### Renew
