@@ -48,7 +48,9 @@ Metatable
 
     a = Account
     Account = nil 
-    a.deposit(20) -- ERROR: attempt to index a nil value
+    print(a.balance) -- 100
+    print(a.deposit) -- function: 0x7f9eedc05440
+    a.deposit(20) -- table.lua:4: attempt to index a nil value (upvalue 'Account')
 
 ### 方法
 
