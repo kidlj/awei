@@ -47,6 +47,12 @@ title: Mac
 
     auth sufficient pam_tid.so
 
+### Python
+
+    $ brew install python
+    $ ln -s -f /usr/local/bin/python3.7 /usr/local/bin/python
+    $ ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
+
 ### JDK
 
     $ brew tap homebrew/cask-versions
