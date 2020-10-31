@@ -12,6 +12,26 @@ title: PostgreSQL
     $ sudo apt-get update
     $ sudo apt-get install postgresql-11 postgresql-client-11
 
+### CentOS installation
+
+See https://www.postgresql.org/download/linux/redhat/
+
+    $ yum install -y postgresql13-server
+
+### Init Database
+
+    # systemctl edit postgresql-13 # to change data directory
+    # add the following to the override file:
+    [Service]
+    Environment=PGDATA=/data/pgsql/13/data
+
+    # systemctl daemon-reload
+
+    # /usr/pgsql-13/bin/postgresql-13-setup initdb
+    # systemctl enable postgresql-13
+    # systemctl start postgresql-13
+
+
 ### 初始用户
 
 PostgreSQL 初始化以后，一般会以 `postgres` 用户运行，同时系统内建了该用户为 superuser，连接认证方式为 `local` 和 `peer`(即与操作系统 user 对应)。
