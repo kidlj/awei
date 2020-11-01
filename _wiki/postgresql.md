@@ -62,30 +62,27 @@ PostgreSQL 使用 `pg_hba.conf` 文件控制客户端的连接认证。
     (postgres) => CREATE DATABASE demo OWNER demo;
 
 
-### 管理员用户
-
-一般会建立一个管理员用户，而不是拥有超级权限的 `postgres` 用户来管理数据库。
-
-建立一个名为 `vagrant` 的用户：
-
-    (postgres) $ psql // as `postgres` user
-    => create role vagrant WITH LOGIN CREATEROLE CREATEDB PASSWORD 'hello';
-    => create database vagrant owner vagrant // 需要一个同名的数据库
+### Client Authentication
 
 默认 `pg_hba.conf` 配置了一条允许任何操作系统本地用户 peer 登录的条目：
 
     local   all      all  <>  peer
 
-如果系统此时用户为 vagrant，则可以直接登录：
+切换到系统用户 postgres，可以直接登录，下面使用 postgres role 创建业务数据 role 和 database：
 
-    $ (vagrant) psql // as `vagrant` user
+    $ su postgres
+    $ psql
 
-使用管理员账户创建业务用户及数据库：
+    postgres=# create role dev with login password 'xxx';
+    postgres=# create database accounts_dev; # database owner 为 postgres
 
-    $ (vagrant) psql // as `vagrant` user
-    vagrant => CREATE ROLE demo;
-    vagrant => GRANT demo TO vagrant; // 将 vagrant 加入 demo role 才可以进行下一步操作
-    vagrant => CREATE DATABASE demo OWNER demo;
+配置 pg_hba.conf 允许内网使用 role 密码连接数据库：
+
+    host	accounts_dev	dev		samenet			password
+
+然后 reload pg 生效:
+
+    $ sudo systemctl reload postgresql-13
 
 ### GRANT PRIVILEGES[1]
 
