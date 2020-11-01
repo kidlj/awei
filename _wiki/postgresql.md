@@ -20,6 +20,9 @@ See https://www.postgresql.org/download/linux/redhat/
 
 ### Init Database
 
+    # mkdir -p /data/pgsql/13/data
+    # chown -R postgres:postgres /data/pgsql/13/data
+
     # systemctl edit postgresql-13 # to change data directory
     # add the following to the override file:
     [Service]
@@ -30,37 +33,6 @@ See https://www.postgresql.org/download/linux/redhat/
     # /usr/pgsql-13/bin/postgresql-13-setup initdb
     # systemctl enable postgresql-13
     # systemctl start postgresql-13
-
-
-### 初始用户
-
-PostgreSQL 初始化以后，一般会以 `postgres` 用户运行，同时系统内建了该用户为 superuser，连接认证方式为 `local` 和 `peer`(即与操作系统 user 对应)。
-
-    $ sudo su postgres
-    $ psql
-
-### Authentication
-
-PostgreSQL 使用 `pg_hba.conf` 文件控制客户端的连接认证。
-
-更改此文件后需要发送 SIGHUP 信号 reload 进程：
-
-    $ sudo su postgres
-    $ pg_ctlcluster 11 main reload
-
-举例：允许某个 ip 的 demo 用户连接 demo 数据库，使用 密码：
-
-        TYPE    DATABASE    USER    IP              METHOD
-        Host    demo        demo    172.17.8.1/24   md5
-
-从上到下，匹配到一个项就开始进行认证，而后连接或者拒绝连接，不会 fallthrough。
-
-### 创建业务用户和业务数据库
-
-    $ psql // as postgres user
-    (postgres) => CREATE ROLE demo WITH LOGIN CREATEDB PASSWORD 'demo';
-    (postgres) => CREATE DATABASE demo OWNER demo;
-
 
 ### Client Authentication
 
