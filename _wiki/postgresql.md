@@ -38,7 +38,7 @@ See https://www.postgresql.org/download/linux/redhat/
 
 默认 `pg_hba.conf` 配置了一条允许任何操作系统本地用户 peer 登录的条目：
 
-    local   all      all  <>  peer
+    local   all      all    peer
 
 切换到系统用户 postgres，可以直接登录，下面使用 postgres role 创建业务数据 role 和 database：
 
