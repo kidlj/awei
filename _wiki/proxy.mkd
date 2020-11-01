@@ -34,6 +34,19 @@ title: Proxy
     $ git config --global http.proxy http://192.168.116.1:1080
     $ git config --global https.proxy http://192.168.116.1:1080
 
+### GitHub
+
+    $ sudo yum install socat
+
+    $ cat .ssh/config
+    Host github.com
+        HostName github.com
+        User git
+        # HTTP proxy(better speed!)
+        ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=8118
+        # socks proxy
+        #ProxyCommand nc -v -x 127.0.0.1:1080 %h %p
+
 ### Common
 
     $ export HTTP_PROXY=http://192.168.116.1:1080
