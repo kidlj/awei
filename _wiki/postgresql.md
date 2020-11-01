@@ -56,6 +56,18 @@ See https://www.postgresql.org/download/linux/redhat/
 
     $ sudo systemctl reload postgresql-13
 
+### Privileges
+
+pg_hba.conf 用于控制 role member 在 database 级别的 access 权限。Privileges 控制 role member 在 objects 级别的 SQL 权限。
+
+当一个 object 被创建时，被赋予一个 owner，一般来说 owner 就是这个对象的创建者(role)。owner 有对该对象的所有权限。
+
+可以变更一个 object 的 owner：
+
+    ALTER TABLE table_name OWNER TO new_owner;
+
+该操作仅当当前 role 既是该 object 的 owner，又是 new_owner 的 role member 时可行。
+
 ### GRANT PRIVILEGES[1]
 
 > If WITH GRANT OPTION is specified, the recipient of the privilege can in turn grant it to others. Without a grant option, the recipient cannot do that. Grant options cannot be granted to PUBLIC.
