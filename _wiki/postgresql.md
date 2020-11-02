@@ -12,9 +12,7 @@ title: PostgreSQL
     $ sudo apt-get update
     $ sudo apt-get install postgresql-11 postgresql-client-11
 
-### CentOS installation
-
-See https://www.postgresql.org/download/linux/redhat/
+### CentOS installation[1]
 
     $ yum install -y postgresql13-server
 
@@ -100,6 +98,7 @@ pg_hba.conf 用于控制 role member 在 database 级别的 access 权限。Priv
     => \du;
 
 
-[1]: https://www.postgresql.org/docs/11/sql-grant.html
-[2]: https://www.postgresql.org/docs/9.1/sql-alterrole.html
+[1]: https://www.postgresql.org/download/linux/redhat/
+[2]: https://www.postgresql.org/docs/11/sql-grant.html
+[3]: https://www.postgresql.org/docs/9.1/sql-alterrole.html
 
