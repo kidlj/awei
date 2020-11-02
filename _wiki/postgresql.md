@@ -66,7 +66,7 @@ pg_hba.conf 用于控制 role member 在 database 级别的 access 权限。Priv
 
 该操作仅当当前 role 既是该 object 的 owner，又是 new_owner 的 role member 时可行。
 
-### GRANT PRIVILEGES[1]
+### GRANT PRIVILEGES[2]
 
 > If WITH GRANT OPTION is specified, the recipient of the privilege can in turn grant it to others. Without a grant option, the recipient cannot do that. Grant options cannot be granted to PUBLIC.
 
@@ -74,7 +74,7 @@ pg_hba.conf 用于控制 role member 在 database 级别的 access 权限。Priv
 
 > GRANT and REVOKE can also be done by a role that is not the owner of the affected object, but is a member of the role that owns the object, or is a member of a role that holds privileges WITH GRANT OPTION on the object. In this case the privileges will be recorded as having been granted by the role that actually owns the object or holds the privileges WITH GRANT OPTION. For example, if table t1 is owned by role g1, of which role u1 is a member, then u1 can grant privileges on t1 to u2, but those privileges will appear to have been granted directly by g1. Any other member of role g1 could revoke them later.
 
-### ALTER ROLE[2]
+### ALTER ROLE[3]
 
     => ALTER ROLE demo WITH CREATEDB;
     => ALTER ROLE demo WITH NOCREATEDB;
