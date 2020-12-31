@@ -3,3 +3,4 @@ _drafts
 *.swp
 
 .DS_Store
+.jekyll-cache
