@@ -29,6 +29,7 @@ hr {
 pre {
 	padding: 5px 10px; 
 	overflow: auto;
+	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace;
 	margin: 20px 0; }
 code {
 	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace; }

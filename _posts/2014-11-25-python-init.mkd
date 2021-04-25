@@ -6,16 +6,18 @@ title: Python 二维列表初始化
 
 假设需要定义一个函数来计算两个 3x3 矩阵的乘积，实现如下：
 
-	def multiplyMatrix(matrix1, matrix2):
-		# bad initialization
-		resultMatrix = len(matrix1) * [len(matrix2[0]) * [0]]
+```python
+def multiplyMatrix(matrix1, matrix2):
+	# bad initialization
+	resultMatrix = len(matrix1) * [len(matrix2[0]) * [0]]
 
-		for i in range(len(matrix1)):
-			for j in range(len(matrix2[0])):
-				for k in range(len(matrix2)):
-					resultMatrix[i][j] += matrix1[i][k] * matrix2[k][j]
+	for i in range(len(matrix1)):
+		for j in range(len(matrix2[0])):
+			for k in range(len(matrix2)):
+				resultMatrix[i][j] += matrix1[i][k] * matrix2[k][j]
 
-		return resultMatrix
+	return resultMatrix
+```
 
 以上初始化 `resultMatrix` 列表的方法看起来简洁易读，可是计算结果是错误的：
 
