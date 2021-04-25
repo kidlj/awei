@@ -61,7 +61,14 @@ func (s *Server) collectionWorker(ctx context.Context) {
 	ch := make(chan kafka.Message, 1)
     // 消息处理函数
     do := func(m kafka.Message) error {
-        err := s.collectionService.Save(o)
+		// 由消息反序列化得到实体
+		err, o := unmarshal(m)
+        if err != nil {
+             // 如果出现反序列化错误，不重试该消息
+             return nil
+        }
+
+        err = s.collectionService.Save(o)
         return err
     }
 
