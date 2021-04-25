@@ -12,6 +12,7 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 	import (
 		"embed"
 		"html/template"
+	)
 
 	//go:embed views/*.html
 	var tmplFS embed.FS
