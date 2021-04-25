@@ -6,27 +6,27 @@ title: Python 二维列表初始化
 
 假设需要定义一个函数来计算两个 3x3 矩阵的乘积，实现如下：
 
-    def multiplyMatrix(matrix1, matrix2):
-        # bad initialization
-        resultMatrix = len(matrix1) * [len(matrix2[0]) * [0]]
+	def multiplyMatrix(matrix1, matrix2):
+		# bad initialization
+		resultMatrix = len(matrix1) * [len(matrix2[0]) * [0]]
 
-        for i in range(len(matrix1)):
-            for j in range(len(matrix2[0])):
-                for k in range(len(matrix2)):
-                    resultMatrix[i][j] += matrix1[i][k] * matrix2[k][j]
+		for i in range(len(matrix1)):
+			for j in range(len(matrix2[0])):
+				for k in range(len(matrix2)):
+					resultMatrix[i][j] += matrix1[i][k] * matrix2[k][j]
 
-        return resultMatrix
+		return resultMatrix
 
 以上初始化 `resultMatrix` 列表的方法看起来简洁易读，可是计算结果是错误的：
 
-    The multiplication of the matrices is:
-      1   2   3       9   8   7     252 207 162 
-      4   5   6  *    6   5   4  =  252 207 162 
-      7   8   9       3   2   1     252 207 162 
+	The multiplication of the matrices is:
+	  1   2   3       9   8   7     252 207 162 
+	  4   5   6  *    6   5   4  =  252 207 162 
+	  7   8   9       3   2   1     252 207 162 
 
 问题不是出在算法上，而是因为这里的二维列表初始化是错误的。正确的初始化方法是这样的（其一）：
 
-    resultMatrix = [len(matrix2[0]) * [0] for row in range(len(matrix1))]
+	resultMatrix = [len(matrix2[0]) * [0] for row in range(len(matrix1))]
 
 那么应该怎么来认识这个错误陷阱以防止再次掉入进去呢？
 
@@ -36,9 +36,9 @@ title: Python 二维列表初始化
 对比一下这两种初始化方式，都是先用 `[0] * n` 的方式初始化了一个一维列表，而后，前者继续用这种方式初始化二维列表；不同的是，后者这时选择用列表推导式的方式初始化二维列表。那么第一种方式为什么不对，而列表推导式又有什么不同？
 
 为简明起见，以下直接用 `3` 来代替上述的 `len(matrix1)` 和 `len(matrix2[0])`。即初始化一个 3x3 的二维列表：
-    
-    (bad)  resultMatrix = 3 * [3 * [0]]
-    (good) resultMatrix = [3 * [0] for row in range(3)]
+	
+	(bad)  resultMatrix = 3 * [3 * [0]]
+	(good) resultMatrix = [3 * [0] for row in range(3)]
 
 我们先来看看 `3 * [0]` 做了什么，很简单，它生成了 `[0, 0, 0]` 。那么紧接着，`3 * [[0, 0, 0]]` 呢，不就是生成了 `[[0, 0, 0], [0, 0, 0], [0, 0, 0]]` 吗？多么完美的初始化，能有什么错呢？是的，虽然看似完美，不过如果深究下去，却大有文章。
 
@@ -54,7 +54,7 @@ title: Python 二维列表初始化
 
 我们必须要知道列表推导式做了什么。根据定义，列表推导式会最终生成一个列表，每次 for 循环中计算前面的表达式所得来的结果就会生成一个元素。那么这里，
 
-    resultMatrix = [3 * [0] for row in range(3)]
+	resultMatrix = [3 * [0] for row in range(3)]
 
 会循环三次，表达式是 `3 * [0]`，每次循环都会计算一次该表达式，并将其计算结果作为一个元素放置在最终列表里。需要谨记的是，这里生成的三个元素看似相同，都是 `[0, 0, 0]`，不过它们各自指向相互独立的列表对象，互不关联，因为每次计算这里的表达式都就会生成一个新的对象。
 
@@ -64,36 +64,36 @@ title: Python 二维列表初始化
 
 如果二维列表里的一维列表指向的是同一个列表对象，那么当你改动其中一个列表的时候，另外两个也同时跟着改动。或者毋宁说，你输出它们的时候，其实输出的是同一个列表。举例来说：
 
-    >>> a = [1, 2]
-    >>> b = 3 * [a] # 复制引用
-    >>> b
-    >>> [[1, 2], [1, 2], [1, 2]]
-    >>> a.append(3)
-    >>> a
-    >>> [1, 2, 3]
-    >>> b
-    >>> [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
-    >>> b[0].append(4)
-    >>> b
-    >>> [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
-    >>> a
-    >>> [1, 2, 3, 4]
+	>>> a = [1, 2]
+	>>> b = 3 * [a] # 复制引用
+	>>> b
+	>>> [[1, 2], [1, 2], [1, 2]]
+	>>> a.append(3)
+	>>> a
+	>>> [1, 2, 3]
+	>>> b
+	>>> [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+	>>> b[0].append(4)
+	>>> b
+	>>> [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+	>>> a
+	>>> [1, 2, 3, 4]
 
 这时候你会发现，上面错误的计算输出，
 
-    The multiplication of the matrices is:
-      1   2   3       9   8   7     252 207 162 
-      4   5   6  *    6   5   4  =  252 207 162 
-      7   8   9       3   2   1     252 207 162 
+	The multiplication of the matrices is:
+	  1   2   3       9   8   7     252 207 162 
+	  4   5   6  *    6   5   4  =  252 207 162 
+	  7   8   9       3   2   1     252 207 162 
 
 存放计算结果的二维列表 `resultMatrix` 的输出结果，每一行有着相同的内容，就是因为三个一维列表引用的其实是同一个列表对象，输出内容当然会相同了。
 
 而我们用列表推导式初始化的二维列表，其中的一维列表互不干扰，因此就能得到正却的结果：
 
-    The multiplication of the matrices is:
-      1   2   3       9   8   7      30  24  18 
-      4   5   6  *    6   5   4  =   84  69  54 
-      7   8   9       3   2   1     138 114  90 
+	The multiplication of the matrices is:
+	  1   2   3       9   8   7      30  24  18 
+	  4   5   6  *    6   5   4  =   84  69  54 
+	  7   8   9       3   2   1     138 114  90 
 
 ### 列表推导式是万能的？
 
@@ -101,8 +101,8 @@ title: Python 二维列表初始化
 
 考虑这种方式来初始化 `resultMatrix`：
 
-    lst = 3 * [0]
-    resultMatrix = [lst for row in range(3)]
+	lst = 3 * [0]
+	resultMatrix = [lst for row in range(3)]
 
 我们这里将列表推导式内的表达式由 `3 * [0]` 换成了 `lst`，结果如何？不好意思，这样是错误的。不需再多作解释。
 
@@ -116,10 +116,10 @@ title: Python 二维列表初始化
 
 还是来看 `3 * [0]` 或者 `[0, 0, 0]`。虽然列表中三个元素引用同一个整型对象 0，但是当你更改此处列表中某个元素的值的时候，其它元素不会跟着改变，比如：
 
-    >>> a = 3 * [0] # 复制引用
-    >>> a[0] = 1
-    >>> a
-    [1, 0, 0]
+	>>> a = 3 * [0] # 复制引用
+	>>> a[0] = 1
+	>>> a
+	[1, 0, 0]
 
 这是因为该一维列表中元素所引用的整型对象是不可变对象，当你改变其中一个元素的值，比如操作 `a[0] = 1` 时，`a[0]` 所指向的整型对象并不能改变，那么这个时候只能新建一个整型对象 `1`，并令 `a[0]`离开指向原来的整型对象 `0` 并指向这个新的整型对象。因此此处列表元素间值的更改是互不干扰的。
 
@@ -129,6 +129,6 @@ title: Python 二维列表初始化
 
 作为一种语法糖，`[0] * n` 的初始化方式只能用于一维列表（且元素为不可变对象），而不适合二维列表。因此，不论是初始化一维列表还是二维列表，这里都推荐使用列表推导式的方式：
 
-    resultMatrix = [[0 for col in range(3)] for row in range(3)]
+	resultMatrix = [[0 for col in range(3)] for row in range(3)]
 
 
