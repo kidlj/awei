@@ -6,7 +6,7 @@ title: Kafka Consumer Loop 异常处理
 
 比如使用 segmentio/kafka-go[1] Go 客户端的 consumer worker 逻辑如下：
 
-```
+```go
 func (s *Server) collectionWorker(ctx context.Context) {
 	for {
 		select {
@@ -42,7 +42,7 @@ func (s *Server) collectionWorker(ctx context.Context) {
 
 当然，如果把异常处理的 `break` 换成 `return`，出现异常时这个 consumer worker 就退出了，那么重启 consumer worker 以后 fetch 到的消息还是未经 commit 的失败消息，这种情况下不会丢失消息，但每次出现异常都需要重启进程显然也不可取。
 
-```
+```go
             if err := s.collectionService.Save(o) {
                 // 服务异常处理，退出 consumer loop
                 // 这样不会丢失消息，但需要重启或重新创建 consumer worker
@@ -56,7 +56,7 @@ func (s *Server) collectionWorker(ctx context.Context) {
 
 下面的重试逻辑借助一个 buffered channel 循环消费失败消息直到成功：
 
-```
+```go
 func (s *Server) collectionWorker(ctx context.Context) {
 	ch := make(chan kafka.Message, 1)
 	// 消息处理函数
