@@ -27,8 +27,8 @@ func (s *Server) collectionWorker(ctx context.Context) {
 			...
 
 			if err := s.collectionService.Save(o) {
-			// 服务异常处理，重新 fetch 消息
-			// 注意这里 break 的是 select 结构，不是外层 for 循环
+				// 服务异常处理，重新 fetch 消息
+				// 注意这里 break 的是 select 结构，不是外层 for 循环
 				break
 			}
 
