@@ -239,7 +239,7 @@ ul.post-listing {
 	list-style: none; }
 
 ul.post-listing li {
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	margin-bottom: 10px; }
 
 ul.post-listing .datetime, ul.post-listing .author {
