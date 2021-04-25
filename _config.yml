@@ -2,17 +2,17 @@ commits: https://github.com/kidlj/site/commits/master/
 
 plugins:
   - jekyll-paginate
-  - kramdown
+  # - kramdown
 permalink: /blog/:year-:month-:day-:title
 paginate: 10
 paginate_path: "blog/page/:num"
 
-
-kramdown:
-  syntax_highlighter: coderay
-  syntax_highlighter_opts:
-    line_numbers: false
-  coderay_tab_width: 4
+# GitHub Pages don't use plugins
+# kramdown:
+#   syntax_highlighter: coderay
+#   syntax_highlighter_opts:
+#     line_numbers: false
+#   coderay_tab_width: 4
 
 defaults:
 
