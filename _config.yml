@@ -1,9 +1,12 @@
 commits: https://github.com/kidlj/site/commits/master/
 
 plugins: [jekyll-paginate]
-permalink: /blog/:year-:month-:day-:title.html
+permalink: /blog/:year-:month-:day-:title
 paginate: 10
 paginate_path: "blog/page/:num"
+
+kramdown:
+  coderay_tab_width: 4
 
 defaults:
 
@@ -34,10 +37,10 @@ defaults:
 collections:
   wiki:
     output: true
-    permalink: /wiki/:name.html
+    permalink: /wiki/:name
   code:
     output: true
-    permalink: /code/:name.html
+    permalink: /code/:name
   read:
     output: true
-    permalink: /read/:name.html
+    permalink: /read/:name
