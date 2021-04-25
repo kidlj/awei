@@ -11,14 +11,15 @@ title: Blog
     </header>
 
     <ul class="post-listing">
-      {% assign posts = paginator.posts | sort:"date" %}
+      {% assign posts = site.posts | sort:"date" %}
       {% for post in posts %}
       <li><small class="author muted">{{ post.date | date_to_string }}</small>
-        <a href="{{ post.url }}">{{ post.title }}</a></li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
       {% endfor %}
     </ul>
   </article>
 
-  {% include paginator.html %}
+  <!-- {% include paginator.html %} -->
 
 </section>
