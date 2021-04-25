@@ -8,7 +8,7 @@ title: Kafka Consumer Loop 异常处理
 
 ```
 func (s *Server) collectionWorker(ctx context.Context) {
-    for {
+	for {
 		select {
 		case <-ctx.Done():
 			s.collectionService.KafkaReader.Close()
@@ -17,20 +17,20 @@ func (s *Server) collectionWorker(ctx context.Context) {
 			m, err := s.collectionService.KafkaReader.FetchMessage(ctx)
 			if err != nil {
 				fmt.Printf("fetch messages error: %v\n", err)
-                // 消息 fetch 失败，重新 fetch
-                break
+				// 消息 fetch 失败，重新 fetch
+				break
 			}
 
-            // 消息处理逻辑
+			// 消息处理逻辑
 
-            // 消息反序列化并构建实体 o
-            ...
+			// 消息反序列化并构建实体 o
+			...
 
-            if err := s.collectionService.Save(o) {
-                // 服务异常处理，重新 fetch 消息
-                // 注意这里 break 的是 select 结构，不是外层 for 循环
-                break
-            }
+			if err := s.collectionService.Save(o) {
+			// 服务异常处理，重新 fetch 消息
+			// 注意这里 break 的是 select 结构，不是外层 for 循环
+				break
+			}
 
 			s.collectionService.KafkaReader.CommitMessages(ctx, m)
 		}
@@ -59,26 +59,26 @@ func (s *Server) collectionWorker(ctx context.Context) {
 ```
 func (s *Server) collectionWorker(ctx context.Context) {
 	ch := make(chan kafka.Message, 1)
-    // 消息处理函数
-    do := func(m kafka.Message) error {
+	// 消息处理函数
+	do := func(m kafka.Message) error {
 		// 由消息反序列化得到实体
 		err, o := unmarshal(m)
-        if err != nil {
-             // 如果出现反序列化错误，不重试该消息
-             return nil
-        }
+		if err != nil {
+ 			// 如果出现反序列化错误，不重试该消息
+ 			return nil
+		}
 
-        err = s.collectionService.Save(o)
-        return err
-    }
+		err = s.collectionService.Save(o)
+		return err
+	}
 
-    for {
+	for {
 		select {
 		case <-ctx.Done():
 			s.collectionService.KafkaReader.Close()
 			return
 		case m := <-ch:
-            // retry back-off
+			// retry back-off
 			time.Sleep(3 * time.Second)
 			fmt.Printf("*** RETRY message at topic/partition/offset %v/%v/%v\n", m.Topic, m.Partition, m.Offset)
 			err := do(m)
