@@ -1,5 +1,5 @@
 ---
-title: acme.sh
+title: Acme.sh
 ---
 
 ### Install
