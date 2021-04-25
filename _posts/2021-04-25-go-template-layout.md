@@ -18,7 +18,7 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 	var tmplFS embed.FS
 
 	type Template struct {
-		Templates *template.Template
+		templates *template.Template
 	}
 
 	func New() *Template {
@@ -28,7 +28,7 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 
 		templates := template.Must(template.New("").Funcs(funcMap).ParseFS(tmplFS, "views/*.html"))
 		return &Template{
-			Templates: templates,
+			templates: templates,
 		}
 	}
 
@@ -36,13 +36,13 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 	// main.go
 	t := templates.New()
 
-`t.Templates` 是一个包含了所有匹配 `views/*.html` 模版文件的一个全局 template，所有这些模版互相关联可以相互引用，模版的名字就是文件的名字，比如 `article.html`。
+`t.templates` 是一个包含了所有匹配 `views/*.html` 模版文件的一个全局 template，所有这些模版互相关联可以相互引用，模版的名字就是文件的名字，比如 `article.html`。
 
 进一步，我们给 `*Template` 类型定义一个 `Render` 方法，用于实现 Echo web 框架的 `Renderer` 接口。
 
 	// templates.go
 	func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
-		return t.Templates.ExecuteTemplate(w, name, data)
+		return t.templates.ExecuteTemplate(w, name, data)
 	}
 
 然后就可以为 Echo 指定 renderer，方便在每个 handler 生成 HTML 响应，只需要向 `c.Render` 函数传递模版的名字即可。
@@ -64,7 +64,7 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 		return c.Render(http.StatusOK, "article.html", article)
 	}
 
-因为 `t.Templates` 模版包含了所有的模版文件，因此每一个模版名字都可以直接使用。
+因为 `t.templates` 模版包含了所有的模版文件，因此每一个模版名字都可以直接使用。
 
 为了实现 HTML 的组装，我们需要用到模版的继承。比如定义一个 layout.html 用于基本的 HTML 框架和 `<head>` 元素，并且设定 `[[block "title"]]` 和 `[[block "content"]]`，其它模版继承 layout.html，并且用自己定义的 blocks 填充或覆盖 layout 模版的同名 blocks。
 
@@ -140,7 +140,7 @@ article.html 同样也引用 layout.html:
 	var tmplFS embed.FS
 
 	type Template struct {
-		Templates *template.Template
+		templates *template.Template
 	}
 
 	func New() *Template {
@@ -150,12 +150,12 @@ article.html 同样也引用 layout.html:
 
 		templates := template.Must(template.New("").Funcs(funcMap).ParseFS(tmplFS, "views/*.html"))
 		return &Template{
-			Templates: templates,
+			templates: templates,
 		}
 	}
 
 	func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
-		tmpl := template.Must(t.Templates.Clone())
+		tmpl := template.Must(t.templates.Clone())
 		tmpl = template.Must(tmpl.ParseFS(tmplFS, "views/"+name))
 		return tmpl.ExecuteTemplate(w, name, data)
 	}
