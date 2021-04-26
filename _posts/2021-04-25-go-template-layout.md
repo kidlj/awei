@@ -2,8 +2,6 @@
 title: Go Template Layout
 ---
 
-注：为避免 Jekyll 解释 Go template 的 tag，本篇文章使用`[ ]` 替代 `{ }`。
-
 Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文件中，极大地方便了 Go 程序的部署。标准库中 html/template 也同步增加了 `ParseFS` 函数，用于将 embed.FS 内包含的所有模版文件一整个编译成一个 template tree。
 
 	// templates.go
@@ -66,10 +64,11 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 
 因为 `t.templates` 模版包含了所有的模版文件，因此每一个模版名字都可以直接使用。
 
-为了实现 HTML 的组装，我们需要用到模版的继承。比如定义一个 layout.html 用于基本的 HTML 框架和 `<head>` 元素，并且设定 `[[block "title"]]` 和 `[[block "content"]]`，其它模版继承 layout.html，并且用自己定义的 blocks 填充或覆盖 layout 模版的同名 blocks。
+为了实现 HTML 的组装，我们需要用到模版的继承。比如定义一个 layout.html 用于基本的 HTML 框架和 `<head>` 元素，并且设定 {% raw %}`{{block "title"}}`{% endraw %} 和 {% raw %}`{{block "content"}}`{% endraw %}，其它模版继承 layout.html，并且用自己定义的 blocks 填充或覆盖 layout 模版的同名 blocks。
 
 以下是 layout.html 模版的内容：
 
+	{% raw %}
 	<!DOCTYPE html>
 	<html lang="en">
 
@@ -77,25 +76,27 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>[[block "title" .]][[end]]</title>
+		<title>{{block "title" .}}{{end}}</title>
 		<script src="/static/main.js"></script>
 	</head>
 
 	<body>
-		<div class="main">[[block "content" .]][[end]]</div>
+		<div class="main">{{block "content" .}}{{end}}</div>
 	</body>
 
 	</html>
+	{% endraw %}
 
 其它的模版，可以引用（继承）layout.html，并定义 layout.html 模版中的 blocks。
 
 比如 login.html 内容如下：
 
-	[[ template "layout.html" .]]
+	{% raw %}
+	{{template "layout.html" .}}
 
-	[[define "title"]]登录[[end]]
+	{{define "title"}}登录{{end}}
 
-	[[define "content"]]
+	{{define "content"}}
 	<div id="messages">
 	</div>
 
@@ -106,18 +107,21 @@ Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文�
 			<button type="submit" class="btn btn-phone">登录</button>
 		</div>
 	</form>
-	[[end]]
+	{{end}}
+	{% endraw %}
 
 article.html 同样也引用 layout.html:
 
-	[[template "layout.html" .]]
+	{% raw %}
+	{{template "layout.html" .}}
 
-	[[define "title"]]<h1>[[.Title]]</h1>[[end]]
+	{{define "title"}}<h1>{{.Title}}</h1>{{end}}
 
-	[[define "content"]]
-	<p>[[.URL]]</p>
-	<article>[[.Content]]</article>
-	[[end]]
+	{{define "content"}}
+	<p>{{.URL}}</p>
+	<article>{{.Content}}</article>
+	{{end}}
+	{% endraw %}
 
 我们期望在渲染 login.html 模版的时候，它定义的 blocks 覆盖 layout.html 的 blocks，在渲染 article.html 模版的时候同样如此。可事实不是这样，这归咎于 Go text/template 的实现。在我们执行 `ParseFS(tmplFS, "views/*.html")` 的过程中，假设 article.html 首先被解析，它其中的 `content` block 也被解析成一个模版名，那么后续再解析 login.html 模版时，在其中又发现了 `content` block，text/template 就会用后边解析的内容覆盖同名的模版，所以等所有模版解析完成，实际上我们模版树中只存在一个名为 `content` 的模版，就是最后被解析的那一个模版文件内定义的 `content`。
 
@@ -162,6 +166,6 @@ article.html 同样也引用 layout.html:
 
 可以看到这里只修改了 `Render` 函数。之前我们用全局模版执行其中的一个引用了 layout.html 的子模版，会导致同名 block 定义内容的错乱，现在我们不直接执行这个全局模版，而是先将它克隆成一个新模版，这个新模版里的 `content` block 可能也不是我们想要的，所以这里在这个模版之上再解析一个我们最终要渲染的子模版的内容，这样新添加的子模版的 `content` 内容会覆盖之前的可能错误的 `content`。我们的目标子模版里引用了全局模版中的 layout.html，而 layout.html 是没有重名的，而且因为全局模版从来没有被执行过（每次执行我们都在 `Render` 函数里克隆出一个新全局模版），所以它也是干净的。最终执行某个模版的时候，我们有了一个干净的 layout.html，以及我们想要的 `content` 内容，这就相当于我们每次执行时都生成一个新模版，这个模版只包含我们需要的 layout 模版和子模版。思路是一样的，只是这里不需要执行模版时手动生成新模版，而是在 `Render` 函数里自动完成了。
 
-当然，你也可以在子模版里使用 `[[ template ]]` 引用别的 layout 模版，只要这些 layout 模版没有重名就不会互相覆盖，在执行时候只需要指定目标子模版的名字，模版引擎会自动根据其中定义的 `[[ template ]]` tag 为我们寻找 layout 模版，这些模版都在克隆出的全局模版里了。
+当然，你也可以在子模版里使用 {% raw %}`{{ template }}`{% endraw %} 引用别的 layout 模版，只要这些 layout 模版没有重名就不会互相覆盖，在执行时候只需要指定目标子模版的名字，模版引擎会自动根据其中定义的 {% raw %}`{{ template }}`{% endraw %} tag 为我们寻找 layout 模版，这些模版都在克隆出的全局模版里了。
 
 [1]: https://github.com/golang/go/commit/12dfc3bee482f16263ce4673a0cce399127e2a0d
