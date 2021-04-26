@@ -2,7 +2,7 @@ body {
 	background-color: #f4f4f4;
 	color: #343434;
 	line-height: 1.6em;
-	font-family: "Segoe UI", "Arial", "Helvetica", "Source Sans Pro", "Dejavu Sans", "Microsoft YaHei", sans-serif;
+	font-family: "Helvetica Neue", "Arial", "Source Sans Pro", "Dejavu Sans", sans-serif;
 	padding: 20px 10px;
 }
 
@@ -13,10 +13,10 @@ a:hover {
 
 b, strong, h1, h2, h3, h4, h5 {
 	color: #000;
-	font-weight: 700; }
+	font-weight: 400; }
 
 h1, h2, h3 {
-	font-family: "Open Sans", "Segeo UI", "Arial", "Helvetica", "Dejavu Sans", serif;
+	font-family: "Helvetica Neue", "Arial", "Dejavu Sans", sans-serif;
 }
 
 hr {
@@ -29,11 +29,13 @@ hr {
 pre {
 	padding: 5px 10px; 
 	tab-size: 4;
+	-moz-tab-size: 4;
 	overflow: auto;
 	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace;
 	margin: 20px 0; }
 code {
 	tab-size: 4;
+	-moz-tab-size: 4;
 	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace; }
 
 
@@ -70,7 +72,7 @@ article {
 	padding: 80px;
 	background-color: #fff;
 	font-size: 13px;
-	font-family: "Segoe UI", "Arial", "Helvetica", "Dejavu Sans", "Microsoft YaHei", sans-serif;
+	font-family: "Helvetica Neue", "Arial", "Dejavu Sans", sans-serif;
 	font-weight: 400;
 	position: relative; }
 	article * {
@@ -78,8 +80,8 @@ article {
 	article header {
 		margin-bottom: 60px; }
 		article header .post-title {
-      font-family: "Open Sans", "Segeo UI", "Arial", "Helvetica", "Dejavu Sans", serif;
-			font-weight: 500;
+      font-family: "Helvetica Neue", "Arial", "Dejavu Sans", sans-serif;
+			font-weight: 400;
 			line-height: 1.4em;
 			font-size: 2.0em;
 			margin: 0 0 5px; }
@@ -95,7 +97,7 @@ article {
 
 		/* for index header */
 		article header .index-title {
-			font-weight: 500;
+			font-weight: 400;
 			font-size: 1.7em;
 			/* margin tweak to equal wiki page  */
 			margin: 0px 0px -20px; }
@@ -110,17 +112,17 @@ article {
 		padding: 0 0 0 13px; }
 	article h1 {
 		font-size: 1.7em;
-		font-weight: 500;
+		font-weight: 400;
 		border-bottom: 1px solid #E4DADA;
 		padding-bottom: 1em;
 		margin: 2em 0 2em; }
 	article h2 {
 		font-size: 1.6em; 
-		font-weight: 500;
+		font-weight: 400;
 		margin: 2em 0 1em; }
 	article h3 {
 		font-size: 1.3em;
-		font-weight: 500;
+		font-weight: 400;
 		margin: 2em 0 1em; }
 	article img:not([height]) {
 		margin: 10px 0;
@@ -222,7 +224,6 @@ article {
 
 
 .site-footer {
-	font-family: "Open Sans";
 	text-align: center;
 	padding: 60px 25px 25px 25px; }
 

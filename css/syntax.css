@@ -1,6 +1,6 @@
 /* http://loyc.net/res/css/syntax.css */
 .highlight .hll { background-color: #ffc; }
-.highlight .c { color: #888; font-weight: bold; } /* Comment */
+.highlight .c { color: #888;} /* Comment */
 .highlight .err { color: #a00; background-color: #fff } /* Error */
 .highlight .k { color: #069; } /* Keyword */
 .highlight .o { color: #555 } /* Operator */
@@ -18,7 +18,6 @@
 .highlight .gi { background-color: #cfc; border: 1px solid #0c0 } /* Generic.Inserted */
 .highlight .go { color: #aaa } /* Generic.Output */
 .highlight .gp { color: #009; } /* Generic.Prompt */
-.highlight .gs { } /* Generic.Strong */
 .highlight .gu { color: #030; } /* Generic.Subheading */
 .highlight .gt { color: #9c6 } /* Generic.Traceback */
 .highlight .kc { color: #069; } /* Keyword.Constant */
