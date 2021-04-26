@@ -30,12 +30,14 @@ pre {
 	padding: 5px 10px; 
 	tab-size: 4;
 	-moz-tab-size: 4;
+	-webkit-tab-size: 4;
 	overflow: auto;
 	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace;
 	margin: 20px 0; }
 code {
 	tab-size: 4;
 	-moz-tab-size: 4;
+	-webkit-tab-size: 4;
 	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace; }
 
 
