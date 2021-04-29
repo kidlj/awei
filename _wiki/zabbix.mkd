@@ -49,7 +49,7 @@ Usage & Example:
 
 	UserParameter=<keyname[*]>, <command1 $1, command2 $2>
 
-其中 $1 为第一个参数，$2 为第二个参数。参数在定义 item 时提供。
+其中 `$1` 为第一个参数，`$2` 为第二个参数。参数在定义 item 时提供。
 
 
 Web Monitoring
