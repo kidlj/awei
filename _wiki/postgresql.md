@@ -97,6 +97,13 @@ pg_hba.conf 用于控制 role member 在 database 级别的 access 权限。Priv
 
     => \du;
 
+查看表结构：
+
+    => \d <table_name>;
+
+查看表数据：
+
+    => table <table_name>;
 
 [1]: https://www.postgresql.org/download/linux/redhat/
 [2]: https://www.postgresql.org/docs/11/sql-grant.html
