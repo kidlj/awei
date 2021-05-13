@@ -128,7 +128,7 @@ func (s *Service) Worker(ctx context.Context) {
 		return err
 	}
 
-	for i := 0; i <= 5; i++ {
+	for i := 0; i < 5; i++ {
 		// 重试 channel
 		ch := make(chan kafka.Message, 1)
 		go func() {
