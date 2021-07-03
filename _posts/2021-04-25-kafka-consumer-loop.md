@@ -110,61 +110,6 @@ func (s *Service) Worker(ctx context.Context) {
 
 可以在重试逻辑里加上合适的 back-off 策略，比如例子中是 sleep 3 秒。在消息处理函数 `do()` 中，可以控制哪些异常需要重试，哪些可以忽略，比如数据库连接错误肯定需要重试，而消息反序列化错误就应该忽略该消息，因为下一次重试该消息仍然不会成功。通过 `do()` 函数的返回值 error 是否为 nil 来控制是否重试消息。
 
-对于需要并发消费的情形，只需要同时运行多个 consumer loop goroutine，每个 loop 有自己的重试通道。
-
-```go
-func (s *Service) Worker(ctx context.Context) {
-	// 消息处理函数
-	do := func(m kafka.Message) error {
-		// 由消息反序列化得到实体
-		err, o := unmarshal(m)
-		if err != nil {
-			// 如果出现反序列化错误，不重试该消息
-			// 可以在这里添加日志记录逻辑或持久化到存储
-			return nil
-		}
-
-		err = s.Save(o)
-		return err
-	}
-
-	for i := 0; i < 5; i++ {
-		// 重试 channel
-		ch := make(chan kafka.Message, 1)
-		go func() {
-			for {
-				select {
-				case <-ctx.Done():
-					s.reader.Close()
-					return
-				case m := <-ch:
-					// retry back-off
-					time.Sleep(3 * time.Second)
-					fmt.Printf("*** RETRY message at topic/partition/offset %v/%v/%v\n", m.Topic, m.Partition, m.Offset)
-					err := do(m)
-					if err != nil {
-						ch <- m
-						break
-					}
-					s.reader.CommitMessages(ctx, m)
-				default:
-					m, err := s.reader.FetchMessage(ctx)
-					if err != nil {
-						fmt.Printf("fetch messages error: %v\n", err)
-						break
-					}
-					err = do(m)
-					if err != nil {
-						ch <- m
-						break
-					}
-					s.reader.CommitMessages(ctx, m)
-				}
-			}
-		}()
-	}
-}
-```
 
 [1]: https://github.com/segmentio/kafka-go
 [2]: https://github.com/segmentio/kafka-go/issues/84
