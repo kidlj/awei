@@ -1,5 +1,5 @@
 ---
-title: Go Template Layout
+title: Go HTML Template 布局
 ---
 
 Go 1.16 引入了 embed package，可以将非 .go 文件打包到二进制文件中，极大地方便了 Go 程序的部署。标准库中 html/template 也同步增加了 `ParseFS` 函数，用于将 embed.FS 内包含的所有模板文件一整个编译成一个 template tree。
