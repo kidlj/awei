@@ -1,5 +1,5 @@
 ---
-Go Template Layout - EN
+title: Go Template Layout - EN
 ---
 
 Go 1.16 introduces the embed package, which packages non-.go files into binaries, greatly facilitating the deployment of Go programs. The `ParseFS` function was also added to the standard library html/template, which compiles all the template files contained in embed.FS into a template tree.
