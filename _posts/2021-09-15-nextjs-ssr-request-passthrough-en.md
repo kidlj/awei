@@ -1,5 +1,5 @@
 ---
-title: Next.js SSR Request Passthrough
+title: Next.js SSR Request Passthrough - EN
 ---
 
 A page in Next.js is a React Component, and server-side rendering (SSR) is reduced to providing the component with a Props object when the page is requested. The page's Props object is dynamically provided by the Next.js server based on the requested data, and this process allows interaction with the back-end API server and access to the data. In many cases, a Next.js site consists of a mix of client-side rendering and server-side rendering pages, where the client-side code authenticates the user request through a cookie, and we want the server-side rendering to pass the client-side request cookie to the back-end API server when it gets the Props data through the `getServerSideProps` mechanism. So that we don't have to maintain a set of authentication logic specifically for server-side rendering.
