@@ -103,14 +103,14 @@ For example, login.html reads as follows.
 ```html
 {{template "layout.html" .}}
 
-{{define "title"}}登录{{end}}
+{{define "title"}}Login{{end}}
 
 {{define "content"}}
 <form class="account-form" method="post" action="/account/login" data-controller="login">
-	<div div="account-form-title">登录</div>
-	<input type="phone" name="phone" maxlength="13" class="account-form-input" placeholder="手机号" tabindex="1">
+	<div div="account-form-title">Login</div>
+	<input type="phone" name="phone" maxlength="13" class="account-form-input" placeholder="Phone" tabindex="1">
 	<div class="account-form-field-submit ">
-		<button type="submit" class="btn btn-phone">登录</button>
+		<button type="submit" class="btn btn-phone">Login</button>
 	</div>
 </form>
 {{end}}
