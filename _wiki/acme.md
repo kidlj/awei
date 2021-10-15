@@ -13,7 +13,7 @@ title: Acme.sh
 
 ### Issue
 
-    # acme.sh --issue -d ray.kidlj.com  --nginx
+    # acme.sh --set-default-ca --server letsencrypt --issue -d ray.kidlj.com  --nginx
     ...
     -----END CERTIFICATE-----
     [Tue Jun 11 09:28:54 EDT 2019] Your cert is in  /root/.acme.sh/ray.kidlj.com/ray.kidlj.com.cer 
