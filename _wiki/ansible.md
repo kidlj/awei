@@ -2,8 +2,7 @@
 title: Ansible
 ---
 
-变量
-====
+### 变量
 
 Ansible 是一套简单易用的自动化部署系统，唯独它的变量设计让我有些迷惑，因为有着太多地方和太多种方式来定义变量。
 
@@ -31,9 +30,6 @@ Ansible 有如下几种变量：定义在 Inventory 里的变量，定义在 Pla
 
 如果一个 role 目录里有 `variables/main.yml` 文件，则里面的变量自动加入到 playbook 里。
 
-
-Parameterization
-================
 
 ### Parameteried tasks
 
@@ -111,9 +107,6 @@ Parameterization
 		- common
 		- { role: foo_app_instance, dir: '/opt/a', port: 10080 }
 		- { role: foo_app_instance, dir: '/opt/b', port: 10081 }
-
-Tags
-====
 
 给 playbook 或者 task 打上标签，就可以选择执行一个大的 playbook 的一部分。
 

@@ -2,9 +2,6 @@
 title: Windows
 ---
 
-Node
-====
-
 ### Windows Build Tools
 
 首先使用管理员身份运行 Powershell，安装 windows-build-tools：
@@ -20,39 +17,9 @@ Node
 这样就可以在 Windows 上编译安装 Node 的 native modules 了。
 
 
-Tweaks
-======
-
 ### 微调雅黑字体
 
 将雅黑粗体在注册表里隐藏，会得到更好看的渲染效果：
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts]
 "Microsoft YaHei Bold & Microsoft YaHei UI Bold (TrueType)"="N/A"
-
-VMWare Player
-=============
-
-### 配置静态 IP
-
-/etc/sysconfig/network-scripts/ifcfg-eno16777728:
-
-    BOOTPROTO="static"
-    IPADDR="192.168.140.128"
-    NETMASK="255.255.255.0"
-    GATEWAY="192.168.140.2"
-
-Shell 
-=====
-
-### 代理
-
-开启了 ss 的全局代理以后，Git Bash 和 Mac 上的 iTerm 都不走系统代理，因此需要手动指定。
-
-    $ export http_proxy=socks5://127.0.0.1:1080
-    $ export https_proxy=$http_proxy
-
-验证：
-
-    $ curl ipinfo.io
-    $ curl ip.cn

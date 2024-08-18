@@ -2,10 +2,9 @@
 title: Kubernetes
 ---
 
-kubeadm
-=======
+### kubeadm
 
-### Init
+#### Init
 
     $ vagrant up
 
@@ -17,12 +16,11 @@ Right now coredns (or kube-dns) is stuck in the Pending state. This is expected 
 
     # kubectl create -f ./calico-3.1.6.yaml
 
-### Join
+#### Join
 
     $ kubeadm token create --print-join-command
 
-Tear down[2]
-============
+### Tear down[2]
 
     $ kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
     $ kubectl delete node <node name>
@@ -34,68 +32,16 @@ Tear down[2]
     # iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
     # ipvsadm -C
 
-Debug failed pod
-=================
+### Debug failed pod
 
     $ kubectl describe pod <pod-name>
     $ kubectl logs <pod-name> [-p]
     $ kubectl logs calico-node-whatever -n=kube-system -c calico-node
     $ sudo journalctl -u kubelet
 
-
-Draft
-=====
-
-    $ brew install azure/draft/draft
-    $ draft init
-    $ draft config set disable-push-warning 1
-
-Helm
-=====
-
-    $ brew install kubernetes-helm
-
-In rbac-config.yaml:
-
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      name: tiller
-      namespace: kube-system
-    ---
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRoleBinding
-    metadata:
-      name: tiller
-    roleRef:
-      apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: cluster-admin
-    subjects:
-      - kind: ServiceAccount
-        name: tiller
-        namespace: kube-system
-
-Install tiller:
-
-    $ kubectl create -f rbac-config.yaml
-    serviceaccount "tiller" created
-    clusterrolebinding "tiller" created
-    $ helm init --service-account tiller --history-max 200
-
-### Fix failed releases
-
-    $ helm delete --purge $RELEASE_NAME
-
-Service
-=======
-
 ### ClusterIp service
 
 ClusterIp service is not pingable[3].
-
-Misc
-====
 
 ### Label
 

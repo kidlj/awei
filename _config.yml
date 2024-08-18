@@ -1,53 +1,19 @@
-commits: https://github.com/kidlj/site/commits/master/
-
-permalink: /blog/:title
-
-# plugins:
-  # - jekyll-paginate
-  # - kramdown
-
-# paginate: 10
-# paginate_path: "blog/page/:num"
-
-# GitHub Pages don't use plugins
-# kramdown:
-#   syntax_highlighter: coderay
-#   syntax_highlighter_opts:
-#     line_numbers: false
-#   coderay_tab_width: 4
+commits: https://github.com/kidlj/intj/commits/main/
 
 defaults:
 - scope: 
-    path: ""
-    type: "posts"
+    type: "blog"
   values:
-    layout: "post"
-
+    layout: "blog"
 - scope:
-    path: ""
     type: "wiki"
   values:
     layout: "wiki"
 
-- scope:
-    path: ""
-    type: "code"
-  values:
-    layout: "wiki"
-
-- scope:
-    path: ""
-    type: "read"
-  values:
-    layout: "read"
-
 collections:
+  blog:
+    output: true
+    permalink: /blog/:name
   wiki:
     output: true
     permalink: /wiki/:name
-  code:
-    output: true
-    permalink: /code/:name
-  read:
-    output: true
-    permalink: /read/:name

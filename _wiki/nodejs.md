@@ -2,37 +2,9 @@
 title: Node.js
 ---
 
-Node
-====
-
-### Nvm
-
-安装 nvm[1]：
-
-    $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh \
-        | bash
-
-安装 Node 并设定版本：
-
-    $ nvm install lts/argon 
-    --> /home/mellon/.nvm/versions/node/v4.6.2/
-
-    $ nvm use lts/argon
-
-    $ nvm list
-    $ nvm ls-remote
-
-    $ nvm alias default lts/argon
-
-    $ nvm uninstall v0.12.1
-
-    $ npm install -g grunt
-    --> /home/mellon/.nvm/versions/node/v4.6.2/lib/node_modules/
-
-
 ### CWD
 
-程序文件中用到的 `./` 和 `process.cwd()` 将总是返回运行 `node` 命令的那个目录，也是就文档所说的 *the working directory of the process*，而不是指该程序文件所在的目录[2]。
+程序文件中用到的 `./` 和 `process.cwd()` 将总是返回运行 `node` 命令的那个目录，也是就文档所说的 *the working directory of the process*，而不是指该程序文件所在的目录[1]。
 
 而`__dirname` 将总是指该程序文件所在的目录。
 
@@ -57,20 +29,12 @@ proxy:
     $ export npm_config_proxy=http://127.0.0.1:1080
     $ npm install
 
-API
-====
-
 ### EventEmitter
     
-The `eventEmitter.emit()` method allows an arbitrary set of arguments to be passed to the listener functions. It is important to keep in mind that when an ordinary listener function is called by the EventEmitter, the standard this keyword is intentionally set to reference the EventEmitter to which the listener is attached.[3]
+> The `eventEmitter.emit()` method allows an arbitrary set of arguments to be passed to the listener functions. It is important to keep in mind that when an ordinary listener function is called by the EventEmitter, the standard this keyword is intentionally set to reference the EventEmitter to which the listener is attached.[2]
 
-It is possible to use ES6 Arrow Functions as listeners, however, when doing so, the this keyword will no longer reference the EventEmitter instance.
+> It is possible to use ES6 Arrow Functions as listeners, however, when doing so, the this keyword will no longer reference the EventEmitter instance.
 
-
-
-
-Express
-=======
 
 ### 中间件的 next()
 
@@ -94,10 +58,9 @@ Express
 - app.use('/path', someMiddleware) 匹配的是*所有以 '/path' 开头*的请求，像 '/path/more' 也会匹配。而且在这里会从 req.url 中去掉匹配前缀，再交给后续中间件处理。
 - app.get('/path', someMiddleware) 匹配的*只有* '/path' 和 '/path/' 这两个，像 '/path/more' 都不会匹配。
 
-虽然两者语法相似，但用处完全不同。app.use() 来源于 Connect[4] 的中间件挂载函数，而 app.get() 则是 Express 单独开发的路由匹配函数[5]。
+虽然两者语法相似，但用处完全不同。app.use() 来源于 Connect[3] 的中间件挂载函数，而 app.get() 则是 Express 单独开发的路由匹配函数[4]。
 
-[1]: https://github.com/creationix/nvm
-[2]: http://stackoverflow.com/questions/8131344/what-is-the-difference-between-dirname-and-in-node-js
-[3]: https://nodejs.org/docs/latest-v4.x/api/events.html#events_passing_arguments_and_this_to_listeners 
-[4]: https://github.com/senchalabs/connect#mount-middleware
-[5]: http://expressjs.com/en/guide/routing.html
+[1]: http://stackoverflow.com/questions/8131344/what-is-the-difference-between-dirname-and-in-node-js
+[2]: https://nodejs.org/docs/latest-v4.x/api/events.html#events_passing_arguments_and_this_to_listeners 
+[3]: https://github.com/senchalabs/connect#mount-middleware
+[4]: http://expressjs.com/en/guide/routing.html

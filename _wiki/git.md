@@ -3,10 +3,6 @@ title: Git
 ---
 
 
-Git 基础
-========
-
-
 ### 配置 Git
 
 	$ git config --system user.name	'Jian Li'   # `/etc/gitconfig'
@@ -79,9 +75,6 @@ Git 基础
     $ git fetch origin master
     $ git merge origin/master --allow-unrelated-histories
 
-
-Git 分支
-========
 
 ### 理解分支
 
@@ -235,10 +228,6 @@ Git 分支
 	> Do not rebase commits that you have pushed to a public repository.
 
 	(其实就是说一定要在分享之前衍合，分享出去之后就不要再衍合。)
-
-
-Tips
-====
 
 ### Remove sensitive data[1]
 

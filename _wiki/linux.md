@@ -3,9 +3,6 @@ title: Linux
 ---
 
 
-网络
-====
-
 ### 使用 ifconfig/route 配置网络
 
 `ifconfig`和`route`命令均来自`sys-apps/net-tools`包。
@@ -31,8 +28,7 @@ ip(sys-apps/iproute2)工具应看作是`ifconfig`的替代，因此更倾向于�
 
 
 
-账户管理
-========
+### 账户管理
 
 添加新用户:
 
@@ -60,10 +56,6 @@ or,
 	# groupdel dialout
 	# groupdel uucp
 
-
-
-文件权限
-========
 
 ### 目录的执行权限(x):
 
@@ -139,9 +131,6 @@ or,
 		$ chmod o+t dirname
 		$ chmod 1775 dirname
 
-
-系统参数
-========
 
 ### System load
 

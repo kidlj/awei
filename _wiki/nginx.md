@@ -2,9 +2,7 @@
 title: Nginx
 ---
 
-
-安装
-====
+### 安装
 
 安装 Nginx 一般采用源码编译的方式。Nginx 采用模块化设计，一些默认自动编译的模块可以通过 `--without-` 参数禁用，一些内置模块中的附加模块可以通过 `--with-` 参数手动开启。具体有哪些参数可以通过 `./configure --help` 命令列出。另外，编译 Nginx 是还可以通过 `--add-module=/path/module1` 的方式编译第三方模块。
 
@@ -18,10 +16,6 @@ title: Nginx
 		--add-module=../ngx_http_google_filter_module/
 
 	# make && make install
-
-
-起步
-====
 
 ### 启动和控制 Nginx
 
@@ -55,10 +49,6 @@ Nginx 的主配置文件在 `/usr/local/nginx/conf/nginx.conf`。在配置文件
 
 注释以 `#` 开头。
 
-
-Web Server
-==========
-
 ### 伺服静态文件
 
 通常，配置文件里包含多个 `server` 指令，它们定义了侦听不同端口和匹配不同主机名的虚拟主机。当 Nginx 决定了用哪一个虚拟主机来处理一个请求以后，它会将从该请求里头部获取到的 URI 与 该 server 中定义的 `location` 后面的参数做一个对比。
@@ -82,9 +72,6 @@ Web Server
 当有多个 prefix 与 请求 URI 相匹配时，那么使用最长匹配的那一个。上面配置中给出的 prefix `/` 其匹配长度为 1 且匹配任意一个请求，因此当其他所有 prefix 都不匹配时就会用到这一个匹配。
 
 再比如对于 `http://localhost/images/nginx_logo.png` 这样的一个请求，`location /images/` 是最长匹配，Nginx 会提供文件系统上的 `/data/images/nginx_logo.png` 文件作为响应。如果该文件不存在，就会返回标志 404 错误的页面。
-
-ngx\_http\_core\_module
-========================
 
 ### Location 
 

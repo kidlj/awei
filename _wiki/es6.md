@@ -3,9 +3,6 @@ title: ES6
 ---
 
 
-工具和环境
-==========
-
 ### 安装 Node
 
 在 Fedora Server 23 上[1]：
@@ -40,9 +37,6 @@ title: ES6
 [1]: https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora
 [2]: https://nodejs.org/en/docs/es6/
 
-
-let 和 const 命令
-=================
 
 ### let
 

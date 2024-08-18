@@ -1,41 +1,41 @@
 ---
 layout: main
-title: Home
+title: Blog
 ---
 
-<ul class="posts">
-  <li class="post">
-    <a href="/blog/" class="post-link has-cover">
-			<div class="post-cover" style="background-image: url(/images/coding.jpg);" /></div>
-      <h2 class="post-title">
-        Blog<br />
-      </h2>
-      <span class="meta">
-        {{ site.posts | size}} articles<br />
-      </span>
-    </a>
-  </li>
-  <li class="post">
-    <a href="/read/" class="post-link has-cover">
-			<div class="post-cover" style="background-image: url(/images/books.jpg);" /></div>
-      <h2 class="post-title">
-        Read<br />
-      </h2>
-      <span class="meta">
-        {{ site.read | size}} notes<br />
-      </span>
-    </a>
-  </li>
-  <li class="post">
-    <a href="/wiki/" class="post-link has-cover">
-			<div class="post-cover" style="background-image: url(/images/courage.jpg);" /></div>
-      <h2 class="post-title">
-        Wiki<br />
-      </h2>
-      <span class="meta">
-        {{ site.wiki | size}} wikis<br />
-      </span>
-    </a>
-  </li>
-</ul>
+<nav>
+  <h2>Jian Li</h2>
 
+  <ul>
+    <li>
+      <a href="https://www.douban.com/people/melloncollie">豆瓣</a>
+    </li>
+    <li>
+      <a href="https://last.fm/user/timeflowing">Last.fm</a>
+    </li>
+    <li>
+      <a href="https://github.com/kidlj">GitHub</a>
+    </li>
+    <li>
+      <a href="https://metword.co">遇见单词</a>
+    </li>
+    <li>
+      <a href="/wiki">WIKI</a>
+    </li>
+  </ul>
+</nav>
+
+<article>
+  <ul class="blog-list">
+    {% assign posts = site.blog | sort:"date" %}
+    {% for post in posts %}
+    <li>
+      <h2>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h2>
+
+      {{ post.date | date_to_string }}
+    </li>
+    {% endfor %}
+  </ul>
+</article>

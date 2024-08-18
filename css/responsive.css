@@ -1,13 +1,9 @@
 @media (max-width: 480px) {
-  body {
-    padding: 10px; }
-  body .site-header {
-    margin-bottom: 10px; }
-  body article {
-    padding: 40px 30px;
-    line-height: 1.6em; }
-  body article header {
-    margin-bottom: 30px;}
-  .paginator .pagenum {
-	  padding: 0 40px; }
+  nav {
+    width: 50px;
+  }
+
+  article {
+    width: 400px;
+  }
 }

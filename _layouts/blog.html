@@ -4,14 +4,17 @@ layout: main
 
 <nav>
 	<h2>
-		<a href="/wiki/">←</a>
+		<a href="/">←</a>
 	</h2>
 	<ul>
 		<li>
 			{{ page.date | date_to_string }}
 		</li>
 		<li>
-			<a href="{{ site.commits }}{{ page.path }}" target="blank">History</a>
+			<a href="https://github.com/kidlj/site/issues">Comment</a>
+		</li>
+		<li>
+			<a href="{{ site.commits }}{{ page.path }}">History</a>
 		</li>
 	</ul>
 </nav>

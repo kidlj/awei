@@ -5,8 +5,7 @@ title: Django
 
 
 
-Models
-======
+### Models
 
 示例代码：
 
@@ -43,14 +42,14 @@ class Entry(models.Model):
 ```
 
 
-### 原理
+#### 原理
 
 模型中的 Class 对应的是数据库中的「表」;  
 Class 中的 Field 对应的是数据库表中的「字段」;  
 一个类实例对应的是数据库表中的一条「记录」。
 
 
-### Saving changes to objects
+#### Saving changes to objects
 
 - Saving value fields:
 
@@ -75,8 +74,7 @@ Class 中的 Field 对应的是数据库表中的「字段」;
 >>> entry.authors.add(joe)		# joe is an 'object' created
 ```
 
-
-### Retrieving Objects
+#### Retrieving Objects
 
 从数据库获取对象，要通过模型提供的 Manager 来构建 QuerySet.
 
@@ -122,8 +120,7 @@ Class 中的 Field 对应的是数据库表中的「字段」;
 >>> Entry.objects.order_by('headline')[0]
 ```
 
-
-### Field Lookups
+#### Field Lookups
 
 字段查询相当于 SQL 中的 `WHERE` 语句。通过给 `filter()` 等方法上加上关键字参数来应用于 QuerySet 之上。关键字参数的通用格式为：
 
@@ -137,8 +134,7 @@ field__lookuptype=value
 >>> Entry.objects.filter(pub_date__lte='2015-01-21')
 ```
 
-
-### Field Lookups that span relationships
+#### Field Lookups that span relationships
 
 Django 支持跟随数据模型定义的关系来获取对象，这背后是对 SQL `JOIN` 语句的自动处理。而且关系跟随可以有任意深度。
 
@@ -169,7 +165,7 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 第二个查询的是这样的 Blog 对象：链接到该对象的某一个 Entry 对象的 headline 包含 'Lenno'，又有一个链接到它的 Entry 对象（可以跟前边的是同一个）的 pub_date 年份是 2008。
 
 
-### ForeignKey Related Objects
+#### ForeignKey Related Objects
 
 如果一个模型定义了和另一个模型的关系，比如 ForeignKey, ManyToManyField 和 OneToOneFiled，那么通过其中一个模型的实例对象，可以方便的访问与其相关联的另一模型的实例对象。
 
@@ -221,7 +217,7 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 	```
 
 
-### ManyToManyField Related Objects
+#### ManyToManyField Related Objects
 
 同 ForeignKey 关系一样，Django 里的 ManyToManyField 关系也只需要在一方模型里定义。但是通过一方对象实例访问另一方对象实例的能力却是双向的。
 
@@ -240,8 +236,7 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 >>> a.entry_set.all()
 ```
 
-
-### Using A Custom Reverse Manager
+#### Using A Custom Reverse Manager
 
 示例代码：
 
@@ -261,13 +256,9 @@ class Entry(models.Model):
 >>> b.entry_set(manager='entries').is_published()	# custom method
 ```
 	
+### Views
 
-
-		
-Views
-=====
-
-### django.conf.urls.url
+#### django.conf.urls.url
 
 `url` 函数接受四个参数，分别是 regex, view, kwargs 和 name.
 
@@ -276,7 +267,7 @@ Views
 如果正则表达式采用的是简单捕获，则传递的是位置参数；如果用的命名捕获，则传递的是关键字参数。
 
 
-### Namespace
+#### Namespace
 
 从 polls/views.py 中加载 'polls/detail.html'，这里用到了命名空间，实现方式是在建立如下的目录层级：
 
@@ -286,10 +277,9 @@ Views
 
 
 
-Templates
-=========
+### Templates
 
-### Custom Template Tags
+#### Custom Template Tags
 
 我给 Wagtail 的一个页面写了如下的一个 custom template tag：
 
@@ -314,7 +304,7 @@ StackOverFlow 上也有一个回答里说到[2]：
 > Your template should not be raising an exception as a normal course of action. If there's an error in the template, you fix it. Otherwise, anything that could potentially raise an exception should be handled in the model or the view. There's no tag like you mention for a reason.
 
 
-### Accessing method calls
+#### Accessing method calls
 
 可以在 template 中调用 contex 中的对象定义的方法。比如，对处于 ForeignKey 关系中的对象，可以使用 QuerySets 自动提供的方法：
 

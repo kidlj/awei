@@ -2,11 +2,9 @@
 title: Python
 ---
 
-virtualenv
-==========
+### virtualenv
 
-
-### 创建
+#### 创建
 
 在项目目录内使用 virtualenv 创建一个 Python 执行环境，每次激活这个环境以后，那么我们所使用的 Python 解释器，以及第三方库都将是这个独立环境里的版本，此时使用 `pip`新安装进来的第三方库也将安装在这个独立环境之中。
 
@@ -17,7 +15,7 @@ virtualenv
 
 这将会在该项目目录内创建一个`env`目录，里面是独立的 Python 执行环境。
 
-### 激活
+#### 激活
 
 那么当我们进入某个项目的时候，首先要做的就是激活该项目的独立环境。所谓激活实际就是执行一个 shell 脚本，该脚本通过更改 PATH 等环境变量让我们更优先接入安装于本项目环境目录(`env/`)之内的解释器和库等内容，而不使用安装在系统级别的解释器和库。
 
@@ -27,20 +25,19 @@ virtualenv
 
 	$ deactivate
 
-### .gitignore
+#### .gitignore
 
 如果用 Git 管理 Python 项目的话，可以将所有项目的环境目录统一命名为`env`，然后在`.gitignore`文件里只要加上一行，Git 就不会追踪所有项目的环境目录了。
 
 	# add this line to .gitignore
 	env/
 
-### Python 3
+#### Python 3
 
 Python 3.4 自带 virtualvenv，叫做 pyvenv，而且它会在虚拟环境里安装好 pip。
 
 
-Pip
-====
+### Pip
 
 常用命令：
 
@@ -52,8 +49,7 @@ Pip
 	$ pip show --files SomePackage
 
 
-Module search path
-==================
+### Module search path
 
 当 import 一个模块的时候，解释器首先寻找 builtin-in 模块，如果没有找到，再查看 `sys.path` 里的一系列目录。`sys.path` 的初始化过程如下：
 
@@ -66,12 +62,11 @@ Module search path
 (via Python 3 tutorial 6.1.2 The Module Search Path)
 
 
-Python 3 vs Python 2
-====================
+### Python 3 vs Python 2
 
 总结 Python 2 和 Python 3 的区别。
 
-### 字典迭代
+#### 字典迭代
 
 - Python 2:
 
@@ -80,13 +75,6 @@ Python 3 vs Python 2
 - Python 3:
 
 	字典迭代只有 `items()` 方法可用。它为快速迭代作了优化。
-
-
-Python Supplement
-=================
-
-
-记录我所读的 Python 教材书中没有涉及到的知识和技巧。
 
 
 ### 任意长度参数

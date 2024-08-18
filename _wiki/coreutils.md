@@ -2,9 +2,7 @@
 title: CoreUtils
 ---
 
-Tar
-===
-
+### Tar
 
 列出查看
 
@@ -23,31 +21,28 @@ Tar
 
     $ pass
 
-### 分卷压缩
+分卷压缩
 
     $ tar zcf - 2017.log |split -d -b 1000m - logs.tar.gz.
     $ cat logs.tar.gz* | tar zx
 
 
-Lsof
-====
+### Lsof
 
 查看某个进程打开了哪些文件：
 
 	$ lsof -p 1489
 
 
-Find
-====
+### Find
 
-
-###  通配符扩展
+#### 通配符扩展
 
 `-name` 可以使用 shell 通配符扩展，不过要用括号括起来，以免被 shell 拦截解释。
 
 	$  find . -name '*.txt'
 
-###  正则表达式
+####  正则表达式
 
 Find 支持多种正则表达式实现，
 
@@ -55,20 +50,20 @@ Find 支持多种正则表达式实现，
 
 但是需要注意的，`find`里的正则表达式搜索的是路径名，而不是文件裸名。
 
-###  Or 条件操作
+####  Or 条件操作
 
 打印出 shell 文件和 python 文件：
 
 	$ find . \( -name "*.sh" -o -name "*.py" \) -print
 
-###  否定参数
+####  否定参数
 
 匹配不以 `.txt` 结尾的文件：
 
 	$ find . ! -name "*.txt" -print
 
 
-### 常用搜索
+#### 常用搜索
 
 - 基于目录深度的搜索
 
@@ -112,11 +107,11 @@ Find 支持多种正则表达式实现，
 		$ find . -type f -user root -print
 
 
-###  删除匹配的文件
+####  删除匹配的文件
 
 	$ find . -type f -name "*.swp"
 
-###  执行命令或操作
+####  执行命令或操作
 
 每个 `-exec` 只能跟一个命令（或脚本），必须以 `;` 作为结束，而且尽管可能会执行后面的命令多次，但整个 `find` 命令最终只输出一个数据流。
 
@@ -126,11 +121,11 @@ Find 支持多种正则表达式实现，
 
 	$ find . -type f -exec echo {} +
 
-###  跳过特定的目录
+####  跳过特定的目录
 
 	$ find . \( -name ".git" -prune \) -o \( -type f -print \)
 
-### 按权限搜索
+#### 按权限搜索
 
 - 严格权限匹配：`-perm mode`
 
@@ -157,10 +152,7 @@ Find 支持多种正则表达式实现，
 	匹配所有可以被某人（不论是所有者，所属组成员或其他人）可写的文件。
 	
 
-
-
-Xargs
-=====
+### Xargs
 
 - 指定输出列数：
 
@@ -214,8 +206,7 @@ Xargs
 
 
 
-Tr
-==
+### Tr
 
 `Tr` 只能通过 `stdin` 获取输入，它将输入的字符从 `set1` 映射到 `set2`，然后输出结果：
 
@@ -254,9 +245,7 @@ Tr
 		$ echo 'hello world' | tr '[:lower:]' '[:upper:]'
 
 
-
-Cut
-===
+### Cut
 
 字段默认界定符是 TAB。
 
@@ -279,10 +268,7 @@ Cut
 		$ echo 12345 | cut -s -d. -f2
 		(empty output)
 
-
-
-Echo
-====
+### Echo
 
 Echo 一个变量的时候，变量一定要加上双引号。比如以下两个结果是不同的：
 
@@ -293,33 +279,28 @@ Echo 一个变量的时候，变量一定要加上双引号。比如以下两个
 	  3
 
 
-
-Tee
-===
+### Tee
 
 自己编译安装软件时，记录安装到文件系统的文件以便以后卸载删除：
 
 	$ sudo make install | tee make_install_manifest.txt
 
-Diff
-====
+### Diff
 
 两个文件相同时，diff 的返回值是 0；不相同时，返回值是 1。
 
-Lsof
-====
+### Lsof
 
 列出哪个程序在占用某个端口：
 
 	$ lsof -i :22
 
-Curl
-====
+### Curl
 
-### Header
+#### Header
 
     $ curl -s -H "canary: true" http://test.domain.com/header
 
-### Cookie
+#### Cookie
 
     $ curl -s --cookie "canary=true" http://test.domain.com/cookie

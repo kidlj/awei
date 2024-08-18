@@ -2,9 +2,6 @@
 title: Lua
 ---
 
-Setup
-=====
-
 ### Lua
 
 	$ brew install lua
@@ -21,9 +18,6 @@ Setup
 	$ luarocks --lua-dir=/usr/local/opt/lua@5.1 --tree=/usr/local/ install lua-resty-balancer
 
 如此会将 .lua 库安装到 `/usr/local/share/lua/5.1/` 目录，将 .so 库安装到 `/usr/local/lib/lua/5.1/` 目录。
-
-Metatable
-=========
 
 ### 表
 

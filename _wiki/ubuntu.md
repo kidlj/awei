@@ -3,8 +3,7 @@ title: Ubuntu
 ---
 
 
-包管理
-======
+### 包管理
 
 Debian/Ubuntu 使用 APT 作为包管理工具，而 APT 又使用更为底层的`dpkg`工具来完成工作。
 
@@ -72,18 +71,4 @@ Debian/Ubuntu 使用 APT 作为包管理工具，而 APT 又使用更为底层�
 
 	$ dpkg --search /bin/bash
 	$ apt-file search /bin/bash
-
-
-LAMP
-====
-
-### 安装
-
-Ubuntu Server 14.04 安装 LAMP:
-
-	$ sudo apt-get install apche2
-	$ sudo apt-get install libapache2-mod-php5
-	$ sudo apt-get install mysql-server
-	$ sudo apt-get install libapache2-mod-auth-mysql php5-mysql
-
 

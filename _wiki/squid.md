@@ -2,12 +2,11 @@
 title: Squid
 ---
 
-Access Control
-==============
+### Access Control
 
 Squid 的 access control 机制包括 ACL elements 和 Access lists 两个部分。
 
-### ACL elements
+#### ACL elements
 
 格式如下：
 
@@ -24,7 +23,7 @@ Squid 的 access control 机制包括 ACL elements 和 Access lists 两个部分
 不同类型的 acl elements 不可取同一个 aclname。
 可以为同一个 aclname 分多行指定 value，这些多行的 value 将被组合成一个 list（OR 逻辑）。
 
-### Access Lists[1]
+#### Access Lists[1]
 
 一个 access list *rule* 包含一个 allow 或 deny 关键字，后跟一个或多个 acl element 名字。
 一个 access list 包含一个或多个 access list rules，分布在多行。
@@ -50,10 +49,9 @@ Squid 的 access control 机制包括 ACL elements 和 Access lists 两个部分
 	acl all src all
 
 
-缓存
-====
+### 缓存
 
-### refresh-pattern[2]
+#### refresh-pattern[2]
 
 refresh_pattern的作用: 用于确定一个页面进入cache后，它在cache中停留的时间。
 

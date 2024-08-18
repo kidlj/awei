@@ -3,8 +3,7 @@ title: Regex
 ---
 
 
-综述
-====
+### 综述
 
 正则表达式[1]是用来匹配某些字符串的模式表达式。
 
@@ -21,8 +20,7 @@ title: Regex
 一样。
 
 
-基本元字符(BRE)
-===============
+### 基本元字符(BRE)
 
 所有UNIX模式匹配工具都适用。
 
@@ -36,26 +34,25 @@ title: Regex
 + `\` 		用于转义以下字符： `^  $  .  *  [`。 
 
 
-扩展元字符(ERE)
-===============
+### 扩展元字符(ERE)
 
-### 交替
+#### 交替
 
 + `|`		匹配两边的任意一项
 
 	- 该操作符有着最低优先级；
 	- 如果一个表达式包含另外一个表达式，那么长的那个被匹配。
 
-### 子表达式
+#### 子表达式
 
 + `()`		用于组合成子表达式；其匹配内容将被捕获。
 
-### 引用
+#### 引用
 
 + `\1`		引用之前用 `()` 捕获的匹配内容。
 
 
-### 量词
+#### 量词
 
 + `?` 		The preceding item is optional and matched at most once;
 + `+` 		The preceding item wil be matched one or more times;
@@ -67,7 +64,7 @@ title: Regex
 
 未经修饰的量词都是「贪婪」量词。修饰量词的特性见 PCRE(`man 3 pcresyntax`)
 
-### 字符组
+#### 字符组
 
 	[:alnum:]  
 	[:alpha:]
@@ -91,12 +88,11 @@ In a bracket expression,
 
 
 
-GNU-Specific 元字符
-===================
+### GNU-Specific 元字符
 
 涉及到正则表达式的 GNU 工具普遍提供了 POSIX BRE 和 ERE 以外的一些元字符，多与单词匹配相关，列在下面；这些元字符都是借鉴于 Perl，更完整的支持见 PCRE。
 
-### 单词相关
+#### 单词相关
 
 + `\<`		Matches the null string at the beginning of a word;
 + `\>` 		Matches the null string at the end of a word;  
@@ -113,18 +109,16 @@ Word-constituent characters are letters, digits and `_`s.
 值的一提的是，因为 `\b` 在 gawk 里先作它用，因此 gawk 里用 `\y` 代替 `\b`。
 
 
-Perl 元字符(PCRE)
-=================
+### Perl 元字符(PCRE)
 
 参见 `man 3 pcresyntax`
 
 	# yum install pcre-devel
 
 
-群魔乱舞
-========
+### 群魔乱舞
 
-### GNU Grep
+#### GNU Grep
 
 GNU Grep 支持三种正则表达式，可以用选项指定使用哪种正则实现：
 
@@ -138,8 +132,7 @@ GNU Grep 中的 BRE 和 GRE 没有功能性上的差别，不过一些符号的�
 如果使用的是 BRE，那么 `?, +, {, |, (, )` 将失去其特殊意义，这些功能应该使用 `\?, \+, \{, \|, \(, \)`来替代。
 
 
-
-### GNU Find
+#### GNU Find
 
 GNU `find` 可以用 `-regextype type` 来指定正则表达式引擎，目前理解这些类型的正则表达式(`man find`)：
 
@@ -147,15 +140,15 @@ GNU `find` 可以用 `-regextype type` 来指定正则表达式引擎，目前�
 
 （WTF? 怎么又冒出那么多不同实现？尼玛都是 GNU 一家的就不能弄统一了？！）
 
-### GNU Sed
+#### GNU Sed
 
 GNU Sed 使用和 GNU Grep 完全一致的 BRE 元字符。可以通过指定 `-r` 选项来使用扩展元字符 ERE。
 
-### GNU Awk
+#### GNU Awk
 
 GNU Awk 默认使用 ERE 元字符。
 
-### Python
+#### Python
 
 Python 的内置模块 `re` 使用 PCRE。
 

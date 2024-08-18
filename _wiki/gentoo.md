@@ -3,9 +3,7 @@ title: Gentoo
 ---
 
 
-Custom Ebuilds
-==============
-
+### Custom Ebuilds
 
 可以很简单地建立一个本地 overlay，用于存放各种分散的 ebuilds。
 

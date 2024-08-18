@@ -1,328 +1,80 @@
-body {
-	background-color: #f4f4f4;
-	color: #343434;
-	line-height: 1.6em;
-	font-family: "Helvetica Neue", "Arial", "Source Sans Pro", "Dejavu Sans", sans-serif;
-	padding: 20px 10px;
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 60px;
 }
 
-a {
-	color: #1E50A2; }
-a:hover {
-	color: #BA2636; }
-
-b, strong, h1, h2, h3, h4, h5 {
-	color: #000;
-	font-weight: 400; }
-
-h1, h2, h3 {
-	font-family: "Helvetica Neue", "Arial", "Dejavu Sans", sans-serif;
+.main {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+	max-width: 1015px;
+	margin: 0 auto;
 }
 
-hr {
-	border: 0;
-	border-bottom: 1px solid #ddd;
-	border-top: 1px solid #ddd;
-	margin: 20px 0;
-	height: 6px; }
+nav {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 200px;
+	width: 20%;
+}
 
-pre {
-	padding: 5px 10px; 
+article {
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+	width: 80%;
+	max-width: 800px;
+}
+
+nav ul,
+article ul.blog-list {
+	list-style: none;
+	padding-inline-start: 0;
+}
+
+article ul.blog-list li {
+	padding-bottom: 20px;
+}
+
+article table td {
+	width: 30em;
+}
+
+article table li {
+	list-style: none
+}
+
+article table li:before {
+	content: "\0BB \020";
+}
+
+article pre {
+	padding: 5px 10px;
 	tab-size: 4;
 	-moz-tab-size: 4;
 	-webkit-tab-size: 4;
 	overflow: auto;
-	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace;
-	margin: 20px 0; }
-code {
-	tab-size: 4;
-	-moz-tab-size: 4;
-	-webkit-tab-size: 4;
-	font-family: "Menlo", "Consolas", "Source Code Pro", "Dejavu Sans Mono", monospace; }
-
-
-p {
-	margin: 1.62em 0 0 0; }
-
-sup {
-	line-height: 0; }
-
-.mark {
-	position: absolute;
-	left: 10px;
-	top: 10px;
-	border: 5px solid #eee;
-	border-right-color: transparent;
-	border-bottom-color: transparent;
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	-ms-transition: 0.5s;
-	-o-transition: 0.5s;
-	transition: 0.5s; }
-
-.mark-cyan {
-	border: 5px solid cyan;
-	border-right-color: transparent;
-	border-bottom-color: transparent;
+	font-family: "Menlo", monospace;
+	margin: 20px 0;
+	background-color: #F8F8F8;
+	line-height: 1.2em;
 }
 
-.content {
-	position: relative;
-	background-color: #fff; }
-
-article {
-	padding: 80px;
-	background-color: #fff;
-	font-size: 13px;
-	font-family: "Helvetica Neue", "Arial", "Dejavu Sans", sans-serif;
-	font-weight: 400;
-	position: relative; }
-	article * {
-		max-width: 100%; }
-	article header {
-		margin-bottom: 60px; }
-		article header .post-title {
-      font-family: "Helvetica Neue", "Arial", "Dejavu Sans", sans-serif;
-			font-weight: 400;
-			line-height: 1.4em;
-			font-size: 2.0em;
-			margin: 0 0 5px; }
-		article header .post-title a {
-			color: #000;
-			border-bottom: none; }
-		article header .post-title a:hover {
-			color: #BA2636; }
-		article header .datetime, article header .author {
-			text-transform: uppercase; }
-		article header h1 {
-			border-bottom: 0; }
-
-		/* for index header */
-		article header .index-title {
-			font-weight: 400;
-			font-size: 1.7em;
-			/* margin tweak to equal wiki page  */
-			margin: 0px 0px -20px; }
-
-	article ul, article ol {
-		margin: 20px 0 20px 20px; }
-	article ul {
-  		list-style: circle; }
-	article blockquote {
-		border-left: 10px solid #e0e9ed;
-		margin: 10px 0;
-		padding: 0 0 0 13px; }
-	article h1 {
-		font-size: 1.7em;
-		font-weight: 400;
-		border-bottom: 1px solid #E4DADA;
-		padding-bottom: 1em;
-		margin: 2em 0 2em; }
-	article h2 {
-		font-size: 1.6em; 
-		font-weight: 400;
-		margin: 2em 0 1em; }
-	article h3 {
-		font-size: 1.3em;
-		font-weight: 400;
-		margin: 2em 0 1em; }
-	article img:not([height]) {
-		margin: 10px 0;
-		width: 100%;
-		border-radius: 4px; }
-	article hr {
-		border-color: #efefef; }
-	article p a, article h1 a, article h2 a, article h3 a {
-		line-height: 0;
-		vertical-align: super;
-		font-size: smaller; }
-
-.wrapper {
-  max-width: 800px;
-  width: 100%;
-  margin: auto;
+article blockquote {
+	border-left: 10px solid #e0e9ed;
+	margin: 10px 0;
+	padding: 0 0 0 13px;
 }
 
-.site-header {
-  height: 20px;
-  font-weight: lighter;
-  font-size: 14px;
-  font-family: Courier, monospace;
-  margin-bottom: 20px;
-  text-align: right; }
-  .site-header .site-title {
-    float: left;
-    color: #676767;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -ms-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
-    display: block;
-    font-weight: normal; }
-    .site-header .site-title:hover {
-      color: #BA2636; }
-      .site-header .site-title:hover .block {
-        background-color: #AA2130; }
-    .site-header .site-title .block {
-      display: inline-block;
-      width: 33px;
-      height: 9px;
-      background-color: #ddd;
-      margin-right: 2px;
-      -webkit-transition: 0.4s;
-      -moz-transition: 0.4s;
-      -ms-transition: 0.4s;
-      -o-transition: 0.4s;
-      transition: 0.4s; }
-    .site-header .site-title .text-logo {
-      font-family: Courier, monospace;
-      font-size: 14px;
-      margin-right: 5px; }
-
-	.site-header .navigator {
-		font-size: 14px; }
-	.site-header .navigator a {
-		color: #676767; }
-	.site-header .navigator a:hover {
-		color: #BA2636; }
-	.site-header .navigator .connector {
-		color: #676767; }
-
-.function {
-	margin-top: 50px;
-	font-family: Courier, monspace;
-	font-size: 13px; 
-	padding: 0px 6px;
-	background-color: #F5F5F5; }
-.function .top {
-	float: right; }
-.function .feedback{
-	margin-right: 5px;
-	display: inline-block; }
-	.function .feedback .fa-envelope-square {
-		color: #00A5FF; }
-.function .history {
-	margin-right: 5px;
-	display: inline-block; }
-	.function .history .fa-github-alt {
-		color: #00A5FF; }
-.function .ref {
-	display: inline-block; }
-	.function .ref .fa-link {
-		color: #00A5FF; }
-
-
-.paginator {
-	color: #999;
-	padding: 40px 40px;
-	text-align: center; }
-	.paginator .pagenum {
-		display: inline-block;
-		padding: 0 60px; }
-	.paginator .pagenum a, .paginator .pagenum span {
-		padding: 0 2px;
-		margin: 2px; }
-
-
-.site-footer {
-	text-align: center;
-	padding: 60px 25px 25px 25px; }
-
-
-/*********************************************************************/
-/*
-/* For "blog/index.html"
-/*
-/*********************************************************************/
-
-ul.post-listing {
-	margin: 0;
-	padding: 0;
-	list-style: none; }
-
-ul.post-listing li {
-	/* text-transform: uppercase; */
-	margin-bottom: 10px; }
-
-ul.post-listing .datetime, ul.post-listing .author {
-  vertical-align: baseline;
-  text-transform: uppercase;
-  float: right;
-  color: #999;
-  font-size: smaller;
-  text-align: right; }
-
-/**********************************************************************/
-/*
-/* Index Page
-/*
-/**********************************************************************/
-
-.posts {
-  font-size: 0; }
-  .posts .post {
-    font-size: 15px;
-    vertical-align: top;
-    margin-bottom: 20px; }
-  .posts .post-link {
-    position: relative;
-    display: block;
-    padding: 65px 0;
-    min-height: 100px;
-    text-align: center;
-    color: #333;
-    -webkit-transition: 0.5s linear;
-    -moz-transition: 0.5s linear;
-    -ms-transition: 0.5s linear;
-    -o-transition: 0.5s linear;
-    transition: 0.5s linear; }
-    .posts .post-link.has-cover {
-      background-color: rgba(255, 255, 255, 0.9);
-      text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; }
-    .posts .post-link .post-cover {
-      z-index: -1;
-      background-position: 50% 0%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      -webkit-transition: 5s linear;
-      -moz-transition: 5s linear;
-      -ms-transition: 5s linear;
-      -o-transition: 5s linear;
-      transition: 5s linear;
-      background-size: 100%; }
-    .posts .post-link:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-    }
-      .posts .post-link:hover .post-cover {
-        background-position: 100% 100%;
-        background-size: 120%; }
-    .posts .post-link .post-title {
-      margin: auto; }
-    .posts .post-link .meta {
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      right: 0;
-      font-size: 10px;
-      line-height: 1.3em; }
-    .posts .post-link .excerpt {
-      display: none; }
-
-
-/**************************************/
-/* 		For http://kidlj.com/wiki/
-/**************************************/
-
-table.wikilist td {
-	width: 30em; }
-
-li.pagelist {
-	list-style: none }
-
-li.pagelist:before {
-	content: "\0BB \020";
+article p a,
+article h3 a,
+article h4 a {
+	line-height: 0;
+	vertical-align: super;
+	font-size: smaller;
 }

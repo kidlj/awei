@@ -3,24 +3,19 @@ layout: main
 title: Wiki
 ---
 
-<section class="content">
-	<article>
-		<div class="mark"></div>
-		<header>
-		<h1 class="post-title">WIKI</h1>
-		</header>
+<nav>
+	<h2>
+		<a href="/">←</a>
+	</h2>
+</nav>
 
-		<table class="wikilist">
-			{% tablerow wiki in site.wiki cols:2 %}
-					<li class="pagelist">
-						<a href="{{ wiki.url }}">{{ wiki.title }}</a>
-					</li>
-			{% endtablerow %}
-		</table>
-
-
-	</article>
-</section>
-
-
-	
+<article>
+	<h2>WIKI</h2>
+	<table class="wikis">
+		{% tablerow wiki in site.wiki cols:2 %}
+		<li class="pagelist">
+			<a href="{{ wiki.url }}">{{ wiki.title }}</a>
+		</li>
+		{% endtablerow %}
+	</table>
+</article>
