@@ -2,7 +2,7 @@
 title: Lua
 ---
 
-### Lua
+### Install
 
 	$ brew install lua
 	$ brew install lua@5.1

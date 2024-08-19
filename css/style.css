@@ -22,22 +22,20 @@ nav {
 }
 
 article {
-	display: flex;
-	flex-direction: column;
-	row-gap: 30px;
 	width: 100%;
 	max-width: 800px;
+}
+
+nav h2,
+article h2 {
+	font-weight: 400;
 }
 
 nav ul,
 article ul.blog-list {
 	list-style: none;
 	padding-inline-start: 0;
-}
-
-nav h2,
-article ul.blog-list h2 {
-	font-weight: 400;
+	margin-block-start: 0;
 }
 
 article ul.blog-list li {
