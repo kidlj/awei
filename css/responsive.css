@@ -1,9 +1,7 @@
-@media (max-width: 480px) {
-  nav {
-    width: 50px;
-  }
-
-  article {
-    width: 400px;
-  }
+@media (max-width: 960px) {
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        column-gap: 20px;
+    }
 }

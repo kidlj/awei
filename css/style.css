@@ -8,26 +8,24 @@
 .main {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
 	width: 100%;
 	max-width: 1015px;
-	margin: 0 auto;
 }
 
 nav {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	max-width: 200px;
-	width: 20%;
 }
 
 article {
 	display: flex;
 	flex-direction: column;
 	row-gap: 30px;
-	width: 80%;
+	width: 100%;
 	max-width: 800px;
 }
 
@@ -35,6 +33,11 @@ nav ul,
 article ul.blog-list {
 	list-style: none;
 	padding-inline-start: 0;
+}
+
+nav h2,
+article ul.blog-list h2 {
+	font-weight: 400;
 }
 
 article ul.blog-list li {
@@ -62,7 +65,11 @@ article pre {
 	font-family: "Menlo", monospace;
 	margin: 20px 0;
 	background-color: #F8F8F8;
-	line-height: 1.2em;
+}
+
+article code {
+	font-family: "Menlo", monospace;
+	font-size: 13px;
 }
 
 article blockquote {
