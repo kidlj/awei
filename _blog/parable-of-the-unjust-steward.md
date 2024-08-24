@@ -37,8 +37,10 @@ date: 2019-12-04
 
 > And his lord commended the unrighteous steward because he had done wisely: for the sons of this world are for their own generation wiser than the sons of the light. (Luke16:8 ASV)
 
-这里的 "are for their own generation" 其实是同时作用于 "the sons of this world" 和 "the sons of the light" 两个对象的（抱歉我忘记了这种句子成分专业术语什么，但敢肯定这是正确的），也就是说，这是一种语法上的省略，如果我们把句子补全了，是这样的：
+这里的 "are for their own generation" 其实是同时作用于 "the sons of this world" 和 "the sons of the light" 两个对象的，也就是说，这是一种语法上的省略（比较省略[1]），如果我们把句子补全了，是这样的：
 
-> for the sons of this world are for their own generation wiser than the sons of the light *are for their own generation*.
+> for the sons of this world are for their own generation wiser than the sons of the light *are for our own generation*.
 
 这时候意思就很明显了，再联系上文说的上帝的恩典，也就是我们基督徒替上帝看管的并可以用于救济人的耶稣的福音，这便是 things for our generation. 世人在他们的事上行得聪明，我们要在我们的事上行得聪明，而不是像中文翻译的那样，好像要我们效仿世人去在世事上行得聪明。
+
+[1]: https://en.wikipedia.org/wiki/Ellipsis_(linguistics)#Comparative_deletion
