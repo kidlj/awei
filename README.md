@@ -1,6 +1,6 @@
 ABOUT
 -----
 
-An INTJ person.
+Personal site.
 
-https://in.tj.cn
+https://awei.co
