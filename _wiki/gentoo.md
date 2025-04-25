@@ -41,3 +41,59 @@ title: Gentoo
 		$ sudo emerge -av fcitx-sogoupinyin
 
 
+### Suspend/Wakeup
+
+	# vim /etc/systemd/logind.conf
+	HandleLidSwitch=lock
+	HandleLidSwitchExternalPower=lock
+
+	# cat <<EOF > /etc/systemd/system/auto-suspend.timer
+	[Unit]
+	Description=Automatically suspend on a schedule
+
+	[Timer]
+	OnCalendar=*-*-* 03:00:00
+
+	[Install]
+	WantedBy=timers.target
+	EOF
+
+	# cat <<EOF > /etc/systemd/system/auto-suspend.service
+	[Unit]
+	Description=Suspend
+
+	[Service]
+	Type=oneshot
+	ExecStart=/usr/bin/systemctl suspend
+	EOF
+
+	# cat <<EOF > /etc/systemd/system/auto-resume.timer
+	[Unit]
+	Description=Automatically resume on a schedule
+
+	[Timer]
+	OnCalendar=*-*-* 18:30:00
+	WakeSystem=true
+
+	[Install]
+	WantedBy=timers.target
+	EOF
+
+	# cat <<EOF > /etc/systemd/system/auto-resume.service
+	[Unit]
+	Description=Does nothing
+
+	[Service]
+	Type=oneshot
+	ExecStart=/bin/true
+	EOF
+
+	# systemctl enable auto-suspend.timer
+	# systemctl start auto-suspend.timer
+
+	# systemctl enable auto-resume.timer
+	# systemctl start auto-resume.timer
+
+### Console backlight
+
+	# echo 0 > /sys/class/backlight/intel_backlight/brightness
