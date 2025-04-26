@@ -53,26 +53,26 @@ Class 中的 Field 对应的是数据库表中的「字段」;
 
 - Saving value fields:
 
-```python
->>> b = Blog(name='IV', tagline='All about IV')
->>> b.save()
-```
+	```python
+	>>> b = Blog(name='IV', tagline='All about IV')
+	>>> b.save()
+	```
 
 - Saving ForeignKey fields:
 
-```python
->>> entry = Entry.objects.get(pk=1)
->>> iv_blog = Blog.objects.get(name='IV')
->>> entry.blog = iv_blog
->>> entry.save()
-```
+	```python
+	>>> entry = Entry.objects.get(pk=1)
+	>>> iv_blog = Blog.objects.get(name='IV')
+	>>> entry.blog = iv_blog
+	>>> entry.save()
+	```
 
 - Saving ManyToManyField fields:
 
-```python
->>> joe = Author.objects.create(name='Joe')
->>> entry.authors.add(joe)		# joe is an 'object' created
-```
+	```python
+	>>> joe = Author.objects.create(name='Joe')
+	>>> entry.authors.add(joe)		# joe is an 'object' created
+	```
 
 #### Retrieving Objects
 
