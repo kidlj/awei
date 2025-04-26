@@ -2,6 +2,47 @@
 title: Gentoo
 ---
 
+### Systemd
+
+	# cat <<EOF > /etc/portage/package.use/systemd
+	sys-apps/systemd boot
+	sys-kernel/installkernel systemd-boot dracut
+	EOF
+
+### Systemd Network
+
+#### DHCP
+
+	# mkdir -p /etc/systemd/network
+	# cat > /etc/systemd/network/10-wired.network <<EOF
+	[Match]
+	Name=en*
+
+	[Network]
+	DHCP=yes
+	EOF
+
+#### Static IP
+
+	# cat > /etc/systemd/network/10-wired.network <<EOF
+	[Match]
+	Name=en*
+
+	[Network]
+	Address=192.168.1.100/24
+	Gateway=192.168.1.1
+	DNS=192.168.1.1
+	EOF
+
+#### DNS
+
+	# ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+#### 重启服务
+
+	# systemctl restart systemd-networkd
+	# systemctl restart systemd-resolved
+
 
 ### Custom Ebuilds
 
