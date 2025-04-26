@@ -52,7 +52,7 @@ title: Gentoo
 	Description=Automatically suspend on a schedule
 
 	[Timer]
-	OnCalendar=*-*-* 03:00:00
+	OnCalendar=*-*-* 02:00:00
 
 	[Install]
 	WantedBy=timers.target
@@ -72,7 +72,7 @@ title: Gentoo
 	Description=Automatically resume on a schedule
 
 	[Timer]
-	OnCalendar=*-*-* 18:30:00
+	OnCalendar=*-*-* 08:00:00
 	WakeSystem=true
 
 	[Install]
