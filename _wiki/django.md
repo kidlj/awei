@@ -295,11 +295,11 @@ def related_page(title, calling_page):
 
 可是当这个 `related_item` 不存在的时候，template 仍然会报出 `DoesNotExist` 异常。因此我猜想在 custom template tag 的函数里不能使用异常捕获。
 
-Django 文档里有这么一段[1]：
+Django 文档里有这么一段[django]：
 
 > Usually any exception raised from a template filter will be exposed as a server error. Thus, filter functions should avoid raising exceptions if there is a reasonable fallback value to return. In case of input that represents a clear bug in a template, raising an exception may still be better than silent failure which hides the bug.
 
-StackOverFlow 上也有一个回答里说到[2]：
+StackOverFlow 上也有一个回答里说到[stackoverflow]：
 
 > Your template should not be raising an exception as a normal course of action. If there's an error in the template, you fix it. Otherwise, anything that could potentially raise an exception should be handled in the model or the view. There's no tag like you mention for a reason.
 
@@ -337,5 +337,5 @@ class Task(models.Model):
 
 _注意_: 因为 Django 故意对 template 的逻辑处理能力做了限制，因此在 template 里使用的对象方法不能添加任何参数。数据应该在 view 里准备好，然后让 template 来呈现。
 
-[1]: https://docs.djangoproject.com/en/1.7/howto/custom-template-tags/
-[2]: http://stackoverflow.com/questions/8524077/catching-exceptions-in-django-templates
+[django]: https://docs.djangoproject.com/en/1.7/howto/custom-template-tags/
+[stackoverflow]: http://stackoverflow.com/questions/8524077/catching-exceptions-in-django-templates

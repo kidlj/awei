@@ -229,7 +229,7 @@ title: Git
 
 	(其实就是说一定要在分享之前衍合，分享出去之后就不要再衍合。)
 
-### Remove sensitive data[1]
+### Remove sensitive data[github]
 
     $ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch _wiki/proxy.mkd' --prune-empty --tag-name-filter cat -- --all
     $ git push origin --force --all
@@ -239,4 +239,4 @@ title: Git
     $ git commit -m 'add file back'
     $ git push
 
-[1]: https://help.github.com/en/articles/removing-sensitive-data-from-a-repository
+[github]: https://help.github.com/en/articles/removing-sensitive-data-from-a-repository

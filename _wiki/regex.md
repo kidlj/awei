@@ -5,7 +5,7 @@ title: Regex
 
 ### 综述
 
-正则表达式[1]是用来匹配某些字符串的模式表达式。
+正则表达式[wikipedia]是用来匹配某些字符串的模式表达式。
 
 目前主要有三种正则表达式(`man grep`)：
 
@@ -152,8 +152,4 @@ GNU Awk 默认使用 ERE 元字符。
 
 Python 的内置模块 `re` 使用 PCRE。
 
-
-
-[1]: http://en.wikipedia.org/wiki/Regular_expression
-
-
+[wikipedia]: http://en.wikipedia.org/wiki/Regular_expression

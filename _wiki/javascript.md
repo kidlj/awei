@@ -58,6 +58,6 @@ Object.getOwnPropertyNames 返回一个数组，该数组对元素是 obj 自身
 
     test(image.transform) // print undefined
 
-Express 里的中间件函数也是如此[1]。
+Express 里的中间件函数也是如此[stackoverflow]。
 
-[1]: https://stackoverflow.com/questions/18505383/how-to-use-this-context-in-middleware
+[stackoverflow]: https://stackoverflow.com/questions/18505383/how-to-use-this-context-in-middleware
