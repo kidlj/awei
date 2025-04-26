@@ -2,7 +2,7 @@
 title: CoreUtils
 ---
 
-### Tar
+### tar
 
 列出查看
 
@@ -27,14 +27,18 @@ title: CoreUtils
     $ cat logs.tar.gz* | tar zx
 
 
-### Lsof
+### lsof
 
 查看某个进程打开了哪些文件：
 
 	$ lsof -p 1489
 
+列出哪个程序在占用某个端口：
 
-### Find
+	$ lsof -i :22
+
+
+### find
 
 #### 通配符扩展
 
@@ -42,7 +46,7 @@ title: CoreUtils
 
 	$  find . -name '*.txt'
 
-####  正则表达式
+#### 正则表达式
 
 Find 支持多种正则表达式实现，
 
@@ -50,64 +54,62 @@ Find 支持多种正则表达式实现，
 
 但是需要注意的，`find`里的正则表达式搜索的是路径名，而不是文件裸名。
 
-####  Or 条件操作
+#### Or 条件操作
 
 打印出 shell 文件和 python 文件：
 
 	$ find . \( -name "*.sh" -o -name "*.py" \) -print
 
-####  否定参数
+#### 否定参数
 
 匹配不以 `.txt` 结尾的文件：
 
 	$ find . ! -name "*.txt" -print
 
 
-#### 常用搜索
+#### 基于目录深度的搜索
 
-- 基于目录深度的搜索
+仅仅搜索一级目录：
 
-	仅仅搜索一级目录：
+	$ find ~/Downloads -maxdepth 1 -name "*.zip"
 
-		$ find ~/Downloads -maxdepth 1 -name "*.zip"
+打印出深度距离起始目录至少两个子目录的文件：
 
-	打印出深度距离起始目录至少两个子目录的文件：
+	$ find ~/Downloads -mindepth 2 -name "*.pdf"
 
-		$ find ~/Downloads -mindepth 2 -name "*.pdf"
+#### 基于文件类型搜索
 
-- 基于文件类型搜索
+	$ find . -type f -name '*.py' -print
 
-		$ find . -type f -name '*.py' -print
+#### 基于文件时间搜索
 
-- 基于文件时间搜索
+- 访问时间(-atime): 最近一次访问文件的时间
+- 修改时间(-mtime): 内容最后一次被修改的时间
+- 变化时间(-ctime): 文件元数据（如权限或所有权）最后一次改变的时间
 
-	- 访问时间(-atime): 最近一次访问文件的时间
-	- 修改时间(-mtime): 内容最后一次被修改的时间
-	- 变化时间(-ctime): 文件元数据（如权限或所有权）最后一次改变的时间
+找出访问时间在 1 天前的文件：
 
-	找出访问时间在 1 天前的文件：
+	$ find . -atime 1 -print
 
-		$ find . -atime 1 -print
+找出修改时间距现在 6 天内的可执行文件：
 
-  找出修改时间距现在 6 天内的可执行文件：
+	$ find . -mtime -6 -type f -executable
 
-		$ find . -mtime -6 -type f -executable
+找出比 `file.txt` 修改时间更近的文件：
 
-	找出比 `file.txt` 修改时间更近的文件：
+	$ find . -newer file.txt -print
 
-		$ find . -newer file.txt -print
+#### 基于文件大小的搜索
 
-- 基于文件大小的搜索
+	$ find . -type f -size +2k
 
-		$ find . -type f -size +2k
+#### 基于文件权限和所有权的搜索
 
-- 基于文件权限和所有权的搜索
-
-		$ find . -type f -name "*.py" ! -perm 644 -print
-		$ find . -type f -user root -print
+	$ find . -type f -name "*.py" ! -perm 644 -print
+	$ find . -type f -user root -print
 
 
-####  删除匹配的文件
+#### 删除匹配的文件
 
 	$ find . -type f -name "*.swp"
 
@@ -125,85 +127,57 @@ Find 支持多种正则表达式实现，
 
 	$ find . \( -name ".git" -prune \) -o \( -type f -print \)
 
-#### 按权限搜索
+### xargs
 
-- 严格权限匹配：`-perm mode`
+#### 指定输出列数：
 
-	列出权限严格匹配 mode 的文件。比如：
+	$ cat data.txt | xargs -n 
 
-		$ find . -perm 664
+#### 指定界定符：
 
-	仅仅列出其模式为 664 的文件。
+	$ echo "splitXsplitXsplit" | xargs -d X
 
-- 最小权限匹配：`-perm -mode`
+#### 执行命令并传递参数
 
-	mode 中的权限位必须全部设置，不去关心是否有多余的权限位。
+xargs 能把从 stdin 接收到的数据重新格式化，再将其作为参数提供给其它命令（附在命令之后）：
 
-		$ find . -perm -664
+	$ cat args.txt | xargs -n 1 echo
 
-	如果一个文件为 0777，也将被匹配。
+#### 传递特定位置的参数
 
-- 选择权限匹配：`-perm /mode`
+	$ cat args.txt | xargs -I {} ./script.sh -p {} -1
 
-	mode 中的任何一个权限位被设置，则匹配之。比如：
+对于获取到的每一个参数，`xargs` 后的命令对应地执行一次：
 
-		$ find . -perm /222
-	
-	匹配所有可以被某人（不论是所有者，所属组成员或其他人）可写的文件。
-	
+	$ cat args.txt | xargs 
+	l lh li
+	$ cat args.txt | xargs -I {} ls -{} .
 
-### Xargs
+此处`ls` 命令会执行 3 次。
 
-- 指定输出列数：
+#### 结合 find 使用 xargs
 
-		$ cat data.txt | xargs -n 
+有一种常见的错误的组合方式来使用它们应该极力避免：
 
-- 指定界定符：
+	$ find . -type f -name "*.txt" -print | xargs rm -f
 
-		$ echo "splitXsplitXsplit" | xargs -d X
+这是做很危险，有时会删除不必要删除的文件。如果输出的某个文件名包含空格，比如 `filename with whitespace.txt`，因为 `xargs` 采用的默认界定符包含空格， 这时 `rm` 将会尝试删除`filename`, `with` 和 `whitespace.txt`。
 
-- 执行命令并传递参数
+所以只要把 `find` 的输出结果作为 `xargs` 的输入，就必须将 `-print0` 与 `find` 结合使用，以字符 null(`'\0'`) 来分隔输出：
 
-	`xargs` 能把从 `stdin` 接收到的数据重新格式化，再将其作为参数提供给其它命令（附在命令之后）：
+	$ find . -type f -name "*.txt" -print0 | xargs -0 rm -f
 
-		$ cat args.txt | xargs -n 1 echo
+#### 另一种获取参数并执行命令的方式
 
-- 传递特定位置的参数
+包含 `while` 循环的子 shell 也可以用来由 `stdin` 读取参数并执行命令：
 
-		$ cat args.txt | xargs -I {} ./script.sh -p {} -1
+	$ cat files.txt | ( while read arg; do cat $arg; done )
 
-	对于获取到的每一个参数，`xargs` 后的命令对应地执行一次：
+这等同于：
 
-		$ cat args.txt | xargs 
-		l lh li
-		$ cat args.txt | xargs -I {} ls -{} .
+	$ cat file.txt | xargs -I {} cat {}
 
-	此处`ls` 命令会执行 3 次。
-
-- 结合 `find` 使用 `xargs`
-
-	有一种常见的错误的组合方式来使用它们应该极力避免：
-
-		$ find . -type f -name "*.txt" -print | xargs rm -f
-
-	这是做很危险，有时会删除不必要删除的文件。如果输出的某个文件名包含空格，比如 `filename with whitespace.txt`，因为 `xargs` 采用的默认界定符包含空格， 这时 `rm` 将会尝试删除`filename`, `with` 和 `whitespace.txt`。
-
-	所以只要把 `find` 的输出结果作为 `xargs` 的输入，就必须将 `-print0` 与 `find` 结合使用，以字符 null(`'\0'`) 来分隔输出：
-
-		$ find . -type f -name "*.txt" -print0 | xargs -0 rm -f
-
-- 另一种获取参数并执行命令的方式
-
-	包含 `while` 循环的子 shell 也可以用来由 `stdin` 读取参数并执行命令：
-
-		$ cat files.txt | ( while read arg; do cat $arg; done )
-
-	这等同于：
-
-		$ cat file.txt | xargs -I {} cat {}
-
-	不过子 shell 的方式更加灵活，比如可以对同一个参数执行多条命令。
-
+不过子 shell 的方式更加灵活，比如可以对同一个参数执行多条命令。
 
 
 ### Tr
@@ -214,86 +188,79 @@ Find 支持多种正则表达式实现，
 
 如果 `set2` 的长度不及 `set1`, 则用它的最后一个字符补齐；如果 `set2` 大于 `set1`，则多余的字符被忽略。
 
-- 转换字符
+#### 转换字符
 
-		$ echo 'This is a test' | tr 'a-zA-Z' 'n-za-mN-ZA-M'
+	$ echo 'This is a test' | tr 'a-zA-Z' 'n-za-mN-ZA-M'
 
-- 删除字符
+#### 删除字符
 
-	删除在集合 `set1` 里的字符：
+删除在集合 `set1` 里的字符：
 
-		$ echo 'This is a test' | tr -d '[set1]'
+	$ echo 'This is a test' | tr -d '[set1]'
 
-	删除不在集合 `set1` 里的字符(删除它们的补集里的字符)：
+删除不在集合 `set1` 里的字符(删除它们的补集里的字符)：
 
-		$ echo 'This is a test' | tr -d -c '[set1]'
+	$ echo 'This is a test' | tr -d -c '[set1]'
 
-- 压缩字符
+#### 压缩字符
 
-	删除重复的空格：
+删除重复的空格：
 
-		$ echo "GNU is not     UNIX.   Right? " | tr -s " "
+	$ echo "GNU is not     UNIX.   Right? " | tr -s " "
 
-	删除多余的空行：
+删除多余的空行：
 
-		$ cat file.txt | tr -s '\n'
+	$ cat file.txt | tr -s '\n'
 
-- 字符类
+#### 字符类
 
-	`Tr` 支持标准字符类，比如：
+tr 支持标准字符类，比如：
 
-		$ echo 'hello world' | tr '[:lower:]' '[:upper:]'
+	$ echo 'hello world' | tr '[:lower:]' '[:upper:]'
 
 
 ### Cut
 
 字段默认界定符是 TAB。
 
-- 按字符切割
+#### 按字符切割
 
-		$ echo "hello" | cut -c1
-		h
-		$ echo "hello | cut -c2-3
-		el
+	$ echo "hello" | cut -c1
+	h
+	$ echo "hello | cut -c2-3
+	el
 
-- 指定界定符和字段
+#### 指定界定符和字段
 
-		$ echo 12345.678 | cut -d. -f2
-		678
+	$ echo 12345.678 | cut -d. -f2
+	678
 
-		# 如果某行不含界定符，则打印该行，除非同时指定 `-s` 选项
-		$ echo 12345 | cut -d. -f2
-		12345
+	# 如果某行不含界定符，则打印该行，除非同时指定 `-s` 选项
+	$ echo 12345 | cut -d. -f2
+	12345
 
-		$ echo 12345 | cut -s -d. -f2
-		(empty output)
+	$ echo 12345 | cut -s -d. -f2
+	(empty output)
 
-### Echo
+### echo
 
-Echo 一个变量的时候，变量一定要加上双引号。比如以下两个结果是不同的：
+echo 一个变量的时候，变量一定要加上双引号。比如以下两个结果是不同的：
 
 	$ var="  3"
 	$ echo $var
 	3
 	$ echo "$var"
-	  3
+	3
 
-
-### Tee
+### tee
 
 自己编译安装软件时，记录安装到文件系统的文件以便以后卸载删除：
 
 	$ sudo make install | tee make_install_manifest.txt
 
-### Diff
+### diff
 
 两个文件相同时，diff 的返回值是 0；不相同时，返回值是 1。
-
-### Lsof
-
-列出哪个程序在占用某个端口：
-
-	$ lsof -i :22
 
 ### Curl
 

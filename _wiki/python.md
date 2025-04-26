@@ -2,41 +2,6 @@
 title: Python
 ---
 
-### virtualenv
-
-#### 创建
-
-在项目目录内使用 virtualenv 创建一个 Python 执行环境，每次激活这个环境以后，那么我们所使用的 Python 解释器，以及第三方库都将是这个独立环境里的版本，此时使用 `pip`新安装进来的第三方库也将安装在这个独立环境之中。
-
-首先，在项目目录里创建这个环境(同时指定 Python 版本)：
-
-	$ cd ~/Python/MyProject
-	$ virtualenv --python=/usr/bin/python3.3 env
-
-这将会在该项目目录内创建一个`env`目录，里面是独立的 Python 执行环境。
-
-#### 激活
-
-那么当我们进入某个项目的时候，首先要做的就是激活该项目的独立环境。所谓激活实际就是执行一个 shell 脚本，该脚本通过更改 PATH 等环境变量让我们更优先接入安装于本项目环境目录(`env/`)之内的解释器和库等内容，而不使用安装在系统级别的解释器和库。
-
-	$ source env/bin/active
-
-如果要离开这个项目环境，简单地执行：
-
-	$ deactivate
-
-#### .gitignore
-
-如果用 Git 管理 Python 项目的话，可以将所有项目的环境目录统一命名为`env`，然后在`.gitignore`文件里只要加上一行，Git 就不会追踪所有项目的环境目录了。
-
-	# add this line to .gitignore
-	env/
-
-#### Python 3
-
-Python 3.4 自带 virtualvenv，叫做 pyvenv，而且它会在虚拟环境里安装好 pip。
-
-
 ### Pip
 
 常用命令：
@@ -47,7 +12,6 @@ Python 3.4 自带 virtualvenv，叫做 pyvenv，而且它会在虚拟环境里�
 	$ pip install --upgrade SomePackage
 	$ pip uninstall SomePackage
 	$ pip show --files SomePackage
-
 
 ### Module search path
 
@@ -60,21 +24,6 @@ Python 3.4 自带 virtualvenv，叫做 pyvenv，而且它会在虚拟环境里�
 初始化以后，Python 程序可以改变 `sys.path`，当前执行脚本的目录被放置在搜寻路径的最开始，在标准库路径的前面。
 
 (via Python 3 tutorial 6.1.2 The Module Search Path)
-
-
-### Python 3 vs Python 2
-
-总结 Python 2 和 Python 3 的区别。
-
-#### 字典迭代
-
-- Python 2:
-
-	字典有两个方法用于迭代，一个是 `items()`，一个是 `iteritems()`，前者返回一个元组的列表，后者返回一个迭代器。
-
-- Python 3:
-
-	字典迭代只有 `items()` 方法可用。它为快速迭代作了优化。
 
 
 ### 任意长度参数
@@ -97,77 +46,59 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 	>>> list(zip(*matrix))
 	[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
 
-综合举例：
-
-	def func1(x, y, z): # 固定接收三个参数
-		print(x)
-		print(y)
-		print(z)
-
-	def func2(*args):	# 定义函数，打包参数(可接收任意数量参数)
-		args[0] = 'Hello'
-		args[1] = 'awesome'
-		func1(*args)	# 调用函数，解包参数(只能接收三个参数)
-
-	func2('Goodby', 'cruel', 'world!')
-	# will print
-	Hello	# 参数已被更改
-	awesome
-	world!
-
-
 ### Lambda
 
 可以用 `lambda` 关键字来定义一个简短的匿名函数，它的格式为：
 
 	lambda parameters: expression
 
-- `lambda` 可以用于所有需要一个函数对象的地方，比如嵌套函数：
+`lambda` 可以用于所有需要一个函数对象的地方，比如嵌套函数：
 
-		>>> def make_incrementor(n):
-				return lambda x: x + n
-		>>> f = make_incrementor(43)
-		>>> f(0)
-		42
-		>>> f(1)
-		43
+	>>> def make_incrementor(n):
+			return lambda x: x + n
+	>>> f = make_incrementor(43)
+	>>> f(0)
+	42
+	>>> f(1)
+	43
 
-	这等价于：
+这等价于：
 
-		def make_incrementor(n):
-			def f(x):
-				return x + n
-			return f
+```python
+def make_incrementor(n):
+	def f(x):
+		return x + n
+	return f
+```
 
-- 用于列表的排序
+用于列表的排序:
 
-		>>> pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four)]
-		>>> sorted(pairs, key=lambda pair: pair[1])
-		[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
-		>>> pairs.sort(key=lambda pair: pair[1])
-		>>> pairs
-		[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+	>>> pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four)]
+	>>> sorted(pairs, key=lambda pair: pair[1])
+	[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+	>>> pairs.sort(key=lambda pair: pair[1])
+	>>> pairs
+	[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
 
 
 ### 列表
 
-- 分片赋值
+#### 分片赋值
 
-		>>> a = ['a', 'b', 'c', 'd', 'e']
-		>>> a[1: 3] = ['B', 'C']
-		>>> a
-		['a', 'B', 'C', 'd', 'e']
+	>>> a = ['a', 'b', 'c', 'd', 'e']
+	>>> a[1: 3] = ['B', 'C']
+	>>> a
+	['a', 'B', 'C', 'd', 'e']
 
-- 方法
+#### 方法
 
-	`list.append(x)` 等价于 `a[len(a) : ] = [x]`;  
-	`list.extend(L)` 等价于 `a[len(a) : ] = L` 
+`list.append(x)` 等价于 `a[len(a) : ] = [x]`;  
+`list.extend(L)` 等价于 `a[len(a) : ] = L` 
 
-- 用作栈或者队列
+### 用作栈或者队列
 
-	列表很适合用作栈，直接使用 `append` 和 `pop` 方法即可。  
-	列表不适合用作队列，因为将列表第一个元素移除需要将其它元素全部左移。
-
+列表很适合用作栈，直接使用 `append` 和 `pop` 方法即可。  
+列表不适合用作队列，因为将列表第一个元素移除需要将其它元素全部左移。
 
 ### 嵌套的列表推导式
 
@@ -218,87 +149,93 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 
 ### 字典
 
-- 构造器
+#### 构造器
 
-	可以用 `dict()` 从元素为 "key, value" 结构的序列中方便地构建字典：
+可以用 `dict()` 从元素为 "key, value" 结构的序列中方便地构建字典：
 
-		>>> dict([[1, 'one'], [2, 'two']])
-		{1: 'one', 2: 'two'}
+	>>> dict([[1, 'one'], [2, 'two']])
+	{1: 'one', 2: 'two'}
 
-		>>> dict(zip(['a', 'b'], [1, 2]))
-		{'a': 1, 'b', 2}
+	>>> dict(zip(['a', 'b'], [1, 2]))
+	{'a': 1, 'b', 2}
 
-	也可以用 keyword arguments 来构建字典：
+也可以用 keyword arguments 来构建字典：
 
-		>>> dict(language="Python", platform="Linux")
-		{'platform': 'Linux', 'language': 'Python'}
+	>>> dict(language="Python", platform="Linux")
+	{'platform': 'Linux', 'language': 'Python'}
 
 
-- 字典推导式
+####  字典推导式
 
-	跟列表推导式相似：
+跟列表推导式相似：
 
-		>>> {x: x**2 for x in (2, 4, 6)}
-		{2: 4, 4: 16, 6: 36}
+	>>> {x: x**2 for x in (2, 4, 6)}
+	{2: 4, 4: 16, 6: 36}
 
 
 ### 迭代技巧
 
-- 并行迭代：
+#### 并行迭代：
 
-		>>> truth = {'Python 2': 'the good', 'Python 3', 'the best'}
-		>>> for k, v in truth.items():
-		...		print(k, v)
-		...
-		Python 2 the good
-		Python 3 the best
+	>>> truth = {'Python 2': 'the good', 'Python 3', 'the best'}
+	>>> for k, v in truth.items():
+	...		print(k, v)
+	...
+	Python 2 the good
+	Python 3 the best
 
-- 当迭代一个序列，可以用 `enumerate` 函数来一同获取位置索引：
+####  enumerate
 
-		>>> for i, v in enumerate(['a', 'b', 'c']):
-		...		print(i, v)
-		...
-		0 a
-		1 b
-		2 c
+当迭代一个序列，可以用 `enumerate` 函数来一同获取位置索引：
 
-- 当同时迭代两个或多个序列，可以用 `zip()` 函数将序列元素配对：
+	>>> for i, v in enumerate(['a', 'b', 'c']):
+	...		print(i, v)
+	...
+	0 a
+	1 b
+	2 c
 
-		>>> questions = ['name', 'website', 'favorite color']
-		>>> answers = ['me', 'example.com', 'cyan']'
-		>>> for q, a in zip(questions, answers):
-		...		print("What is your {0}? It is {1}".format(q, a))
-		...
-		What is your name? It is me
-		What is your website? It is example.com
-		What is your favorite color? It is cyan
+#### zip
 
-- 反向迭代：
+当同时迭代两个或多个序列，可以用 `zip()` 函数将序列元素配对：
 
-		>>> for i in reversed(range(3)):
-		...		print(i)
-		...
-		2
-		1
-		0
+	>>> questions = ['name', 'website', 'favorite color']
+	>>> answers = ['me', 'example.com', 'cyan']'
+	>>> for q, a in zip(questions, answers):
+	...		print("What is your {0}? It is {1}".format(q, a))
+	...
+	What is your name? It is me
+	What is your website? It is example.com
+	What is your favorite color? It is cyan
 
-- 先排序再迭代, `sorted()`会返回一个新列表：
+#### 反向迭代：
 
-		>>> letters = ['a', 'c', 'd', 'b', 'g', 'e']
-		>>> for i in sorted(set(letters)):
-		...		print(i)
-		...
-		['a', 'c', 'd', 'b', 'g', 'e']
+	>>> for i in reversed(range(3)):
+	...		print(i)
+	...
+	2
+	1
+	0
 
-- 如果迭代过程中要改变迭代对象，那么应该先拷贝一份迭代对象：
+#### sorted
 
-		>>> words = ['apple', 'banana', 'favoritefruit']
-		>>> for word in words[:]:
-		...		if len(word) > 6:
-		...			words.insert(0, word)
-		...
-		>>> words
-		['favoritefruit', 'apple', 'banana', 'favoritefruit']
+ 先排序再迭代, `sorted()`会返回一个新列表：
+
+	>>> letters = ['a', 'c', 'd', 'b', 'g', 'e']
+	>>> for i in sorted(set(letters)):
+	...		print(i)
+	...
+	['a', 'c', 'd', 'b', 'g', 'e']
+
+如果迭代过程中要改变迭代对象，那么应该先拷贝一份迭代对象：
+
+	>>> words = ['apple', 'banana', 'favoritefruit']
+	>>> for word in words[:]:
+	...		if len(word) > 6:
+	...			words.insert(0, word)
+	...
+	>>> words
+	['favoritefruit', 'apple', 'banana', 'favoritefruit']
 
 	
 ### 字符串格式化
@@ -306,37 +243,37 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 书上详细介绍了用 `format()` 函数来格式化字符串，这里记录字符串的 `format` 方法。
 
 
-- 位置占位符
+#### 位置占位符
 
-	基本用法：
+基本用法：
 
-		>>>	print("We are the {} who say {}!".format("Knights", "Ni"))
-		We are the Knights who say Ni!
-		
-		>>> food = "burger"
-		>>> adjective = "good"
-		>>> print("The {0} is {1}".format(food, adjective))
-		The burger is good
+	>>>	print("We are the {} who say {}!".format("Knights", "Ni"))
+	We are the Knights who say Ni!
+	
+	>>> food = "burger"
+	>>> adjective = "good"
+	>>> print("The {0} is {1}".format(food, adjective))
+	The burger is good
 
-	被格式化的变量可以是高级数据结构：
+被格式化的变量可以是高级数据结构：
 
-		>>> table = {"food": "burger", "adjective": "good"}
-		>>> print("The {0[food]} is {0[adjective]}".format(table)
-		The burger is good
+	>>> table = {"food": "burger", "adjective": "good"}
+	>>> print("The {0[food]} is {0[adjective]}".format(table)
+	The burger is good
 
-- keyword 占位符
+#### keyword 占位符
 
-	基本用法：
+基本用法：
 
-		>>> print("This {food} is {adjective}".format(
-		...		food="burger", adjective="good"))
-		This burger is good
+	>>> print("This {food} is {adjective}".format(
+	...		food="burger", adjective="good"))
+	This burger is good
 
-	高级用法：
+高级用法：
 
-		>>> table = {"food": "burger", "adjective": "good"}
-		>>> print("This {food} is {adjective}".format(**table))
-		The burger is good
+	>>> table = {"food": "burger", "adjective": "good"}
+	>>> print("This {food} is {adjective}".format(**table))
+	The burger is good
 
 ### 文件
 
@@ -358,7 +295,7 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 
 ### 迭代器
 
-我们可以用 `for` 来迭代列表、字符串、文件对象和字典等容器对象。本质上，`for` 语句调用 `iter()` 函数作用于容器对象上，然后返回一个定义了 `__next__` 方法的迭代器对象。每次调用该迭代器对象的 `__next__` 方法将返回容器对象的一个元素，直到元素用光，它将会抛出 `StopIteration` 异常。
+可以用 `for` 来迭代列表、字符串、文件对象和字典等容器对象。本质上，`for` 语句调用 `iter()` 函数作用于容器对象上，然后返回一个定义了 `__next__` 方法的迭代器对象。每次调用该迭代器对象的 `__next__` 方法将返回容器对象的一个元素，直到元素用光，它将会抛出 `StopIteration` 异常。
 
 	>>> s = 'abc'
 	>>> it = iter(s)
@@ -371,25 +308,26 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 
 了解了这些，便可以将自己的类定义成可迭代的。首先定义 `__iter__` 方法来返回一个定义了 `__next__` 方法的对象。如果该类本身就定义了 `__next__`，可以直接返回 `self`。
 
-	class Reverse:
-		"""Iterator for looping over a sequence backwards"""
-		def __init__(self, data):
-			self.index = len(data)
-			self.data = data
+```python
+class Reverse:
+	"""Iterator for looping over a sequence backwards"""
+	def __init__(self, data):
+		self.index = len(data)
+		self.data = data
 
-		def __iter__(self):
-			return self
+	def __iter__(self):
+		return self
 
-		def __next__(self):
-			if self.index == 0:
-				raise StopIteration
+	def __next__(self):
+		if self.index == 0:
+			raise StopIteration
 
-			self.index -= 1
-			return self.data[self.index]
+		self.index -= 1
+		return self.data[self.index]
+```
 
 
 ### 生成器
-
 
 生成器用于快速简单地生成迭代器。它定义起来就像函数，不过在返回数据的地方不是用 `return` 而是用 `yield`。
 
@@ -428,40 +366,46 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 
 装饰器是用函数来改造函数，比较常用的装饰器是 `@classmethod` 和 `@staticmethod`。`classmethod()` 和 `staticmethod()` 是两个内置函数，`@wrapper` 的形式仅仅是语法糖而已，以下两个定义等价：
 
+```python
+@staticmethod
+def f():
+	pass
+
+def f():
+	pass
+f = staticmethod(f)
+```
+
+
+#### staticmethod
+
+接受一个函数作为参数，返回一个静态方法。
+
+定义静态方法的形式为：
+
+```python
+class C:
 	@staticmethod
-	def f():
-		pass
+	def f(arg1, arg2, ...):
+		...
+```
 
-	def f():
-		pass
-	f = staticmethod(f)
+可以在类或者类的实例之上调用静态方法，形如 `C.f()` 或者 `C().f()`，它不像实例方法那样，不会隐含传入第一个参数。
 
-
-- `staticmethod(function)` 函数
-
-	接受一个函数作为参数，返回一个静态方法。
-
-	定义静态方法的形式为：
-
-		class C:
-			@staticmethod
-			def f(arg1, arg2, ...):
-				...
-
-	可以在类或者类的实例之上调用静态方法，形如 `C.f()` 或者 `C().f()`，它不像实例方法那样，不会隐含传入第一个参数。
-
-	（静态方法跟实例无关，也跟类无关，就相当于外部函数。定义成方法是为了使相关代码的垂直距离更近，能够更好的组织和维护）
+（静态方法跟实例无关，也跟类无关，就相当于外部函数。定义成方法是为了使相关代码的垂直距离更近，能够更好的组织和维护）
 
 
-- `classmethod(function)` 函数
+#### classmethod
 
-	接受一个函数作为参数，返回一个类方法。
+接受一个函数作为参数，返回一个类方法。
 
-	定义类方法的形式为：
+定义类方法的形式为：
 
-		class C:
-			@classmethod
-			def f(cls, arg1, arg2, ...)
-				...
+```python
+class C:
+	@classmethod
+	def f(cls, arg1, arg2, ...)
+		...
+```
 
-	可以在类或者类的实例上调用类方法，形如 `C.f()` 或者 `C().f()`，跟实例方法将调用它的实例作为其第一个隐含参数一样，类方法将调用它的类（或者由实例中获得的类）隐含地作为它的第一个参数。如果是派生类在调用类方法，那么传入的隐含参数是这个派生类本身。
+可以在类或者类的实例上调用类方法，形如 `C.f()` 或者 `C().f()`，跟实例方法将调用它的实例作为其第一个隐含参数一样，类方法将调用它的类（或者由实例中获得的类）隐含地作为它的第一个参数。如果是派生类在调用类方法，那么传入的隐含参数是这个派生类本身。

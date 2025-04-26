@@ -139,7 +139,3 @@ ORS 控制记录的输出；OFS 控制字段的输出。
 	Becky:555-7685
 
 	...
-
-### 删除 docker images
-
-    $ docker rmi `docker images | head | awk '$1~/echo-passthrough/{print $3}'`
