@@ -24,7 +24,7 @@ title: Blog
 
 <article>
   <ul class="blog-list">
-    {% assign posts = site.blog | sort:"date" %}
+    {% assign posts = site.blog | sort:"date" | reverse %}
     {% for post in posts %}
     <li>
       <h2>
