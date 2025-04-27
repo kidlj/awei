@@ -124,7 +124,7 @@ func ExampleReverse() {
 }
 ```
 
-### rotate
+#### rotate
 
 ```go
 func ExampleRotate() {
