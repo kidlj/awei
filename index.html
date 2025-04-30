@@ -30,8 +30,9 @@ title: Blog
       <h2>
         <a href="{{ post.url }}">{{ post.title }}</a>
       </h2>
-
-      {{ post.date | date_to_string }}
+      <caption>
+        {{ post.date | date_to_string }}
+      </caption>
     </li>
     {% endfor %}
   </ul>
