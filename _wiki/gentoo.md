@@ -4,125 +4,110 @@ title: Gentoo
 
 ### Systemd
 
-```bash
-$ cat <<EOF > /etc/portage/package.use/systemd
-sys-apps/systemd boot
-sys-kernel/installkernel systemd-boot dracut
-EOF
-```
+    # cat <<EOF > /etc/portage/package.use/systemd
+    sys-apps/systemd boot
+    sys-kernel/installkernel systemd-boot dracut
+    EOF
 
 ### Systemd Network
 
 #### DHCP
 
-```bash
-$ mkdir -p /etc/systemd/network
-$ cat > /etc/systemd/network/10-wired.network <<EOF
-[Match]
-Name=en*
+    # mkdir -p /etc/systemd/network
+    # cat > /etc/systemd/network/10-wired.network <<EOF
+    [Match]
+    Name=en*
 
-[Network]
-DHCP=yes
-EOF
-```
+    [Network]
+    DHCP=yes
+    EOF
 
 #### Static IP
 
-```bash
-$ cat > /etc/systemd/network/10-wired.network <<EOF
-[Match]
-Name=en*
+    # cat > /etc/systemd/network/10-wired.network <<EOF
+    [Match]
+    Name=en*
 
-[Network]
-Address=192.168.1.100/24
-Gateway=192.168.1.1
-DNS=192.168.1.1
-EOF
-```
+    [Network]
+    Address=192.168.1.100/24
+    Gateway=192.168.1.1
+    DNS=192.168.1.1
+    EOF
 
 #### DNS
 
-```bash
-$ ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-```
+    # ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 #### 重启服务
 
-```bash
-$ systemctl restart systemd-networkd
-$ systemctl restart systemd-resolved
-```
+    # systemctl restart systemd-networkd
+    # systemctl restart systemd-resolved
 
 ### Suspend/Wakeup
 
-```bash
-$ vim /etc/systemd/logind.conf
-HandleLidSwitch=lock
-HandleLidSwitchExternalPower=lock
-```
+#### Lid Switch Behavior
 
-```bash
-$ cat <<EOF > /etc/systemd/system/auto-suspend.timer
-[Unit]
-Description=Automatically suspend on a schedule
+    # vim /etc/systemd/logind.conf
+    HandleLidSwitch=lock
+    HandleLidSwitchExternalPower=lock
 
-[Timer]
-OnCalendar=*-*-* 02:00:00
+#### auto-suspend.timer
 
-[Install]
-WantedBy=timers.target
-EOF
-```
+    # cat <<EOF > /etc/systemd/system/auto-suspend.timer
+    [Unit]
+    Description=Automatically suspend on a schedule
 
-```bash
-$ cat <<EOF > /etc/systemd/system/auto-suspend.service
-[Unit]
-Description=Suspend
+    [Timer]
+    OnCalendar=*-*-* 02:00:00
 
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/systemctl suspend
-EOF
-```
+    [Install]
+    WantedBy=timers.target
+    EOF
 
-```bash
-$ cat <<EOF > /etc/systemd/system/auto-resume.timer
-[Unit]
-Description=Automatically resume on a schedule
+#### auto-suspend.service
 
-[Timer]
-OnCalendar=*-*-* 08:00:00
-WakeSystem=true
+    # cat <<EOF > /etc/systemd/system/auto-suspend.service
+    [Unit]
+    Description=Suspend
 
-[Install]
-WantedBy=timers.target
-EOF
-```
+    [Service]
+    Type=oneshot
+    ExecStart=/usr/bin/systemctl suspend
+    EOF
+        
+#### auto-resume.timer
 
-```bash
-$ cat <<EOF > /etc/systemd/system/auto-resume.service
-[Unit]
-Description=Does nothing
+    # cat <<EOF > /etc/systemd/system/auto-resume.timer
+    [Unit]
+    Description=Automatically resume on a schedule
 
-[Service]
-Type=oneshot
-ExecStart=/bin/true
-EOF
-```
+    [Timer]
+    OnCalendar=*-*-* 08:00:00
+    WakeSystem=true
 
-```bash
-$ systemctl enable auto-suspend.timer
-$ systemctl start auto-suspend.timer
-```
+    [Install]
+    WantedBy=timers.target
+    EOF
+                   
+#### auto-resume.service
 
+    # cat <<EOF > /etc/systemd/system/auto-resume.service
+    [Unit]
+    Description=Does nothing
 
-```bash
-$ systemctl enable auto-resume.timer
-$ systemctl start auto-resume.timer
-```
+    [Service]
+    Type=oneshot
+    ExecStart=/bin/true
+    EOF
+
+#### Start timers
+
+    # systemctl enable auto-suspend.timer
+    # systemctl start auto-suspend.timer
+
+    # systemctl enable auto-resume.timer
+    # systemctl start auto-resume.timer
 
 ### Console backlight
 
-```bash
-$ echo 0 > /sys/class/backlight/intel_backlight/brightness
-```
+    # echo 0 > /sys/class/backlight/intel_backlight/brightness

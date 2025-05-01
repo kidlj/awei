@@ -9,37 +9,35 @@ title: Django
 
 示例代码：
 
-```python
-from django.db import models
+	from django.db import models
 
-class Blog(modes.Model):
-	name = models.CharField(max_length=100)
-	tagline = models.TextField()
+	class Blog(modes.Model):
+		name = models.CharField(max_length=100)
+		tagline = models.TextField()
 
-	def __str__(self):
-		return self.name
+		def __str__(self):
+			return self.name
 
-class Author(models.Model):
-	name = models.CharField(max_length=50)
-	email = models.EmailField()
+	class Author(models.Model):
+		name = models.CharField(max_length=50)
+		email = models.EmailField()
 
-	def __str__(self):
-		return self.name
+		def __str__(self):
+			return self.name
 
-class Entry(models.Model):
-	blog = models.ForeignKey(Blog)
-	headline = models.CharField(max_length=255)
-	body_text = models.TextField()
-	pub_date = models.DateField()
-	mod_date = models.DateField()
-	authors = models.ManyToManyField(Author)
-	n_comments = models.IntegerField()
-	n_pingbacks = models.IntegerField()
-	rating = models.IntegerField()
+	class Entry(models.Model):
+		blog = models.ForeignKey(Blog)
+		headline = models.CharField(max_length=255)
+		body_text = models.TextField()
+		pub_date = models.DateField()
+		mod_date = models.DateField()
+		authors = models.ManyToManyField(Author)
+		n_comments = models.IntegerField()
+		n_pingbacks = models.IntegerField()
+		rating = models.IntegerField()
 
-	def __str__(self):
-		return self.headline
-```
+		def __str__(self):
+			return self.headline
 
 
 #### 原理
@@ -48,31 +46,24 @@ class Entry(models.Model):
 Class 中的 Field 对应的是数据库表中的「字段」;  
 一个类实例对应的是数据库表中的一条「记录」。
 
-
 #### Saving changes to objects
 
 - Saving value fields:
 
-	```python
-	>>> b = Blog(name='IV', tagline='All about IV')
-	>>> b.save()
-	```
+		>>> b = Blog(name='IV', tagline='All about IV')
+		>>> b.save()
 
 - Saving ForeignKey fields:
 
-	```python
-	>>> entry = Entry.objects.get(pk=1)
-	>>> iv_blog = Blog.objects.get(name='IV')
-	>>> entry.blog = iv_blog
-	>>> entry.save()
-	```
+		>>> entry = Entry.objects.get(pk=1)
+		>>> iv_blog = Blog.objects.get(name='IV')
+		>>> entry.blog = iv_blog
+		>>> entry.save()
 
 - Saving ManyToManyField fields:
 
-	```python
-	>>> joe = Author.objects.create(name='Joe')
-	>>> entry.authors.add(joe)		# joe is an 'object' created
-	```
+		>>> joe = Author.objects.create(name='Joe')
+		>>> entry.authors.add(joe)		# joe is an 'object' created
 
 #### Retrieving Objects
 
@@ -82,57 +73,43 @@ Class 中的 Field 对应的是数据库表中的「字段」;
 
 通过模型提供的 Manager 来构建 QuerySet。每个模型都有至少一个 Manager，默认的一个叫做 objects。以下可以获取数据表中的所有实例：
 
-```python
->>> Entry.objects.all()
-```
+	>>> Entry.objects.all()
 
 为了反映获取 QuerySet 是一个数据表级别而不是记录级别的操作这个事实，Manager 只能用类来访问，不能使用类实例。
 
-```python
->>> Blog.objects	# good
->>> b = Blog(name='Foo', tagline='Bar')
->>> b.objects		# bad
-```
+	>>> Blog.objects	# good
+	>>> b = Blog(name='Foo', tagline='Bar')
+	>>> b.objects		# bad
 
 通过对一个 QuerySet 应用 `filter` 或者 `exclude` 会返回另外一个 QuerySet，因此可以将它们串起来：
 
-```python
->>> Entry.objects.all().filter(
-...		headline__startswith='What'
-... ).exclue(
-...		pub_date__gte=datetiem.date.today()
-... ).filter(
-...	    pub_date__gte=datetime(2005, 1, 30)
-... )
-```
+	>>> Entry.objects.all().filter(
+	...		headline__startswith='What'
+	... ).exclue(
+	...		pub_date__gte=datetiem.date.today()
+	... ).filter(
+	...	    pub_date__gte=datetime(2005, 1, 30)
+	... )
 
 因为 `filter()` 只会返回 QuerySet，即使只获取到一个对象的时候。如果你确定只有一个实例返回，那么可在 Manager 上使用 `get()` 方法：
 
-```python
->>> one_entry = Entry.objects.get(pk=1)
-```
+	>>> one_entry = Entry.objects.get(pk=1)
 
 如果获取失败，则抛出 `Entry.DoesNotExist` 异常，如果有多个获取，抛出 `MultipleObjectsReturned` 异常。
 
 既然 QuerySet 是一个列表，所以它支持分片获取：
 
-```python
->>> Entry.objects.order_by('headline')[0]
-```
+	>>> Entry.objects.order_by('headline')[0]
 
 #### Field Lookups
 
 字段查询相当于 SQL 中的 `WHERE` 语句。通过给 `filter()` 等方法上加上关键字参数来应用于 QuerySet 之上。关键字参数的通用格式为：
 
-```python
-field__lookuptype=value
-```
+	field__lookuptype=value
 
 比如：
 	
-```python
->>> Entry.objects.filter(pub_date__lte='2015-01-21')
-```
+	>>> Entry.objects.filter(pub_date__lte='2015-01-21')
 
 #### Field Lookups that span relationships
 
@@ -140,25 +117,19 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 
 - 正向查询，使用小写的 model 和 field 名，中间用 `--` 隔开：
 
-```python
->>> Entry.objects.filter(blog__name='Beatles Blog')
-```
+		>>> Entry.objects.filter(blog__name='Beatles Blog')
 
 - 反向查询，使用小写的 model 名和 field 名：
 
-```python
->>> Blog.objects.filter(entry__headline__contains='Lennon')
-```
+		>>> Blog.objects.filter(entry__headline__contains='Lennon')
 
 要始终区分，我们 filter 的是什么，以下这两者是不等同的：
 
-```python
->>> Blog.objects.filter(entry__headline__contains='Lennon',
-...			entry__pub_date__year=2008)
+	>>> Blog.objects.filter(entry__headline__contains='Lennon',
+	...			entry__pub_date__year=2008)
 
->>> Blog.objects.filter(entry__headline__contains='Lennon).filter(
-...			entry__pub_date__year=2008)
-```
+	>>> Blog.objects.filter(entry__headline__contains='Lennon).filter(
+	...			entry__pub_date__year=2008)
 
 第一个查询的是这样的 Blog 对象：链接到该对象的某一个 Entry 对象里其 headline 既包含 'Lennon'，pub_date 年份又是 2008；
 
@@ -172,35 +143,27 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 
 * 正向，通过 field 名：
 
-	```python
-	>>> e = Entry.objects.get(id=2)
-	>>> e.blog 		# 返回相关对象
-	```
+		>>> e = Entry.objects.get(id=2)
+		>>> e.blog 		# 返回相关对象
 
 * 反向，通过 Manager
 
 	默认情况下，Manager 名为 `FOO_set`，这里 `FOO` 是关系源模型的名字。
 
-	```python
-	>>> b = Blog.objects.get(id=1)
-	>>> b.entry_set.all()
-	# b.entry_set 是一个返回 QuerySet 的 Manager
-	>>> b.entry_set.filter(headline__contains='Lennon')
-	>>> b.entry_set.count()
-	```
+		>>> b = Blog.objects.get(id=1)
+		>>> b.entry_set.all()
+		# b.entry_set 是一个返回 QuerySet 的 Manager
+		>>> b.entry_set.filter(headline__contains='Lennon')
+		>>> b.entry_set.count()
 
 	可以通过在关系源模型里设置 `related_name` 来覆盖 `FOO_set`:
 
-	```python
-	blog = ForeignKey(Blog, related_name='entries')
-	```
+		blog = ForeignKey(Blog, related_name='entries')
 
 	这样一来：
 
-	```python
-	>>> b = Blog.objects.get(id=1)
-	>>> b.entries.all()
-	```
+		>>> b = Blog.objects.get(id=1)
+		>>> b.entries.all()
 
 	除了以上使用的 QuerySet 方法外，ForeignKey Manager 还定义了更多方法：
 
@@ -211,10 +174,8 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 
 	还可以这样使用：
 
-	```python
-	>>> b = Blog.objects.get(id=1)
-	>>> b.entry_set = [e1, e2] 		# e1, e2 是 Entry 实例，须先创建
-	```
+		>>> b = Blog.objects.get(id=1)
+		>>> b.entry_set = [e1, e2] 		# e1, e2 是 Entry 实例，须先创建
 
 
 #### ManyToManyField Related Objects
@@ -226,35 +187,29 @@ Django 支持跟随数据模型定义的关系来获取对象，这背后是对 
 
 举例：
 
-```python
->>> e = Entry.objects.get(id=1)
->>> e.authors.all()
->>> e.authors.count()
->>> e.authors.filter(name__contains='John')
+	>>> e = Entry.objects.get(id=1)
+	>>> e.authors.all()
+	>>> e.authors.count()
+	>>> e.authors.filter(name__contains='John')
 
->>> a = Author.objects.get(id=5)
->>> a.entry_set.all()
-```
+	>>> a = Author.objects.get(id=5)
+	>>> a.entry_set.all()
 
 #### Using A Custom Reverse Manager
 
 示例代码：
 
-```python
-from django.db import models
+	from django.db import models
 
-class Entry(models.Model):
-	objects = models.Manager()	# Default Manager
-	entries = EntryManager()	# Custom Manager
-```
+	class Entry(models.Model):
+		objects = models.Manager()	# Default Manager
+		entries = EntryManager()	# Custom Manager
 
 如此一来：
 
-```python
->>> b = Blog.objects.get(id=1)
->>> b.entry_set(manager='entries').all()
->>> b.entry_set(manager='entries').is_published()	# custom method
-```
+	>>> b = Blog.objects.get(id=1)
+	>>> b.entry_set(manager='entries').all()
+	>>> b.entry_set(manager='entries').is_published()	# custom method
 	
 ### Views
 
@@ -283,23 +238,21 @@ class Entry(models.Model):
 
 我给 Wagtail 的一个页面写了如下的一个 custom template tag：
 
-```python
-@register.simple_tag
-def related_page(title, calling_page):
-	try:
-		related_item = calling_page.related_pages.get(title=title)
-		return related_item.url
-	except:
-		return "#"
-```
+	@register.simple_tag
+	def related_page(title, calling_page):
+		try:
+			related_item = calling_page.related_pages.get(title=title)
+			return related_item.url
+		except:
+			return "#"
 
 可是当这个 `related_item` 不存在的时候，template 仍然会报出 `DoesNotExist` 异常。因此我猜想在 custom template tag 的函数里不能使用异常捕获。
 
-Django 文档里有这么一段[django]：
+Django 文档里有这么一段[doc]：
 
 > Usually any exception raised from a template filter will be exposed as a server error. Thus, filter functions should avoid raising exceptions if there is a reasonable fallback value to return. In case of input that represents a clear bug in a template, raising an exception may still be better than silent failure which hides the bug.
 
-StackOverFlow 上也有一个回答里说到[stackoverflow]：
+StackOverflow 上也有一个回答里说到[stackoverflow]：
 
 > Your template should not be raising an exception as a normal course of action. If there's an error in the template, you fix it. Otherwise, anything that could potentially raise an exception should be handled in the model or the view. There's no tag like you mention for a reason.
 
@@ -322,11 +275,9 @@ StackOverFlow 上也有一个回答里说到[stackoverflow]：
 
 当然，也可以使用在 model 里自定义的方法：
 
-```python
-class Task(models.Model):
-	def foo(self):
-		return "bar"
-```
+	class Task(models.Model):
+		def foo(self):
+			return "bar"
 
 在 template 里：
 
@@ -337,5 +288,5 @@ class Task(models.Model):
 
 _注意_: 因为 Django 故意对 template 的逻辑处理能力做了限制，因此在 template 里使用的对象方法不能添加任何参数。数据应该在 view 里准备好，然后让 template 来呈现。
 
-[django]: https://docs.djangoproject.com/en/1.7/howto/custom-template-tags/
+[doc]: https://docs.djangoproject.com/en/1.7/howto/custom-template-tags/
 [stackoverflow]: http://stackoverflow.com/questions/8524077/catching-exceptions-in-django-templates

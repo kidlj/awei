@@ -64,12 +64,10 @@ _定义_函数时，`*args` 应作为最后一个参数。这样调用时该函�
 
 这等价于：
 
-```python
-def make_incrementor(n):
-	def f(x):
-		return x + n
-	return f
-```
+	def make_incrementor(n):
+		def f(x):
+			return x + n
+		return f
 
 用于列表的排序:
 
@@ -308,24 +306,21 @@ def make_incrementor(n):
 
 了解了这些，便可以将自己的类定义成可迭代的。首先定义 `__iter__` 方法来返回一个定义了 `__next__` 方法的对象。如果该类本身就定义了 `__next__`，可以直接返回 `self`。
 
-```python
-class Reverse:
-	"""Iterator for looping over a sequence backwards"""
-	def __init__(self, data):
-		self.index = len(data)
-		self.data = data
+	class Reverse:
+		"""Iterator for looping over a sequence backwards"""
+		def __init__(self, data):
+			self.index = len(data)
+			self.data = data
 
-	def __iter__(self):
-		return self
+		def __iter__(self):
+			return self
 
-	def __next__(self):
-		if self.index == 0:
-			raise StopIteration
+		def __next__(self):
+			if self.index == 0:
+				raise StopIteration
 
-		self.index -= 1
-		return self.data[self.index]
-```
-
+			self.index -= 1
+			return self.data[self.index]
 
 ### 生成器
 
@@ -366,16 +361,13 @@ class Reverse:
 
 装饰器是用函数来改造函数，比较常用的装饰器是 `@classmethod` 和 `@staticmethod`。`classmethod()` 和 `staticmethod()` 是两个内置函数，`@wrapper` 的形式仅仅是语法糖而已，以下两个定义等价：
 
-```python
-@staticmethod
-def f():
-	pass
+	@staticmethod
+	def f():
+		pass
 
-def f():
-	pass
-f = staticmethod(f)
-```
-
+	def f():
+		pass
+	f = staticmethod(f)
 
 #### staticmethod
 
@@ -383,12 +375,10 @@ f = staticmethod(f)
 
 定义静态方法的形式为：
 
-```python
-class C:
-	@staticmethod
-	def f(arg1, arg2, ...):
-		...
-```
+	class C:
+		@staticmethod
+		def f(arg1, arg2, ...):
+			...
 
 可以在类或者类的实例之上调用静态方法，形如 `C.f()` 或者 `C().f()`，它不像实例方法那样，不会隐含传入第一个参数。
 
@@ -401,11 +391,9 @@ class C:
 
 定义类方法的形式为：
 
-```python
-class C:
-	@classmethod
-	def f(cls, arg1, arg2, ...)
-		...
-```
+	class C:
+		@classmethod
+		def f(cls, arg1, arg2, ...)
+			...
 
 可以在类或者类的实例上调用类方法，形如 `C.f()` 或者 `C().f()`，跟实例方法将调用它的实例作为其第一个隐含参数一样，类方法将调用它的类（或者由实例中获得的类）隐含地作为它的第一个参数。如果是派生类在调用类方法，那么传入的隐含参数是这个派生类本身。
