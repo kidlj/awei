@@ -5,7 +5,7 @@ title: Gentoo
 ### Systemd
 
 ```bash
-cat <<EOF > /etc/portage/package.use/systemd
+$ cat <<EOF > /etc/portage/package.use/systemd
 sys-apps/systemd boot
 sys-kernel/installkernel systemd-boot dracut
 EOF
@@ -16,8 +16,8 @@ EOF
 #### DHCP
 
 ```bash
-mkdir -p /etc/systemd/network
-cat > /etc/systemd/network/10-wired.network <<EOF
+$ mkdir -p /etc/systemd/network
+$ cat > /etc/systemd/network/10-wired.network <<EOF
 [Match]
 Name=en*
 
@@ -29,7 +29,7 @@ EOF
 #### Static IP
 
 ```bash
-cat > /etc/systemd/network/10-wired.network <<EOF
+$ cat > /etc/systemd/network/10-wired.network <<EOF
 [Match]
 Name=en*
 
@@ -43,26 +43,26 @@ EOF
 #### DNS
 
 ```bash
-ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+$ ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 ```
 
 #### 重启服务
 
 ```bash
-systemctl restart systemd-networkd
-systemctl restart systemd-resolved
+$ systemctl restart systemd-networkd
+$ systemctl restart systemd-resolved
 ```
 
 ### Suspend/Wakeup
 
 ```bash
-# vim /etc/systemd/logind.conf
+$ vim /etc/systemd/logind.conf
 HandleLidSwitch=lock
 HandleLidSwitchExternalPower=lock
 ```
 
 ```bash
-cat <<EOF > /etc/systemd/system/auto-suspend.timer
+$ cat <<EOF > /etc/systemd/system/auto-suspend.timer
 [Unit]
 Description=Automatically suspend on a schedule
 
@@ -75,7 +75,7 @@ EOF
 ```
 
 ```bash
-cat <<EOF > /etc/systemd/system/auto-suspend.service
+$ cat <<EOF > /etc/systemd/system/auto-suspend.service
 [Unit]
 Description=Suspend
 
@@ -86,7 +86,7 @@ EOF
 ```
 
 ```bash
-cat <<EOF > /etc/systemd/system/auto-resume.timer
+$ cat <<EOF > /etc/systemd/system/auto-resume.timer
 [Unit]
 Description=Automatically resume on a schedule
 
@@ -100,7 +100,7 @@ EOF
 ```
 
 ```bash
-cat <<EOF > /etc/systemd/system/auto-resume.service
+$ cat <<EOF > /etc/systemd/system/auto-resume.service
 [Unit]
 Description=Does nothing
 
@@ -111,18 +111,18 @@ EOF
 ```
 
 ```bash
-systemctl enable auto-suspend.timer
-systemctl start auto-suspend.timer
+$ systemctl enable auto-suspend.timer
+$ systemctl start auto-suspend.timer
 ```
 
 
 ```bash
-systemctl enable auto-resume.timer
-systemctl start auto-resume.timer
+$ systemctl enable auto-resume.timer
+$ systemctl start auto-resume.timer
 ```
 
 ### Console backlight
 
 ```bash
-echo 0 > /sys/class/backlight/intel_backlight/brightness
+$ echo 0 > /sys/class/backlight/intel_backlight/brightness
 ```
