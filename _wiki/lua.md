@@ -179,8 +179,8 @@ Lua 语言会发现 w 中没有对应的字段 width，但却有一个带有 __i
 		self.balance = self.balance + value
 	end
 
--- 注意这里是为返回的新表 o 设置元表到 Account 表，而不是为 Account 表设置元表。
--- 更确切的表述是，为表 o 设置元表到 self，即 new 方法的 receiver 表，如此一来可取消依赖某个特定的元表，这是实现继承的最关键一点。
+	-- 注意这里是为返回的新表 o 设置元表到 Account 表，而不是为 Account 表设置元表。
+	-- 更确切的表述是，为表 o 设置元表到 self，即 new 方法的 receiver 表，如此一来可取消依赖某个特定的元表，这是实现继承的最关键一点。
 
 	function Account:new(o)
 		o = o or {}
