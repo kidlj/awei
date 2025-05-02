@@ -9,12 +9,12 @@ title: Gentoo
     sys-kernel/installkernel systemd-boot dracut
     EOF
 
-### Systemd Network
+### Network
 
 #### DHCP
 
     # mkdir -p /etc/systemd/network
-    # cat > /etc/systemd/network/10-wired.network <<EOF
+    # cat <<EOF > /etc/systemd/network/10-wired.network <<EOF
     [Match]
     Name=en*
 
@@ -24,7 +24,7 @@ title: Gentoo
 
 #### Static IP
 
-    # cat > /etc/systemd/network/10-wired.network <<EOF
+    # cat <<EOF > /etc/systemd/network/10-wired.network <<EOF
     [Match]
     Name=en*
 
@@ -42,6 +42,47 @@ title: Gentoo
 
     # systemctl restart systemd-networkd
     # systemctl restart systemd-resolved
+
+### Wireless Network
+
+#### wpa_supplicant
+
+    # emerge --ask wpa_supplicant
+
+    # mkdir -p /etc/wpa_supplicant
+    # wpa_passphrase "你的SSID" "你的WiFi密码" | sudo tee /etc/wpa_supplicant/wpa_supplicant-wlp44s0.conf
+
+    # systemctl enable wpa_supplicant@wlp44s0.service
+    # systemctl start wpa_supplicant@wlp44s0.service
+
+#### DHCP
+
+    # cat <<EOF > /etc/systemd/network/25-wireless.network
+    [Match]
+    Name=wlp44s0
+
+    [Network]
+    DHCP=yes
+    EOF
+
+#### Static IP
+
+    # cat <<EOF > /etc/systemd/network/25-wireless.network
+    [Network]
+    Address=192.168.1.100/24
+    Gateway=192.168.1.1
+    DNS=192.168.1.1
+    EOF
+
+#### DNS
+
+    # ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+#### 重启服务
+
+    # systemctl restart systemd-networkd
+    # systemctl restart systemd-resolved
+
 
 ### Suspend/Wakeup
 
