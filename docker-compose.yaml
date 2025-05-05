@@ -1,7 +1,7 @@
 services:
   jekyll:
-    image: ruby
-    command: bash -c "gem install bundler jekyll && jekyll serve --watch --incremental --host 0.0.0.0"
+    image: kidlj/jekyll:dev
+    command: jekyll serve --watch --incremental --host 0.0.0.0
     ports:
       - "4000:4000"
     volumes:
