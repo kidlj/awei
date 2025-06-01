@@ -1,5 +1,5 @@
 ---
-title: Willpaper
+title: Wills
 ---
 
 ### 2025.06.01
