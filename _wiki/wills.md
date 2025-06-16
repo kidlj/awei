@@ -2,6 +2,12 @@
 title: Wills
 ---
 
+### 2025.06.16
+
+#### 沟通
+
+Communications first.
+
 ### 2025.06.01
 
 #### 实践
