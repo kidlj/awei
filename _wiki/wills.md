@@ -2,47 +2,36 @@
 title: Wills
 ---
 
+### 2025.07.06
+
+I don't experience, I make.  
+I don't fulfill, I build.
+
 ### 2025.06.28
 
-#### think & behave
-
-Think intensively, behave wildly.
+Think intensively, act wildly.
 
 ### 2025.06.16
-
-#### 沟通
 
 Communications first.
 
 ### 2025.06.01
 
-#### 实践
-
 实践是无差别的平静度过时间。  
 实践过程中，平静比效率更重要。
-
-#### 意志力
 
 意志力是意志模糊不清时的挣扎。
 
 ### 2025.05.06
 
-#### 走神
-
 每一次走神，都是一次内心冲突的显化。
 
 ### 2025.05.05
-
-#### 幸福
 
 幸福的秘诀是当下就要感到幸福，而不是一定要先做到什么才去幸福。
 
 ### 2025.05.04
 
-#### Explict Will
-
 其实你并不累，只是你不够专注。隐性的意志在内心冲突，让人感到疲倦。Make your will explicit.
-
-#### 主体性
 
 和别人相处时的主体性是看见自己的存在，和自己相处时的主体性是看见自己的意志。
