@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.07.15
+
+If you're so smart why are you still so afraid?
+
 ### 2025.07.06
 
 I don't experience, I make.  
@@ -31,7 +35,5 @@ Communications first.
 幸福的秘诀是当下就要感到幸福，而不是一定要先做到什么才去幸福。
 
 ### 2025.05.04
-
-其实你并不累，只是你不够专注。隐性的意志在内心冲突，让人感到疲倦。Make your will explicit.
 
 和别人相处时的主体性是看见自己的存在，和自己相处时的主体性是看见自己的意志。
