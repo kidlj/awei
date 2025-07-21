@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.07.21
+
+向外。
+
 ### 2025.07.15
 
 If you're so smart why are you still so afraid?
