@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.07.29
 
+Practices that don't contribute to intuition are effortless.
+
+### 2025.07.29
+
 数学是一种语言。
 
 ### 2025.07.27
