@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.08.05
+
+正念。
+
 ### 2025.07.29
 
 Practices that don't contribute to intuition are effortless.
