@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.08.21
+
+Focus to think, do to focus.
+
 ### 2025.08.13
 
 持续学习才能学会怎样学习。
