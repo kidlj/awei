@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.08.21
 
+Do your homework at school.
+
+### 2025.08.21
+
 Focus to think, do to focus.
 
 ### 2025.08.13
