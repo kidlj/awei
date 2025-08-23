@@ -2,6 +2,12 @@
 title: Wills
 ---
 
+### 2025.08.23
+
+Read to gain intuition.  
+Review to gain perception.  
+Practice to gain insights.
+
 ### 2025.08.21
 
 Do your homework at school.
