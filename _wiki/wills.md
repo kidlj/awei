@@ -49,7 +49,7 @@ I don't fulfill, I build.
 
 ### 2025.06.28
 
-Think intensively, practice early, act wildly.
+Think intensively, act wildly.
 
 ### 2025.06.16
 
