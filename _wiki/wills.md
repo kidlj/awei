@@ -4,9 +4,9 @@ title: Wills
 
 ### 2025.08.23
 
-Read to gain intuition.  
-Review to gain perception.  
-Practice to gain insights.
+Read to build intuition.  
+Think to develop perception.  
+Practice to reach realization.
 
 ### 2025.08.21
 
