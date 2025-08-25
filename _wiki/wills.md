@@ -2,10 +2,14 @@
 title: Wills
 ---
 
+### 2025.08.25
+
+不希冀快乐，只耽于平静。
+
 ### 2025.08.23
 
 Read to build intuition.  
-Think to develop perception.  
+Think to make perception.  
 Practice to reach realization.
 
 ### 2025.08.21
