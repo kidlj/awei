@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.09.01
+
+You have learned a lot.
+
 ### 2025.08.29
 
 Own.
