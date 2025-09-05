@@ -16,7 +16,7 @@ Own.
 
 ### 2025.08.23
 
-Read to build intuition.  
+Input to build intuition.  
 Think to make perception.  
 Practice to reach realization.
 
