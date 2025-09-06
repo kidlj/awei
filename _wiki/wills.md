@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.09.06
+
+把甜头留在后边。
+
 ### 2025.09.01
 
 You have learned a lot.
