@@ -24,7 +24,7 @@ Own.
 
 ### 2025.08.23
 
-Input to build intuition.  
+Read to build intuition.  
 Think to make perception.  
 Practice to reach realization.
 
@@ -34,7 +34,7 @@ Do your homework at school.
 
 ### 2025.08.21
 
-Focus to think, do to focus.
+Focus to think, start to focus.
 
 ### 2025.08.13
 
