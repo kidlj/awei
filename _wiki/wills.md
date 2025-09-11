@@ -10,17 +10,13 @@ Vacation at work, not work at vacation.
 
 I will be me.
 
-### 2025.09.06
-
-把甜头留在后边。
-
 ### 2025.09.01
 
 You have learned a lot.
 
 ### 2025.08.29
 
-Own.
+I own a thing.
 
 ### 2025.08.25
 
@@ -39,10 +35,6 @@ Do your homework at school.
 ### 2025.08.21
 
 Focus to think, start to focus.
-
-### 2025.08.13
-
-持续学习才能学会怎样学习。
 
 ### 2025.08.13
 
