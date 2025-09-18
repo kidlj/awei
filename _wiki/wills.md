@@ -16,7 +16,7 @@ You have learned a lot.
 
 ### 2025.08.29
 
-I own a thing.
+Own a thing.
 
 ### 2025.08.25
 
@@ -24,9 +24,8 @@ I own a thing.
 
 ### 2025.08.23
 
-Read to build intuition.  
-Think to make perception.  
-Practice to reach realization.
+Read to build intuition,  
+Practice to gain insights.
 
 ### 2025.08.21
 
