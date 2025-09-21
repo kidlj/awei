@@ -2,10 +2,6 @@
 title: Wills
 ---
 
-### 2025.09.20
-
-七分做，三分学。
-
 ### 2025.09.11
 
 Vacation at work, not work at vacation.
