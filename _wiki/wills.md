@@ -33,7 +33,7 @@ Do your homework at school.
 
 ### 2025.08.21
 
-Focus to think, start to focus.
+Start by doing.
 
 ### 2025.08.13
 
