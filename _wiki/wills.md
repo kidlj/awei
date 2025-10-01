@@ -2,10 +2,6 @@
 title: Wills
 ---
 
-### 2025.09.26
-
-The days are numbered.
-
 ### 2025.09.11
 
 Vacation at work, not work at vacation.
