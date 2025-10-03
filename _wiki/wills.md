@@ -52,7 +52,7 @@ Start by doing.
 
 ### 2025.07.29
 
-Practices that don't contribute to intuition are effortless.  
+Practices that don't contribute to intuition are ineffective.  
 Knowledges that don't contribute to insights are useless.
 
 ### 2025.07.27
