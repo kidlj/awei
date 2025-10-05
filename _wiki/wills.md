@@ -2,12 +2,6 @@
 title: Wills
 ---
 
-### 2025.10.12
-
-Computer knows how to do,  
-AI knows how to learn,  
-Next AI must know how to evolve.
-
 ### 2025.09.11
 
 Vacation at work, not work at vacation.
