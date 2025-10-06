@@ -4,7 +4,7 @@ title: Wills
 
 ### 2025.10.06
 
-Effortless happiness is worthless.
+Effortless experiences are worthless.
 
 ### 2025.09.11
 
