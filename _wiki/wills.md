@@ -25,8 +25,7 @@ Own a thing.
 ### 2025.08.23
 
 Read to build intuition,  
-Repeat to make perception.  
-Practice to gain insights.
+Practice to make perception.  
 
 ### 2025.08.21
 
