@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.06
+
+Effortless happiness is worthless.
+
 ### 2025.09.11
 
 Vacation at work, not work at vacation.
