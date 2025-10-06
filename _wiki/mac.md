@@ -15,6 +15,10 @@ title: Mac
     $ defaults delete com.microsoft.VSCode ApplePressAndHoldEnabled
     $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
+### Cursor key repeating
+
+    $ defaults write "$(osascript -e 'id of app "Cursor"')" ApplePressAndHoldEnabled -bool false
+
 ### Font Smoothing
 
     $ defaults -currentHost write -g AppleFontSmoothing -int 0
