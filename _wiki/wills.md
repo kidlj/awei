@@ -4,7 +4,7 @@ title: Wills
 
 ### 2025.10.17
 
-Practices with outputs.
+Output.
 
 ### 2025.10.06
 
@@ -79,7 +79,8 @@ I don't fulfill, I build.
 
 ### 2025.06.28
 
-Think intensively, act wildly.
+Think intensively,  
+Act wildly.
 
 ### 2025.06.16
 
