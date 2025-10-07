@@ -4,8 +4,7 @@ title: Wills
 
 ### 2025.10.07
 
-Thinking as practices.  
-Practices as training.
+Practice is not just thinking.
 
 ### 2025.10.07
 
