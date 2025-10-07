@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.10.07
 
+Practice to practice.
+
+### 2025.10.07
+
 Practice is not just thinking.
 
 ### 2025.10.07
