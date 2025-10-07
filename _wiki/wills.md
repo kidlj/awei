@@ -2,7 +2,11 @@
 title: Wills
 ---
 
-### 2025.10.17
+### 2025.10.07
+
+What matters in practices is the process of thinking.
+
+### 2025.10.07
 
 Output.
 
