@@ -82,7 +82,7 @@ If you're so smart why are you still so afraid?
 
 ### 2025.07.06
 
-I don't experience, I practice.  
+I don't experience, I make.  
 I don't fulfill, I build.
 
 ### 2025.06.28
