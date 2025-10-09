@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.10
+
+分享事物，不分享情绪。
+
 ### 2025.10.09
 
 See and take care of the anxiety.
