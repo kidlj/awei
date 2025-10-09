@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.09
+
+See and take care of the anxiety.
+
 ### 2025.10.06
 
 Effortless experiences are worthless.
