@@ -1,5 +1,5 @@
 ---
-title: Wills
+title: 正念
 ---
 
 ### 2025.10.11
@@ -40,7 +40,7 @@ Own a thing.
 
 ### 2025.08.23
 
-Read to build intuition,  
+Learn to build intuition,  
 Practice to make perception.  
 
 ### 2025.08.21
@@ -55,26 +55,10 @@ Start by doing.
 
 思考意义，不要思考形式。
 
-### 2025.08.05
-
-正念。
-
 ### 2025.07.29
 
 Practices that don't contribute to intuition are ineffective.  
 Knowledges that don't contribute to insights are useless.
-
-### 2025.07.27
-
-不是人的问题，是输入的问题。
-
-### 2025.07.26
-
-内求诸己。
-
-### 2025.07.21
-
-内外平衡。
 
 ### 2025.07.15
 
