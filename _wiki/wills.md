@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.10.11
 
+连续学习。
+
+### 2025.10.11
+
 Learn at home, practice at work.
 
 ### 2025.10.09
