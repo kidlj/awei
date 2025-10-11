@@ -4,7 +4,7 @@ title: 正念
 
 ### 2025.10.11
 
-连续学习。
+Continuous learning.
 
 ### 2025.10.11
 
