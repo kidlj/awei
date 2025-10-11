@@ -2,9 +2,9 @@
 title: Wills
 ---
 
-### 2025.10.10
+### 2025.10.11
 
-分享事物，不分享情绪。
+Learn at home, practice at work.
 
 ### 2025.10.09
 
