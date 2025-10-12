@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.12
+
+Learn while you feel safe, practice while you feel anxious.
+
 ### 2025.10.11
 
 静者思名，动者思勤。
