@@ -4,7 +4,8 @@ title: Wills
 
 ### 2025.10.12
 
-Learn while you feel safe, practice while you feel anxious.
+Learn while you feel safe,  
+Practice while you feel anxious.
 
 ### 2025.10.11
 
