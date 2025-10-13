@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.13
+
+Starving as practices.
+
 ### 2025.10.12
 
 Learn while you feel safe,  
