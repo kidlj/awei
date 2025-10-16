@@ -2,6 +2,14 @@
 title: Wills
 ---
 
+### 2025.10.16
+
+Kernel be stable.
+
+### 2025.10.16
+
+You don't need that many features of yourself.
+
 ### 2025.10.13
 
 Starving as practices.
