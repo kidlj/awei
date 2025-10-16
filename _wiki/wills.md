@@ -54,7 +54,7 @@ Own a thing.
 ### 2025.08.23
 
 Learn to build intuition,  
-Practice to gain insights.
+Practice to refine details.
 
 ### 2025.08.21
 
