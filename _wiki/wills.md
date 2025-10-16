@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.10.16
 
+I get up.
+
+### 2025.10.16
+
 Kernel be stable.
 
 ### 2025.10.16
