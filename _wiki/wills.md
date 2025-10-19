@@ -8,7 +8,7 @@ Continuous by efforts, not continous by time.
 
 ### 2025.10.19
 
-I am full, but I feel hungry.
+I was full, but I felt hungry.
 
 ### 2025.10.16
 
