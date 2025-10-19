@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.19
+
+I am full, but I feel hungry.
+
 ### 2025.10.16
 
 You don't need that many features of yourself.
