@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.10.19
 
+Continuous by efforts, not continous by time.
+
+### 2025.10.19
+
 I am full, but I feel hungry.
 
 ### 2025.10.16
@@ -70,7 +74,7 @@ Do your homework at school.
 
 ### 2025.08.21
 
-Start by deep thinking.
+Start by thinking.
 
 ### 2025.08.13
 
