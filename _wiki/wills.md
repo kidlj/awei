@@ -4,7 +4,7 @@ title: Wills
 
 ### 2025.10.19
 
-Continuous by efforts, not continous by time.
+Practice many, not practice big.
 
 ### 2025.10.19
 
@@ -74,7 +74,7 @@ Do your homework at school.
 
 ### 2025.08.21
 
-Start by planning.
+Start by little.
 
 ### 2025.08.13
 
