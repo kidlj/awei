@@ -22,11 +22,6 @@ You don't need that many features of yourself.
 
 Starving as practices.
 
-### 2025.10.12
-
-Learn while you feel safe,  
-Practice while you feel anxious.
-
 ### 2025.10.11
 
 静者思明，动者思勤。
@@ -34,10 +29,6 @@ Practice while you feel anxious.
 ### 2025.10.11
 
 Continuous learning.
-
-### 2025.10.11
-
-Learn at home, practice at work.
 
 ### 2025.10.09
 
