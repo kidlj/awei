@@ -77,8 +77,8 @@ Start by little.
 
 ### 2025.07.29
 
-Practices that don't contribute to intuition are ineffective.  
-Knowledges that don't contribute to insights are useless.
+Knowledges that don't contribute to intuitions are useless,  
+Practices that don't contribute to insights are ineffective.
 
 ### 2025.07.15
 
