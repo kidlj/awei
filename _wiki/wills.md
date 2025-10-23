@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.10.23
 
+Feel safe at work.
+
+### 2025.10.23
+
 I woke up at 11 AM.
 
 ### 2025.10.20
