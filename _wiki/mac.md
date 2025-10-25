@@ -28,6 +28,4 @@ Note that you can adjust the level of smoothing more granually by changing the n
 
 ### Set Hostname
 
-    $ sudo scutil --set ComputerName "NewHostName"
     $ sudo scutil --set HostName "NewHostName"
-    $ sudo scutil --set LocalHostName "NewHostName"
