@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.25
+
+Anchor.
+
 ### 2025.10.23
 
 Feel safe at work.
