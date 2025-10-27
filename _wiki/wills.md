@@ -4,7 +4,7 @@ title: Wills
 
 ### 2025.10.27
 
-Give mechanics, not give abilities.
+Offer mechanics, not offer abilities.
 
 ### 2025.10.27
 
