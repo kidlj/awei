@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.10.27
 
+Give mechanics, not give abilities.
+
+### 2025.10.27
+
 学习是一个人穿过一片森林。
 
 ### 2025.10.27
