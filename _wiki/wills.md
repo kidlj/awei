@@ -8,10 +8,6 @@ No practice, no insight.
 
 ### 2025.10.26
 
-Intuition queries are log(1).
-
-### 2025.10.26
-
 琢磨。
 
 ### 2025.10.25
