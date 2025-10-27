@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.10.27
+
+No practice, no insight.
+
 ### 2025.10.26
 
 Intuition queries are log(1).
