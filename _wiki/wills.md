@@ -4,7 +4,11 @@ title: Wills
 
 ### 2025.10.27
 
-No practice, no insight.
+实践是一个人穿过一片森林。
+
+### 2025.10.27
+
+No practice, no gain.
 
 ### 2025.10.26
 
