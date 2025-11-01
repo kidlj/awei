@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.11.01
+
+憧憬也是内心冲突的一种。
+
 ### 2025.10.27
 
 Offer mechanics, not offer abilities.
