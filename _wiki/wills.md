@@ -8,7 +8,7 @@ Repetition is the most effective practice.
 
 ### 2025.11.01
 
-只要沉浸其中，就拥有了自由。
+沉浸在时间中，就拥有了自由。
 
 ### 2025.11.01
 
