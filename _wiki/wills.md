@@ -4,6 +4,14 @@ title: Wills
 
 ### 2025.11.01
 
+Repetition is the most effective practice.
+
+### 2025.11.01
+
+只要沉浸其中，你就拥有了自由。
+
+### 2025.11.01
+
 憧憬也是内心冲突的一种。
 
 ### 2025.10.27
