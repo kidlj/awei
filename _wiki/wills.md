@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.11.03
 
+Duties first.
+
+### 2025.11.03
+
 Continuous thinking,  
 Continuous learning,  
 Continuous practices.
