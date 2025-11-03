@@ -4,10 +4,6 @@ title: Wills
 
 ### 2025.11.03
 
-涣散。
-
-### 2025.11.03
-
 Take the initiative.
 
 ### 2025.11.03
@@ -19,6 +15,10 @@ Duties first.
 Continuous thinking,  
 Continuous learning,  
 Continuous practices.
+
+### 2025.11.03
+
+涣散的一个周末，以至于需要工作日一天的时间把自己捏起来。
 
 ### 2025.11.03
 
