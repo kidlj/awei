@@ -4,6 +4,12 @@ title: Wills
 
 ### 2025.11.03
 
+Continuous thinking,  
+Continuous learning,  
+Continuous practices.
+
+### 2025.11.03
+
 一个周末胖五斤。
 
 ### 2025.11.01
