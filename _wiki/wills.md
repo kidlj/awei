@@ -42,11 +42,11 @@ No practice, no gain.
 
 ### 2025.10.26
 
-琢磨。
+反复琢磨。
 
 ### 2025.10.25
 
-Anchor.
+Place anchors.
 
 ### 2025.10.23
 
