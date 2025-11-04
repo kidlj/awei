@@ -4,7 +4,7 @@ title: Wills
 
 ### 2025.11.03
 
-Take the initiative.
+Be positive.
 
 ### 2025.11.03
 
