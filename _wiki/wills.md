@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.11.04
+
+Always offer kindness.
+
 ### 2025.11.03
 
 Be positive.
