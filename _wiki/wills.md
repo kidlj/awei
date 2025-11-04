@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.11.04
 
+Do homework.
+
+### 2025.11.04
+
 Always offer kindness.
 
 ### 2025.11.03
@@ -120,10 +124,6 @@ Own a thing.
 
 Learn to build intuitions,  
 Practice to gain insights.
-
-### 2025.08.21
-
-Do your homework at school.
 
 ### 2025.08.21
 
