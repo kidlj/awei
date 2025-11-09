@@ -4,6 +4,14 @@ title: Wills
 
 ### 2025.11.09
 
+The pain is mine.
+
+### 2025.11.09
+
+最有效的学习是超前。
+
+### 2025.11.09
+
 Build intuition, not build memorization.
 
 ### 2025.11.04
