@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.11.09
+
+Build intuition, not build memorization.
+
 ### 2025.11.04
 
 Do homework.
