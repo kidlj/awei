@@ -46,7 +46,7 @@ Continuous practices.
 
 ### 2025.10.27
 
-Offer mechanics, not offer abilities.
+Offer mechanisms, not offer abilities.
 
 ### 2025.10.27
 
