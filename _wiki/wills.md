@@ -4,7 +4,7 @@ title: Wills
 
 ### 2025.11.11
 
-Touch details.
+Touch the details.
 
 ### 2025.11.11
 
