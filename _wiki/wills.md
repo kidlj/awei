@@ -4,6 +4,10 @@ title: Wills
 
 ### 2025.11.11
 
+Touch details.
+
+### 2025.11.11
+
 You are safe.
 
 ### 2025.11.10
