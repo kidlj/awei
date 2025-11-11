@@ -2,7 +2,11 @@
 title: Wills
 ---
 
-### 2025.10.10
+### 2025.11.11
+
+You are safe.
+
+### 2025.11.10
 
 Make solitude.
 
