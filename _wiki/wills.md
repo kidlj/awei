@@ -6,10 +6,6 @@ title: Wills
 
 Make solitude.
 
-### 2025.11.10
-
-做功。
-
 ### 2025.11.09
 
 Build intuition, not build memorization.
