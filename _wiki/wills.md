@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.11.14
+
+Let it be.
+
 ### 2025.11.11
 
 Touch the details.
