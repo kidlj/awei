@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+### 2025.11.15
+
+I am good.
+
 ### 2025.11.14
 
 Let it be.
