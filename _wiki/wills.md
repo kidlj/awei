@@ -29,7 +29,7 @@ Make solitude.
 
 ### 2025.11.09
 
-Build intuition, not build memorization.
+Build intuitions, not build memorizations.
 
 ### 2025.11.04
 
