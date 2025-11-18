@@ -29,7 +29,8 @@ Make solitude.
 
 ### 2025.11.09
 
-Build intuitions, not build memorizations.
+Build intuitions,  
+Don't build memorizations.
 
 ### 2025.11.04
 
@@ -99,7 +100,7 @@ I woke up at 11 AM.
 
 ### 2025.10.19
 
-Practice many, not practice big.
+Practicing many, not practicing big.
 
 ### 2025.10.19
 
