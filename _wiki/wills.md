@@ -2,203 +2,203 @@
 title: Wills
 ---
 
-### 2025.11.18
+2025.11.18
 
-From insights we gain intuitions,  
-From practices we gain insights.
+> From insights we gain intuitions,  
+> From practices we gain insights.
 
-### 2025.11.15
+2025.11.15
 
-I am good.
+> I am good.
 
-### 2025.11.14
+2025.11.14
 
-Let it be.
+> Let it be.
 
-### 2025.11.11
+2025.11.11
 
-Touch the details.
+> Touch the details.
 
-### 2025.11.11
+2025.11.11
 
-You are safe.
+> You are safe.
 
-### 2025.11.10
+2025.11.10
 
-Make solitude.
+> Make solitude.
 
-### 2025.11.09
+2025.11.09
 
-Build intuitions,  
-Don't build memorizations.
+> Build intuitions,  
+> Don't build memorizations.
 
-### 2025.11.04
+2025.11.04
 
-Do homework.
+> Do homework.
 
-### 2025.11.04
+2025.11.04
 
-Always offer kindness.
+> Always offer kindness.
 
-### 2025.11.03
+2025.11.03
 
-Be positive.
+> Be positive.
 
-### 2025.11.03
+2025.11.03
 
-Duties first.
+> Duties first.
 
-### 2025.11.03
+2025.11.03
 
-Continuous thinking,  
-Continuous learning,  
-Continuous practices.
+> Continuous thinking,  
+> Continuous learning,  
+> Continuous practices.
 
-### 2025.11.03
+2025.11.03
 
-涣散的一个周末，以至于需要工作日一天的时间把自己捏起来。
+> 涣散的一个周末，以至于需要工作日一天的时间把自己捏起来。
 
-### 2025.11.03
+2025.11.03
 
-一个周末胖五斤。
+> 一个周末胖五斤。
 
-### 2025.11.01
+2025.11.01
 
-沉浸其中，就是自由。
+> 沉浸其中，就是自由。
 
-### 2025.10.27
+2025.10.27
 
-Offer mechanisms, not offer abilities.
+> Offer mechanisms, not offer abilities.
 
-### 2025.10.27
+2025.10.27
 
-学习是一个人穿过一片森林。
+> 学习是一个人穿过一片森林。
 
-### 2025.10.27
+2025.10.27
 
-No practice, no gain.
+> No practice, no gain.
 
-### 2025.10.26
+2025.10.26
 
-反复琢磨。
+> 反复琢磨。
 
-### 2025.10.25
+2025.10.25
 
-Place anchors.
+> Place anchors.
 
-### 2025.10.23
+2025.10.23
 
-Feel safe at work.
+> Feel safe at work.
 
-### 2025.10.23
+2025.10.23
 
-I woke up at 11 AM.
+> I woke up at 11 AM.
 
-### 2025.10.20
+2025.10.20
 
-焦虑不作为第一内驱力。
+> 焦虑不作为第一内驱力。
 
-### 2025.10.19
+2025.10.19
 
-Practicing many, not practicing big.
+> Practicing many, not practicing big.
 
-### 2025.10.19
+2025.10.19
 
-I was full, but I felt hungry.
+> I was full, but I felt hungry.
 
-### 2025.10.16
+2025.10.16
 
-You don't need that many features of yourself.
+> You don't need that many features of yourself.
 
-### 2025.10.13
+2025.10.13
 
-Starving as practices.
+> Starving as practices.
 
-### 2025.10.11
+2025.10.11
 
-静者思明，动者思勤。
+> 静者思明，动者思勤。
 
-### 2025.10.11
+2025.10.11
 
-Continuous learning.
+> Continuous learning.
 
-### 2025.10.09
+2025.10.09
 
-See and take care of the anxiety.
+> See and take care of the anxiety.
 
-### 2025.10.06
+2025.10.06
 
-Effortless experiences are worthless.
+> Effortless experiences are worthless.
 
-### 2025.09.11
+2025.09.11
 
-Vacation at work, not work at vacation.
+> Vacation at work, not work at vacation.
 
-### 2025.09.07
+2025.09.07
 
-I will be me.
+> I will be me.
 
-### 2025.09.01
+2025.09.01
 
-You have learned a lot.
+> You have learned a lot.
 
-### 2025.08.29
+2025.08.29
 
-Own a thing.
+> Own a thing.
 
-### 2025.08.25
+2025.08.25
 
-不希冀快乐，只耽于平静。
+> 不希冀快乐，只耽于平静。
 
-### 2025.08.23
+2025.08.23
 
-Learn to build intuitions,  
-Practice to gain insights.
+> Learn to build intuitions,  
+> Practice to gain insights.
 
-### 2025.08.21
+2025.08.21
 
-Start by little.
+> Start by little.
 
-### 2025.08.13
+2025.08.13
 
-思考意义，不要思考形式。
+> 思考意义，不要思考形式。
 
-### 2025.07.29
+2025.07.29
 
-Knowledges that don't contribute to intuitions are useless,  
-Practices that don't contribute to insights are ineffective.
+> Knowledges that don't contribute to intuitions are useless,  
+> Practices that don't contribute to insights are ineffective.
 
-### 2025.07.15
+2025.07.15
 
-If you're so smart why are you still so afraid?
+> If you're so smart why are you still so afraid?
 
-### 2025.07.06
+2025.07.06
 
-I don't experience, I make.  
-I don't fulfill, I build.
+> I don't experience, I make.  
+> I don't fulfill, I build.
 
-### 2025.06.28
+2025.06.28
 
-Think intensively,  
-Act wildly.
+> Think intensively,  
+> Act wildly.
 
-### 2025.06.16
+2025.06.16
 
-Communications first.
+> Communications first.
 
-### 2025.06.01
+2025.06.01
 
-实践是无差别的平静度过时间。  
+> 实践是无差别的平静度过时间。  
 
-### 2025.06.01
+2025.06.01
 
-意志力是意志模糊不清时的挣扎。
+> 意志力是意志模糊不清时的挣扎。
 
-### 2025.05.06
+2025.05.06
 
-每一次走神，都是一次内心冲突的显化。
+> 每一次走神，都是一次内心冲突的显化。
 
-### 2025.05.04
+2025.05.04
 
-和别人相处时的主体性是看见自己的存在，  
-和自己相处时的主体性是看见自己的意志。
+> 和别人相处时的主体性是看见自己的存在，  
+> 和自己相处时的主体性是看见自己的意志。
