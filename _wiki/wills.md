@@ -2,11 +2,6 @@
 title: Wills
 ---
 
-2025.11.18
-
-> From insights we gain intuitions,  
-> From practices we gain insights.
-
 2025.11.15
 
 > I am good.
