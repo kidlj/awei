@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.11.21
+
+Plan, don't just delay.
+
 2025.11.20
 
 > 上班的核心逻辑是服从。
