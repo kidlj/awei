@@ -4,7 +4,7 @@ title: Wills
 
 2025.11.21
 
-> Plan, not defer.
+> Plan, not just defer.
 
 2025.11.15
 
