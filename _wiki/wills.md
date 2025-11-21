@@ -4,7 +4,7 @@ title: Wills
 
 2025.11.21
 
-Plan, don't just delay.
+Plan, don't just defer.
 
 2025.11.20
 
