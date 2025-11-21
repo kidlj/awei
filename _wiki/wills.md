@@ -4,11 +4,7 @@ title: Wills
 
 2025.11.21
 
-> Plan, don't just defer.
-
-2025.11.20
-
-> 上班的核心逻辑是服从。
+> Plan, not defer.
 
 2025.11.15
 
@@ -33,7 +29,7 @@ title: Wills
 2025.11.09
 
 > Build intuitions,  
-> Don't build memorizations.
+> Not build memorizations.
 
 2025.11.04
 
@@ -103,7 +99,7 @@ title: Wills
 
 2025.10.19
 
-> Practicing many, not practicing big.
+> Practice many, not practice big.
 
 2025.10.19
 
