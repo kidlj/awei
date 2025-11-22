@@ -28,8 +28,7 @@ title: Wills
 
 2025.11.09
 
-> Build intuitions,  
-> Not build memorizations.
+> Build intuition,  not build memorization.
 
 2025.11.04
 
@@ -67,7 +66,7 @@ title: Wills
 
 2025.10.27
 
-> Offer mechanisms, not offer abilities.
+> Offer abilities, not offer functionalities.
 
 2025.10.27
 
