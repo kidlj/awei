@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.11.22
+
+> Enjoy starving.
+
 2025.11.21
 
 > Plan, not just defer.
