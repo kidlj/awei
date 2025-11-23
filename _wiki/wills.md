@@ -2,6 +2,11 @@
 title: Wills
 ---
 
+2025.11.23
+
+> Principle of inertia:  
+> The natural behavior of a body is to move in a straight line at constant speed.
+
 2025.11.22
 
 > Enjoy starving.
