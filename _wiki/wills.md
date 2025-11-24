@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.11.24
+
+Prediction before decision.
+
 2025.11.22
 
 > Enjoy starving.
