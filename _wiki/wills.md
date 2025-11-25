@@ -4,7 +4,11 @@ title: Wills
 
 2025.11.25
 
-Predict to face unknown.
+> 学得扎实，走得踏实。
+
+2025.11.25
+
+> Predict to face unknown.
 
 2025.11.25
 
