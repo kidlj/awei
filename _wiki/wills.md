@@ -4,6 +4,10 @@ title: Wills
 
 2025.11.25
 
+Predict to face unknown.
+
+2025.11.25
+
 > 没有焦虑我会更好。
 
 2025.11.24
