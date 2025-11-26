@@ -4,6 +4,10 @@ title: Wills
 
 2025.11.26
 
+Any talk counts.
+
+2025.11.26
+
 > Generalize.
 
 2025.11.26
