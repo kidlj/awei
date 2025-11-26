@@ -4,7 +4,7 @@ title: Wills
 
 2025.11.26
 
-Generalize.
+> Generalize.
 
 2025.11.26
 
