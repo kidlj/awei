@@ -4,7 +4,7 @@ title: Wills
 
 2025.11.26
 
-Any talk counts.
+> Any talk counts.
 
 2025.11.26
 
