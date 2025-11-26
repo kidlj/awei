@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.11.26
+
+Predict & Plan.
+
 2025.11.25
 
 > Predict to face unknown.
