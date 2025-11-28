@@ -12,7 +12,7 @@ title: Wills
 
 2025.11.26
 
-> Generalize.
+> Abstraction is generalization.
 
 2025.11.26
 
