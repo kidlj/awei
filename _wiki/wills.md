@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.11.29
+
+> 调动情绪。
+
 2025.11.28
 
 > Melancholy is an escape.
