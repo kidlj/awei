@@ -4,7 +4,7 @@ title: Wills
 
 2025.11.28
 
-> 难过是一种很安全的状态，可以逃避要做的事情。
+> Melancholy is an escape.
 
 2025.11.28
 
