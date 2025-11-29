@@ -4,7 +4,7 @@ title: Wills
 
 2025.11.29
 
-> 调动情绪。
+> Get excited.
 
 2025.11.28
 
