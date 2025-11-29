@@ -4,6 +4,10 @@ title: Wills
 
 2025.11.29
 
+> You won't enjoy until you get rewards.
+
+2025.11.29
+
 > Get excited.
 
 2025.11.28
