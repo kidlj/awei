@@ -4,6 +4,10 @@ title: Wills
 
 2025.11.30
 
+> Dedicate.
+
+2025.11.30
+
 > Pain driven to reward driven.
 
 2025.11.29
