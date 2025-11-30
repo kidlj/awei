@@ -136,10 +136,6 @@ title: Wills
 
 > Feel safe at work.
 
-2025.10.23
-
-> I woke up at 11 AM.
-
 2025.10.20
 
 > 焦虑不作为第一内驱力。
@@ -158,15 +154,11 @@ title: Wills
 
 2025.10.13
 
-> Starving as practices.
+> Starving as a practice.
 
 2025.10.11
 
 > 静者思明，动者思勤。
-
-2025.10.11
-
-> Continuous learning.
 
 2025.10.09
 
