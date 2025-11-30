@@ -98,7 +98,7 @@ title: Wills
 
 > Continuous thinking,  
 > Continuous learning,  
-> Continuous practices.
+> Continuous practing.
 
 2025.11.03
 
