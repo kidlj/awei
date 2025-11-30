@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.11.30
+
+> Reward driven.
+
 2025.11.29
 
 > See rewards.
@@ -40,7 +44,7 @@ title: Wills
 
 2025.11.24
 
-> Prediction before decision.
+> Predict while making decision.
 
 2025.11.22
 
