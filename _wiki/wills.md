@@ -190,7 +190,7 @@ title: Wills
 
 2025.08.23
 
-> Learn to build intuitions,  
+> Read to build intuitions,  
 > Practice to gain insights.
 
 2025.08.21
