@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.12.01
+
+> I don't have to be happy, but I must have my rewards.
+
 2025.11.30
 
 > Dedicate.
