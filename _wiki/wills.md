@@ -2,6 +2,26 @@
 title: Wills
 ---
 
+2025.12.08
+
+> Great body benefits one, great mind benefits many.
+
+2025.12.08
+
+> No error, no gain.
+
+2025.12.08
+
+> Continuous training.
+
+2025.12.08
+
+> There is an escape, there is a fear.
+
+2025.12.08
+
+> Deep fear.
+
 2025.12.01
 
 > I don't have to be happy, but I must have my rewards.
