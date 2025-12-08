@@ -16,7 +16,7 @@ title: Wills
 
 2025.12.08
 
-> There is an escape, there is a fear.
+> Where there is an escape, there is a fear.
 
 2025.12.08
 
