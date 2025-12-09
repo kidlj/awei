@@ -4,7 +4,7 @@ title: Wills
 
 2025.12.10
 
-> Unfold in your mind.
+> Unfold in mind.
 
 2025.12.10
 
