@@ -8,7 +8,7 @@ title: Wills
 
 2025.12.08
 
-> No mistake, no gain.
+> No error, no gain.
 
 2025.12.08
 
