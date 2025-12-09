@@ -2,6 +2,14 @@
 title: Wills
 ---
 
+2025.12.10
+
+> Unfold in your mind.
+
+2025.12.10
+
+> 形式之下，必有意义。
+
 2025.12.08
 
 > Great body benefits one, great mind benefits many.
@@ -20,7 +28,7 @@ title: Wills
 
 2025.12.08
 
-> Deep fears.
+> Deep fear.
 
 2025.12.01
 
@@ -154,7 +162,7 @@ title: Wills
 
 2025.10.26
 
-> 反复琢磨。
+> 琢磨。
 
 2025.10.25
 
@@ -186,7 +194,7 @@ title: Wills
 
 2025.10.11
 
-> 静者思明，动者思勤。
+> 静者思名，动者思勤。
 
 2025.10.09
 
