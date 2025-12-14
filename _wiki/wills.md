@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.12.14
+
+> Recap.
+
 2025.12.10
 
 > Unfold in mind.
