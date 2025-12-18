@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.12.18
+
+> Take it easy.
+
 2025.12.14
 
 > Recap.
