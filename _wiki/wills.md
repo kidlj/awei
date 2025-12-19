@@ -120,7 +120,7 @@ title: Wills
 
 2025.11.09
 
-> Build intuition,  not build memorization.
+> Build intuition, not build memorization.
 
 2025.11.04
 
@@ -142,7 +142,7 @@ title: Wills
 
 > Continuous thinking,  
 > Continuous learning,  
-> Continuous practing.
+> Continuous practicing.
 
 2025.11.03
 
