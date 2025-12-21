@@ -4,6 +4,10 @@ title: Wills
 
 2025.12.21
 
+> I smiled at that moment.
+
+2025.12.21
+
 > Anticipate the context.
 
 2025.12.21
