@@ -2,6 +2,14 @@
 title: Wills
 ---
 
+2025.12.21
+
+> Anticipate the context.
+
+2025.12.21
+
+> Perceive the present, forsee the future.
+
 2025.12.18
 
 > Take it easy.
