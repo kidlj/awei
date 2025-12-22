@@ -32,10 +32,6 @@ article h2 {
 	font-weight: 400;
 }
 
-article h3::before {
-	content: "# ";
-}
-
 nav ul,
 article ul.blog-list {
 	list-style: none;
