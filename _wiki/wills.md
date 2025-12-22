@@ -8,7 +8,7 @@ title: Wills
 
 2025.12.21
 
-> Perceive the present, Anticipate the upcoming.
+> Perceive the present, anticipate the upcoming.
 
 2025.12.18
 
