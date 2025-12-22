@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.11.23
+
+> Protect yourself.
+
 2025.12.21
 
 > I smiled at that moment.
