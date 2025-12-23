@@ -4,7 +4,7 @@ title: Wills
 
 2025.12.23
 
-> Protect yourself from hurting.
+> Protect yourself from hurts.
 
 2025.12.21
 
