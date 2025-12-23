@@ -2,7 +2,7 @@
 title: Wills
 ---
 
-2025.11.23
+2025.12.23
 
 > Protect yourself from hurting.
 
