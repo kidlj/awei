@@ -4,11 +4,7 @@ title: Wills
 
 2025.12.23
 
-> They shall choose.
-
-2025.12.23
-
-> Protect yourself from hurts.
+> Today I learned.
 
 2025.12.21
 
