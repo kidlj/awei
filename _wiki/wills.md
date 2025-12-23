@@ -4,6 +4,10 @@ title: Wills
 
 2025.12.23
 
+> They would choose.
+
+2025.12.23
+
 > Protect yourself from hurts.
 
 2025.12.21
