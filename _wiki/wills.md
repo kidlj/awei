@@ -4,7 +4,7 @@ title: Wills
 
 2025.12.23
 
-> They would choose.
+> They shall choose.
 
 2025.12.23
 
