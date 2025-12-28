@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.12.28
+
+> 缺乏胜于饱足。
+
 2025.12.23
 
 > Today I learned.
