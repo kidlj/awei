@@ -2,13 +2,13 @@
 title: Wills
 ---
 
+2026.01.05
+
+> 戒满。
+
 2026.01.01
 
 > No introspection on the date: just enjoy the moment.
-
-2025.12.30
-
-> 课题分离。
 
 2025.12.29
 
