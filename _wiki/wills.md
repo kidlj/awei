@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2026.01.08
+
+> Collaboration.
+
 2026.01.05
 
 > 戒满。
