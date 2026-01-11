@@ -4,6 +4,10 @@ title: Wills
 
 2026.01.11
 
+> Move forward.
+
+2026.01.11
+
 > Cheer up.
 
 2026.01.08
