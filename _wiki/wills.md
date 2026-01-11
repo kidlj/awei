@@ -48,7 +48,7 @@ title: Wills
 
 2025.12.14
 
-> Recap.
+> Recap immediately..
 
 2025.12.10
 
