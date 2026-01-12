@@ -4,7 +4,7 @@ title: Wills
 
 2026.01.12
 
-> Identify the escape.
+> Identify escapes.
 
 2026.01.11
 
