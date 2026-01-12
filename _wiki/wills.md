@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2026.01.12
+
+> Identify the escape.
+
 2026.01.11
 
 > Move forward.
