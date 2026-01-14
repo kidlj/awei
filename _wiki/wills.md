@@ -2,9 +2,9 @@
 title: Wills
 ---
 
-2025.01.12
+2025.01.14
 
-> 不逃避了，也就不再攻击自己了。
+> Be firm while doing the right thing.
 
 2026.01.12
 
