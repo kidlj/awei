@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2025.01.19
+
+> Be a winner.
+
 2025.01.14
 
 > Be firm while doing the right thing.
