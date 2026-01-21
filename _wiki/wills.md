@@ -2,11 +2,15 @@
 title: Wills
 ---
 
-2025.01.19
+2026.01.21
+
+> 拥抱痛苦。
+
+2026.01.19
 
 > Be a winner.
 
-2025.01.14
+2026.01.14
 
 > Be firm while doing the right thing.
 
