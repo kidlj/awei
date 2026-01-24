@@ -2,6 +2,10 @@
 title: Wills
 ---
 
+2026.01.24
+
+> That's what people should stand.
+
 2026.01.21
 
 > Be yourself.
