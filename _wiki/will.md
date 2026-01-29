@@ -2,6 +2,14 @@
 title: Will
 ---
 
+2026.01.29
+
+> It's too exhausted to become outstanding.
+
+2026.01.29
+
+> I am unique.
+
 2026.01.26
 
 > 不立不器。
