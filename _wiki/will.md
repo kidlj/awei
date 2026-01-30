@@ -16,7 +16,7 @@ title: Will
 
 2026.01.24
 
-> That's what people should stand.
+> Some pains, are what people ought to stand.
 
 2026.01.21
 
