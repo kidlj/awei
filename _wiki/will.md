@@ -4,7 +4,7 @@ title: Will
 
 2026.01.29
 
-> It's too exhausted to become outstanding.
+> It's too exhausted to become extraordinary.
 
 2026.01.29
 
