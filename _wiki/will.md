@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.01.31
+
+> 撑起时间。
+
 2026.01.29
 
 > It's too exhausted to become extraordinary.
