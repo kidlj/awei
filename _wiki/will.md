@@ -12,7 +12,7 @@ title: Will
 
 2026.01.29
 
-> I am unique.
+> I am different.
 
 2026.01.26
 
