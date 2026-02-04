@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.02.04
+
+> Engineering is too concret.
+
 2026.01.31
 
 > 撑起时间。
