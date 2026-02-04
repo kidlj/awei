@@ -4,7 +4,7 @@ title: Will
 
 2026.02.04
 
-> Engineering is too concret.
+> Coding is concret.
 
 2026.01.31
 
