@@ -4,7 +4,7 @@ title: Will
 
 2026.02.04
 
-> Coding is concret.
+> Coding is concrete.
 
 2026.01.31
 
