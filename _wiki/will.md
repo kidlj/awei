@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.02.07
+
+> 自我认同。
+
 2026.02.04
 
 > Coding is concrete.
