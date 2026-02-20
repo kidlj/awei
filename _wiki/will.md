@@ -4,6 +4,10 @@ title: Will
 
 2026.02.20
 
+> Practice to meet broadness.
+
+2026.02.20
+
 > Practice early.
 
 2026.02.11
