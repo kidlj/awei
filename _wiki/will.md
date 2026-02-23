@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.02.23
+
+> See pressure.
+
 2026.02.20
 
 > Practice to meet broadness.
