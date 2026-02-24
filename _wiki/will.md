@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.02.24
+
+> Always prepare.
+
 2026.02.23
 
 > See pressure.
