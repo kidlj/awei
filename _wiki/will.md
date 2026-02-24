@@ -4,6 +4,10 @@ title: Will
 
 2026.02.24
 
+> Predict and settle.
+
+2026.02.24
+
 > Always prepare.
 
 2026.02.23
