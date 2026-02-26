@@ -4,6 +4,10 @@ title: Will
 
 2026.02.26
 
+> Seek for collides.
+
+2026.02.26
+
 > 向外。
 
 2026.02.24
