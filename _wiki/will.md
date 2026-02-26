@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.02.26
+
+> 向外。
+
 2026.02.24
 
 > Predict and settle.
