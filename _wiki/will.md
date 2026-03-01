@@ -4,7 +4,11 @@ title: Will
 
 2026.03.01
 
-> It's about two.
+> It takes time.
+
+2026.03.01
+
+> Relationship takes two.
 
 2026.02.27
 
