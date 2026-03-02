@@ -4,7 +4,7 @@ title: Will
 
 2026.03.01
 
-> It only takes time.
+> The only thing it takes is time.
 
 2026.03.01
 
