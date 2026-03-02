@@ -4,7 +4,7 @@ title: Will
 
 2026.03.01
 
-> It takes time.
+> It only takes time.
 
 2026.03.01
 
@@ -20,7 +20,7 @@ title: Will
 
 2026.02.26
 
-> Seek for collides.
+> Seek for collision.
 
 2026.02.26
 
