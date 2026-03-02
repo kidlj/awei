@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.03.02
+
+> Attention is all you need.
+
 2026.03.01
 
 > The only thing it takes is time.
@@ -17,10 +21,6 @@ title: Will
 2026.02.26
 
 > 外部碰撞，内部重构。
-
-2026.02.26
-
-> Seek for collision.
 
 2026.02.26
 
