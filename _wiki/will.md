@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.03.03
+
+> 保守是一种保守。
+
 2026.03.02
 
 > Attention is all you need.
