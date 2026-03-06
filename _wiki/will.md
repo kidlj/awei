@@ -2,9 +2,13 @@
 title: Will
 ---
 
+2026.03.06
+
+> Ask.
+
 2026.03.05
 
-> Offer insights.
+> Offer insights only.
 
 2026.03.03
 
