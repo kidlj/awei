@@ -4,7 +4,7 @@ title: Will
 
 2026.03.11
 
-> Dedicated rest.
+> Dedicated wandering.
 
 2026.03.06
 
