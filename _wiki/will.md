@@ -4,6 +4,10 @@ title: Will
 
 2026.03.11
 
+> Work on things where intuition amplifies.
+
+2026.03.11
+
 > Stand firm.
 
 2026.03.11
