@@ -4,7 +4,7 @@ title: Will
 
 2026.03.11
 
-> Work on things that intuition amplifies.
+> Work on things that intuition magnifies.
 
 2026.03.11
 
