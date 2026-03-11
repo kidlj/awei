@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.03.11
+
+> Dedicated rest.
+
 2026.03.06
 
 > Ask.
