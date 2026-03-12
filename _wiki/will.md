@@ -2,6 +2,14 @@
 title: Will
 ---
 
+2026.03.12
+
+> Memory is attention through time.
+
+2026.03.12
+
+> Learn how to work.
+
 2026.03.11
 
 > Work on things that intuition magnifies.
