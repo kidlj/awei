@@ -72,7 +72,7 @@ title: Will
 
 2026.02.20
 
-> Practice to meet broadness.
+> Practice to meet the wild.
 
 2026.02.20
 
