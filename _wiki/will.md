@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.03.15
+
+> 睡眠是极致的独处。
+
 2026.03.12
 
 > Memory is attention through time.
