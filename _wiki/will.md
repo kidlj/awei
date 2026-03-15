@@ -16,7 +16,7 @@ title: Will
 
 2026.03.11
 
-> Work on things that intuition magnifies.
+> Work on things where intuition has leverage.
 
 2026.03.11
 
