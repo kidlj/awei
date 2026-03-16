@@ -320,18 +320,6 @@ title: Will
 > Continuous learning,  
 > Continuous practicing.
 
-2025.11.03
-
-> 涣散的一个周末，以至于需要工作日一天的时间把自己捏起来。
-
-2025.11.03
-
-> 一个周末胖五斤。
-
-2025.11.01
-
-> 沉浸其中，就是自由。
-
 2025.10.27
 
 > Offer abilities, not offer functionalities.
@@ -363,10 +351,6 @@ title: Will
 2025.10.19
 
 > Practice many, not practice big.
-
-2025.10.19
-
-> I was full, but I felt hungry.
 
 2025.10.16
 
