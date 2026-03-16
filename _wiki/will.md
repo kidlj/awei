@@ -408,7 +408,6 @@ title: Will
 2025.07.29
 
 > Knowledges that don't contribute to intuitions are useless,  
-> Practices that don't contribute to insights are ineffective.
 
 2025.07.15
 
