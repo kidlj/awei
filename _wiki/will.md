@@ -12,7 +12,7 @@ title: Will
 
 2026.03.12
 
-> Learn how to work.
+> Know how to work.
 
 2026.03.11
 
