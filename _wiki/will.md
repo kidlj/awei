@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.03.23
+
+> Emotional intimacy.
+
 2026.03.22
 
 > Love.
