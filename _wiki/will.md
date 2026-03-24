@@ -64,7 +64,7 @@ title: Will
 
 2026.03.01
 
-> The only thing it takes is time.
+> The only thing effort takes is time.
 
 2026.03.01
 
