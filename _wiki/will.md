@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.03.25
+
+> I shall be released.
+
 2026.03.24
 
 > 敏锐来自于自我攻击。
