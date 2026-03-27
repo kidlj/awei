@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.03.28
+
+> 表达胜于故事。
+
 2026.03.25
 
 > I shall be released.
