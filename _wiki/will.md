@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.04.23
+
+> I output insights.
+
 2026.04.09
 
 > 存在焦虑。
