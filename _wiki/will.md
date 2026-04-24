@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.04.24
+
+> Find your vibes.
+
 2026.04.23
 
 > I output insights.
