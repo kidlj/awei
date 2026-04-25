@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.04.26
+
+> Momenta & MacBook Ultra.
+
 2026.04.24
 
 > Find your vibes.
