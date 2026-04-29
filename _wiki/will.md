@@ -256,7 +256,7 @@ title: Will
 
 2025.11.30
 
-> Dedicate.
+> Dedication.
 
 2025.11.30
 
