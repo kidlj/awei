@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.05.02
+
+> Build.
+
 2026.04.26
 
 > Momenta & MacBook Ultra.
