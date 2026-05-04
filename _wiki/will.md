@@ -34,10 +34,6 @@ title: Will
 
 > Find your vibes.
 
-2026.04.23
-
-> I output insights.
-
 2026.04.09
 
 > 存在焦虑。
@@ -90,25 +86,13 @@ title: Will
 
 > Ask.
 
-2026.03.05
-
-> Offer insights only.
-
 2026.03.03
 
 > 保守是一种保守。
 
-2026.03.02
-
-> Attention is all you need.
-
 2026.03.01
 
-> The only thing effort takes is time.
-
-2026.03.01
-
-> Relationship takes two.
+> It takes two.
 
 2026.02.27
 
