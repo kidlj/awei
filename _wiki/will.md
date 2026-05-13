@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.05.13
+
+> Hired to solve problems.
+
 2026.05.07
 
 > 品格。
