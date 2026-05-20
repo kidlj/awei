@@ -2,9 +2,10 @@
 title: Will
 ---
 
-2026.05.13
+2026.05.20
 
-> Hired to solve problems.
+> Preparation is legal,
+> And making mistake is acceptable.
 
 2026.05.07
 
