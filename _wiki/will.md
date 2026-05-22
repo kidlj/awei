@@ -2,9 +2,13 @@
 title: Will
 ---
 
+2026.05.22
+
+> Work for off work.
+
 2026.05.20
 
-> Preparation is legal,
+> Preparation is legal,  
 > And making mistake is acceptable.
 
 2026.05.07
