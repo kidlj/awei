@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.05.26
+
+> The burden is yours.
+
 2026.05.22
 
 > Work for off work.
