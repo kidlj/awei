@@ -2,6 +2,14 @@
 title: Will
 ---
 
+2026.05.27
+
+> 拿住。
+
+2026.05.27
+
+> Survival mode.
+
 2026.05.26
 
 > The burden is yours.
