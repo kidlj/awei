@@ -4,7 +4,7 @@ title: Will
 
 2026.06.01
 
-> Talk.
+> Talk equally.
 
 2026.05.27
 
