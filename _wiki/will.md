@@ -2,6 +2,14 @@
 title: Will
 ---
 
+2026.06.16
+
+> Choose the hard way.
+
+2026.06.16
+
+> Departure rehearsal.
+
 2026.06.14
 
 > Fit.
