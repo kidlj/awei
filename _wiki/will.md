@@ -4,6 +4,10 @@ title: Will
 
 2026.06.16
 
+> 余力。
+
+2026.06.16
+
 > Choose the hard way.
 
 2026.06.16
