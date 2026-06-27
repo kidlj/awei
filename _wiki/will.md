@@ -9,7 +9,8 @@ title: Will
 
 2026.06.27
 
-> Don't defer.
+> Defer known,  
+> Don't defer unknown.
 
 2026.06.27
 
