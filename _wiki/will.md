@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.06.28
+
+> Two kinds of suffering.
+
 2026.06.27
 
 > Practice early.
