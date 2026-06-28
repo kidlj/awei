@@ -4,6 +4,10 @@ title: Will
 
 2026.06.28
 
+> It takes time.
+
+2026.06.28
+
 > Two kinds of suffering.
 
 2026.06.27
