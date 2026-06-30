@@ -4,10 +4,6 @@ title: Will
 
 2026.06.29
 
-> People learn patterns.
-
-2026.06.29
-
 > No suffering, no escape.
 
 2026.06.28
