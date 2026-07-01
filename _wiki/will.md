@@ -4,6 +4,10 @@ title: Will
 
 2026.07.01
 
+> There must be some way out of here.
+
+2026.07.01
+
 > 防御。
 
 2026.06.29
