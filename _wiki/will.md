@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.07.01
+
+> 防御。
+
 2026.06.29
 
 > No suffering, no escape.
