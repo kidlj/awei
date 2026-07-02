@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.07.02
+
+> I am well prepared.
+
 2026.07.01
 
 > There must be some way out of here.
