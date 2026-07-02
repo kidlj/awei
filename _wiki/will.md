@@ -4,6 +4,10 @@ title: Will
 
 2026.07.02
 
+> I have had the big picture.
+
+2026.07.02
+
 > A long long term suffering.
 
 2026.07.02
