@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.07.06
+
+> Context.
+
 2026.07.02
 
 > I have had the big picture.
@@ -26,7 +30,7 @@ title: Will
 
 > No suffering, no escape.
 
-2026.06.28
+2026.06.2k k
 
 > It takes time.
 
