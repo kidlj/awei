@@ -4,6 +4,10 @@ title: Will
 
 2026.07.07
 
+> Stay close to focus.
+
+2026.07.07
+
 > 科学地生活。
 
 2026.07.06
