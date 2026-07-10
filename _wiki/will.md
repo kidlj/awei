@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.07.10
+
+> Stay hungry.
+
 2026.07.07
 
 > Stay close to focus.
