@@ -14,10 +14,6 @@ title: Will
 
 > Patterns.
 
-2026.07.13
-
-> 理性。
-
 2026.07.10
 
 > Stay hungry.
@@ -58,7 +54,7 @@ title: Will
 
 > No suffering, no escape.
 
-2026.06.2k k
+2026.06.2
 
 > It takes time.
 
