@@ -4,7 +4,7 @@ title: Will
 
 2026.07.22
 
-> 理解，而不只是解决。
+> Perceive, not just resolve.
 
 2026.07.22
 
