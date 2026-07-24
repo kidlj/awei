@@ -4,7 +4,7 @@ title: Will
 
 2026.07.24
 
-> Work takes efforts.
+> Work takes efforts & collaborations.
 
 2026.07.22
 
