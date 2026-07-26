@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.07.26
+
+> Dive into subconscious.
+
 2026.07.24
 
 > 比起攻击困难，我更下意识地攻击自己。
