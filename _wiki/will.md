@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.07.31
+
+> 不立不器。
+
 2026.07.26
 
 > Dive into subconscious.
@@ -85,10 +89,6 @@ title: Will
 2026.06.29
 
 > No suffering, no escape.
-
-2026.06.2
-
-> It takes time.
 
 2026.06.27
 
