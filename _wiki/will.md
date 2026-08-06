@@ -4,10 +4,6 @@ title: Will
 
 2026.08.06
 
-> 解决冲突就是找到出口。
-
-2026.08.06
-
 > Hired to solve problems.
 
 2026.08.06
