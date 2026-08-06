@@ -4,6 +4,10 @@ title: Will
 
 2026.08.06
 
+> Learn to harness.
+
+2026.08.06
+
 > Hired to solve problems.
 
 2026.08.06
