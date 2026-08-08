@@ -3,7 +3,7 @@ title: ViT Genie Engine
 date: 2026-08-08
 ---
 
-> 如果 vit 使用 genie engine，是否也可以设置权重共享和htp priority？当前的 vit qnn engine 可以使用 htp priority 吗？
+> **如果 vit 使用 genie engine，是否也可以设置权重共享和htp priority？当前的 vit qnn engine 可以使用 htp priority 吗？**
 
 两个问题的答案不一样:**权重共享 = 不行(即使用 Genie);HTP priority = 用 Genie 就行,当前不行。**
 
