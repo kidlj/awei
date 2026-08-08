@@ -4,16 +4,16 @@ title: Wiki
 ---
 
 <nav>
-	<h2>
+	<h1>
 		<a href="/">←</a>
-	</h2>
+	</h1>
 </nav>
 
 <article>
-	<h2>WIKI</h2>
-	<table class="wikis">
+	<h1>Wiki</h1>
+	<table class="wiki-list">
 		{% tablerow wiki in site.wiki cols:2 %}
-		<li class="pagelist">
+		<li>
 			<a href="{{ wiki.url }}">{{ wiki.title }}</a>
 		</li>
 		{% endtablerow %}

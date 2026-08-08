@@ -4,11 +4,14 @@ title: Blog
 ---
 
 <nav>
-  <h2>Awei</h2>
+  <h1>Awei</h1>
 
   <ul>
     <li>
-      <a href="https://last.fm/user/timeflowing">Last.fm</a>
+      <a href="/note/">Notes</a>
+    </li>
+    <li>
+      <a href="/wiki/">Wiki</a>
     </li>
     <li>
       <a href="https://github.com/kidlj">GitHub</a>
@@ -16,14 +19,11 @@ title: Blog
     <li>
       <a href="https://metword.co">遇见单词</a>
     </li>
-    <li>
-      <a href="/wiki">WIKI</a>
-    </li>
   </ul>
 </nav>
 
 <article>
-  <ul class="blog-list">
+  <ul class="article-list">
     {% assign posts = site.blog | sort:"date" | reverse %}
     {% for post in posts %}
     <li>

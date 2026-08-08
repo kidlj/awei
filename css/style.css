@@ -27,32 +27,47 @@ article {
 	max-width: 800px;
 }
 
-nav h2,
-article h2 {
-	font-weight: 400;
+nav h1,
+article h1 {
+	padding-bottom: 1em;
 }
 
 nav ul,
-article ul.blog-list {
+article ul.article-list {
 	list-style: none;
 	padding-inline-start: 0;
 	margin-block-start: 0;
 }
 
-article ul.blog-list li {
+article ul.article-list li {
 	padding-bottom: 20px;
 }
 
-article table td {
-	width: 30em;
+article table {
+	width: 100%;
+	border-collapse: collapse;
 }
 
-article table li {
+article table th,
+article table td {
+	border: 1px solid #ccc;
+	padding: 6px 10px;
+	text-align: left;
+	vertical-align: top;
+}
+
+article table.wiki-list li {
 	list-style: none
 }
 
-article table li:before {
+article table.wiki-list li:before {
 	content: "\0BB \020";
+}
+
+article table.wiki-list td {
+	border: none;
+	width: 30em;
+	padding: 2px 2px;
 }
 
 article pre {

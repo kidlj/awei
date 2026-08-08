@@ -6,6 +6,10 @@ defaults:
   values:
     layout: "blog"
 - scope:
+    type: "note"
+  values:
+    layout: "note"
+- scope:
     type: "wiki"
   values:
     layout: "wiki"
@@ -14,6 +18,9 @@ collections:
   blog:
     output: true
     permalink: /blog/:name
+  note:
+    output: true
+    permalink: /note/:name
   wiki:
     output: true
     permalink: /wiki/:name

@@ -1,0 +1,27 @@
+---
+layout: main
+title: Notes
+---
+
+<nav>
+	<h1>
+		<a href="/">←</a>
+	</h1>
+</nav>
+
+<article>
+	<h1>Notes</h1>
+  <ul class="article-list">
+    {% assign posts = site.note | sort:"date" | reverse %}
+    {% for post in posts %}
+    <li>
+      <h2>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h2>
+      <caption>
+        {{ post.date | date_to_string }}
+      </caption>
+    </li>
+    {% endfor %}
+  </ul>
+</article>
