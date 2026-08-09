@@ -50,7 +50,7 @@ article table {
 
 article table th,
 article table td {
-	border: 1px solid #ccc;
+	border: 1px dashed #ccc;
 	padding: 6px 10px;
 	text-align: left;
 	vertical-align: top;
