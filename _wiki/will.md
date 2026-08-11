@@ -4,7 +4,7 @@ title: Will
 
 2026.08.10
 
-> Stay in context.
+> Stay in the context.
 
 2026.08.06
 
