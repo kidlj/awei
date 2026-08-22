@@ -5,6 +5,8 @@ date: 2026-08-08
 
 > **vit buffer 内存的分配方式，是预先分配一段内存供每个推理请求使用还是随着每次推理请求动态创建和销毁。**
 
+---
+
 | 内存对象 | 分配时机 | 请求间是否复用 | 释放时机 |
 |---|---|---:|---|
 | `embedding_buffer_` 主 embedding buffer | `EmbeddingRunnerManager` 初始化时 | 是，同一个 handle 内复用 | handle / manager 销毁 |

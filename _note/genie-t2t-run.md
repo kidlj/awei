@@ -5,6 +5,8 @@ date: 2026-08-08
 
 > **genie-t2t-run 的基本命令是什么？**
 
+---
+
 ## 基本命令
 
 Dialog 0 用 `-c` / `-e` / `--prompt_file`，后续每个 dialog 各加一组 `--concurrent-config` + 输入：
@@ -74,6 +76,8 @@ echo "llm_2vlm: llm,vlm,vlm --iter 2 --concurrent-stride 4,2,1" > my_cases.txt
 
 > **解释下 `VLM_EMBED_ARG="inputs_embeds.bin,uint16,0.00031563572701998055,-32937"`，inputs_embeds.bin 是什么数据？**
 
+---
+
 `VLM_EMBED_ARG` 是 `-e` / `--concurrent-embed` 的参数，格式为 `PATH,TYPE,SCALE,OFFSET`：
 
 | 字段 | 值 | 含义 |
@@ -128,6 +132,8 @@ g_requantOffset = g_requantScale * g_lutOffset - g_inputOffset;
 
 > **decode 阶段生成的 token 需要经 LUT 查表转成 embedding。解释一下**
 
+---
+
 ## 为什么需要这一步
 
 LLM 的输入层永远是 embedding 向量，不是 token id。prefill 时你直接给了 `inputs_embeds.bin`，所以没问题。但 decode 阶段模型每步输出的是 logits，采样后得到一个整数 token id —— 这个 id 要作为下一步的输入，必须先变回 embedding 向量。
@@ -179,6 +185,8 @@ if ((lutIndex + numElements) * sizeof(F) <= g_embeddingLutSize)
 另外前面提到的全局单例问题在这里具体化了：`calculateRequantEncodings()` 写的是全局 `g_requantScale` / `g_requantOffset`，而多个 dialog 线程共享它们。脚本里所有 VLM 用同一份 `VLM_EMBED_ARG`，算出来的值相同，所以这个竞争是良性的；但如果将来给不同 VLM 配不同编码的 embedding，这里会出现真正的数据竞争。
 
 > **是说vlm decode 过程中，输出第二个 token 的输入也是 embedding 吗？**
+
+---
 
 是的,而且不只第二个——**decode 阶段每一步的输入都是 embedding 向量**。
 
