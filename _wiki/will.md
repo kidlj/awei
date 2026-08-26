@@ -4,11 +4,7 @@ title: Will
 
 2026.08.26
 
-> 过去比未来更有说服力。
-
-2026.08.26
-
-> 确定性。
+> Decide by the past, not by the future.
 
 2026.08.17
 
