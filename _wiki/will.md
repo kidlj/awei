@@ -4,7 +4,7 @@ title: Will
 
 2026.08.26
 
-> Black box without explicit interfaces.
+> A black box without explicit interfaces.
 
 2026.08.26
 
