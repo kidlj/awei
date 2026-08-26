@@ -4,6 +4,10 @@ title: Will
 
 2026.08.26
 
+> I have another plan.
+
+2026.08.26
+
 > Decide by the past, not by the future.
 
 2026.08.17
