@@ -4,6 +4,10 @@ title: Will
 
 2026.08.26
 
+> Black boxes without explicit interfaces.
+
+2026.08.26
+
 > I have another plan.
 
 2026.08.26
