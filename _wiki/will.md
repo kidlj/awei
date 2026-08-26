@@ -4,6 +4,10 @@ title: Will
 
 2026.08.26
 
+> Don't ship artifacts, ship interfaces.
+
+2026.08.26
+
 > A black box without explicit interfaces.
 
 2026.08.26
