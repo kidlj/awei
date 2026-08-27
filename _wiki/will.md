@@ -4,7 +4,7 @@ title: Will
 
 2026.08.27
 
-> Be supportive.
+> 利益最大化。
 
 2026.08.26
 
