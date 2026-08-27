@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.08.27
+
+> Be supportive.
+
 2026.08.26
 
 > Don't ship artifacts, ship interfaces.
