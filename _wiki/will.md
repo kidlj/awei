@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.08.30
+
+> Into the context.
+
 2026.08.28
 
 > 放大冲突。
