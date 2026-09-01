@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.09.01
+
+> The code is yours.
+
 2026.08.30
 
 > Into the context.
