@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.09.02
+
+> AI product manager.
+
 2026.09.01
 
 > The code is yours.
