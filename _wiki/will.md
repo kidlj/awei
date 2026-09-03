@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.09.03
+
+> 自顶向下。
+
 2026.09.02
 
 > AI product manager.
@@ -309,10 +313,6 @@ title: Will
 
 > Build.
 
-2026.04.26
-
-> Momenta & MacBook Ultra.
-
 2026.04.24
 
 > Find your vibes.
@@ -376,10 +376,6 @@ title: Will
 2026.03.01
 
 > It takes two.
-
-2026.02.27
-
-> 自顶向下。
 
 2026.02.26
 
