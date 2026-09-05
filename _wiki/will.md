@@ -4,6 +4,10 @@ title: Will
 
 2026.09.05
 
+> 趁你还能承受饥饿。
+
+2026.09.05
+
 > Dreams: get lost or get caught.
 
 2026.09.03
