@@ -28,31 +28,11 @@ title: Will
 
 2026.08.27
 
-> 我的主体性匹配不上我的潜力。
-
-2026.08.27
-
 > 主体性。
-
-2026.08.27
-
-> 利益最大化。
 
 2026.08.26
 
 > Don't ship artifacts, ship interfaces.
-
-2026.08.26
-
-> A black box without explicit interfaces.
-
-2026.08.26
-
-> I have another plan.
-
-2026.08.26
-
-> Decide by the past, not by the future.
 
 2026.08.17
 
