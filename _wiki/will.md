@@ -6,17 +6,9 @@ title: Will
 
 > 趁你还能承受饥饿。
 
-2026.09.05
-
-> Dreams: get lost or get caught.
-
 2026.09.03
 
 > 自顶向下。
-
-2026.09.02
-
-> AI product manager.
 
 2026.09.01
 
