@@ -4,6 +4,10 @@ title: Will
 
 2026.09.20
 
+> 我有办法。
+
+2026.09.20
+
 > Ask for information.
 
 2026.09.16
