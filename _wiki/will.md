@@ -4,6 +4,10 @@ title: Will
 
 2026.09.21
 
+> Process as the reward.
+
+2026.09.21
+
 > 你只是还不知道答案。
 
 2026.09.20
