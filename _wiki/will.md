@@ -2,6 +2,14 @@
 title: Will
 ---
 
+2026.09.22
+
+> Stay in the loop.
+
+2026.09.22
+
+> Dive into the context.
+
 2026.09.21
 
 > Process as the reward.
