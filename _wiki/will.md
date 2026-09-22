@@ -165,7 +165,7 @@ title: Will
 
 2026.07.07
 
-> Stay close to focus.
+> Stay close to concentrate.
 
 2026.07.07
 
