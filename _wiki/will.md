@@ -4,11 +4,7 @@ title: Will
 
 2026.09.22
 
-> Stay in the loop.
-
-2026.09.22
-
-> Dive into the context.
+> The moment.
 
 2026.09.21
 
