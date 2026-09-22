@@ -4,7 +4,7 @@ title: Will
 
 2026.09.22
 
-> Focus is to shorten the context window.
+> Focus is attention in short context window.
 
 2026.09.22
 
