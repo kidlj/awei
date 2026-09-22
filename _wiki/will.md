@@ -4,6 +4,10 @@ title: Will
 
 2026.09.22
 
+> Focus is to shorten the context window.
+
+2026.09.22
+
 > The moment.
 
 2026.09.21
