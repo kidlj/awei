@@ -4,7 +4,7 @@ title: Will
 
 2026.09.22
 
-> Concentration is attention in short context window.
+> Concentration is attention in small context window.
 
 2026.09.22
 
