@@ -2,6 +2,10 @@
 title: Will
 ---
 
+2026.09.29
+
+> 配得感。
+
 2026.09.22
 
 > Concentration is attention in a small context window.
