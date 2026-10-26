@@ -2,10 +2,6 @@
 title: Will
 ---
 
-2026.10.21
-
-> 自主性。
-
 2026.10.13
 
 > That would be me.
